@@ -30,7 +30,7 @@ const STATIC_ASSETS = [
   './assets/js/extras/seo-plus.js',
   './assets/js/extras/search-console.js',
   './assets/js/extras/pwa-install.js',
-  './assets/images/logo.png',
+  './assets/images/logo.webp',
   './assets/css/phase2.css',
   './assets/css/phase3.css',
   './assets/js/extras/loyalty.js',
