@@ -460,7 +460,7 @@ ion-icon[data-rendered] svg {
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; line-height: 1.2;
 }
-.hero-stat span { font-size: 10.5px; color: var(--light-gray-70); font-weight: 600; }
+.hero-stat span { font-size: 10.5px; color: var(--light-gray-70); font-weight: 500; }
 
 /* ═══════════════════════════════════════════
    6. SECTION HEAD
@@ -674,7 +674,7 @@ ion-icon[data-rendered] svg {
   font-size: 10.5px; font-weight: 800; color: #f59e0b;
 }
 .product-rating ion-icon { font-size: 12px; }
-.product-rating span { color: var(--light-gray-70); font-weight: 600; }
+.product-rating span { color: var(--light-gray-70); font-weight: 500; }
 
 .price-row { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
 .price-now {
@@ -683,7 +683,7 @@ ion-icon[data-rendered] svg {
 }
 .price-now small { font-size: 10.5px; font-weight: 700; opacity: 0.7; margin-right: 2px; }
 .price-old {
-  font-size: 11px; font-weight: 600; color: var(--light-gray-70);
+  font-size: 11px; font-weight: 500; color: var(--light-gray-70);
   text-decoration: line-through; opacity: 0.7;
 }
 
@@ -753,7 +753,7 @@ article[data-page="cart"] > header { display: none; }
   overflow: hidden;
 }
 .cart-info .cart-cat { font-size: 10px; font-weight: 700; color: var(--c-primary); }
-.cart-info .cart-unit { font-size: 11px; color: var(--light-gray-70); font-weight: 600; }
+.cart-info .cart-unit { font-size: 11px; color: var(--light-gray-70); font-weight: 500; }
 
 .cart-remove {
   grid-area: remove; width: 32px; height: 32px; border-radius: 10px;
@@ -822,7 +822,7 @@ article[data-page="cart"] > header { display: none; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; font-size: 13px;
 }
-.summary-row .lbl { color: var(--light-gray-70); font-weight: 600; }
+.summary-row .lbl { color: var(--light-gray-70); font-weight: 500; }
 .summary-row .val { font-weight: 800; color: var(--white-2); }
 .summary-row .val.free { color: #10b981; }
 .summary-divider {
@@ -1260,7 +1260,7 @@ textarea.form-input {
   font-size: 12px; font-weight: 800; color: #f59e0b; margin-bottom: 14px;
 }
 .pm-rating ion-icon { font-size: 15px; }
-.pm-rating span { color: var(--light-gray-70); font-weight: 600; }
+.pm-rating span { color: var(--light-gray-70); font-weight: 500; }
 .pm-desc {
   font-size: 13.5px; line-height: 1.85; color: var(--light-gray);
   margin: 0 0 16px;
@@ -1271,7 +1271,7 @@ textarea.form-input {
 }
 .pm-features li {
   display: flex; align-items: center; gap: 9px;
-  font-size: 12.5px; font-weight: 600; color: var(--light-gray);
+  font-size: 12.5px; font-weight: 500; color: var(--light-gray);
 }
 .pm-features li ion-icon { font-size: 16px; color: var(--c-primary); flex-shrink: 0; }
 .pm-price-box {
@@ -1349,7 +1349,7 @@ textarea.form-input {
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   color: #fff; border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px; font-size: 11px; font-weight: 600;
+  border-radius: 8px; font-size: 11px; font-weight: 500;
 }
 .blog-modal-title {
   font-size: 18px; font-weight: 800; color: var(--white-2);
@@ -1630,7 +1630,7 @@ textarea.form-input {
   main { margin-top: 60px; margin-bottom: 100px; }
   .navbar { border-radius: 20px 20px 0 0; }
   .navbar-list { gap: 20px; }
-  .article-title { font-weight: 600; padding-bottom: 15px; }
+  .article-title { font-weight: 500; padding-bottom: 15px; }
   .article-title::before { width: 40px; height: 5px; }
   .service-item {
     display: flex;
