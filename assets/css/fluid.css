@@ -1,0 +1,478 @@
+/* ═══════════════════════════════════════════════════════════
+   FLUID.CSS — إعادة كتابة كاملة للتخطيط المرن
+   يحل مشاكل: العرض الثابت، المساحات الضايعة، الازدحام
+   يُحمَّل بعد main.css و cinematic.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────── 1. VARIABLES ─────────── */
+:root {
+  --layout-gap: clamp(14px, 1.6vw, 26px);
+  --page-pad: clamp(12px, 2vw, 28px);
+  --card-pad: clamp(14px, 1.4vw, 32px);
+  --content-max: 1440px;
+  --sidebar-w: clamp(240px, 20vw, 300px);
+}
+
+/* ─────────── 2. GLOBAL OVERRIDES ─────────── */
+main {
+  margin: 15px var(--page-pad) 90px;
+  min-width: 0;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+@media (min-width: 1024px) {
+  main {
+    max-width: none;
+    padding-inline: clamp(20px, 3vw, 48px);
+    margin-top: clamp(20px, 3vh, 44px);
+  }
+}
+
+/* ألغِ العرض الثابت القديم — ده مربط الفرس */
+@media (min-width: 580px) {
+  .sidebar, article {
+    width: 100%;               /* ← مهم جداً */
+    max-width: 100%;
+    margin-inline: 0;
+    padding: var(--card-pad);
+  }
+  .sidebar { max-height: 180px; margin-bottom: var(--layout-gap); }
+  .sidebar.active { max-height: 720px; }
+}
+
+@media (min-width: 768px) {
+  .sidebar, article { width: 100%; max-width: 100%; }
+}
+
+@media (min-width: 1024px) {
+  .sidebar, article { width: 100%; max-width: 100%; }
+}
+
+/* ─────────── 3. LAYOUT (GRID FLUID) ─────────── */
+@media (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    gap: clamp(18px, 2vw, 32px);
+    align-items: flex-start;
+  }
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: 0;
+    position: sticky;
+    top: clamp(20px, 3vh, 40px);
+    max-height: max-content;
+    height: auto;
+    margin-bottom: 0;
+    padding-top: clamp(24px, 3vh, 60px);
+  }
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    position: relative;
+  }
+}
+
+/* ─────────── 4. SIDEBAR — أوسع على الشاشات الكبيرة ─────────── */
+@media (min-width: 1440px) {
+  :root { --sidebar-w: 320px; }
+}
+@media (min-width: 1800px) {
+  :root { --sidebar-w: 340px; }
+}
+
+/* ─────────── 5. HERO — إعادة توزيع ─────────── */
+.hero {
+  padding: clamp(28px, 4vw, 70px) clamp(20px, 3.5vw, 60px);
+  border-radius: clamp(20px, 1.6vw, 30px);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    grid-template-areas:
+      "tag      stats"
+      "title    stats"
+      "text     stats"
+      "actions  stats";
+    column-gap: clamp(20px, 3vw, 50px);
+    align-items: start;
+  }
+  .hero-tag    { grid-area: tag;     justify-self: start; }
+  .hero-title  { grid-area: title;   max-width: 22ch; }
+  .hero-text   { grid-area: text;    max-width: 60ch; }
+  .hero-actions{ grid-area: actions; }
+  .hero-stats  {
+    grid-area: stats;
+    margin-top: 0; padding-top: 0;
+    border-top: none;
+    display: flex; flex-direction: column;
+    gap: clamp(16px, 1.5vw, 26px);
+    padding-inline-start: clamp(20px, 2vw, 36px);
+    border-inline-start: 1px dashed var(--c-primary-medium);
+  }
+  .hero-stat {
+    text-align: start;
+    display: flex; align-items: baseline;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .hero-stat strong { font-size: clamp(24px, 2.6vw, 36px); }
+  .hero-stat span   { font-size: clamp(11px, 1vw, 14px); }
+}
+
+@media (min-width: 1440px) {
+  .hero-title { font-size: clamp(38px, 3.4vw, 62px); }
+  .hero-text  { font-size: clamp(14px, 1.05vw, 18px); }
+}
+
+/* ─────────── 6. SHOP GRID — يستغل المساحة كاملة ─────────── */
+.shop-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 155px), 1fr)) !important;
+  gap: clamp(10px, 1.1vw, 18px) !important;
+}
+
+@media (min-width: 640px) {
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)) !important;
+  }
+}
+@media (min-width: 1024px) {
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)) !important;
+  }
+}
+@media (min-width: 1440px) {
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important;
+  }
+}
+@media (min-width: 1800px) {
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 245px), 1fr)) !important;
+  }
+}
+
+/* ─────────── 7. CATEGORY CHIPS — توزيع متناسق ─────────── */
+.cat-scroll {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+@media (min-width: 640px) {
+  .cat-scroll { gap: clamp(8px, 0.9vw, 14px); }
+}
+@media (min-width: 1024px) {
+  .cat-scroll { gap: 10px; }
+}
+
+/* ─────────── 8. SHOP TOOLBAR — صف أفقي على الشاشات الكبيرة ─────────── */
+@media (min-width: 768px) {
+  .shop-toolbar {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr auto;
+    grid-template-areas: "search cats count";
+    align-items: center;
+    gap: clamp(12px, 1.4vw, 20px);
+  }
+  .shop-toolbar .search-box   { grid-area: search; }
+  .shop-toolbar .cat-scroll   { grid-area: cats; overflow: visible; flex-wrap: wrap; }
+  .shop-toolbar .shop-count   { grid-area: count; white-space: nowrap; }
+}
+
+/* ─────────── 9. SERVICE GRID — يستغل العرض الكامل ─────────── */
+.service-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)) !important;
+  gap: clamp(10px, 1.2vw, 22px) !important;
+}
+@media (min-width: 1024px) {
+  .service-list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important; }
+}
+
+/* ─────────── 10. BLOG GRID ─────────── */
+.blog-posts-list {
+  display: grid;
+  gap: clamp(12px, 1.4vw, 22px);
+}
+@media (min-width: 640px) {
+  .blog-posts-list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+}
+
+/* ─────────── 11. CONTACT FORM — عمودان على الشاشات المتوسطة ─────────── */
+@media (min-width: 640px) {
+  .input-wrapper { grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.4vw, 20px); }
+}
+
+/* ─────────── 12. NAVBAR — على الشاشات الكبيرة أعلى الصفحة ─────────── */
+@media (min-width: 1024px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+    margin-bottom: clamp(14px, 1.4vw, 22px);
+    padding: 0 clamp(10px, 1vw, 20px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3),
+                0 0 0 1px var(--c-primary-soft) inset;
+    z-index: 50;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .navbar-list {
+    gap: clamp(6px, 1vw, 24px);
+    padding: 8px 4px;
+    justify-content: space-around;
+  }
+  .navbar-item { flex: 1; max-width: 200px; }
+  .navbar-link { min-height: 60px; }
+}
+
+@media (min-width: 1280px) {
+  .navbar-list { gap: clamp(10px, 2vw, 40px); }
+}
+
+/* ─────────── 13. HEADER + TITLES ─────────── */
+.article-title { margin-bottom: clamp(14px, 1.6vw, 24px); }
+
+.sec-head {
+  margin: clamp(20px, 2.5vw, 34px) 0 clamp(10px, 1.2vw, 18px);
+}
+.sec-head h3 { font-size: clamp(15px, 1.1vw + .6rem, 22px); }
+
+/* ─────────── 14. CART LAYOUT — عمودان على الشاشات الكبيرة ─────────── */
+@media (min-width: 1024px) {
+  article[data-page="cart"].active {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-areas:
+      "list    summary"
+      "empty   summary";
+    gap: clamp(16px, 1.8vw, 28px);
+    align-items: start;
+  }
+  article[data-page="cart"] [data-cart-full] { display: contents; }
+  article[data-page="cart"] [data-cart-list] {
+    grid-area: list;
+    max-height: none;
+    margin: 0;
+  }
+  article[data-page="cart"] [data-cart-empty] { grid-area: empty; }
+  article[data-page="cart"] .cart-summary {
+    grid-area: summary;
+    position: sticky;
+    top: clamp(80px, 10vh, 120px);
+    margin-top: 0 !important;
+  }
+}
+
+/* ─────────── 15. PRODUCT MODAL — أكبر وأفخم على الشاشات الكبيرة ─────────── */
+@media (min-width: 1024px) {
+  .product-modal {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-areas: "hero body";
+    max-height: 88vh;
+  }
+  .pm-hero {
+    grid-area: hero;
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 500px;
+  }
+  .pm-body { grid-area: body; max-height: 88vh; }
+}
+
+/* ─────────── 16. BLOG MODAL — أوسع ─────────── */
+@media (min-width: 1024px) {
+  .blog-reading-modal { max-width: 860px; }
+  .blog-modal-banner  { height: 380px; }
+}
+
+/* ─────────── 17. SIDEBAR على الشاشات الكبيرة — عمودي ─────────── */
+@media (min-width: 1024px) {
+  .sidebar-info {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .avatar-box { width: clamp(72px, 6vw, 100px); height: clamp(72px, 6vw, 100px); min-width: 0; }
+  .avatar-box img { width: 100%; }
+  .info-content .name { text-align: center; font-size: clamp(18px, 1.4vw, 22px); }
+  .info-content .title { margin-inline: auto; }
+  .info_more-btn { display: none; }
+  .sidebar-info_more { opacity: 1; visibility: visible; }
+  .contacts-list { display: flex; flex-direction: column; gap: 10px; }
+}
+
+/* ─────────── 18. SIDEBAR على الشاشات الصغيرة — مرن ─────────── */
+@media (max-width: 1023px) {
+  .sidebar, article {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: clamp(16px, 3vw, 28px);
+    border-radius: 22px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-gap);
+  }
+}
+
+/* ─────────── 19. الموبايل — تبسيط وتوسيع ─────────── */
+@media (max-width: 640px) {
+  :root {
+    --page-pad: 12px;
+    --card-pad: 14px;
+    --layout-gap: 12px;
+  }
+  main { margin-top: 12px; }
+
+  .hero {
+    padding: 24px 20px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .hero-title { font-size: clamp(22px, 6.4vw, 30px); line-height: 1.15; }
+  .hero-text  { font-size: 13px; margin-bottom: 16px; }
+  .hero-actions { gap: 8px; }
+  .hero-btn { padding: 12px 18px; font-size: 13px; flex: 1; justify-content: center; }
+  .hero-stats { gap: 8px; margin-top: 18px; padding-top: 16px; }
+  .hero-stat strong { font-size: 18px; }
+
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+/* ─────────── 20. الموبايل صغير جداً ─────────── */
+@media (max-width: 380px) {
+  .shop-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .product-body { padding: 10px 10px 12px; gap: 5px; }
+  .product-name { font-size: 12px; min-height: 32px; }
+  .price-now    { font-size: 14px; }
+  .product-quick{ height: 32px; font-size: 10.5px; }
+}
+
+/* ─────────── 21. الشاشات الكبيرة جداً ─────────── */
+@media (min-width: 1800px) {
+  main { padding-inline: clamp(28px, 4vw, 80px); }
+}
+@media (min-width: 2200px) {
+  :root { --content-max: 1920px; }
+  main  { max-width: var(--content-max); }
+}
+
+/* ─────────── 22. إخفاء الفواصل الزائدة في السايدبار ─────────── */
+@media (min-width: 1024px) {
+  .sidebar .separator:nth-last-of-type(2) { display: none; }
+}
+
+/* ─────────── 23. Landscape phones ─────────── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar { position: static; margin-bottom: 12px; border-radius: 18px; }
+  .navbar-list { padding: 6px; }
+  .navbar-link { min-height: 52px; }
+}
+/* ═══════════════════════════════════════════
+   HERO PARTICLES CANVAS
+   ═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;                /* فوق الخلفية — تحت المحتوى */
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .hero-particles {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+/* المحتوى يبقى فوق الـ particles */
+.hero > .hero-tag,
+.hero > .hero-title,
+.hero > .hero-text,
+.hero > .hero-actions,
+.hero > .hero-stats {
+  position: relative;
+  z-index: 3;
+}
+
+/* ═══════════════════════════════════════════
+   VIEW TRANSITIONS API — Animations
+   ═══════════════════════════════════════════ */
+@view-transition {
+  navigation: none; /* SPA — نستخدم startViewTransition يدوياً */
+}
+
+::view-transition-old(root) {
+  animation: vtOut 0.42s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+::view-transition-new(root) {
+  animation: vtIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes vtOut {
+  0%   { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.985); filter: blur(6px); }
+}
+
+@keyframes vtIn {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.985); filter: blur(8px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0); }
+}
+
+/* اسمح بالـ animations عادة */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 0.01ms !important; }
+}
+
+/* ═══════════════════════════════════════════
+   الصفحات — اجعلها grids fluid على الشاشات الكبيرة
+   ═══════════════════════════════════════════ */
+article[data-page="shop"].active,
+article[data-page="blog"].active,
+article[data-page="home"].active {
+  view-transition-name: content;
+}
+
+/* ═══════════════════════════════════════════
+   تحسين الخطوط للشاشات الكبيرة
+   ═══════════════════════════════════════════ */
+@media (min-width: 1280px) {
+  body { font-size: 15px; }
+  .product-name { font-size: clamp(14px, 1vw, 16px); }
+  .price-now    { font-size: clamp(16px, 1.1vw, 19px); }
+}
+
+@media (min-width: 1800px) {
+  body { font-size: 16px; }
+  .product-name { font-size: 16px; }
+  .price-now    { font-size: 19px; }
+  .blog-item-title { font-size: 17px; }
+  .service-item-title { font-size: 17px; }
+}

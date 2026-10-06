@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#08080d" id="themeColorMeta">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ELLOUL">
+  <title>تسجيل الدخول | شركة الهدى</title>
+
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- SweetAlert2 (محلي) -->
+  <link rel="stylesheet" href="./assets/js/sweetalert2/sweetalert2.min.css">
+
+  <style>
+    /* ═══════════════════════════════════════════
+       1. THEME — 12 Colors
+       ═══════════════════════════════════════════ */
+    [data-color="blue"]   { --c:#3b82f6; --c-2:#60a5fa; --c-soft:rgba(59,130,246,.14);  --c-glow:rgba(59,130,246,.4);  --c-grad:linear-gradient(135deg,#60a5fa,#3b82f6) }
+    [data-color="purple"] { --c:#a855f7; --c-2:#c084fc; --c-soft:rgba(168,85,247,.14);  --c-glow:rgba(168,85,247,.4);  --c-grad:linear-gradient(135deg,#c084fc,#a855f7) }
+    [data-color="pink"]   { --c:#ec4899; --c-2:#f472b6; --c-soft:rgba(236,72,153,.14);  --c-glow:rgba(236,72,153,.4);  --c-grad:linear-gradient(135deg,#f472b6,#ec4899) }
+    [data-color="rose"]   { --c:#f43f5e; --c-2:#fb7185; --c-soft:rgba(244,63,94,.14);   --c-glow:rgba(244,63,94,.4);   --c-grad:linear-gradient(135deg,#fb7185,#f43f5e) }
+    [data-color="red"]    { --c:#ef4444; --c-2:#f87171; --c-soft:rgba(239,68,68,.14);   --c-glow:rgba(239,68,68,.4);   --c-grad:linear-gradient(135deg,#f87171,#ef4444) }
+    [data-color="orange"] { --c:#f97316; --c-2:#fb923c; --c-soft:rgba(249,115,22,.14);  --c-glow:rgba(249,115,22,.4);  --c-grad:linear-gradient(135deg,#fb923c,#f97316) }
+    [data-color="amber"]  { --c:#f59e0b; --c-2:#fbbf24; --c-soft:rgba(245,158,11,.14);  --c-glow:rgba(245,158,11,.4);  --c-grad:linear-gradient(135deg,#fbbf24,#f59e0b) }
+    [data-color="lime"]   { --c:#84cc16; --c-2:#a3e635; --c-soft:rgba(132,204,22,.14);  --c-glow:rgba(132,204,22,.4);  --c-grad:linear-gradient(135deg,#a3e635,#84cc16) }
+    [data-color="green"]  { --c:#10b981; --c-2:#34d399; --c-soft:rgba(16,185,129,.14);  --c-glow:rgba(16,185,129,.4);  --c-grad:linear-gradient(135deg,#34d399,#10b981) }
+    [data-color="teal"]   { --c:#14b8a6; --c-2:#2dd4bf; --c-soft:rgba(20,184,166,.14);  --c-glow:rgba(20,184,166,.4);  --c-grad:linear-gradient(135deg,#2dd4bf,#14b8a6) }
+    [data-color="cyan"]   { --c:#06b6d4; --c-2:#22d3ee; --c-soft:rgba(6,182,212,.14);   --c-glow:rgba(6,182,212,.4);   --c-grad:linear-gradient(135deg,#22d3ee,#06b6d4) }
+    [data-color="indigo"] { --c:#6366f1; --c-2:#818cf8; --c-soft:rgba(99,102,241,.14);  --c-glow:rgba(99,102,241,.4);  --c-grad:linear-gradient(135deg,#818cf8,#6366f1) }
+
+    /* ═══════════════════════════════════════════
+       2. THEME — Dark / Light
+       ═══════════════════════════════════════════ */
+    [data-theme="dark"] {
+      --bg: #08080d;
+      --card: rgba(20,22,30,.72);
+      --card-hover: rgba(28,31,42,.88);
+      --border: rgba(255,255,255,.08);
+      --border-hover: rgba(255,255,255,.15);
+      --inset: rgba(12,14,20,.6);
+      --inset-hover: rgba(18,20,28,.85);
+      --t1: #f4f6fa;
+      --t2: rgba(244,246,250,.66);
+      --t3: rgba(244,246,250,.42);
+      --t4: rgba(244,246,250,.25);
+      --shadow-1: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
+      --shadow-2: 0 4px 12px rgba(0,0,0,.35), 0 16px 40px rgba(0,0,0,.3);
+      --inset-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    [data-theme="light"] {
+      --bg: #f2f3f7;
+      --card: rgba(255,255,255,.82);
+      --card-hover: rgba(255,255,255,.98);
+      --border: rgba(10,20,40,.06);
+      --border-hover: rgba(10,20,40,.12);
+      --inset: rgba(248,249,252,.8);
+      --inset-hover: #ffffff;
+      --t1: #0a0f1a;
+      --t2: rgba(10,15,26,.62);
+      --t3: rgba(10,15,26,.42);
+      --t4: rgba(10,15,26,.25);
+      --shadow-1: 0 1px 2px rgba(10,20,40,.04), 0 4px 16px rgba(10,20,40,.05);
+      --shadow-2: 0 4px 12px rgba(10,20,40,.06), 0 16px 40px rgba(10,20,40,.08);
+      --inset-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    /* ═══════════════════════════════════════════
+       3. TOKENS — Fluid spacing & typography
+       ═══════════════════════════════════════════ */
+    :root {
+      --r-sm: 12px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --r-xl: 28px;
+      --r-full: 999px;
+
+      --ease: cubic-bezier(.22, 1, .36, 1);
+
+      --sp-1: clamp(6px, .8vw, 10px);
+      --sp-2: clamp(10px, 1.2vw, 14px);
+      --sp-3: clamp(14px, 1.8vw, 20px);
+      --sp-4: clamp(20px, 2.5vw, 28px);
+      --sp-5: clamp(28px, 3.5vw, 40px);
+      --sp-6: clamp(36px, 5vw, 56px);
+
+      --fs-xs: clamp(11px, .85vw, 12.5px);
+      --fs-sm: clamp(13px, 1vw, 14.5px);
+      --fs-md: clamp(14.5px, 1.15vw, 16px);
+      --fs-lg: clamp(17px, 1.5vw, 20px);
+      --fs-xl: clamp(22px, 2.2vw, 30px);
+      --fs-2xl: clamp(28px, 3vw, 40px);
+    }
+
+    /* ═══════════════════════════════════════════
+       4. RESET
+       ═══════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html { -webkit-text-size-adjust: 100% }
+    body {
+      font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, var(--c-soft) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 100% 100%, var(--c-soft) 0%, transparent 60%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--t1);
+      direction: rtl;
+      text-align: right;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      line-height: 1.5;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      transition: background-color .4s ease, color .4s ease;
+    }
+    ::selection { background: var(--c); color: #fff }
+    button { font: inherit; background: none; border: none; cursor: pointer; color: inherit }
+    a { color: inherit; text-decoration: none }
+    img { display: block; max-width: 100% }
+    svg { display: block; flex-shrink: 0 }
+    input { font: inherit }
+
+    /* ═══════════════════════════════════════════
+       5. PAGE LAYOUT
+       ═══════════════════════════════════════════ */
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: var(--sp-3);
+      gap: var(--sp-3);
+    }
+
+    /* ─── Topbar ─── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      flex-shrink: 0;
+      max-width: 100%;
+    }
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s var(--ease);
+    }
+    .brand-mini img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .brand-mini span {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--t2);
+      white-space: nowrap;
+    }
+    .topbar-controls {
+      display: flex;
+      gap: 8px;
+      margin-inline-start: auto;
+    }
+
+    /* ─── Icon button ─── */
+    .icon-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--t2);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-1);
+      transition: all .25s var(--ease);
+    }
+    .icon-btn:hover {
+      color: var(--c);
+      border-color: var(--c);
+      background: var(--c-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--c-glow);
+    }
+    .icon-btn:active { transform: translateY(0) }
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── Theme toggle ─── */
+    .theme-toggle { position: relative; overflow: hidden }
+    .theme-toggle svg {
+      position: absolute;
+      transition: all .45s var(--ease);
+    }
+    [data-theme="dark"] .icon-sun  { opacity: 0; transform: rotate(90deg) scale(.5) }
+    [data-theme="dark"] .icon-moon { opacity: 1; transform: rotate(0) scale(1) }
+    [data-theme="light"] .icon-sun  { opacity: 1; transform: rotate(0) scale(1) }
+    [data-theme="light"] .icon-moon { opacity: 0; transform: rotate(-90deg) scale(.5) }
+
+    /* ─── Color dot ─── */
+    .color-btn .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--c-grad);
+      box-shadow: 0 0 0 3px var(--c-soft), 0 0 12px var(--c-glow);
+      transition: all .3s var(--ease);
+    }
+
+    /* ─── Color menu ─── */
+    .color-picker-wrap { position: relative; flex-shrink: 0 }
+    .color-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: var(--card-hover);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--r-md);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(.96);
+      transform-origin: top left;
+      transition: all .25s var(--ease);
+      box-shadow: var(--shadow-2);
+      z-index: 200;
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      min-width: 220px;
+    }
+    .color-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .color-swatch {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: all .2s var(--ease);
+      position: relative;
+      padding: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+    }
+    .color-swatch:hover { transform: scale(1.2) }
+    .color-swatch.active {
+      border-color: var(--t1);
+      transform: scale(1.15);
+      box-shadow: 0 0 0 2px var(--card-hover), 0 0 16px currentColor;
+    }
+    .color-swatch.active::after {
+      content: "✓";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      text-shadow: 0 1px 2px rgba(0,0,0,.5);
+    }
+
+    /* ─── Content ─── */
+    .content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* ─── Layout grid ─── */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--sp-4);
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* ─── Footer ─── */
+    .page-footer {
+      text-align: center;
+      font-size: var(--fs-xs);
+      color: var(--t3);
+      font-weight: 500;
+      flex-shrink: 0;
+      padding: var(--sp-1) 0;
+    }
+    .page-footer .brand {
+      color: var(--c);
+      font-weight: 800;
+    }
+
+    /* ═══════════════════════════════════════════
+       6. CARDS — iOS Bento Base
+       ═══════════════════════════════════════════ */
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: var(--shadow-1), var(--inset-shadow);
+      overflow: hidden;
+    }
+
+    /* ═══════════════════════════════════════════
+       7. LOGIN CARD
+       ═══════════════════════════════════════════ */
+    .login-card {
+      padding: var(--sp-5) var(--sp-4) var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      animation: cardIn .5s var(--ease) both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(12px) scale(.98) }
+      to   { opacity: 1; transform: translateY(0) scale(1) }
+    }
+    .login-card::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, var(--c-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: .5;
+      filter: blur(40px);
+      animation: floatBlob 16s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes floatBlob {
+      0%, 100% { transform: translate(0, 0) scale(1) }
+      50%      { transform: translate(30px, -30px) scale(1.15) }
+    }
+
+    /* ─── Login header ─── */
+    .login-header {
+      text-align: center;
+      margin-bottom: var(--sp-4);
+      position: relative;
+      z-index: 1;
+    }
+    .login-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      background: var(--c-soft);
+      border: 1px solid var(--c-glow);
+      border-radius: var(--r-full);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--c);
+      letter-spacing: .04em;
+      margin-bottom: var(--sp-3);
+    }
+    .login-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .login-header h1 {
+      font-size: var(--fs-2xl);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+      color: var(--t1);
+    }
+    .login-header p {
+      font-size: var(--fs-sm);
+      color: var(--t3);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ─── Form ─── */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .field label {
+      color: var(--t2);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .field label svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--c);
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Input */
+    .input-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .input {
+      width: 100%;
+      background: var(--inset);
+      color: var(--t1);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      padding: 15px 46px 15px 46px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      outline: none;
+      transition: all .25s var(--ease);
+      text-align: right;
+      direction: rtl;
+      -webkit-appearance: none;
+      box-shadow: var(--inset-shadow);
+    }
+    .input::placeholder { color: var(--t4); font-weight: 400 }
+    .input:focus {
+      border-color: var(--c);
+      background: var(--inset-hover);
+      box-shadow: 0 0 0 4px var(--c-soft), 0 4px 12px var(--c-glow);
+    }
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      stroke: var(--t3);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+      transition: stroke .25s var(--ease);
+    }
+    .input:focus ~ .input-icon { stroke: var(--c) }
+
+    /* Password toggle */
+    .toggle-pass {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      color: var(--t3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s var(--ease);
+      padding: 0;
+    }
+    .toggle-pass:hover {
+      color: var(--c);
+      background: var(--c-soft);
+    }
+    .toggle-pass svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Submit */
+    .submit-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      padding: 15px 24px;
+      margin-top: 4px;
+      background: var(--c-grad);
+      color: #fff;
+      border-radius: var(--r-md);
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      transition: all .3s var(--ease);
+      box-shadow: 0 10px 26px var(--c-glow), inset 0 1px 0 rgba(255,255,255,.25);
+      overflow: hidden;
+      min-height: 52px;
+    }
+    .submit-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+      transition: left .7s ease;
+    }
+    .submit-btn:hover::before { left: 100% }
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px var(--c-glow), inset 0 1px 0 rgba(255,255,255,.3);
+    }
+    .submit-btn:active:not(:disabled) { transform: translateY(0) }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed }
+    .submit-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Back link */
+    .back-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: var(--sp-4);
+      padding-top: var(--sp-3);
+      border-top: 1px solid var(--border);
+      color: var(--t3);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      transition: color .25s var(--ease);
+      position: relative;
+      z-index: 1;
+    }
+    .back-link:hover { color: var(--c) }
+    .back-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform .25s var(--ease);
+    }
+    .back-link:hover svg { transform: translateX(-4px) }
+
+    /* ═══════════════════════════════════════════
+       8. HERO PANEL — Desktop only
+       ═══════════════════════════════════════════ */
+    .hero-panel {
+      display: none;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .hero-card {
+      padding: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      position: relative;
+      overflow: hidden;
+      animation: cardIn .5s var(--ease) .1s both;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--c-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: .5;
+      filter: blur(40px);
+      animation: floatBlob 18s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      position: relative;
+      z-index: 1;
+    }
+    .brand-logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      padding: 10px;
+      object-fit: contain;
+      background: var(--c-grad);
+      box-shadow: 0 14px 32px var(--c-glow), inset 0 1px 0 rgba(255,255,255,.25);
+      flex-shrink: 0;
+    }
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--c-soft);
+      border: 1px solid var(--c-glow);
+      border-radius: var(--r-full);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--c);
+      letter-spacing: .04em;
+    }
+    .version-badge .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c);
+      box-shadow: 0 0 8px var(--c);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1) }
+      50%      { opacity: .5; transform: scale(.7) }
+    }
+
+    .brand-text {
+      position: relative;
+      z-index: 1;
+    }
+    .brand-text h2 {
+      font-size: var(--fs-xl);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+      color: var(--t1);
+    }
+    .brand-text p {
+      font-size: var(--fs-sm);
+      color: var(--t3);
+      font-weight: 500;
+      line-height: 1.65;
+    }
+
+    /* Features grid */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-2);
+      animation: cardIn .5s var(--ease) .2s both;
+    }
+    .feature {
+      padding: var(--sp-3);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all .3s var(--ease);
+    }
+    .feature:hover {
+      border-color: var(--c);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-2), 0 0 0 1px var(--c-soft);
+    }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-grad);
+      color: #fff;
+      box-shadow: 0 8px 18px var(--c-glow), inset 0 1px 0 rgba(255,255,255,.25);
+      flex-shrink: 0;
+      transition: transform .35s var(--ease);
+    }
+    .feature:hover .feature-icon { transform: scale(1.08) rotate(-5deg) }
+    .feature-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .feature h3 {
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      color: var(--t1);
+      letter-spacing: -.01em;
+      line-height: 1.3;
+    }
+    .feature p {
+      font-size: var(--fs-xs);
+      color: var(--t3);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════
+       9. RESPONSIVE
+       ═══════════════════════════════════════════ */
+
+    /* ─── SM: ≥ 480px ─── */
+    @media (min-width: 480px) {
+      .page { padding: var(--sp-4) }
+      .layout { max-width: 460px }
+    }
+
+    /* ─── MD: ≥ 640px ─── */
+    @media (min-width: 640px) {
+      .page { padding: var(--sp-4) var(--sp-5) }
+      .layout { max-width: 500px }
+      .login-card { padding: var(--sp-6) var(--sp-5) var(--sp-5) }
+    }
+
+    /* ─── LG: ≥ 1024px — 2 columns ─── */
+    @media (min-width: 1024px) {
+      .page { padding: var(--sp-5) }
+      .topbar { max-width: 1140px; margin: 0 auto }
+      .brand-mini { opacity: 1; visibility: visible }
+
+      .layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+        max-width: 1140px;
+        gap: var(--sp-6);
+        align-items: center;
+      }
+      .login-card {
+        padding: var(--sp-6) var(--sp-5);
+      }
+      .hero-panel { display: flex }
+      .page-footer { max-width: 1140px; margin: 0 auto; width: 100% }
+    }
+
+    /* ─── XL: ≥ 1280px ─── */
+    @media (min-width: 1280px) {
+      .layout {
+        max-width: 1260px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+        gap: 72px;
+      }
+      .topbar { max-width: 1260px }
+      .brand-logo { width: 80px; height: 80px; border-radius: 22px }
+      .feature { padding: var(--sp-4) }
+      .page-footer { max-width: 1260px }
+    }
+
+    /* ─── 2XL: ≥ 1536px ─── */
+    @media (min-width: 1536px) {
+      .layout {
+        max-width: 1400px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+        gap: 96px;
+      }
+      .topbar { max-width: 1400px }
+      .page-footer { max-width: 1400px }
+    }
+
+    /* ─── Small mobile ≤ 380px ─── */
+    @media (max-width: 380px) {
+      .login-card { padding: var(--sp-4) var(--sp-3) var(--sp-3) }
+      .login-header h1 { font-size: 22px }
+      .login-badge { font-size: 10px }
+      .input { padding: 13px 42px 13px 42px; font-size: 13px }
+      .submit-btn { padding: 14px 20px; font-size: 13px }
+    }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SVG ICON SPRITE — Lucide style
+     ═══════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="11" width="16" height="10" rx="2"/>
+      <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+      <circle cx="12" cy="16" r="1" fill="currentColor"/>
+    </symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 21a8 8 0 0 1 16 0"/>
+    </symbol>
+    <symbol id="ic-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7.5" cy="15.5" r="4.5"/>
+      <path d="m21 2-9.5 9.5"/>
+      <path d="m15.5 7.5 3 3"/>
+      <path d="m18.5 4.5 3 3"/>
+    </symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="ic-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9.88 9.88a3 3 0 0 0 4.24 4.24"/>
+      <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+      <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+      <line x1="2" x2="22" y1="2" y2="22"/>
+    </symbol>
+    <symbol id="ic-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+      <polyline points="10 17 15 12 10 7"/>
+      <line x1="15" x2="3" y1="12" y2="12"/>
+    </symbol>
+    <symbol id="ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19-7-7 7-7"/>
+      <path d="M19 12H5"/>
+    </symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </symbol>
+    <symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+    </symbol>
+    <symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 3v18h18"/>
+      <path d="M18 17V9"/>
+      <path d="M13 17V5"/>
+      <path d="M8 17v-3"/>
+    </symbol>
+    <symbol id="ic-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <path d="m3.3 7 8.7 5 8.7-5"/>
+      <path d="M12 22V12"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <div class="brand-mini">
+      <img src="./assets/images/logo.ico" alt="الهدى">
+      <span>شركة الهدى</span>
+    </div>
+
+    <div class="topbar-controls">
+      <!-- Color Picker -->
+      <div class="color-picker-wrap">
+        <button class="icon-btn color-btn" id="colorBtn" type="button" title="لون الموقع" aria-label="لون الموقع">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="أزرق"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="بنفسجي"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="وردي"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="أحمر وردي"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="أحمر"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="برتقالي"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="عسلي"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="ليموني"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="أخضر"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="فيروزي"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="سماوي"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="نيلي"></button>
+        </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button" title="الوضع الليلي/النهاري" aria-label="تبديل المظهر">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ CONTENT ═══ -->
+  <main class="content">
+    <div class="layout">
+
+      <!-- ═══ LOGIN CARD ═══ -->
+      <section class="card login-card">
+        <div class="login-header">
+          <div class="login-badge">
+            <svg aria-hidden="true"><use href="#ic-lock"/></svg>
+            <span>وصول آمن</span>
+          </div>
+          <h1>تسجيل الدخول</h1>
+          <p>أدخل بياناتك للوصول إلى لوحة التحكم</p>
+        </div>
+
+        <form id="loginForm" class="login-form" autocomplete="on">
+          <div class="field">
+            <label for="email">
+              <svg aria-hidden="true"><use href="#ic-mail"/></svg>
+              البريد الإلكتروني
+            </label>
+            <div class="input-wrap">
+              <input type="email" id="email" class="input" placeholder="admin@alhudametal.com" required autocomplete="email">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">
+              <svg aria-hidden="true"><use href="#ic-key"/></svg>
+              كلمة المرور
+            </label>
+            <div class="input-wrap">
+              <input type="password" id="password" class="input" placeholder="••••••••" required autocomplete="current-password">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-shield"/></svg>
+              <button type="button" class="toggle-pass" id="togglePass" aria-label="عرض كلمة المرور">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-eye"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="loginBtn" class="submit-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-login"/></svg>
+            <span>دخول إلى اللوحة</span>
+          </button>
+        </form>
+
+        <a href="index.html" class="back-link">
+          <span>العودة للموقع الرئيسي</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-arrow-left"/></svg>
+        </a>
+      </section>
+
+      <!-- ═══ HERO PANEL (Desktop) ═══ -->
+      <aside class="hero-panel">
+        <div class="card hero-card">
+          <div class="brand-row">
+            <img src="./assets/images/logo.ico" alt="شعار" class="brand-logo">
+            <div class="version-badge">
+              <span class="live-dot"></span>
+              <span>v2.0</span>
+            </div>
+          </div>
+          <div class="brand-text">
+            <h2>شركة الهدى</h2>
+            <p>لوحة تحكم احترافية لإدارة المنتجات والمحتوى بشكل فوري وآمن.</p>
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="card feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-shield"/></svg>
+            </div>
+            <h3>حماية قصوى</h3>
+            <p>تشفير Firebase متقدم</p>
+          </div>
+
+          <div class="card feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>
+            </div>
+            <h3>أداء فوري</h3>
+            <p>تحديث لحظي للبيانات</p>
+          </div>
+
+          <div class="card feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-chart"/></svg>
+            </div>
+            <h3>إحصائيات</h3>
+            <p>تحليلات مباشرة</p>
+          </div>
+
+          <div class="card feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-box"/></svg>
+            </div>
+            <h3>إدارة المنتجات</h3>
+            <p>إضافة وتعديل سريع</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="page-footer">
+    © 2026 شركة <span class="brand">الهدى</span> لتشكيل وتجهيز المعادن
+  </footer>
+
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="./assets/js/sweetalert2/sweetalert2.all.min.js" defer></script>
+
+<script>
+/* ═══════════════════════════════════════════
+   THEME + COLOR MANAGER
+   ═══════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  const THEME_KEY = 'alhoda-theme';
+  const COLOR_KEY = 'alhoda-color';
+  const VALID = ['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  const html = document.documentElement;
+
+  const BAR_COLORS = {
+    blue:   { dark:'#0a1229', light:'#3b82f6' },
+    purple: { dark:'#1e0a3d', light:'#a855f7' },
+    pink:   { dark:'#33061f', light:'#ec4899' },
+    rose:   { dark:'#33061a', light:'#f43f5e' },
+    red:    { dark:'#2c0a0a', light:'#ef4444' },
+    orange: { dark:'#2c1405', light:'#f97316' },
+    amber:  { dark:'#2c1f05', light:'#f59e0b' },
+    lime:   { dark:'#1a2c05', light:'#84cc16' },
+    green:  { dark:'#052c20', light:'#10b981' },
+    teal:   { dark:'#052925', light:'#14b8a6' },
+    cyan:   { dark:'#05252e', light:'#06b6d4' },
+    indigo: { dark:'#141640', light:'#6366f1' }
+  };
+
+  function getSaved(key, fb) {
+    try { return localStorage.getItem(key) || fb } catch (e) { return fb }
+  }
+
+  let currentTheme = getSaved(THEME_KEY,
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  let currentColor = getSaved(COLOR_KEY, 'blue');
+  if (!VALID.includes(currentColor)) currentColor = 'blue';
+
+  function apply() {
+    html.setAttribute('data-theme', currentTheme);
+    html.setAttribute('data-color', currentColor);
+    const barColor = BAR_COLORS[currentColor] ? BAR_COLORS[currentColor][currentTheme] : null;
+    if (barColor) {
+      const meta = document.getElementById('themeColorMeta');
+      if (meta) meta.setAttribute('content', barColor);
+    }
+  }
+  apply();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function () {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem(THEME_KEY, currentTheme) } catch (e) {}
+        apply();
+      });
+    }
+
+    const colorBtn = document.getElementById('colorBtn');
+    const colorMenu = document.getElementById('colorMenu');
+    const swatches = document.querySelectorAll('.color-swatch');
+
+    swatches.forEach(function (s) {
+      s.classList.toggle('active', s.dataset.color === currentColor);
+    });
+
+    if (colorBtn && colorMenu) {
+      colorBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        colorMenu.classList.toggle('open');
+      });
+
+      swatches.forEach(function (swatch) {
+        swatch.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const color = swatch.dataset.color;
+          if (!VALID.includes(color)) return;
+          currentColor = color;
+          try { localStorage.setItem(COLOR_KEY, color) } catch (e) {}
+          swatches.forEach(function (s) { s.classList.remove('active') });
+          swatch.classList.add('active');
+          apply();
+          setTimeout(function () { colorMenu.classList.remove('open') }, 200);
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (colorMenu.classList.contains('open') &&
+            !colorMenu.contains(e.target) &&
+            !colorBtn.contains(e.target)) {
+          colorMenu.classList.remove('open');
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') colorMenu.classList.remove('open');
+      });
+    }
+
+    /* Password toggle */
+    const togglePass = document.getElementById('togglePass');
+    const passwordInput = document.getElementById('password');
+
+    if (togglePass && passwordInput) {
+      togglePass.addEventListener('click', function () {
+        const isPass = passwordInput.type === 'password';
+        passwordInput.type = isPass ? 'text' : 'password';
+        const use = togglePass.querySelector('use');
+        if (use) use.setAttribute('href', isPass ? '#ic-eye-off' : '#ic-eye');
+      });
+    }
+  });
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function (e) {
+      try {
+        if (!localStorage.getItem(THEME_KEY)) {
+          currentTheme = e.matches ? 'light' : 'dark';
+          apply();
+        }
+      } catch (err) {}
+    });
+  }
+})();
+</script>
+
+<!-- ═══ FIREBASE AUTH ═══ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged }
+  from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAl_8HD6r4reDPRIjq9pvCGrcp5Zi1zwGw",
+  authDomain: "alhoda-products.firebaseapp.com",
+  projectId: "alhoda-products",
+  storageBucket: "alhoda-products.firebasestorage.app",
+  messagingSenderId: "776643566448",
+  appId: "1:776643566448:web:6fea82f32e400559430db5"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, function (user) {
+  if (user) window.location.href = 'admin.html';
+});
+
+const form = document.getElementById('loginForm');
+const btn = document.getElementById('loginBtn');
+const btnText = btn.querySelector('span');
+
+function themeColors() {
+  const s = getComputedStyle(document.documentElement);
+  return {
+    primary: s.getPropertyValue('--c').trim(),
+    bg: s.getPropertyValue('--card-hover').trim(),
+    text: s.getPropertyValue('--t1').trim()
+  };
+}
+
+function waitForSwal(cb) {
+  if (typeof Swal !== 'undefined') return cb();
+  setTimeout(function () { waitForSwal(cb) }, 100);
+}
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  btn.disabled = true;
+  btnText.textContent = 'جاري التحقق...';
+
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      document.getElementById('email').value.trim(),
+      document.getElementById('password').value
+    );
+
+    waitForSwal(function () {
+      const c = themeColors();
+      Swal.fire({
+        icon: 'success',
+        title: 'مرحباً بك 👋',
+        text: 'تم تسجيل الدخول بنجاح',
+        timer: 1400,
+        showConfirmButton: false,
+        background: c.bg,
+        color: c.text
+      }).then(function () { window.location.href = 'admin.html' });
+    });
+
+  } catch (error) {
+    const messages = {
+      'auth/user-not-found': 'المستخدم غير موجود',
+      'auth/wrong-password': 'كلمة المرور خاطئة',
+      'auth/invalid-email': 'البريد الإلكتروني غير صالح',
+      'auth/invalid-credential': 'البريد أو كلمة المرور غير صحيحة',
+      'auth/too-many-requests': 'محاولات كثيرة، حاول لاحقاً',
+      'auth/network-request-failed': 'تحقق من اتصالك بالإنترنت'
+    };
+    const msg = messages[error.code] || 'بيانات الدخول غير صحيحة';
+
+    waitForSwal(function () {
+      const c = themeColors();
+      Swal.fire({
+        icon: 'error',
+        title: 'خطأ في الدخول',
+        text: msg,
+        background: c.bg,
+        color: c.text,
+        confirmButtonColor: c.primary
+      });
+    });
+
+    btn.disabled = false;
+    btnText.textContent = 'دخول إلى اللوحة';
+  }
+});
+</script>
+
+</body>
+</html>
