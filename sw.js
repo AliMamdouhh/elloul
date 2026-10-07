@@ -45,7 +45,6 @@ const STATIC_ASSETS = [
   './assets/js/extras/cache-manager.js',
   './assets/js/extras/anti-copy.js',
   './assets/js/extras/watermark.js',
-  // في STATIC_ASSETS
 './assets/css/phase4.css',
 './assets/js/extras/voice-search.js',
 './assets/js/extras/share-menu.js',
