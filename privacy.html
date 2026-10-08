@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a1229" id="themeColorMeta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" id="appleStatusBar">
+<meta name="apple-mobile-web-app-title" content="ELLOUL">
+<meta name="application-name" content="ELLOUL">
+<title data-i18n="pageTitle">سياسة الخصوصية والكوكيز · ELLOUL</title>
+<meta name="description" content="سياسة الخصوصية وملفات الكوكيز لمتجر ELLOUL — كيف نجمع البيانات ونستخدمها ونحميها.">
+<link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+(function(){'use strict';
+var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+var h=document.documentElement;
+var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+var c=g(CK,'blue');if(V.indexOf(c)===-1)c='blue';
+var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+function a(){
+  h.setAttribute('data-theme',t);
+  h.setAttribute('data-color',c);
+  h.setAttribute('data-lang',l);
+  h.setAttribute('lang',l);
+  h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+  if(bc){
+    var m=document.getElementById('themeColorMeta');
+    if(m)m.setAttribute('content',bc);
+    var ap=document.getElementById('appleStatusBar');
+    if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+  }
+}
+a();
+window.addEventListener('storage',function(e){
+  if(e.key===TK){t=e.newValue||'dark';a()}
+  if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'blue';a()}
+  if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+});
+if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+  try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+});
+})();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{height:100vh;height:100dvh;overflow:hidden;position:fixed;inset:0}
+
+/* ═══ 12 PALETTES ═══ */
+[data-color="blue"]  {--c:#3b82f6;--c2:#60a5fa;--c-soft:rgba(59,130,246,.14);--c-border:rgba(59,130,246,.32);--c-glow:rgba(59,130,246,.5)}
+[data-color="purple"]{--c:#a855f7;--c2:#c084fc;--c-soft:rgba(168,85,247,.14);--c-border:rgba(168,85,247,.32);--c-glow:rgba(168,85,247,.5)}
+[data-color="pink"]  {--c:#ec4899;--c2:#f472b6;--c-soft:rgba(236,72,153,.14);--c-border:rgba(236,72,153,.32);--c-glow:rgba(236,72,153,.5)}
+[data-color="rose"]  {--c:#f43f5e;--c2:#fb7185;--c-soft:rgba(244,63,94,.14);--c-border:rgba(244,63,94,.32);--c-glow:rgba(244,63,94,.5)}
+[data-color="red"]   {--c:#ef4444;--c2:#f87171;--c-soft:rgba(239,68,68,.14);--c-border:rgba(239,68,68,.32);--c-glow:rgba(239,68,68,.5)}
+[data-color="orange"]{--c:#f97316;--c2:#fb923c;--c-soft:rgba(249,115,22,.14);--c-border:rgba(249,115,22,.32);--c-glow:rgba(249,115,22,.5)}
+[data-color="amber"] {--c:#d97706;--c2:#f59e0b;--c-soft:rgba(217,119,6,.16);--c-border:rgba(217,119,6,.35);--c-glow:rgba(217,119,6,.5)}
+[data-color="lime"]  {--c:#84cc16;--c2:#a3e635;--c-soft:rgba(132,204,22,.14);--c-border:rgba(132,204,22,.32);--c-glow:rgba(132,204,22,.5)}
+[data-color="green"] {--c:#10b981;--c2:#34d399;--c-soft:rgba(16,185,129,.14);--c-border:rgba(16,185,129,.32);--c-glow:rgba(16,185,129,.5)}
+[data-color="teal"]  {--c:#14b8a6;--c2:#2dd4bf;--c-soft:rgba(20,184,166,.14);--c-border:rgba(20,184,166,.32);--c-glow:rgba(20,184,166,.5)}
+[data-color="cyan"]  {--c:#06b6d4;--c2:#22d3ee;--c-soft:rgba(6,182,212,.14);--c-border:rgba(6,182,212,.32);--c-glow:rgba(6,182,212,.5)}
+[data-color="indigo"]{--c:#6366f1;--c2:#818cf8;--c-soft:rgba(99,102,241,.14);--c-border:rgba(99,102,241,.32);--c-glow:rgba(99,102,241,.5)}
+
+/* ═══ THEMES ═══ */
+[data-theme="dark"]{
+  --bg:#080a18;
+  --surface:rgba(20,25,45,.55);
+  --surface-2:rgba(28,35,60,.78);
+  --input-bg:rgba(12,16,32,.6);
+  --input-bg-2:rgba(18,23,42,.78);
+  --border:rgba(220,230,255,.08);
+  --border-2:rgba(220,230,255,.16);
+  --t1:#f5f7ff;--t2:rgba(245,247,255,.68);--t3:rgba(245,247,255,.44);--t4:rgba(245,247,255,.24);
+  --hl:inset 0 1px 0 rgba(255,255,255,.06);
+  --noise-op:.04;--danger:#ef4444;--warn:#f59e0b;--success:#10b981;
+}
+[data-theme="light"]{
+  --bg:#f4f6ff;
+  --surface:rgba(255,255,255,.72);
+  --surface-2:rgba(255,255,255,.92);
+  --input-bg:rgba(255,255,255,.75);
+  --input-bg-2:rgba(255,255,255,.95);
+  --border:rgba(20,30,60,.08);
+  --border-2:rgba(20,30,60,.14);
+  --t1:#0c1230;--t2:rgba(12,18,48,.68);--t3:rgba(12,18,48,.46);--t4:rgba(12,18,48,.26);
+  --hl:inset 0 1px 0 rgba(255,255,255,.9);
+  --noise-op:.028;--danger:#dc2626;--warn:#d97706;--success:#059669;
+}
+
+/* ═══ BASE ═══ */
+body{
+  font-family:'Tajawal','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;transition:background .5s ease,color .5s ease;
+  isolation:isolate;direction:inherit;text-align:start;
+}
+[data-lang="en"] body{font-family:'Inter','Tajawal',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+
+::selection{background:var(--c);color:#fff}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex-shrink:0}
+img{display:block;max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:8px}
+
+/* ═══ AMBIENT ═══ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 12%,var(--c-soft),transparent 62%),
+    radial-gradient(ellipse 70% 55% at 12% 88%,var(--c-soft),transparent 65%);
+  opacity:.9;pointer-events:none;
+  animation:bgBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes bgBreathe{0%{opacity:.55}100%{opacity:1}}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:var(--noise-op);mix-blend-mode:overlay;
+}
+
+/* ═══ SHELL ═══ */
+.shell{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  padding:
+    calc(env(safe-area-inset-top,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-right,0px) + clamp(16px,4vw,56px))
+    calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-left,0px) + clamp(16px,4vw,56px));
+  overflow:hidden;animation:shellIn .5s ease both;
+}
+@keyframes shellIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ READING PROGRESS ═══ */
+.read-progress{
+  position:fixed;
+  top:0;left:0;
+  width:0%;
+  height:3px;
+  background:linear-gradient(90deg,var(--c2),var(--c));
+  box-shadow:0 0 14px var(--c-glow);
+  z-index:9999;
+  transition:width .1s linear;
+  pointer-events:none;
+}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-bottom:clamp(8px,1.6vh,14px);
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--t1);min-width:0}
+.brand-logo{
+  width:clamp(32px,7vw,40px);height:clamp(32px,7vw,40px);
+  border-radius:11px;object-fit:contain;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  padding:6px;
+  box-shadow:0 6px 18px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.brand-name{
+  font-size:clamp(13px,3vw,15px);font-weight:900;
+  letter-spacing:.22em;color:var(--c);text-transform:uppercase;line-height:1;
+}
+[data-lang="en"] .brand-name{letter-spacing:.14em}
+.brand-tag{
+  font-size:clamp(10px,2.4vw,11.5px);color:var(--t3);font-weight:600;
+  line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--hl);height:clamp(36px,8vw,42px);
+}
+.lang-btn{
+  padding:0 clamp(8px,2vw,11px);height:100%;border-radius:9px;
+  font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--t3);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;
+  min-width:clamp(30px,7vw,36px);
+}
+.lang-btn:hover{color:var(--c)}
+[data-lang="ar"] .lang-btn[data-lang-btn="ar"],
+[data-lang="en"] .lang-btn[data-lang-btn="en"]{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;box-shadow:0 4px 12px -4px var(--c-glow);
+}
+
+.ctrl{
+  position:relative;width:clamp(36px,8vw,42px);height:clamp(36px,8vw,42px);
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  color:var(--t2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);padding:0;
+}
+.ctrl:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-2px)}
+.ctrl:active{transform:translateY(0) scale(.95)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.theme-toggle{position:relative;overflow:hidden}
+.theme-toggle svg{position:absolute;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+[data-theme="dark"] .icon-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+[data-theme="dark"] .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.5)}
+
+.color-picker-wrap{position:relative}
+.color-btn .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  box-shadow:0 0 0 3px var(--c-soft),0 0 10px var(--c-glow);
+}
+.color-menu{
+  position:absolute;top:calc(100% + 10px);inset-inline-end:0;
+  background:var(--surface-2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:1px solid var(--border-2);border-radius:16px;padding:12px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px) scale(.96);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  z-index:200;min-width:220px;
+}
+.color-menu.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.color-swatch{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  position:relative;padding:0;
+}
+.color-swatch:hover{transform:scale(1.2)}
+.color-swatch.active{
+  border-color:var(--t1);transform:scale(1.15);
+  box-shadow:0 0 0 2px var(--surface-2),0 0 16px currentColor;
+}
+.color-swatch.active::after{
+  content:"✓";position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+
+/* ═══ MAIN (scrollable) ═══ */
+.main{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  gap:clamp(14px,2.2vh,24px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;
+  padding:clamp(4px,1.2vh,14px) 0;
+  scrollbar-width:thin;scrollbar-color:var(--border-2) transparent;
+  scroll-behavior:smooth;
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:4px}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.4vh,14px);text-align:center;
+  flex-shrink:0;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.orb{
+  position:relative;
+  width:clamp(84px,19vmin,112px);height:clamp(84px,19vmin,112px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-bottom:4px;
+}
+.orb .pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--c);opacity:0;pointer-events:none;
+  animation:pulseOut 4s ease-out infinite;
+}
+.orb .pulse:nth-child(2){animation-delay:1.33s}
+.orb .pulse:nth-child(3){animation-delay:2.66s}
+@keyframes pulseOut{0%{transform:scale(.35);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.orb-glow{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,var(--c-glow) 0%,transparent 70%);
+  filter:blur(22px);
+  animation:breathe 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.orb-core{
+  position:relative;
+  width:60%;height:60%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--c2) 0%,var(--c) 70%);
+  color:#fff;
+  box-shadow:0 18px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.16) inset,0 2px 0 rgba(255,255,255,.28) inset;
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.orb-core svg{
+  width:52%;height:52%;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));
+}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:orbit 14s linear infinite}
+.orbit::before{
+  content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c2);
+  box-shadow:0 0 12px var(--c-glow),0 0 0 3px var(--c-soft);
+}
+.orbit:nth-of-type(1){animation-delay:0s}
+.orbit:nth-of-type(2){animation-delay:-4.66s}
+.orbit:nth-of-type(3){animation-delay:-9.33s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--c-soft);border:1px solid var(--c-border);
+  color:var(--c);
+  font-size:clamp(10.5px,2.4vw,12px);font-weight:700;
+  letter-spacing:.04em;
+}
+.badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.title{
+  font-size:clamp(22px,5.4vw,32px);font-weight:900;
+  line-height:1.15;letter-spacing:-.028em;
+  background:linear-gradient(160deg,var(--t1) 0%,var(--t1) 55%,var(--c) 130%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+[data-lang="en"] .title{letter-spacing:-.02em}
+.subtitle{
+  font-size:clamp(12.5px,3vw,14px);line-height:1.65;
+  color:var(--t3);font-weight:500;max-width:52ch;
+}
+
+/* meta row: last-updated + actions */
+.meta-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+  margin-top:4px;
+}
+.meta-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  font-size:11px;font-weight:700;
+  color:var(--t3);
+  font-variant-numeric:tabular-nums;
+}
+.meta-pill svg{width:12px;height:12px;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.meta-pill strong{color:var(--c);font-weight:900}
+
+/* ═══════════════════════════════════════════
+   LAYOUT (TOC + Content)
+   ═══════════════════════════════════════════ */
+.layout{
+  width:100%;max-width:min(100%,1180px);margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(16px,2.4vh,26px);
+  position:relative;
+}
+
+/* TOC */
+.toc{
+  display:none;
+  position:sticky;top:0;
+  align-self:start;
+  max-height:calc(100dvh - 200px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  padding:4px;
+}
+.toc::-webkit-scrollbar{width:3px}
+.toc::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+
+.toc-inner{
+  padding:14px;
+  border-radius:16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:var(--hl);
+}
+.toc-title{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:900;
+  color:var(--t1);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:12px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.toc-title svg{width:14px;height:14px;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+.toc-nav{display:flex;flex-direction:column;gap:2px}
+.toc-link{
+  position:relative;
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;
+  border-radius:9px;
+  font-size:12px;font-weight:600;
+  color:var(--t2);
+  transition:all .22s ease;
+  text-align:start;
+  line-height:1.3;
+}
+.toc-link:hover{background:var(--c-soft);color:var(--c)}
+.toc-link.active{
+  background:var(--c-soft);
+  color:var(--c);
+  font-weight:800;
+}
+.toc-link.active::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  inset-block:20%;
+  width:3px;
+  border-radius:2px;
+  background:var(--c);
+  box-shadow:0 0 8px var(--c-glow);
+}
+.toc-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;
+  padding:0 5px;
+  border-radius:6px;
+  background:var(--input-bg);
+  color:var(--t3);
+  font-size:10px;font-weight:900;
+  font-variant-numeric:tabular-nums;
+  flex-shrink:0;
+}
+.toc-link.active .toc-num,
+.toc-link:hover .toc-num{
+  background:var(--c);
+  color:#fff;
+}
+.toc-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Content */
+.content{display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);min-width:0}
+
+.section{
+  scroll-margin-top:20px;
+  animation:fadeUp .5s ease both;
+}
+.section .card{
+  padding:clamp(20px,2.6vw,32px);
+  border-radius:18px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--hl);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.section .card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-soft),transparent 40%);
+  opacity:.5;pointer-events:none;
+}
+
+.section-head{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:14px;
+  position:relative;z-index:1;
+}
+.section-num{
+  width:38px;height:38px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  font-size:14px;font-weight:900;
+  font-variant-numeric:tabular-nums;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.section-head h2{
+  font-size:clamp(16px,3.5vw,20px);
+  font-weight:900;color:var(--t1);
+  line-height:1.25;
+  flex:1;
+}
+
+.section-body{
+  position:relative;z-index:1;
+  font-size:clamp(13px,3vw,14.5px);
+  line-height:1.85;
+  color:var(--t2);
+  font-weight:500;
+}
+.section-body p + p{margin-top:12px}
+.section-body strong{color:var(--c);font-weight:800}
+.section-body a{color:var(--c);text-decoration:underline;text-underline-offset:3px}
+.section-body a:hover{opacity:.8}
+
+.section-body ul{
+  margin:12px 0;
+  padding:0;
+  list-style:none;
+  display:flex;flex-direction:column;gap:8px;
+}
+.section-body ul li{
+  position:relative;
+  padding-inline-start:26px;
+  line-height:1.75;
+}
+.section-body ul li::before{
+  content:"";
+  position:absolute;
+  inset-inline-start:6px;
+  top:9px;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--c);
+  box-shadow:0 0 8px var(--c-glow);
+}
+
+.section-body .callout{
+  margin:14px 0;
+  padding:14px 16px;
+  border-radius:12px;
+  background:var(--c-soft);
+  border:1px solid var(--c-border);
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:clamp(12.5px,2.9vw,13.5px);
+  color:var(--t1);
+}
+.section-body .callout svg{
+  width:16px;height:16px;flex-shrink:0;margin-top:2px;
+  stroke:var(--c);fill:none;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* Cookie table */
+.cookie-table{
+  margin-top:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  background:var(--input-bg);
+}
+.cookie-row{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:10px;
+  padding:10px 14px;
+  font-size:clamp(11.5px,2.8vw,13px);
+  transition:background .2s ease;
+}
+.cookie-row:hover{background:var(--c-soft)}
+.cookie-row + .cookie-row{border-top:1px solid var(--border)}
+.cookie-row.head{
+  background:var(--c-soft);
+  color:var(--c);
+  font-weight:900;
+}
+.cookie-row .key{font-weight:700;color:var(--t1)}
+.cookie-row .val{color:var(--t3);font-weight:500}
+.cookie-row.head .key,
+.cookie-row.head .val{color:var(--c)}
+@media (max-width:400px){
+  .cookie-row{grid-template-columns:1fr;gap:4px}
+  .cookie-row.head{display:none}
+  .cookie-row .key{font-size:11.5px}
+  .cookie-row .key::before{content:"• ";color:var(--c)}
+}
+
+/* Share/copy buttons row on section */
+.section-actions{
+  display:flex;align-items:center;gap:6px;
+  position:absolute;
+  top:16px;inset-inline-end:16px;
+  z-index:2;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.section .card:hover .section-actions,
+.section-actions:focus-within{opacity:1}
+@media (hover:none){
+  .section-actions{opacity:.55}
+}
+.section-action{
+  width:30px;height:30px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--t3);
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .2s ease;
+  padding:0;
+}
+.section-action:hover{color:var(--c);border-color:var(--c);background:var(--c-soft)}
+.section-action:active{transform:scale(.95)}
+.section-action svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.section-action.copied{color:var(--success);border-color:var(--success)}
+
+/* back to top */
+.back-top{
+  position:fixed;
+  bottom:calc(env(safe-area-inset-bottom,0px) + 24px);
+  inset-inline-end:calc(env(safe-area-inset-right,0px) + 20px);
+  width:44px;height:44px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+  box-shadow:0 12px 28px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  z-index:100;
+  opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  padding:0;
+}
+.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-top:hover{transform:translateY(-3px);box-shadow:0 18px 38px -6px var(--c-glow)}
+.back-top:active{transform:translateY(0) scale(.94)}
+.back-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══ FOOTER ═══ */
+.footer{flex:0 0 auto;padding-top:clamp(8px,1.4vh,14px);text-align:center}
+.footer-copyright{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  font-size:clamp(10px,2.3vw,11.5px);color:var(--t4);font-weight:500;line-height:1.5;
+}
+.footer-copyright .developer-name{color:var(--c);font-weight:900;letter-spacing:.08em}
+.footer-copyright .dot-sep{color:var(--t4);opacity:.6}
+.footer-copyright a{color:var(--t3);transition:color .2s ease}
+.footer-copyright a:hover{color:var(--c)}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (min-width:700px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-right,0px) + clamp(28px,4vw,64px))
+      calc(env(safe-area-inset-bottom,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-left,0px) + clamp(28px,4vw,64px));
+  }
+  .hero{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    grid-template-areas:"orb text";
+    align-items:center;
+    text-align:start;
+    gap:clamp(20px,3vw,40px);
+    padding:8px 0;
+  }
+  .orb{
+    grid-area:orb;justify-self:center;margin-bottom:0;
+    width:clamp(110px,16vmin,150px);height:clamp(110px,16vmin,150px);
+  }
+  .hero-text{
+    grid-area:text;
+    display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  }
+  .title{font-size:clamp(28px,3.6vw,42px)}
+  .subtitle{font-size:clamp(13.5px,1.4vw,16px);text-align:start;margin:0}
+  .meta-row{justify-content:flex-start}
+  .layout{
+    grid-template-columns:minmax(200px,240px) 1fr;
+    gap:clamp(20px,2.6vw,36px);
+    align-items:start;
+  }
+  .toc{display:block}
+}
+
+@media (min-width:1200px){
+  .layout{max-width:min(1320px,100%);grid-template-columns:minmax(220px,260px) 1fr;gap:48px}
+  .title{font-size:clamp(36px,3.2vw,48px)}
+  .subtitle{font-size:clamp(14px,1.05vw,16.5px)}
+  .section .card{padding:clamp(26px,2.4vw,36px)}
+  .section-head h2{font-size:clamp(18px,1.5vw,22px)}
+  .section-num{width:44px;height:44px;font-size:16px;border-radius:13px}
+  .section-body{font-size:15px;line-height:1.9}
+  .toc-inner{padding:18px}
+  .toc-link{font-size:13px;padding:10px 12px}
+}
+
+@media (min-width:1800px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 44px)
+      calc(env(safe-area-inset-right,0px) + 96px)
+      calc(env(safe-area-inset-bottom,0px) + 44px)
+      calc(env(safe-area-inset-left,0px) + 96px);
+  }
+  .layout{max-width:min(1700px,100%);grid-template-columns:minmax(260px,320px) 1fr;gap:80px}
+  .orb{width:clamp(180px,14vmin,240px);height:clamp(180px,14vmin,240px)}
+  .title{font-size:clamp(52px,3vw,72px)}
+  .subtitle{font-size:clamp(18px,1vw,24px);max-width:60ch}
+  .badge{font-size:15px;padding:9px 20px}
+  .badge svg{width:16px;height:16px}
+  .brand-name{font-size:17px;letter-spacing:.28em}
+  .brand-tag{font-size:14px}
+  .brand-logo{width:48px;height:48px;border-radius:14px}
+  .ctrl{width:52px;height:52px;border-radius:14px}
+  .ctrl svg{width:22px;height:22px}
+  .lang-toggle{height:52px;border-radius:14px}
+  .lang-btn{font-size:14px;padding:0 16px;min-width:44px}
+  .color-btn .dot{width:22px;height:22px}
+  .section .card{padding:44px 48px;border-radius:24px}
+  .section-head h2{font-size:26px}
+  .section-num{width:56px;height:56px;font-size:20px;border-radius:16px}
+  .section-body{font-size:18px;line-height:2}
+  .toc-inner{padding:22px}
+  .toc-title{font-size:14px}
+  .toc-link{font-size:15px;padding:12px 14px}
+  .toc-num{min-width:24px;height:24px;font-size:12px}
+  .meta-pill{font-size:14px;padding:8px 16px}
+  .meta-pill svg{width:15px;height:15px}
+  .back-top{width:56px;height:56px}
+  .back-top svg{width:24px;height:24px}
+  .footer-copyright{font-size:14px}
+}
+
+@media (orientation:landscape) and (max-height:600px) and (max-width:900px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 8px)
+      calc(env(safe-area-inset-right,0px) + 18px)
+      calc(env(safe-area-inset-bottom,0px) + 8px)
+      calc(env(safe-area-inset-left,0px) + 18px);
+  }
+  .topbar{padding-bottom:6px}
+  .brand-logo{width:28px;height:28px;padding:4px;border-radius:8px}
+  .brand-name{font-size:11px;letter-spacing:.18em}
+  .brand-tag{font-size:9.5px}
+
+  .main{gap:8px;padding:0}
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    align-items:center;text-align:start;gap:16px;padding:0;
+  }
+  .orb{width:clamp(60px,11vh,90px);height:clamp(60px,11vh,90px);margin-bottom:0}
+  .hero-text{gap:4px}
+  .badge{padding:3px 9px;font-size:9.5px}
+  .title{font-size:clamp(18px,2.6vw,24px)}
+  .subtitle{font-size:clamp(10.5px,1.3vw,12px);line-height:1.4}
+  .meta-row{margin-top:2px}
+  .meta-pill{font-size:10px;padding:3px 9px}
+
+  .section .card{padding:12px 14px;border-radius:12px}
+  .section-head{gap:8px;margin-bottom:8px}
+  .section-num{width:26px;height:26px;font-size:11px;border-radius:8px}
+  .section-head h2{font-size:12px}
+  .section-body{font-size:11px;line-height:1.55}
+  .section-body p + p{margin-top:6px}
+  .section-body ul{gap:4px;margin:6px 0}
+  .section-body ul li{padding-inline-start:18px}
+  .section-body ul li::before{width:5px;height:5px;inset-inline-start:4px;top:7px}
+  .section-body .callout{padding:8px 10px;font-size:10.5px}
+
+  .footer{padding-top:4px}
+  .footer-copyright{font-size:9.5px}
+  .lang-toggle{height:34px;border-radius:10px}
+  .lang-btn{font-size:10px;padding:0 8px;min-width:26px}
+  .back-top{width:36px;height:36px;bottom:14px;inset-inline-end:14px}
+  .back-top svg{width:16px;height:16px}
+}
+
+@media (max-width:340px){
+  .orb{width:76px;height:76px}
+  .title{font-size:20px}
+  .subtitle{font-size:11.5px}
+  .badge{font-size:10px;padding:4px 10px}
+  .footer-copyright{font-size:10px}
+  .section .card{padding:16px}
+  .section-num{width:32px;height:32px;font-size:12px;border-radius:9px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  body::before,.orb-core,.orb .pulse,.orb-glow,.orbit{animation:none!important}
+  .main{scroll-behavior:auto}
+}
+
+@media print{
+  html,body{height:auto;position:static;overflow:visible;background:#fff !important;color:#000 !important}
+  body::before,body::after,.read-progress,.topbar,.footer,.back-top,.toc,.section-actions{display:none !important}
+  .shell{position:static;padding:0;display:block}
+  .main{display:block;padding:0;overflow:visible;max-width:none}
+  .layout{display:block}
+  .hero{display:block;text-align:start;padding:0;margin-bottom:14px}
+  .orb{display:none}
+  .title{background:none;-webkit-text-fill-color:#000;color:#000;font-size:24px}
+  .subtitle,.section-body{color:#333 !important}
+  .section .card{background:#fff !important;border:1px solid #999 !important;box-shadow:none;backdrop-filter:none;page-break-inside:avoid;margin-bottom:12px;padding:16px}
+  .section-num{background:#333 !important;box-shadow:none}
+  .section-body a{color:#000;text-decoration:underline}
+  .cookie-table{border:1px solid #999}
+  .cookie-row{border-top:1px solid #ddd}
+  @page{margin:12mm}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SVG SPRITE ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-cookie" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="ic-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
+    <symbol id="ic-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol>
+    <symbol id="ic-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></symbol>
+    <symbol id="ic-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- Reading progress -->
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<div class="shell" id="shell">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="ELLOUL">
+      <img src="./assets/images/logo.webp" alt="ELLOUL" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">ELLOUL</span>
+        <span class="brand-tag" data-i18n="brandTag">متجر أدوات المائدة</span>
+      </span>
+    </a>
+
+    <div class="topbar-controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang-btn="en" type="button" aria-label="English">EN</button>
+      </div>
+
+      <div class="color-picker-wrap">
+        <button class="ctrl color-btn" id="colorBtn" type="button" title="Color" aria-label="Color" aria-haspopup="true" aria-expanded="false">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu" role="menu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="Blue" role="menuitem"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="Purple" role="menuitem"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="Pink" role="menuitem"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="Rose" role="menuitem"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="Red" role="menuitem"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="Orange" role="menuitem"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="Amber" role="menuitem"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="Lime" role="menuitem"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="Green" role="menuitem"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="Teal" role="menuitem"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="Cyan" role="menuitem"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="Indigo" role="menuitem"></button>
+        </div>
+      </div>
+
+      <button class="ctrl theme-toggle" id="themeToggle" type="button" title="Theme" aria-label="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main" id="mainScroll">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb" aria-hidden="true">
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <div class="orb-glow"></div>
+        <div class="orb-core">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>
+        </div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+      </div>
+      <div class="hero-text">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-lock"/></svg>
+          <span data-i18n="badge">قانوني · ELLOUL</span>
+        </span>
+        <h1 class="title" data-i18n="title">سياسة الخصوصية والكوكيز</h1>
+        <p class="subtitle" data-i18n="subtitle">نحترم خصوصيتك ونحمي بياناتك. هذه الصفحة تشرح بوضوح كيف نجمع المعلومات،如何使用ها، وكيف نحميها.</p>
+        <div class="meta-row">
+          <span class="meta-pill">
+            <svg viewBox="0 0 24 24"><use href="#ic-clock"/></svg>
+            <span data-i18n="updated">آخر تحديث</span>:
+            <strong id="lastUpdated" dir="ltr">2026-10-08</strong>
+          </span>
+          <button class="meta-pill" id="printBtn" type="button" style="cursor:pointer">
+            <svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>
+            <span data-i18n="printBtn">طباعة / PDF</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYOUT: TOC + CONTENT -->
+    <div class="layout">
+
+      <!-- SIDEBAR TOC -->
+      <aside class="toc" id="toc" aria-label="Table of contents">
+        <div class="toc-inner">
+          <div class="toc-title">
+            <svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>
+            <span data-i18n="tocTitle">المحتويات</span>
+          </div>
+          <nav class="toc-nav" id="tocNav">
+            <a class="toc-link" href="#sec-1"><span class="toc-num">01</span><span class="toc-label" data-i18n="toc1">مقدمة</span></a>
+            <a class="toc-link" href="#sec-2"><span class="toc-num">02</span><span class="toc-label" data-i18n="toc2">البيانات التي نجمعها</span></a>
+            <a class="toc-link" href="#sec-3"><span class="toc-num">03</span><span class="toc-label" data-i18n="toc3">كيف نستخدم البيانات</span></a>
+            <a class="toc-link" href="#sec-4"><span class="toc-num">04</span><span class="toc-label" data-i18n="toc4">ملفات الكوكيز</span></a>
+            <a class="toc-link" href="#sec-5"><span class="toc-num">05</span><span class="toc-label" data-i18n="toc5">مشاركة البيانات</span></a>
+            <a class="toc-link" href="#sec-6"><span class="toc-num">06</span><span class="toc-label" data-i18n="toc6">أمان البيانات</span></a>
+            <a class="toc-link" href="#sec-7"><span class="toc-num">07</span><span class="toc-label" data-i18n="toc7">حقوقك</span></a>
+            <a class="toc-link" href="#sec-8"><span class="toc-num">08</span><span class="toc-label" data-i18n="toc8">خصوصية الأطفال</span></a>
+            <a class="toc-link" href="#sec-9"><span class="toc-num">09</span><span class="toc-label" data-i18n="toc9">تحديثات السياسة</span></a>
+            <a class="toc-link" href="#sec-10"><span class="toc-num">10</span><span class="toc-label" data-i18n="toc10">تواصل معنا</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- 01 مقدمة -->
+        <section class="section" id="sec-1">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-1" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">01</span>
+              <h2 data-i18n="h1">مقدمة</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p1">مرحباً بك في <strong>ELLOUL</strong>. نحن ملتزمون بحماية خصوصيتك والحفاظ على أمان بياناتك الشخصية. توضّح هذه السياسة كيفية جمعنا للمعلومات واستخدامها وحمايتها عند زيارتك لموقعنا أو استخدامك لخدماتنا.</p>
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout1">باستخدامك لموقعنا، فإنك توافق على الممارسات الموضّحة في هذه السياسة. إذا كنت لا توافق، يُرجى التوقف عن استخدام الموقع.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02 البيانات التي نجمعها -->
+        <section class="section" id="sec-2">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-2" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">02</span>
+              <h2 data-i18n="h2">البيانات التي نجمعها</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p2">نجمع نوعين من المعلومات عند استخدامك للموقع:</p>
+              <ul>
+                <li><strong data-i18n="p2li1Strong">معلومات تُقدّمها بنفسك:</strong> <span data-i18n="p2li1">الاسم، رقم الهاتف، عنوان التوصيل، والبريد الإلكتروني عند إتمام طلب.</span></li>
+                <li><strong data-i18n="p2li2Strong">معلومات تلقائية:</strong> <span data-i18n="p2li2">نوع الجهاز، المتصفح، عنوان IP، والصفحات التي تزورها — تُستخدم لتحسين تجربتك فقط.</span></li>
+              </ul>
+              <p data-i18n="p2b">لا نطلب أبداً معلومات حساسة مثل بيانات البطاقات البنكية لأننا نعتمد على الدفع عند الاستلام أو التحويل المباشر.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03 كيف نستخدم البيانات -->
+        <section class="section" id="sec-3">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-3" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">03</span>
+              <h2 data-i18n="h3">كيف نستخدم بياناتك</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p3">نستخدم معلوماتك للأغراض التالية فقط:</p>
+              <ul>
+                <li data-i18n="p3li1">تنفيذ طلباتك وتوصيلها إلى العنوان الصحيح.</li>
+                <li data-i18n="p3li2">التواصل معك بشأن حالة الطلب أو تأكيد التفاصيل.</li>
+                <li data-i18n="p3li3">تحسين جودة خدماتنا وتجربة التسوق.</li>
+                <li data-i18n="p3li4">إرسال عروض خاصة (فقط بموافقتك المسبقة).</li>
+                <li data-i18n="p3li5">الامتثال للمتطلبات القانونية عند الحاجة.</li>
+              </ul>
+              <p data-i18n="p3b">لا نستخدم بياناتك لأي غرض آخر، ولا نبيعها أو نؤجّرها لأي طرف ثالث.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 ملفات الكوكيز -->
+        <section class="section" id="sec-4">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-4" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">04</span>
+              <h2 data-i18n="h4">ملفات الكوكيز</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p4">ملفات الكوكيز هي ملفات نصية صغيرة تُخزّن في متصفحك لتذكّر تفضيلاتك وتحسين تجربتك. نستخدم الأنواع التالية:</p>
+
+              <div class="cookie-table">
+                <div class="cookie-row head">
+                  <span class="key" data-i18n="ckType">النوع</span>
+                  <span class="val" data-i18n="ckPurpose">الغرض</span>
+                </div>
+                <div class="cookie-row">
+                  <span class="key" data-i18n="ck1">أساسية</span>
+                  <span class="val" data-i18n="ck1v">حفظ سلة التسوق وتفضيلات المظهر</span>
+                </div>
+                <div class="cookie-row">
+                  <span class="key" data-i18n="ck2">الأداء</span>
+                  <span class="val" data-i18n="ck2v">قياس سرعة الموقع وتحسينها</span>
+                </div>
+                <div class="cookie-row">
+                  <span class="key" data-i18n="ck3">التحليلات</span>
+                  <span class="val" data-i18n="ck3v">فهم سلوك الزوار لتحسين المحتوى</span>
+                </div>
+                <div class="cookie-row">
+                  <span class="key" data-i18n="ck4">التفضيلات</span>
+                  <span class="val" data-i18n="ck4v">تذكّر اللغة واللون المختار</span>
+                </div>
+              </div>
+
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout4">يمكنك تعطيل الكوكيز من إعدادات متصفحك في أي وقت، لكن قد تتأثر بعض الوظائف الأساسية للموقع.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 مشاركة البيانات -->
+        <section class="section" id="sec-5">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-5" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">05</span>
+              <h2 data-i18n="h5">مشاركة البيانات مع أطراف ثالثة</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p5">نشارك بياناتك فقط مع الشركاء الضروريين لإتمام طلبك، مثل:</p>
+              <ul>
+                <li data-i18n="p5li1"><strong>شركات الشحن</strong> — لتوصيل الطلب إلى عنوانك.</li>
+                <li data-i18n="p5li2"><strong>واتساب</strong> — عند تواصلك معنا عبر زر واتساب (تخضع لسياسة واتساب).</li>
+                <li data-i18n="p5li3"><strong>Firebase</strong> — لتخزين البيانات بشكل آمن (تابع لـ Google).</li>
+              </ul>
+              <p data-i18n="p5b">نلتزم بعدم بيع أو تأجير بياناتك لأي غرض تجاري.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 أمان البيانات -->
+        <section class="section" id="sec-6">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-6" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">06</span>
+              <h2 data-i18n="h6">أمان البيانات</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p6">نستخدم معايير أمان متقدمة لحماية بياناتك:</p>
+              <ul>
+                <li data-i18n="p6li1">اتصال مشفّر <strong>HTTPS</strong> على كل صفحات الموقع.</li>
+                <li data-i18n="p6li2">تخزين آمن على بنية Firebase من Google.</li>
+                <li data-i18n="p6li3">وصول محدود للبيانات — فقط فريق ELLOUL المصرّح له.</li>
+                <li data-i18n="p6li4">مراقبة منتظمة لأي نشاط غير معتاد.</li>
+              </ul>
+              <p data-i18n="p6b">رغم ذلك، لا يمكن ضمان أمان أي نظام بنسبة 100%. ننصحك بعدم مشاركة بياناتك الحساسة مع أي طرف غير موثوق.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 07 حقوقك -->
+        <section class="section" id="sec-7">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-7" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">07</span>
+              <h2 data-i18n="h7">حقوقك</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p7">لديك الحقوق التالية بخصوص بياناتك:</p>
+              <ul>
+                <li data-i18n="p7li1"><strong>الوصول:</strong> طلب نسخة من بياناتك المحفوظة لدينا.</li>
+                <li data-i18n="p7li2"><strong>التصحيح:</strong> تعديل أي معلومة غير دقيقة.</li>
+                <li data-i18n="p7li3"><strong>الحذف:</strong> طلب حذف بياناتك نهائياً.</li>
+                <li data-i18n="p7li4"><strong>الاعتراض:</strong> رفض استخدام بياناتك لأغراض تسويقية.</li>
+              </ul>
+              <p data-i18n="p7b">لتفعيل أي من هذه الحقوق، تواصل معنا عبر البريد: <a href="mailto:orders@elloul.store">orders@elloul.store</a> وسنستجيب خلال 7 أيام عمل.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 08 خصوصية الأطفال -->
+        <section class="section" id="sec-8">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-8" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">08</span>
+              <h2 data-i18n="h8">خصوصية الأطفال</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p8">خدماتنا موجّهة للبالغين (18 سنة أو أكثر). لا نجمع بيانات من الأطفال عن قصد. إذا اكتشفنا أن طفلاً قام بتقديم بيانات دون موافقة ولي الأمر، سنحذفها فوراً.</p>
+              <p data-i18n="p8b">إذا كنت والداً أو ولياً وترغب في حذف بيانات طفلك، تواصل معنا فوراً.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 09 تحديثات السياسة -->
+        <section class="section" id="sec-9">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-9" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">09</span>
+              <h2 data-i18n="h9">تحديثات السياسة</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p9">قد نقوم بتحديث سياسة الخصوصية من وقت لآخر لمواكبة التغييرات في القوانين أو الخدمات. عند إجراء تحديثات جوهرية، سننشر إشعاراً واضحاً على الموقع.</p>
+              <p data-i18n="p9b">آخر تحديث لهذه السياسة: <strong id="lastUpdatedInline" dir="ltr">2026-10-08</strong>. ننصحك بمراجعة هذه الصفحة دورياً للاطلاع على أي تغييرات.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 تواصل معنا -->
+        <section class="section" id="sec-10">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-10" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">10</span>
+              <h2 data-i18n="h10">تواصل معنا</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p10">لأي استفسار بخصوص سياسة الخصوصية أو بياناتك، يمكنك التواصل معنا عبر:</p>
+              <ul>
+                <li data-i18n="p10li1"><strong>البريد الإلكتروني:</strong> <a href="mailto:orders@elloul.store">orders@elloul.store</a></li>
+                <li data-i18n="p10li2"><strong>واتساب:</strong> <a href="https://wa.me/201206796831" target="_blank" rel="noopener">+20 120 679 6831</a></li>
+                <li data-i18n="p10li3"><strong>هاتف:</strong> <a href="tel:+201206796831" dir="ltr">+20 120 679 6831</a></li>
+              </ul>
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+                <span data-i18n="callout10">نستجيب لجميع طلبات الخصوصية خلال 7 أيام عمل كحد أقصى.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <p class="footer-copyright">
+      <span data-i18n="footerDesigned">متجر إلكتروني من تصميم وتطوير</span>
+      <span class="developer-name">ELLOUL</span>
+      <span class="dot-sep">·</span>
+      <span data-i18n="footerRights">&copy; 2026 جميع الحقوق محفوظة</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><use href="#ic-arrow-up"/></svg>
+</button>
+
+<!-- ═══ I18N ═══ -->
+<script>
+window.I18N = {
+  ar: {
+    pageTitle:'سياسة الخصوصية والكوكيز · ELLOUL',
+    brandTag:'متجر أدوات المائدة',
+    badge:'قانوني · ELLOUL',
+    title:'سياسة الخصوصية والكوكيز',
+    subtitle:'نحترم خصوصيتك ونحمي بياناتك. هذه الصفحة تشرح بوضوح كيف نجمع المعلومات،如何使用ها، وكيف نحميها.',
+    updated:'آخر تحديث',
+    printBtn:'طباعة / PDF',
+    tocTitle:'المحتويات',
+    toc1:'مقدمة',
+    toc2:'البيانات التي نجمعها',
+    toc3:'كيف نستخدم البيانات',
+    toc4:'ملفات الكوكيز',
+    toc5:'مشاركة البيانات',
+    toc6:'أمان البيانات',
+    toc7:'حقوقك',
+    toc8:'خصوصية الأطفال',
+    toc9:'تحديثات السياسة',
+    toc10:'تواصل معنا',
+    h1:'مقدمة',
+    p1:'مرحباً بك في <strong>ELLOUL</strong>. نحن ملتزمون بحماية خصوصيتك والحفاظ على أمان بياناتك الشخصية. توضّح هذه السياسة كيفية جمعنا للمعلومات واستخدامها وحمايتها عند زيارتك لموقعنا أو استخدامك لخدماتنا.',
+    callout1:'باستخدامك لموقعنا، فإنك توافق على الممارسات الموضّحة في هذه السياسة. إذا كنت لا توافق، يُرجى التوقف عن استخدام الموقع.',
+    h2:'البيانات التي نجمعها',
+    p2:'نجمع نوعين من المعلومات عند استخدامك للموقع:',
+    p2li1Strong:'معلومات تُقدّمها بنفسك:',
+    p2li1:'الاسم، رقم الهاتف، عنوان التوصيل، والبريد الإلكتروني عند إتمام طلب.',
+    p2li2Strong:'معلومات تلقائية:',
+    p2li2:'نوع الجهاز، المتصفح، عنوان IP، والصفحات التي تزورها — تُستخدم لتحسين تجربتك فقط.',
+    p2b:'لا نطلب أبداً معلومات حساسة مثل بيانات البطاقات البنكية لأننا نعتمد على الدفع عند الاستلام أو التحويل المباشر.',
+    h3:'كيف نستخدم بياناتك',
+    p3:'نستخدم معلوماتك للأغراض التالية فقط:',
+    p3li1:'تنفيذ طلباتك وتوصيلها إلى العنوان الصحيح.',
+    p3li2:'التواصل معك بشأن حالة الطلب أو تأكيد التفاصيل.',
+    p3li3:'تحسين جودة خدماتنا وتجربة التسوق.',
+    p3li4:'إرسال عروض خاصة (فقط بموافقتك المسبقة).',
+    p3li5:'الامتثال للمتطلبات القانونية عند الحاجة.',
+    p3b:'لا نستخدم بياناتك لأي غرض آخر، ولا نبيعها أو نؤجّرها لأي طرف ثالث.',
+    h4:'ملفات الكوكيز',
+    p4:'ملفات الكوكيز هي ملفات نصية صغيرة تُخزّن في متصفحك لتذكّر تفضيلاتك وتحسين تجربتك. نستخدم الأنواع التالية:',
+    ckType:'النوع',
+    ckPurpose:'الغرض',
+    ck1:'أساسية',
+    ck1v:'حفظ سلة التسوق وتفضيلات المظهر',
+    ck2:'الأداء',
+    ck2v:'قياس سرعة الموقع وتحسينها',
+    ck3:'التحليلات',
+    ck3v:'فهم سلوك الزوار لتحسين المحتوى',
+    ck4:'التفضيلات',
+    ck4v:'تذكّر اللغة واللون المختار',
+    callout4:'يمكنك تعطيل الكوكيز من إعدادات متصفحك في أي وقت، لكن قد تتأثر بعض الوظائف الأساسية للموقع.',
+    h5:'مشاركة البيانات مع أطراف ثالثة',
+    p5:'نشارك بياناتك فقط مع الشركاء الضروريين لإتمام طلبك، مثل:',
+    p5li1:'<strong>شركات الشحن</strong> — لتوصيل الطلب إلى عنوانك.',
+    p5li2:'<strong>واتساب</strong> — عند تواصلك معنا عبر زر واتساب (تخضع لسياسة واتساب).',
+    p5li3:'<strong>Firebase</strong> — لتخزين البيانات بشكل آمن (تابع لـ Google).',
+    p5b:'نلتزم بعدم بيع أو تأجير بياناتك لأي غرض تجاري.',
+    h6:'أمان البيانات',
+    p6:'نستخدم معايير أمان متقدمة لحماية بياناتك:',
+    p6li1:'اتصال مشفّر <strong>HTTPS</strong> على كل صفحات الموقع.',
+    p6li2:'تخزين آمن على بنية Firebase من Google.',
+    p6li3:'وصول محدود للبيانات — فقط فريق ELLOUL المصرّح له.',
+    p6li4:'مراقبة منتظمة لأي نشاط غير معتاد.',
+    p6b:'رغم ذلك، لا يمكن ضمان أمان أي نظام بنسبة 100%. ننصحك بعدم مشاركة بياناتك الحساسة مع أي طرف غير موثوق.',
+    h7:'حقوقك',
+    p7:'لديك الحقوق التالية بخصوص بياناتك:',
+    p7li1:'<strong>الوصول:</strong> طلب نسخة من بياناتك المحفوظة لدينا.',
+    p7li2:'<strong>التصحيح:</strong> تعديل أي معلومة غير دقيقة.',
+    p7li3:'<strong>الحذف:</strong> طلب حذف بياناتك نهائياً.',
+    p7li4:'<strong>الاعتراض:</strong> رفض استخدام بياناتك لأغراض تسويقية.',
+    p7b:'لتفعيل أي من هذه الحقوق، تواصل معنا عبر البريد: orders@elloul.store وسنستجيب خلال 7 أيام عمل.',
+    h8:'خصوصية الأطفال',
+    p8:'خدماتنا موجّهة للبالغين (18 سنة أو أكثر). لا نجمع بيانات من الأطفال عن قصد. إذا اكتشفنا أن طفلاً قام بتقديم بيانات دون موافقة ولي الأمر، سنحذفها فوراً.',
+    p8b:'إذا كنت والداً أو ولياً وترغب في حذف بيانات طفلك، تواصل معنا فوراً.',
+    h9:'تحديثات السياسة',
+    p9:'قد نقوم بتحديث سياسة الخصوصية من وقت لآخر لمواكبة التغييرات في القوانين أو الخدمات. عند إجراء تحديثات جوهرية، سننشر إشعاراً واضحاً على الموقع.',
+    p9b:'آخر تحديث لهذه السياسة: 2026-10-08. ننصحك بمراجعة هذه الصفحة دورياً للاطلاع على أي تغييرات.',
+    h10:'تواصل معنا',
+    p10:'لأي استفسار بخصوص سياسة الخصوصية أو بياناتك، يمكنك التواصل معنا عبر:',
+    p10li1:'<strong>البريد الإلكتروني:</strong> orders@elloul.store',
+    p10li2:'<strong>واتساب:</strong> +20 120 679 6831',
+    p10li3:'<strong>هاتف:</strong> +20 120 679 6831',
+    callout10:'نستجيب لجميع طلبات الخصوصية خلال 7 أيام عمل كحد أقصى.',
+    copied:'✓ تم نسخ الرابط',
+    copyErr:'تعذّر النسخ',
+    footerDesigned:'متجر إلكتروني من تصميم وتطوير',
+    footerRights:'© 2026 جميع الحقوق محفوظة'
+  },
+  en: {
+    pageTitle:'Privacy & Cookie Policy · ELLOUL',
+    brandTag:'Tableware Store',
+    badge:'Legal · ELLOUL',
+    title:'Privacy & Cookie Policy',
+    subtitle:'We respect your privacy and protect your data. This page clearly explains how we collect information, use it, and keep it safe.',
+    updated:'Last updated',
+    printBtn:'Print / PDF',
+    tocTitle:'Contents',
+    toc1:'Introduction',
+    toc2:'Data We Collect',
+    toc3:'How We Use Data',
+    toc4:'Cookies',
+    toc5:'Data Sharing',
+    toc6:'Data Security',
+    toc7:'Your Rights',
+    toc8:'Children\'s Privacy',
+    toc9:'Policy Updates',
+    toc10:'Contact Us',
+    h1:'Introduction',
+    p1:'Welcome to <strong>ELLOUL</strong>. We are committed to protecting your privacy and keeping your personal data safe. This policy explains how we collect, use, and protect your information when you visit our site or use our services.',
+    callout1:'By using our site, you agree to the practices described in this policy. If you disagree, please stop using the site.',
+    h2:'Data We Collect',
+    p2:'We collect two types of information when you use our site:',
+    p2li1Strong:'Information you provide:',
+    p2li1:'Name, phone number, delivery address, and email when completing an order.',
+    p2li2Strong:'Automatic information:',
+    p2li2:'Device type, browser, IP address, and pages you visit — used only to improve your experience.',
+    p2b:'We never request sensitive information such as bank card data, because we rely on cash on delivery or direct transfer.',
+    h3:'How We Use Your Data',
+    p3:'We use your information only for the following purposes:',
+    p3li1:'Fulfilling your orders and delivering them to the correct address.',
+    p3li2:'Contacting you about your order or confirming details.',
+    p3li3:'Improving the quality of our services and shopping experience.',
+    p3li4:'Sending special offers (only with your prior consent).',
+    p3li5:'Complying with legal requirements when necessary.',
+    p3b:'We do not use your data for any other purpose, and we never sell or rent it to third parties.',
+    h4:'Cookies',
+    p4:'Cookies are small text files stored in your browser to remember your preferences and improve your experience. We use the following types:',
+    ckType:'Type',
+    ckPurpose:'Purpose',
+    ck1:'Essential',
+    ck1v:'Saving cart and appearance preferences',
+    ck2:'Performance',
+    ck2v:'Measuring and improving site speed',
+    ck3:'Analytics',
+    ck3v:'Understanding visitor behavior to improve content',
+    ck4:'Preferences',
+    ck4v:'Remembering your chosen language and color',
+    callout4:'You can disable cookies from your browser settings at any time, but some essential features may be affected.',
+    h5:'Sharing Data with Third Parties',
+    p5:'We share your data only with essential partners needed to complete your order, such as:',
+    p5li1:'<strong>Shipping companies</strong> — to deliver your order to your address.',
+    p5li2:'<strong>WhatsApp</strong> — when you contact us via the WhatsApp button (subject to WhatsApp policy).',
+    p5li3:'<strong>Firebase</strong> — for secure data storage (a Google service).',
+    p5b:'We are committed to never selling or renting your data for any commercial purpose.',
+    h6:'Data Security',
+    p6:'We use advanced security standards to protect your data:',
+    p6li1:'Encrypted <strong>HTTPS</strong> connection on all site pages.',
+    p6li2:'Secure storage on Google\'s Firebase infrastructure.',
+    p6li3:'Limited data access — only authorized ELLOUL team members.',
+    p6li4:'Regular monitoring for any unusual activity.',
+    p6b:'However, no system can be 100% guaranteed. We advise you not to share sensitive data with any untrusted party.',
+    h7:'Your Rights',
+    p7:'You have the following rights regarding your data:',
+    p7li1:'<strong>Access:</strong> request a copy of your stored data.',
+    p7li2:'<strong>Correction:</strong> fix any inaccurate information.',
+    p7li3:'<strong>Deletion:</strong> request permanent deletion of your data.',
+    p7li4:'<strong>Objection:</strong> refuse the use of your data for marketing purposes.',
+    p7b:'To exercise any of these rights, contact us at: orders@elloul.store and we will respond within 7 business days.',
+    h8:'Children\'s Privacy',
+    p8:'Our services are intended for adults (18+). We do not knowingly collect data from children. If we discover that a child has provided data without parental consent, we will delete it immediately.',
+    p8b:'If you are a parent or guardian wishing to delete your child\'s data, contact us immediately.',
+    h9:'Policy Updates',
+    p9:'We may update the privacy policy from time to time to keep pace with changes in laws or services. When we make significant updates, we will post a clear notice on the site.',
+    p9b:'Last updated: 2026-10-08. We recommend reviewing this page periodically for any changes.',
+    h10:'Contact Us',
+    p10:'For any inquiry about the privacy policy or your data, you can reach us via:',
+    p10li1:'<strong>Email:</strong> orders@elloul.store',
+    p10li2:'<strong>WhatsApp:</strong> +20 120 679 6831',
+    p10li3:'<strong>Phone:</strong> +20 120 679 6831',
+    callout10:'We respond to all privacy requests within 7 business days maximum.',
+    copied:'✓ Link copied',
+    copyErr:'Copy failed',
+    footerDesigned:'E-commerce store designed and developed by',
+    footerRights:'© 2026 All rights reserved'
+  }
+};
+window.I18N.current = function(){
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  return window.I18N[lang] || window.I18N.ar;
+};
+window.I18N.apply = function(){
+  var dict = window.I18N.current();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key]){
+      if(dict[key].indexOf('<') !== -1) el.innerHTML = dict[key];
+      else el.textContent = dict[key];
+    }
+  });
+  document.title = dict.pageTitle || document.title;
+};
+</script>
+
+<!-- ═══ THEME + COLOR + LANG ═══ -->
+<script>
+(function(){
+  'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var VALID=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var html=document.documentElement;
+  var BAR={blue:{dark:'#0a1229',light:'#3b82f6'},purple:{dark:'#1e0a3d',light:'#a855f7'},pink:{dark:'#33061f',light:'#ec4899'},rose:{dark:'#33061a',light:'#f43f5e'},red:{dark:'#2c0a0a',light:'#ef4444'},orange:{dark:'#2c1405',light:'#f97316'},amber:{dark:'#2c1f05',light:'#f59e0b'},lime:{dark:'#1a2c05',light:'#84cc16'},green:{dark:'#052c20',light:'#10b981'},teal:{dark:'#052925',light:'#14b8a6'},cyan:{dark:'#05252e',light:'#06b6d4'},indigo:{dark:'#141640',light:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  function getTheme(){return g(TK,html.getAttribute('data-theme')||'dark')}
+  function getColor(){var c=g(CK,html.getAttribute('data-color')||'blue');return VALID.indexOf(c)===-1?'blue':c}
+  function syncMeta(){var bc=BAR[getColor()]?BAR[getColor()][getTheme()]:null;if(bc){var m=document.getElementById('themeColorMeta');if(m)m.setAttribute('content',bc)}}
+  syncMeta();
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var l=btn.getAttribute('data-lang-btn');
+        if(l!=='ar'&&l!=='en')return;
+        try{localStorage.setItem(LK,l)}catch(e){}
+        html.setAttribute('data-lang',l);
+        html.setAttribute('lang',l);
+        html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+        window.I18N.apply();
+      });
+    });
+
+    var tt=document.getElementById('themeToggle');
+    if(tt)tt.addEventListener('click',function(){
+      var next=getTheme()==='dark'?'light':'dark';
+      try{localStorage.setItem(TK,next)}catch(e){}
+      html.setAttribute('data-theme',next);syncMeta();
+    });
+
+    var cb=document.getElementById('colorBtn'),cm=document.getElementById('colorMenu');
+    var sw=document.querySelectorAll('.color-swatch');
+    sw.forEach(function(s){s.classList.toggle('active',s.dataset.color===getColor())});
+    function setOpen(o){if(!cm||!cb)return;cm.classList.toggle('open',o);cb.setAttribute('aria-expanded',o?'true':'false')}
+    if(cb&&cm){
+      cb.addEventListener('click',function(e){e.stopPropagation();setOpen(!cm.classList.contains('open'))});
+      sw.forEach(function(s){s.addEventListener('click',function(e){
+        e.stopPropagation();
+        var c=s.dataset.color;if(VALID.indexOf(c)===-1)return;
+        try{localStorage.setItem(CK,c)}catch(e){}
+        sw.forEach(function(x){x.classList.remove('active')});
+        s.classList.add('active');
+        html.setAttribute('data-color',c);syncMeta();
+        setTimeout(function(){setOpen(false)},200);
+      })});
+      document.addEventListener('click',function(e){
+        if(cm.classList.contains('open')&&!cm.contains(e.target)&&!cb.contains(e.target))setOpen(false);
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    }
+
+    window.I18N.apply();
+  });
+
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){html.setAttribute('data-theme',getTheme());syncMeta()}
+    if(e.key===CK){html.setAttribute('data-color',getColor());syncMeta()}
+    if(e.key===LK){
+      var l=e.newValue==='en'?'en':'ar';
+      html.setAttribute('data-lang',l);html.setAttribute('lang',l);html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      window.I18N.apply();
+    }
+  });
+})();
+</script>
+
+<!-- ═══ PRIVACY PAGE LOGIC ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  var mainEl      = document.getElementById('mainScroll');
+  var progressEl  = document.getElementById('readProgress');
+  var tocNav      = document.getElementById('tocNav');
+  var tocLinks    = tocNav ? tocNav.querySelectorAll('.toc-link') : [];
+  var backTop     = document.getElementById('backTop');
+  var printBtn    = document.getElementById('printBtn');
+  var sections    = document.querySelectorAll('.section[id]');
+
+  function t(k){ var d=window.I18N.current(); return d[k]||k; }
+
+  /* ═══ Reading progress ═══ */
+  function updateProgress(){
+    var scrollTop = mainEl.scrollTop;
+    var maxScroll = mainEl.scrollHeight - mainEl.clientHeight;
+    var pct = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+    progressEl.style.width = pct + '%';
+
+    /* back-to-top visibility */
+    if(scrollTop > 400) backTop.classList.add('visible');
+    else backTop.classList.remove('visible');
+  }
+
+  /* ═══ Scroll spy ═══ */
+  function updateActiveTOC(){
+    var fromTop = mainEl.scrollTop + 120;
+    var current = null;
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= fromTop) current = sec.id;
+    });
+    if(!current && sections.length) current = sections[0].id;
+    tocLinks.forEach(function(link){
+      var isActive = link.getAttribute('href') === '#' + current;
+      link.classList.toggle('active', isActive);
+    });
+  }
+
+  mainEl.addEventListener('scroll', function(){
+    updateProgress();
+    updateActiveTOC();
+  }, { passive: true });
+
+  /* ═══ Smooth scroll for TOC ═══ */
+  tocLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = link.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if(!target) return;
+      var offset = target.offsetTop - 20;
+      mainEl.scrollTo({ top: offset, behavior: 'smooth' });
+
+      /* update URL without jump */
+      try{ history.replaceState(null, '', '#' + id); }catch(err){}
+    });
+  });
+
+  /* ═══ Deep link on load ═══ */
+  (function(){
+    var hash = location.hash.slice(1);
+    if(!hash) return;
+    var target = document.getElementById(hash);
+    if(!target) return;
+    setTimeout(function(){
+      var offset = target.offsetTop - 20;
+      mainEl.scrollTo({ top: offset, behavior: 'auto' });
+    }, 300);
+  })();
+
+  /* ═══ Back to top ═══ */
+  backTop.addEventListener('click', function(){
+    mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ═══ Print ═══ */
+  printBtn.addEventListener('click', function(){
+    setTimeout(function(){ window.print(); }, 120);
+  });
+
+  /* ═══ Copy section link ═══ */
+  document.querySelectorAll('[data-copy-section]').forEach(function(btn){
+    btn.addEventListener('click', async function(e){
+      e.preventDefault();
+      var id = btn.getAttribute('data-copy-section');
+      var url = location.origin + location.pathname + '#' + id;
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(url);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.cssText = 'position:fixed;top:-1000px;opacity:0;';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        btn.classList.add('copied');
+        showToast(t('copied'));
+        setTimeout(function(){ btn.classList.remove('copied'); }, 1800);
+      }catch(err){
+        showToast(t('copyErr'), 'error');
+      }
+    });
+  });
+
+  /* ═══ Toast ═══ */
+  function showToast(msg, type){
+    var el = document.createElement('div');
+    el.style.cssText =
+      'position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);' +
+      'left:50%;transform:translateX(-50%) translateY(20px);' +
+      'padding:12px 20px;border-radius:999px;' +
+      'background:var(--surface-2);backdrop-filter:blur(24px) saturate(180%);' +
+      '-webkit-backdrop-filter:blur(24px) saturate(180%);' +
+      'border:1px solid var(--border-2);' +
+      'color:var(--t1);font-size:13px;font-weight:700;' +
+      'box-shadow:0 20px 40px rgba(0,0,0,.4);' +
+      'z-index:10001;opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);' +
+      'max-width:90vw;text-align:center;pointer-events:none;';
+    if(type === 'error') el.style.color = 'var(--danger)';
+    else el.style.color = 'var(--success)';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    requestAnimationFrame(function(){
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(-50%) translateY(0)';
+    });
+    setTimeout(function(){
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(function(){ el.remove(); }, 400);
+    }, 2200);
+  }
+
+  /* ═══ Last updated date ═══ */
+  (function(){
+    var d = '2026-10-08';
+    var el1 = document.getElementById('lastUpdated');
+    var el2 = document.getElementById('lastUpdatedInline');
+    if(el1) el1.textContent = d;
+    if(el2) el2.textContent = d;
+  })();
+
+  /* ═══ Init ═══ */
+  updateProgress();
+  updateActiveTOC();
+
+})();
+</script>
+
+</body>
+</html>

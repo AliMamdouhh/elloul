@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a1229" id="themeColorMeta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" id="appleStatusBar">
+<meta name="apple-mobile-web-app-title" content="ELLOUL">
+<meta name="application-name" content="ELLOUL">
+<title data-i18n="pageTitle">اتصل بنا · ELLOUL</title>
+<meta name="description" content="تواصل مع ELLOUL — واتساب، هاتف، بريد إلكتروني. الأسئلة الشائعة، ساعات العمل، والعنوان في كفر الدوار.">
+<link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+(function(){'use strict';
+var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+var h=document.documentElement;
+var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+var c=g(CK,'blue');if(V.indexOf(c)===-1)c='blue';
+var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+function a(){
+  h.setAttribute('data-theme',t);
+  h.setAttribute('data-color',c);
+  h.setAttribute('data-lang',l);
+  h.setAttribute('lang',l);
+  h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+  if(bc){
+    var m=document.getElementById('themeColorMeta');
+    if(m)m.setAttribute('content',bc);
+    var ap=document.getElementById('appleStatusBar');
+    if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+  }
+}
+a();
+window.addEventListener('storage',function(e){
+  if(e.key===TK){t=e.newValue||'dark';a()}
+  if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'blue';a()}
+  if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+});
+if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+  try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+});
+})();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{height:100vh;height:100dvh;overflow:hidden;position:fixed;inset:0}
+
+/* ═══ 12 PALETTES ═══ */
+[data-color="blue"]  {--c:#3b82f6;--c2:#60a5fa;--c-soft:rgba(59,130,246,.14);--c-border:rgba(59,130,246,.32);--c-glow:rgba(59,130,246,.5)}
+[data-color="purple"]{--c:#a855f7;--c2:#c084fc;--c-soft:rgba(168,85,247,.14);--c-border:rgba(168,85,247,.32);--c-glow:rgba(168,85,247,.5)}
+[data-color="pink"]  {--c:#ec4899;--c2:#f472b6;--c-soft:rgba(236,72,153,.14);--c-border:rgba(236,72,153,.32);--c-glow:rgba(236,72,153,.5)}
+[data-color="rose"]  {--c:#f43f5e;--c2:#fb7185;--c-soft:rgba(244,63,94,.14);--c-border:rgba(244,63,94,.32);--c-glow:rgba(244,63,94,.5)}
+[data-color="red"]   {--c:#ef4444;--c2:#f87171;--c-soft:rgba(239,68,68,.14);--c-border:rgba(239,68,68,.32);--c-glow:rgba(239,68,68,.5)}
+[data-color="orange"]{--c:#f97316;--c2:#fb923c;--c-soft:rgba(249,115,22,.14);--c-border:rgba(249,115,22,.32);--c-glow:rgba(249,115,22,.5)}
+[data-color="amber"] {--c:#d97706;--c2:#f59e0b;--c-soft:rgba(217,119,6,.16);--c-border:rgba(217,119,6,.35);--c-glow:rgba(217,119,6,.5)}
+[data-color="lime"]  {--c:#84cc16;--c2:#a3e635;--c-soft:rgba(132,204,22,.14);--c-border:rgba(132,204,22,.32);--c-glow:rgba(132,204,22,.5)}
+[data-color="green"] {--c:#10b981;--c2:#34d399;--c-soft:rgba(16,185,129,.14);--c-border:rgba(16,185,129,.32);--c-glow:rgba(16,185,129,.5)}
+[data-color="teal"]  {--c:#14b8a6;--c2:#2dd4bf;--c-soft:rgba(20,184,166,.14);--c-border:rgba(20,184,166,.32);--c-glow:rgba(20,184,166,.5)}
+[data-color="cyan"]  {--c:#06b6d4;--c2:#22d3ee;--c-soft:rgba(6,182,212,.14);--c-border:rgba(6,182,212,.32);--c-glow:rgba(6,182,212,.5)}
+[data-color="indigo"]{--c:#6366f1;--c2:#818cf8;--c-soft:rgba(99,102,241,.14);--c-border:rgba(99,102,241,.32);--c-glow:rgba(99,102,241,.5)}
+
+/* ═══ THEMES ═══ */
+[data-theme="dark"]{
+  --bg:#080a18;
+  --surface:rgba(20,25,45,.55);
+  --surface-2:rgba(28,35,60,.78);
+  --input-bg:rgba(12,16,32,.6);
+  --input-bg-2:rgba(18,23,42,.78);
+  --border:rgba(220,230,255,.08);
+  --border-2:rgba(220,230,255,.16);
+  --t1:#f5f7ff;--t2:rgba(245,247,255,.68);--t3:rgba(245,247,255,.44);--t4:rgba(245,247,255,.24);
+  --hl:inset 0 1px 0 rgba(255,255,255,.06);
+  --noise-op:.04;--danger:#ef4444;--warn:#f59e0b;--success:#10b981;
+}
+[data-theme="light"]{
+  --bg:#f4f6ff;
+  --surface:rgba(255,255,255,.72);
+  --surface-2:rgba(255,255,255,.92);
+  --input-bg:rgba(255,255,255,.75);
+  --input-bg-2:rgba(255,255,255,.95);
+  --border:rgba(20,30,60,.08);
+  --border-2:rgba(20,30,60,.14);
+  --t1:#0c1230;--t2:rgba(12,18,48,.68);--t3:rgba(12,18,48,.46);--t4:rgba(12,18,48,.26);
+  --hl:inset 0 1px 0 rgba(255,255,255,.9);
+  --noise-op:.028;--danger:#dc2626;--warn:#d97706;--success:#059669;
+}
+
+/* ═══ BASE ═══ */
+body{
+  font-family:'Tajawal','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;transition:background .5s ease,color .5s ease;
+  isolation:isolate;direction:inherit;text-align:start;
+}
+[data-lang="en"] body{font-family:'Inter','Tajawal',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+
+::selection{background:var(--c);color:#fff}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+a{color:inherit;text-decoration:none}
+input,textarea,select{font:inherit;color:inherit;font-family:inherit}
+svg{display:block;flex-shrink:0}
+img{display:block;max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:8px}
+
+/* ═══ AMBIENT ═══ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 12%,var(--c-soft),transparent 62%),
+    radial-gradient(ellipse 70% 55% at 12% 88%,var(--c-soft),transparent 65%);
+  opacity:.9;pointer-events:none;
+  animation:bgBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes bgBreathe{0%{opacity:.55}100%{opacity:1}}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:var(--noise-op);mix-blend-mode:overlay;
+}
+
+/* ═══ SHELL ═══ */
+.shell{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  padding:
+    calc(env(safe-area-inset-top,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-right,0px) + clamp(16px,4vw,56px))
+    calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-left,0px) + clamp(16px,4vw,56px));
+  overflow:hidden;animation:shellIn .5s ease both;
+}
+@keyframes shellIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-bottom:clamp(8px,1.6vh,14px);
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--t1);min-width:0}
+.brand-logo{
+  width:clamp(32px,7vw,40px);height:clamp(32px,7vw,40px);
+  border-radius:11px;object-fit:contain;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  padding:6px;
+  box-shadow:0 6px 18px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.brand-name{
+  font-size:clamp(13px,3vw,15px);font-weight:900;
+  letter-spacing:.22em;color:var(--c);text-transform:uppercase;line-height:1;
+}
+[data-lang="en"] .brand-name{letter-spacing:.14em}
+.brand-tag{
+  font-size:clamp(10px,2.4vw,11.5px);color:var(--t3);font-weight:600;
+  line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--hl);height:clamp(36px,8vw,42px);
+}
+.lang-btn{
+  padding:0 clamp(8px,2vw,11px);height:100%;border-radius:9px;
+  font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--t3);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;
+  min-width:clamp(30px,7vw,36px);
+}
+.lang-btn:hover{color:var(--c)}
+[data-lang="ar"] .lang-btn[data-lang-btn="ar"],
+[data-lang="en"] .lang-btn[data-lang-btn="en"]{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;box-shadow:0 4px 12px -4px var(--c-glow);
+}
+
+.ctrl{
+  position:relative;width:clamp(36px,8vw,42px);height:clamp(36px,8vw,42px);
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  color:var(--t2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);padding:0;
+}
+.ctrl:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-2px)}
+.ctrl:active{transform:translateY(0) scale(.95)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.theme-toggle{position:relative;overflow:hidden}
+.theme-toggle svg{position:absolute;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+[data-theme="dark"] .icon-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+[data-theme="dark"] .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.5)}
+
+.color-picker-wrap{position:relative}
+.color-btn .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  box-shadow:0 0 0 3px var(--c-soft),0 0 10px var(--c-glow);
+}
+.color-menu{
+  position:absolute;top:calc(100% + 10px);inset-inline-end:0;
+  background:var(--surface-2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:1px solid var(--border-2);border-radius:16px;padding:12px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px) scale(.96);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  z-index:200;min-width:220px;
+}
+.color-menu.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.color-swatch{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  position:relative;padding:0;
+}
+.color-swatch:hover{transform:scale(1.2)}
+.color-swatch.active{
+  border-color:var(--t1);transform:scale(1.15);
+  box-shadow:0 0 0 2px var(--surface-2),0 0 16px currentColor;
+}
+.color-swatch.active::after{
+  content:"✓";position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+
+/* ═══ MAIN ═══ */
+.main{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  gap:clamp(14px,2.2vh,24px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;
+  padding:clamp(4px,1.2vh,14px) 0;
+  scrollbar-width:thin;scrollbar-color:var(--border-2) transparent;
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:4px}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.4vh,14px);text-align:center;
+  flex-shrink:0;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.orb{
+  position:relative;
+  width:clamp(90px,20vmin,120px);height:clamp(90px,20vmin,120px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-bottom:4px;
+}
+.orb .pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--c);opacity:0;pointer-events:none;
+  animation:pulseOut 4s ease-out infinite;
+}
+.orb .pulse:nth-child(2){animation-delay:1.33s}
+.orb .pulse:nth-child(3){animation-delay:2.66s}
+@keyframes pulseOut{0%{transform:scale(.35);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.orb-glow{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,var(--c-glow) 0%,transparent 70%);
+  filter:blur(22px);
+  animation:breathe 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.orb-core{
+  position:relative;
+  width:60%;height:60%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--c2) 0%,var(--c) 70%);
+  color:#fff;
+  box-shadow:0 18px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.16) inset,0 2px 0 rgba(255,255,255,.28) inset;
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.orb-core svg{
+  width:52%;height:52%;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));
+}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:orbit 14s linear infinite}
+.orbit::before{
+  content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c2);
+  box-shadow:0 0 12px var(--c-glow),0 0 0 3px var(--c-soft);
+}
+.orbit:nth-of-type(1){animation-delay:0s}
+.orbit:nth-of-type(2){animation-delay:-4.66s}
+.orbit:nth-of-type(3){animation-delay:-9.33s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--c-soft);border:1px solid var(--c-border);
+  color:var(--c);
+  font-size:clamp(10.5px,2.4vw,12px);font-weight:700;
+  letter-spacing:.04em;
+}
+.badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.title{
+  font-size:clamp(24px,5.8vw,34px);font-weight:900;
+  line-height:1.15;letter-spacing:-.028em;
+  background:linear-gradient(160deg,var(--t1) 0%,var(--t1) 55%,var(--c) 130%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+[data-lang="en"] .title{letter-spacing:-.02em}
+.subtitle{
+  font-size:clamp(12.5px,3vw,14.5px);line-height:1.65;
+  color:var(--t3);font-weight:500;max-width:52ch;
+}
+
+/* ═══ SECTION WRAPPER ═══ */
+.section{
+  width:100%;max-width:min(100%,900px);margin:0 auto;
+  animation:fadeUp .5s ease both;
+}
+.section:nth-of-type(2){animation-delay:.05s}
+.section:nth-of-type(3){animation-delay:.1s}
+.section:nth-of-type(4){animation-delay:.15s}
+
+.card{
+  padding:clamp(18px,2.4vw,28px);
+  border-radius:18px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--hl);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-soft),transparent 40%);
+  opacity:.5;pointer-events:none;
+}
+
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;position:relative;z-index:1;
+}
+.section-icon{
+  width:36px;height:36px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.section-icon svg{width:55%;height:55%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.section-head h2{
+  font-size:clamp(15px,3.4vw,19px);
+  font-weight:900;color:var(--t1);
+  flex:1;
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT CARDS GRID
+   ═══════════════════════════════════════════ */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  position:relative;z-index:1;
+}
+@media (max-width:380px){.contact-grid{grid-template-columns:1fr}}
+
+.contact-card{
+  position:relative;
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  overflow:hidden;isolation:isolate;
+}
+.contact-card::before{
+  content:"";position:absolute;inset:0;
+  background:var(--c-soft);opacity:0;
+  transition:opacity .3s ease;pointer-events:none;
+}
+.contact-card:hover::before{opacity:1}
+.contact-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 12px 28px -8px var(--c-glow);
+}
+.contact-card:active{transform:translateY(-1px) scale(.98)}
+.contact-card>*{position:relative;z-index:1}
+
+.contact-icon{
+  width:clamp(38px,8vw,46px);height:clamp(38px,8vw,46px);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.15) inset;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.contact-card:hover .contact-icon{transform:scale(1.08) rotate(-6deg)}
+.contact-icon svg{width:56%;height:56%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-icon svg[data-fill="true"]{fill:currentColor;stroke:none}
+
+.contact-card.wa-card .contact-icon{
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  box-shadow:0 6px 14px -4px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.15) inset;
+}
+.contact-card.wa-card:hover{
+  border-color:#25d366;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.4);
+}
+
+.contact-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.contact-label{
+  font-size:10px;font-weight:800;color:var(--t4);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+.contact-value{
+  font-size:clamp(12.5px,3vw,14px);font-weight:800;
+  color:var(--t1);line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.contact-hint{
+  font-size:11px;font-weight:600;
+  color:var(--t3);line-height:1.3;
+}
+
+/* ═══════════════════════════════════════════
+   FORM
+   ═══════════════════════════════════════════ */
+.contact-form{
+  display:flex;flex-direction:column;
+  gap:12px;
+  position:relative;z-index:1;
+}
+.form-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+@media (max-width:560px){.form-row{grid-template-columns:1fr}}
+
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{
+  display:flex;align-items:center;gap:6px;
+  font-size:clamp(11.5px,2.8vw,13px);
+  font-weight:700;color:var(--t2);
+  transition:color .2s ease;
+}
+.field label svg{
+  width:13px;height:13px;
+  stroke:var(--c);fill:none;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.field:focus-within label{color:var(--c)}
+
+.input-wrap{position:relative;width:100%}
+.input, .textarea{
+  width:100%;
+  padding:12px 42px 12px 16px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  border-radius:12px;
+  font-size:clamp(13px,3.2vw,14px);
+  font-weight:500;
+  color:var(--t1);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  -webkit-appearance:none;
+  outline:none;
+  resize:none;
+}
+[dir="ltr"] .input, [dir="ltr"] .textarea{padding:12px 16px 12px 42px}
+.input::placeholder, .textarea::placeholder{color:var(--t4);font-weight:400}
+.input:hover, .textarea:hover{background:var(--input-bg-2)}
+.input:focus, .textarea:focus{
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 0 0 3px var(--c-soft),0 4px 14px -6px var(--c-glow);
+}
+.textarea{
+  min-height:110px;
+  padding:12px 16px;
+  line-height:1.6;
+}
+[dir="ltr"] .textarea{padding:12px 16px}
+
+.input-icon{
+  position:absolute;top:50%;inset-inline-start:14px;
+  transform:translateY(-50%);
+  width:16px;height:16px;
+  stroke:var(--t3);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  pointer-events:none;
+  transition:stroke .25s ease;
+}
+.textarea ~ .input-icon{top:18px;transform:none}
+.input:focus ~ .input-icon{stroke:var(--c)}
+
+/* ═══ SUBMIT ═══ */
+.submit-btn{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 24px;
+  min-height:52px;margin-top:4px;
+  border-radius:999px;
+  font-size:clamp(13px,3.2vw,15px);font-weight:800;
+  letter-spacing:.01em;color:#fff;
+  background:linear-gradient(135deg,var(--c2) 0%,var(--c) 100%);
+  box-shadow:0 14px 34px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset,0 1px 0 rgba(255,255,255,.28) inset;
+  transition:all .28s cubic-bezier(.34,1.56,.64,1);
+  overflow:hidden;isolation:isolate;width:100%;
+}
+.submit-btn::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
+  transform:translateX(-100%);
+  animation:shimmer 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes shimmer{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.submit-btn:hover:not(:disabled){
+  transform:translateY(-2px);
+  box-shadow:0 20px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.18) inset,0 1px 0 rgba(255,255,255,.34) inset;
+}
+.submit-btn:active:not(:disabled){transform:translateY(0) scale(.97)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none!important}
+.submit-btn svg{
+  width:17px;height:17px;
+  stroke:currentColor;fill:none;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;
+  position:relative;z-index:1;
+}
+.submit-btn span{position:relative;z-index:1}
+
+.submit-btn.wa-variant{
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  box-shadow:0 14px 34px -10px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.14) inset,0 1px 0 rgba(255,255,255,.28) inset;
+}
+.submit-btn.wa-variant:hover:not(:disabled){
+  box-shadow:0 20px 44px -10px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.18) inset,0 1px 0 rgba(255,255,255,.34) inset;
+}
+
+/* ═══ MESSAGE ═══ */
+.form-message{
+  display:block;padding:10px 14px;border-radius:12px;
+  font-size:clamp(11.5px,2.8vw,13px);font-weight:600;line-height:1.5;
+  animation:fadeUp .3s ease both;
+}
+.form-message[hidden]{display:none}
+.form-message[data-type="error"]{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.32);color:#fca5a5}
+[data-theme="light"] .form-message[data-type="error"]{background:rgba(239,68,68,.08);color:#b91c1c}
+.form-message[data-type="success"]{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.32);color:#6ee7b7}
+[data-theme="light"] .form-message[data-type="success"]{background:rgba(16,185,129,.08);color:#047857}
+
+/* ═══ WORK HOURS ═══ */
+.hours-list{
+  display:flex;flex-direction:column;gap:8px;
+  position:relative;z-index:1;
+}
+.hours-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;
+  border-radius:11px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  font-size:clamp(12px,2.9vw,13.5px);
+  font-weight:600;
+  transition:all .25s ease;
+}
+.hours-row:hover{border-color:var(--c-border);background:var(--input-bg-2)}
+.hours-day{color:var(--t1);display:flex;align-items:center;gap:8px}
+.hours-day::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--c);box-shadow:0 0 8px var(--c-glow);
+}
+.hours-time{
+  color:var(--c);font-weight:900;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
+}
+.hours-row.closed .hours-time{color:var(--danger)}
+.hours-row.closed .hours-day::before{background:var(--danger);box-shadow:0 0 8px rgba(239,68,68,.5)}
+
+/* ═══ FAQ ═══ */
+.faq-list{
+  display:flex;flex-direction:column;gap:8px;
+  position:relative;z-index:1;
+}
+.faq-item{
+  border-radius:12px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .3s ease;
+  overflow:hidden;
+}
+.faq-item:hover{border-color:var(--c-border)}
+.faq-item.open{
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 8px 22px -10px var(--c-glow);
+}
+.faq-q{
+  width:100%;
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;
+  font-size:clamp(12.5px,3vw,14px);
+  font-weight:800;
+  color:var(--t1);
+  text-align:start;
+  transition:color .2s ease;
+  cursor:pointer;
+}
+.faq-q:hover{color:var(--c)}
+.faq-item.open .faq-q{color:var(--c)}
+.faq-num{
+  flex-shrink:0;
+  width:24px;height:24px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--c-soft);
+  color:var(--c);
+  font-size:11px;font-weight:900;
+  font-variant-numeric:tabular-nums;
+}
+.faq-item.open .faq-num{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+}
+.faq-q-text{flex:1;line-height:1.4}
+.faq-toggle{
+  flex-shrink:0;
+  width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--t3);
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);
+}
+.faq-item.open .faq-toggle{transform:rotate(180deg);color:var(--c)}
+.faq-toggle svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1);
+}
+.faq-item.open .faq-a{max-height:340px}
+.faq-a-inner{
+  padding:0 16px 14px 16px;
+  padding-inline-start:calc(16px + 24px + 10px);
+  font-size:clamp(12px,2.9vw,13.5px);
+  color:var(--t2);
+  font-weight:500;
+  line-height:1.7;
+}
+.faq-a-inner strong{color:var(--c);font-weight:800}
+.faq-a-inner a{color:var(--c);text-decoration:underline;text-underline-offset:3px}
+
+/* ═══ MAP ═══ */
+.map-wrap{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  aspect-ratio:16/10;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  z-index:1;
+}
+.map-wrap iframe{
+  width:100%;height:100%;display:block;border:0;
+  filter:grayscale(.15) contrast(1.05);
+}
+[data-theme="dark"] .map-wrap iframe{
+  filter:grayscale(.4) contrast(1.1) brightness(.85) hue-rotate(180deg) invert(.9);
+}
+.map-overlay{
+  position:absolute;inset-inline-end:12px;inset-block-start:12px;
+  padding:6px 12px;border-radius:999px;
+  background:var(--surface-2);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--border-2);
+  font-size:11px;font-weight:800;
+  color:var(--c);
+  display:inline-flex;align-items:center;gap:5px;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  pointer-events:none;
+}
+.map-overlay svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+.map-actions{
+  display:flex;align-items:center;gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.map-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 14px;
+  border-radius:10px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  color:var(--t2);
+  font-size:12.5px;font-weight:700;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+}
+.map-btn:hover{
+  transform:translateY(-2px);
+  border-color:var(--c);
+  background:var(--c-soft);
+  color:var(--c);
+}
+.map-btn:active{transform:translateY(0) scale(.97)}
+.map-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══ FOOTER ═══ */
+.footer{flex:0 0 auto;padding-top:clamp(8px,1.4vh,14px);text-align:center}
+.footer-copyright{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  font-size:clamp(10px,2.3vw,11.5px);color:var(--t4);font-weight:500;line-height:1.5;
+}
+.footer-copyright .developer-name{color:var(--c);font-weight:900;letter-spacing:.08em}
+.footer-copyright .dot-sep{color:var(--t4);opacity:.6}
+.footer-copyright a{color:var(--t3);transition:color .2s ease}
+.footer-copyright a:hover{color:var(--c)}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (min-width:700px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-right,0px) + clamp(28px,4vw,64px))
+      calc(env(safe-area-inset-bottom,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-left,0px) + clamp(28px,4vw,64px));
+  }
+  .main{
+    display:grid;grid-template-columns:1fr;
+    gap:clamp(16px,2.4vh,26px);
+    max-width:min(1100px,100%);margin:0 auto;width:100%;
+    padding:0;
+  }
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    grid-template-areas:"orb text";
+    align-items:center;text-align:start;
+    gap:clamp(20px,3vw,40px);padding:8px 0;
+  }
+  .orb{grid-area:orb;justify-self:center;margin-bottom:0;width:clamp(120px,18vmin,180px);height:clamp(120px,18vmin,180px)}
+  .hero-text{
+    grid-area:text;
+    display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  }
+  .title{font-size:clamp(30px,3.8vw,44px)}
+  .subtitle{font-size:clamp(13.5px,1.4vw,16px);text-align:start;margin:0}
+  .card{padding:clamp(22px,2.6vw,32px)}
+  .section-head h2{font-size:clamp(16px,1.5vw,20px)}
+  .section-icon{width:42px;height:42px;border-radius:12px}
+  /* Form + Contact side by side */
+  .section.contact-split{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:clamp(16px,2vw,26px);
+    max-width:min(1200px,100%);
+  }
+  .section.contact-split .card{height:100%}
+}
+
+@media (min-width:1200px){
+  .main{max-width:min(1300px,100%);gap:clamp(18px,2.6vh,32px)}
+  .title{font-size:clamp(38px,3.4vw,52px)}
+  .subtitle{font-size:clamp(15px,1.1vw,17.5px)}
+  .section-head h2{font-size:22px}
+  .section-icon{width:46px;height:46px;border-radius:14px}
+  .contact-value{font-size:15px}
+  .faq-q{font-size:15px;padding:16px 18px}
+  .faq-a-inner{font-size:14.5px}
+}
+
+@media (min-width:1800px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 44px)
+      calc(env(safe-area-inset-right,0px) + 96px)
+      calc(env(safe-area-inset-bottom,0px) + 44px)
+      calc(env(safe-area-inset-left,0px) + 96px);
+  }
+  .main{max-width:min(1600px,100%);gap:48px}
+  .orb{width:clamp(220px,16vmin,280px);height:clamp(220px,16vmin,280px)}
+  .title{font-size:clamp(52px,3vw,72px)}
+  .subtitle{font-size:clamp(18px,1vw,24px);max-width:60ch}
+  .badge{font-size:15px;padding:9px 20px}
+  .badge svg{width:16px;height:16px}
+  .brand-name{font-size:17px;letter-spacing:.28em}
+  .brand-tag{font-size:14px}
+  .brand-logo{width:48px;height:48px;border-radius:14px}
+  .ctrl{width:52px;height:52px;border-radius:14px}
+  .ctrl svg{width:22px;height:22px}
+  .lang-toggle{height:52px;border-radius:14px}
+  .lang-btn{font-size:14px;padding:0 16px;min-width:44px}
+  .color-btn .dot{width:22px;height:22px}
+  .card{padding:36px 40px;border-radius:24px}
+  .section-head h2{font-size:26px}
+  .section-icon{width:56px;height:56px;border-radius:16px}
+  .contact-card{padding:20px 22px;border-radius:18px;gap:16px}
+  .contact-icon{width:58px;height:58px;border-radius:16px}
+  .contact-value{font-size:18px}
+  .contact-hint{font-size:14px}
+  .contact-label{font-size:12px}
+  .input, .textarea{padding:16px 52px 16px 20px;font-size:16px;border-radius:14px}
+  [dir="ltr"] .input, [dir="ltr"] .textarea{padding:16px 20px 16px 52px}
+  .textarea{padding:16px 20px;min-height:140px}
+  .input-icon{width:20px;height:20px;inset-inline-start:18px}
+  .submit-btn{min-height:68px;font-size:18px;border-radius:999px;padding:20px 36px}
+  .submit-btn svg{width:22px;height:22px}
+  .hours-row{padding:14px 20px;font-size:16px}
+  .faq-q{padding:20px 22px;font-size:17px}
+  .faq-num{width:30px;height:30px;font-size:14px}
+  .faq-toggle{width:26px;height:26px}
+  .faq-a-inner{padding:0 22px 18px 22px;padding-inline-start:calc(22px + 30px + 12px);font-size:16px}
+  .map-wrap{aspect-ratio:16/9;border-radius:18px}
+  .map-btn{padding:12px 20px;font-size:15px;border-radius:12px}
+  .map-btn svg{width:16px;height:16px}
+  .footer-copyright{font-size:14px}
+}
+
+@media (orientation:landscape) and (max-height:600px) and (max-width:900px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 8px)
+      calc(env(safe-area-inset-right,0px) + 18px)
+      calc(env(safe-area-inset-bottom,0px) + 8px)
+      calc(env(safe-area-inset-left,0px) + 18px);
+  }
+  .topbar{padding-bottom:6px}
+  .brand-logo{width:28px;height:28px;padding:4px;border-radius:8px}
+  .brand-name{font-size:11px;letter-spacing:.18em}
+  .brand-tag{font-size:9.5px}
+
+  .main{gap:8px;padding:0}
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    align-items:center;text-align:start;gap:16px;padding:0;
+  }
+  .orb{width:clamp(70px,12vh,100px);height:clamp(70px,12vh,100px);margin-bottom:0}
+  .hero-text{gap:5px}
+  .badge{padding:3px 9px;font-size:9.5px}
+  .title{font-size:clamp(18px,2.6vw,24px)}
+  .subtitle{font-size:clamp(10.5px,1.3vw,12px);line-height:1.4}
+
+  .section.contact-split{grid-template-columns:1.2fr 1fr;gap:10px}
+  .card{padding:10px 12px;border-radius:12px}
+  .section-head{gap:8px;margin-bottom:8px}
+  .section-icon{width:24px;height:24px;border-radius:7px}
+  .section-head h2{font-size:12px}
+
+  .contact-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .contact-card{padding:8px 10px;border-radius:10px;gap:8px}
+  .contact-icon{width:30px;height:30px;border-radius:9px}
+  .contact-value{font-size:11.5px}
+  .contact-hint{font-size:9.5px}
+  .contact-label{font-size:8.5px}
+
+  .contact-form{gap:6px}
+  .form-row{grid-template-columns:1fr 1fr;gap:6px}
+  .field{gap:3px}
+  .field label{font-size:10px}
+  .field label svg{width:10px;height:10px}
+  .input, .textarea{padding:7px 26px 7px 10px;font-size:11px;border-radius:9px}
+  [dir="ltr"] .input, [dir="ltr"] .textarea{padding:7px 10px 7px 26px}
+  .textarea{min-height:60px;padding:7px 10px}
+  .input-icon{width:11px;height:11px;inset-inline-start:9px}
+  .submit-btn{min-height:36px;padding:8px 14px;font-size:11.5px;margin-top:0}
+  .submit-btn svg{width:13px;height:13px}
+
+  .hours-list{gap:4px}
+  .hours-row{padding:5px 8px;font-size:10.5px;border-radius:7px}
+  .hours-day::before{width:4px;height:4px}
+
+  .faq-list{gap:4px}
+  .faq-q{padding:8px 10px;font-size:11px;gap:6px}
+  .faq-num{width:18px;height:18px;font-size:9px;border-radius:6px}
+  .faq-toggle{width:16px;height:16px}
+  .faq-a-inner{padding:0 10px 8px 10px;padding-inline-start:calc(10px + 18px + 6px);font-size:10.5px}
+
+  .map-wrap{aspect-ratio:16/9;border-radius:10px}
+  .map-btn{padding:6px 10px;font-size:10.5px;border-radius:7px}
+
+  .footer{padding-top:4px}
+  .footer-copyright{font-size:9.5px}
+  .lang-toggle{height:34px;border-radius:10px}
+  .lang-btn{font-size:10px;padding:0 8px;min-width:26px}
+}
+
+@media (max-width:340px){
+  .orb{width:76px;height:76px}
+  .title{font-size:20px}
+  .subtitle{font-size:11.5px}
+  .badge{font-size:10px;padding:4px 10px}
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-copyright{font-size:10px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  body::before,.orb-core,.orb .pulse,.orb-glow,.orbit,.submit-btn::before{animation:none!important}
+}
+
+@media print{
+  html,body{height:auto;position:static;overflow:visible;background:#fff !important;color:#000 !important}
+  body::before,body::after{display:none !important}
+  .topbar,.footer,.submit-btn,.map-wrap,.map-actions{display:none !important}
+  .shell{position:static;padding:0;display:block}
+  .main{display:block;padding:0;overflow:visible;max-width:none}
+  .card{background:#fff !important;border:1px solid #999 !important;box-shadow:none;backdrop-filter:none;page-break-inside:avoid}
+  .title{background:none;-webkit-text-fill-color:#000;color:#000}
+  .subtitle,.faq-a-inner,.contact-hint{color:#333 !important}
+  .faq-a{max-height:none !important;overflow:visible !important}
+  @page{margin:12mm}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SVG SPRITE ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="ic-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="ic-location" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="ic-pencil" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></symbol>
+    <symbol id="ic-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="ic-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="ic-navigate" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></symbol>
+    <symbol id="ic-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+  </defs>
+</svg>
+
+<div class="shell" id="shell">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="ELLOUL">
+      <img src="./assets/images/logo.webp" alt="ELLOUL" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">ELLOUL</span>
+        <span class="brand-tag" data-i18n="brandTag">متجر أدوات المائدة</span>
+      </span>
+    </a>
+
+    <div class="topbar-controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang-btn="en" type="button" aria-label="English">EN</button>
+      </div>
+
+      <div class="color-picker-wrap">
+        <button class="ctrl color-btn" id="colorBtn" type="button" title="Color" aria-label="Color" aria-haspopup="true" aria-expanded="false">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu" role="menu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="Blue" role="menuitem"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="Purple" role="menuitem"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="Pink" role="menuitem"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="Rose" role="menuitem"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="Red" role="menuitem"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="Orange" role="menuitem"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="Amber" role="menuitem"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="Lime" role="menuitem"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="Green" role="menuitem"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="Teal" role="menuitem"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="Cyan" role="menuitem"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="Indigo" role="menuitem"></button>
+        </div>
+      </div>
+
+      <button class="ctrl theme-toggle" id="themeToggle" type="button" title="Theme" aria-label="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb" aria-hidden="true">
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <div class="orb-glow"></div>
+        <div class="orb-core">
+          <svg viewBox="0 0 24 24"><use href="#ic-message"/></svg>
+        </div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+      </div>
+      <div class="hero-text">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-chat"/></svg>
+          <span data-i18n="badge">دعم ELLOUL</span>
+        </span>
+        <h1 class="title" data-i18n="title">اتصل بنا</h1>
+        <p class="subtitle" data-i18n="subtitle">فريقنا في خدمتك من السبت إلى الخميس، من 9 صباحاً حتى 9 مساءً. اختر الطريقة الأنسب لك.</p>
+      </div>
+    </section>
+
+    <!-- QUICK CONTACT + FORM (split on desktop) -->
+    <section class="section contact-split">
+
+      <!-- QUICK CONTACT CARDS -->
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg></div>
+          <h2 data-i18n="quickTitle">تواصل سريع</h2>
+        </div>
+
+        <div class="contact-grid">
+          <a class="contact-card wa-card" href="https://wa.me/201206796831" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" data-fill="true"><use href="#ic-whatsapp"/></svg>
+            </span>
+            <span class="contact-info">
+              <span class="contact-label" data-i18n="lblWhatsapp">واتساب</span>
+              <span class="contact-value" data-i18n="valWhatsapp">رد سريع</span>
+              <span class="contact-hint" data-i18n="hintWhatsapp">خلال دقائق</span>
+            </span>
+          </a>
+
+          <a class="contact-card" href="tel:+201206796831">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg>
+            </span>
+            <span class="contact-info">
+              <span class="contact-label" data-i18n="lblPhone">هاتف</span>
+              <span class="contact-value" dir="ltr">+20 120 679 6831</span>
+              <span class="contact-hint" data-i18n="hintPhone">9ص – 9م</span>
+            </span>
+          </a>
+
+          <a class="contact-card" href="mailto:orders@elloul.store">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>
+            </span>
+            <span class="contact-info">
+              <span class="contact-label" data-i18n="lblEmail">بريد</span>
+              <span class="contact-value" dir="ltr">orders@elloul.store</span>
+              <span class="contact-hint" data-i18n="hintEmail">رد خلال 24س</span>
+            </span>
+          </a>
+
+          <a class="contact-card" href="#location">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#ic-location"/></svg>
+            </span>
+            <span class="contact-info">
+              <span class="contact-label" data-i18n="lblAddress">العنوان</span>
+              <span class="contact-value" data-i18n="valAddress">كفر الدوار</span>
+              <span class="contact-hint" data-i18n="hintAddress">البحيرة، مصر</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="section-head" style="margin-top:20px;">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-clock"/></svg></div>
+          <h2 data-i18n="hoursTitle">ساعات العمل</h2>
+        </div>
+
+        <div class="hours-list">
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hSat">السبت</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hSun">الأحد</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hMon">الاثنين</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hTue">الثلاثاء</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hWed">الأربعاء</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day" data-i18n="hThu">الخميس</span>
+            <span class="hours-time">9:00 – 21:00</span>
+          </div>
+          <div class="hours-row closed">
+            <span class="hours-day" data-i18n="hFri">الجمعة</span>
+            <span class="hours-time" data-i18n="closed">مغلق</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-pencil"/></svg></div>
+          <h2 data-i18n="formTitle">أرسل رسالة</h2>
+        </div>
+
+        <form class="contact-form" id="contactForm" autocomplete="on" onsubmit="event.preventDefault(); return false;">
+          <div class="form-row">
+            <div class="field">
+              <label for="cName">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg>
+                <span data-i18n="fName">الاسم</span>
+              </label>
+              <div class="input-wrap">
+                <input type="text" id="cName" class="input" required maxlength="60" autocomplete="name">
+                <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cPhone">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg>
+                <span data-i18n="fPhone">الهاتف</span>
+              </label>
+              <div class="input-wrap">
+                <input type="tel" id="cPhone" class="input" required maxlength="20" autocomplete="tel" dir="ltr" inputmode="tel">
+                <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-phone"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cSubject">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-info"/></svg>
+              <span data-i18n="fSubject">موضوع الرسالة</span>
+            </label>
+            <div class="input-wrap">
+              <input type="text" id="cSubject" class="input" required maxlength="100" data-i18n-placeholder="fSubjectPlaceholder" placeholder="استفسار عن منتج، طلب بالجملة، شكوى...">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-message"/></svg>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cMessage">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-pencil"/></svg>
+              <span data-i18n="fMessage">الرسالة</span>
+            </label>
+            <div class="input-wrap">
+              <textarea id="cMessage" class="textarea" required maxlength="800" data-i18n-placeholder="fMessagePlaceholder" placeholder="اكتب رسالتك بالتفصيل..."></textarea>
+            </div>
+          </div>
+
+          <div id="formMsg" class="form-message" role="alert" hidden></div>
+
+          <button type="submit" id="submitBtn" class="submit-btn wa-variant">
+            <svg viewBox="0 0 24 24" data-fill="true" aria-hidden="true"><use href="#ic-whatsapp"/></svg>
+            <span id="submitText" data-i18n="submitBtn">إرسال عبر واتساب</span>
+          </button>
+        </form>
+      </div>
+
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-help"/></svg></div>
+          <h2 data-i18n="faqTitle">الأسئلة الشائعة</h2>
+        </div>
+
+        <div class="faq-list" id="faqList">
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">01</span>
+              <span class="faq-q-text" data-i18n="faq1Q">كيف أطلب من متجر ELLOUL؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq1A">تصفّح المتجر، أضف المنتجات للسلة، ثم اضغط "إتمام الطلب عبر واتساب". سنستلم طلبك مباشرة ونتأكد من التفاصيل معك.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">02</span>
+              <span class="faq-q-text" data-i18n="faq2Q">هل يمكنني الدفع عند الاستلام؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq2A">نعم، الدفع عند الاستلام متاح في جميع المحافظات. تستلم المنتجات، تتأكد منها، ثم تدفع للمندوب.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">03</span>
+              <span class="faq-q-text" data-i18n="faq3Q">ما هي مدة التوصيل؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq3A">24 إلى 72 ساعة حسب المحافظة. القاهرة والجيزة والإسكندرية عادة 24-48 ساعة. المحافظات البعيدة تصل خلال 48-72 ساعة.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">04</span>
+              <span class="faq-q-text" data-i18n="faq4Q">هل الشحن مجاني؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq4A">الشحن <strong>مجاني</strong> للطلبات فوق 500 ج.م. أقل من ذلك تُطبَّق رسوم شحن بسيطة حسب المحافظة.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">05</span>
+              <span class="faq-q-text" data-i18n="faq5Q">هل يمكنني إرجاع أو استبدال منتج؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq5A">نعم، خلال <strong>14 يوم</strong> من الاستلام في حال وجود عيب مصنّعي. تواصل معنا على واتساب وسنرتّب الاستبدال أو الاسترجاع فوراً.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">06</span>
+              <span class="faq-q-text" data-i18n="faq6Q">هل تقدمون أسعار جملة للمطاعم؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq6A">نعم، لدينا أسعار خاصة للمطاعم والفنادق والموزعين. تواصل معنا على واتساب مع تفاصيل الكميات المطلوبة وسنرسل لك عرض سعر مناسب.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">07</span>
+              <span class="faq-q-text" data-i18n="faq7Q">هل المنتجات آمنة على الطعام؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq7A">بالكامل. جميع منتجاتنا من <strong>استانلس ستيل 304</strong> — الخيار الأول عالمياً لأدوات المائدة. آمن على الطعام، لا يتفاعل مع الأطعمة الحمضية، ومقاوم للصدأ.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              <span class="faq-num">08</span>
+              <span class="faq-q-text" data-i18n="faq8Q">هل يمكنني الغسل في غسالة الأطباق؟</span>
+              <span class="faq-toggle"><svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></span>
+            </button>
+            <div class="faq-a">
+              <div class="faq-a-inner" data-i18n="faq8A">نعم، كل منتجاتنا <strong>قابلة للغسل في غسالة الأطباق</strong>. للحفاظ على اللمعان، ننصح بالتجفيف بقطعة قماش ناعمة بعد الغسل.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION + MAP -->
+    <section class="section" id="location">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-location"/></svg></div>
+          <h2 data-i18n="locationTitle">موقعنا</h2>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3414.718801502575!2d30.0432909221459!3d31.14532317438806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5dd690b78d097%3A0x7f3174481304aa6e!2z2LTYsdmD2Kkg2KfZhNmH2K_ZiSDZhNiq2LTZg9mK2YQg2KfZhNmF2LnYp9iv2YY!5e0!3m2!1sar!2seg!4v1789164869000!5m2!1sar!2seg"
+            width="100%" height="100%" loading="lazy" allowfullscreen="" aria-hidden="false" tabindex="0" title="ELLOUL Location"></iframe>
+          <div class="map-overlay">
+            <svg viewBox="0 0 24 24"><use href="#ic-location"/></svg>
+            <span data-i18n="mapLabel">كفر الدوار</span>
+          </div>
+        </div>
+
+        <div class="map-actions">
+          <a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=31.14532317438806,30.0432909221459" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#ic-navigate"/></svg>
+            <span data-i18n="mapDirections">الاتجاهات</span>
+          </a>
+          <button class="map-btn" id="copyAddress" type="button">
+            <svg viewBox="0 0 24 24"><use href="#ic-copy"/></svg>
+            <span id="copyAddressText" data-i18n="mapCopyAddr">نسخ العنوان</span>
+          </button>
+          <a class="map-btn" href="https://wa.me/201206796831" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" data-fill="true"><use href="#ic-whatsapp"/></svg>
+            <span data-i18n="mapWa">واتساب</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <p class="footer-copyright">
+      <span data-i18n="footerDesigned">متجر إلكتروني من تصميم وتطوير</span>
+      <span class="developer-name">ELLOUL</span>
+      <span class="dot-sep">·</span>
+      <span data-i18n="footerRights">&copy; 2026 جميع الحقوق محفوظة</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- ═══ I18N ═══ -->
+<script>
+window.I18N = {
+  ar: {
+    pageTitle:'اتصل بنا · ELLOUL',
+    brandTag:'متجر أدوات المائدة',
+    badge:'دعم ELLOUL',
+    title:'اتصل بنا',
+    subtitle:'فريقنا في خدمتك من السبت إلى الخميس، من 9 صباحاً حتى 9 مساءً. اختر الطريقة الأنسب لك.',
+    quickTitle:'تواصل سريع',
+    lblWhatsapp:'واتساب',
+    valWhatsapp:'رد سريع',
+    hintWhatsapp:'خلال دقائق',
+    lblPhone:'هاتف',
+    hintPhone:'9ص – 9م',
+    lblEmail:'بريد',
+    hintEmail:'رد خلال 24س',
+    lblAddress:'العنوان',
+    valAddress:'كفر الدوار',
+    hintAddress:'البحيرة، مصر',
+    hoursTitle:'ساعات العمل',
+    hSat:'السبت',hSun:'الأحد',hMon:'الاثنين',hTue:'الثلاثاء',hWed:'الأربعاء',hThu:'الخميس',hFri:'الجمعة',
+    closed:'مغلق',
+    formTitle:'أرسل رسالة',
+    fName:'الاسم',
+    fPhone:'الهاتف',
+    fSubject:'موضوع الرسالة',
+    fSubjectPlaceholder:'استفسار عن منتج، طلب بالجملة، شكوى...',
+    fMessage:'الرسالة',
+    fMessagePlaceholder:'اكتب رسالتك بالتفصيل...',
+    submitBtn:'إرسال عبر واتساب',
+    errName:'من فضلك أدخل اسمك',
+    errPhone:'رقم الهاتف غير صحيح',
+    errSubject:'من فضلك اكتب موضوع الرسالة',
+    errMessage:'الرسالة قصيرة جداً',
+    success:'جاري فتح واتساب...',
+    faqTitle:'الأسئلة الشائعة',
+    faq1Q:'كيف أطلب من متجر ELLOUL؟',
+    faq1A:'تصفّح المتجر، أضف المنتجات للسلة، ثم اضغط "إتمام الطلب عبر واتساب". سنستلم طلبك مباشرة ونتأكد من التفاصيل معك.',
+    faq2Q:'هل يمكنني الدفع عند الاستلام؟',
+    faq2A:'نعم، الدفع عند الاستلام متاح في جميع المحافظات. تستلم المنتجات، تتأكد منها، ثم تدفع للمندوب.',
+    faq3Q:'ما هي مدة التوصيل؟',
+    faq3A:'24 إلى 72 ساعة حسب المحافظة. القاهرة والجيزة والإسكندرية عادة 24-48 ساعة. المحافظات البعيدة تصل خلال 48-72 ساعة.',
+    faq4Q:'هل الشحن مجاني؟',
+    faq4A:'الشحن مجاني للطلبات فوق 500 ج.م. أقل من ذلك تُطبَّق رسوم شحن بسيطة حسب المحافظة.',
+    faq5Q:'هل يمكنني إرجاع أو استبدال منتج؟',
+    faq5A:'نعم، خلال 14 يوم من الاستلام في حال وجود عيب مصنّعي. تواصل معنا على واتساب وسنرتّب الاستبدال أو الاسترجاع فوراً.',
+    faq6Q:'هل تقدمون أسعار جملة للمطاعم؟',
+    faq6A:'نعم، لدينا أسعار خاصة للمطاعم والفنادق والموزعين. تواصل معنا على واتساب مع تفاصيل الكميات المطلوبة وسنرسل لك عرض سعر مناسب.',
+    faq7Q:'هل المنتجات آمنة على الطعام؟',
+    faq7A:'بالكامل. جميع منتجاتنا من استانلس ستيل 304 — الخيار الأول عالمياً لأدوات المائدة. آمن على الطعام، لا يتفاعل مع الأطعمة الحمضية، ومقاوم للصدأ.',
+    faq8Q:'هل يمكنني الغسل في غسالة الأطباق؟',
+    faq8A:'نعم، كل منتجاتنا قابلة للغسل في غسالة الأطباق. للحفاظ على اللمعان، ننصح بالتجفيف بقطعة قماش ناعمة بعد الغسل.',
+    locationTitle:'موقعنا',
+    mapLabel:'كفر الدوار',
+    mapDirections:'الاتجاهات',
+    mapCopyAddr:'نسخ العنوان',
+    mapWa:'واتساب',
+    addrCopied:'تم نسخ العنوان',
+    copyErr:'تعذّر النسخ',
+    footerDesigned:'متجر إلكتروني من تصميم وتطوير',
+    footerRights:'© 2026 جميع الحقوق محفوظة'
+  },
+  en: {
+    pageTitle:'Contact Us · ELLOUL',
+    brandTag:'Tableware Store',
+    badge:'ELLOUL Support',
+    title:'Contact Us',
+    subtitle:'Our team is here from Saturday to Thursday, 9 AM to 9 PM. Choose what suits you.',
+    quickTitle:'Quick Contact',
+    lblWhatsapp:'WhatsApp',
+    valWhatsapp:'Fast reply',
+    hintWhatsapp:'Within minutes',
+    lblPhone:'Phone',
+    hintPhone:'9AM – 9PM',
+    lblEmail:'Email',
+    hintEmail:'Within 24h',
+    lblAddress:'Address',
+    valAddress:'Kafr El-Dawwar',
+    hintAddress:'Beheira, Egypt',
+    hoursTitle:'Working Hours',
+    hSat:'Saturday',hSun:'Sunday',hMon:'Monday',hTue:'Tuesday',hWed:'Wednesday',hThu:'Thursday',hFri:'Friday',
+    closed:'Closed',
+    formTitle:'Send a Message',
+    fName:'Name',
+    fPhone:'Phone',
+    fSubject:'Subject',
+    fSubjectPlaceholder:'Product inquiry, wholesale, complaint...',
+    fMessage:'Message',
+    fMessagePlaceholder:'Write your message in detail...',
+    submitBtn:'Send via WhatsApp',
+    errName:'Please enter your name',
+    errPhone:'Invalid phone number',
+    errSubject:'Please enter the subject',
+    errMessage:'Message is too short',
+    success:'Opening WhatsApp...',
+    faqTitle:'FAQ',
+    faq1Q:'How do I order from ELLOUL?',
+    faq1A:'Browse the store, add items to the cart, then click "Checkout via WhatsApp". We will receive your order directly and confirm details with you.',
+    faq2Q:'Can I pay on delivery?',
+    faq2A:'Yes, cash on delivery is available in all governorates. Receive the products, verify them, then pay the courier.',
+    faq3Q:'What is the delivery time?',
+    faq3A:'24 to 72 hours depending on the governorate. Cairo, Giza, and Alexandria usually 24-48 hours. Remote governorates within 48-72 hours.',
+    faq4Q:'Is shipping free?',
+    faq4A:'Shipping is free for orders above 500 EGP. Below that, a small shipping fee applies based on the governorate.',
+    faq5Q:'Can I return or exchange a product?',
+    faq5A:'Yes, within 14 days of receipt in case of a manufacturing defect. Contact us on WhatsApp and we will arrange an exchange or return immediately.',
+    faq6Q:'Do you offer wholesale prices for restaurants?',
+    faq6A:'Yes, we have special prices for restaurants, hotels, and distributors. Contact us on WhatsApp with the required quantities and we will send you a suitable quote.',
+    faq7Q:'Are the products food-safe?',
+    faq7A:'Completely. All our products are 304 stainless steel — the world\'s first choice for tableware. Food-safe, non-reactive with acidic foods, and rust-resistant.',
+    faq8Q:'Can I wash in the dishwasher?',
+    faq8A:'Yes, all our products are dishwasher-safe. To preserve shine, we recommend drying with a soft cloth after washing.',
+    locationTitle:'Our Location',
+    mapLabel:'Kafr El-Dawwar',
+    mapDirections:'Directions',
+    mapCopyAddr:'Copy address',
+    mapWa:'WhatsApp',
+    addrCopied:'Address copied',
+    copyErr:'Copy failed',
+    footerDesigned:'E-commerce store designed and developed by',
+    footerRights:'© 2026 All rights reserved'
+  }
+};
+window.I18N.current = function(){
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  return window.I18N[lang] || window.I18N.ar;
+};
+window.I18N.apply = function(){
+  var dict = window.I18N.current();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key]){
+      /* preserve <strong> tags */
+      if(dict[key].indexOf('<') !== -1) el.innerHTML = dict[key];
+      else el.textContent = dict[key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+    var key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key]) el.setAttribute('placeholder', dict[key]);
+  });
+  document.title = dict.pageTitle || document.title;
+};
+</script>
+
+<!-- ═══ THEME + COLOR + LANG ═══ -->
+<script>
+(function(){
+  'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var VALID=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var html=document.documentElement;
+  var BAR={blue:{dark:'#0a1229',light:'#3b82f6'},purple:{dark:'#1e0a3d',light:'#a855f7'},pink:{dark:'#33061f',light:'#ec4899'},rose:{dark:'#33061a',light:'#f43f5e'},red:{dark:'#2c0a0a',light:'#ef4444'},orange:{dark:'#2c1405',light:'#f97316'},amber:{dark:'#2c1f05',light:'#f59e0b'},lime:{dark:'#1a2c05',light:'#84cc16'},green:{dark:'#052c20',light:'#10b981'},teal:{dark:'#052925',light:'#14b8a6'},cyan:{dark:'#05252e',light:'#06b6d4'},indigo:{dark:'#141640',light:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  function getTheme(){return g(TK,html.getAttribute('data-theme')||'dark')}
+  function getColor(){var c=g(CK,html.getAttribute('data-color')||'blue');return VALID.indexOf(c)===-1?'blue':c}
+  function syncMeta(){var bc=BAR[getColor()]?BAR[getColor()][getTheme()]:null;if(bc){var m=document.getElementById('themeColorMeta');if(m)m.setAttribute('content',bc)}}
+  syncMeta();
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var l=btn.getAttribute('data-lang-btn');
+        if(l!=='ar'&&l!=='en')return;
+        try{localStorage.setItem(LK,l)}catch(e){}
+        html.setAttribute('data-lang',l);
+        html.setAttribute('lang',l);
+        html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+        window.I18N.apply();
+      });
+    });
+
+    var tt=document.getElementById('themeToggle');
+    if(tt)tt.addEventListener('click',function(){
+      var next=getTheme()==='dark'?'light':'dark';
+      try{localStorage.setItem(TK,next)}catch(e){}
+      html.setAttribute('data-theme',next);syncMeta();
+    });
+
+    var cb=document.getElementById('colorBtn'),cm=document.getElementById('colorMenu');
+    var sw=document.querySelectorAll('.color-swatch');
+    sw.forEach(function(s){s.classList.toggle('active',s.dataset.color===getColor())});
+    function setOpen(o){if(!cm||!cb)return;cm.classList.toggle('open',o);cb.setAttribute('aria-expanded',o?'true':'false')}
+    if(cb&&cm){
+      cb.addEventListener('click',function(e){e.stopPropagation();setOpen(!cm.classList.contains('open'))});
+      sw.forEach(function(s){s.addEventListener('click',function(e){
+        e.stopPropagation();
+        var c=s.dataset.color;if(VALID.indexOf(c)===-1)return;
+        try{localStorage.setItem(CK,c)}catch(e){}
+        sw.forEach(function(x){x.classList.remove('active')});
+        s.classList.add('active');
+        html.setAttribute('data-color',c);syncMeta();
+        setTimeout(function(){setOpen(false)},200);
+      })});
+      document.addEventListener('click',function(e){
+        if(cm.classList.contains('open')&&!cm.contains(e.target)&&!cb.contains(e.target))setOpen(false);
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    }
+
+    window.I18N.apply();
+  });
+
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){html.setAttribute('data-theme',getTheme());syncMeta()}
+    if(e.key===CK){html.setAttribute('data-color',getColor());syncMeta()}
+    if(e.key===LK){
+      var l=e.newValue==='en'?'en':'ar';
+      html.setAttribute('data-lang',l);html.setAttribute('lang',l);html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      window.I18N.apply();
+    }
+  });
+})();
+</script>
+
+<!-- ═══ CONTACT LOGIC ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  var form = document.getElementById('contactForm');
+  var nameInput = document.getElementById('cName');
+  var phoneInput = document.getElementById('cPhone');
+  var subjectInput = document.getElementById('cSubject');
+  var msgInput = document.getElementById('cMessage');
+  var msgEl = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('submitBtn');
+  var submitText = document.getElementById('submitText');
+
+  var faqList = document.getElementById('faqList');
+  var copyAddrBtn = document.getElementById('copyAddress');
+  var copyAddrText = document.getElementById('copyAddressText');
+
+  var ADDRESS_AR = 'أبيس المستجدة، مركز كفر الدوار، محافظة البحيرة، مصر';
+  var ADDRESS_EN = 'Abees El-Mustagadda, Kafr El-Dawwar, Beheira, Egypt';
+
+  function t(k){ var d=window.I18N.current(); return d[k]||k; }
+
+  function showMsg(type, text){
+    msgEl.dataset.type = type;
+    msgEl.textContent = text;
+    msgEl.hidden = false;
+  }
+  function hideMsg(){
+    msgEl.hidden = true;
+    msgEl.textContent = '';
+    delete msgEl.dataset.type;
+  }
+
+  /* ═══ Validators ═══ */
+  function validName(v){ return v.trim().length >= 2; }
+  function validPhone(v){
+    var cleaned = v.replace(/[^\d+]/g, '');
+    return cleaned.length >= 8;
+  }
+  function validSubject(v){ return v.trim().length >= 3; }
+  function validMessage(v){ return v.trim().length >= 10; }
+
+  /* ═══ Submit → WhatsApp ═══ */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    hideMsg();
+
+    var name = nameInput.value.trim();
+    var phone = phoneInput.value.trim();
+    var subject = subjectInput.value.trim();
+    var msg = msgInput.value.trim();
+
+    if(!validName(name)){ showMsg('error', t('errName')); nameInput.focus(); return; }
+    if(!validPhone(phone)){ showMsg('error', t('errPhone')); phoneInput.focus(); return; }
+    if(!validSubject(subject)){ showMsg('error', t('errSubject')); subjectInput.focus(); return; }
+    if(!validMessage(msg)){ showMsg('error', t('errMessage')); msgInput.focus(); return; }
+
+    var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+    var lines = [];
+    if(lang === 'en'){
+      lines.push('Hello ELLOUL 👋');
+      lines.push('');
+      lines.push('Name: ' + name);
+      lines.push('Phone: ' + phone);
+      lines.push('Subject: ' + subject);
+      lines.push('');
+      lines.push('Message:');
+      lines.push(msg);
+    } else {
+      lines.push('مرحباً ELLOUL 👋');
+      lines.push('');
+      lines.push('الاسم: ' + name);
+      lines.push('الهاتف: ' + phone);
+      lines.push('الموضوع: ' + subject);
+      lines.push('');
+      lines.push('الرسالة:');
+      lines.push(msg);
+    }
+
+    var url = 'https://wa.me/201206796831?text=' + encodeURIComponent(lines.join('\n'));
+
+    /* Visual feedback */
+    submitBtn.disabled = true;
+    submitText.textContent = t('success');
+    showMsg('success', t('success'));
+
+    setTimeout(function(){
+      window.open(url, '_blank', 'noopener');
+      /* reset after 2s */
+      setTimeout(function(){
+        submitBtn.disabled = false;
+        submitText.textContent = t('submitBtn');
+        hideMsg();
+      }, 1600);
+    }, 400);
+  });
+
+  /* ═══ FAQ accordion ═══ */
+  faqList.addEventListener('click', function(e){
+    var btn = e.target.closest('.faq-q');
+    if(!btn) return;
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+
+    /* close all */
+    faqList.querySelectorAll('.faq-item.open').forEach(function(el){
+      el.classList.remove('open');
+      var q = el.querySelector('.faq-q');
+      if(q) q.setAttribute('aria-expanded','false');
+    });
+
+    /* toggle clicked */
+    if(!isOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+
+  /* ═══ Copy address ═══ */
+  copyAddrBtn.addEventListener('click', async function(){
+    var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+    var addr = lang === 'en' ? ADDRESS_EN : ADDRESS_AR;
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(addr);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = addr;
+        ta.style.cssText = 'position:fixed;top:-1000px;opacity:0;';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      copyAddrText.textContent = t('addrCopied');
+      setTimeout(function(){ copyAddrText.textContent = t('mapCopyAddr'); }, 1800);
+    }catch(err){
+      showMsg('error', t('copyErr'));
+    }
+  });
+
+  /* ═══ Auto-detect hours (highlight current day) ═══ */
+  (function(){
+    var dayMap = {0:'hSun',1:'hMon',2:'hTue',3:'hWed',4:'hThu',5:'hFri',6:'hSat'};
+    var today = new Date().getDay();
+    var key = dayMap[today];
+    if(!key) return;
+    var rows = document.querySelectorAll('.hours-row');
+    rows.forEach(function(row){
+      var dayEl = row.querySelector('.hours-day');
+      if(dayEl && dayEl.getAttribute('data-i18n') === key){
+        row.style.borderColor = 'var(--c)';
+        row.style.background = 'var(--c-soft)';
+        dayEl.style.color = 'var(--c)';
+      }
+    });
+  })();
+
+})();
+</script>
+
+</body>
+</html>

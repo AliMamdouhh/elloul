@@ -1,162 +1,266 @@
 /* ═══════════════════════════════════════════════════════════
-   ELLOUL — Service Worker
-   ✅ Cache-first for static assets
-   ✅ Network-first for Firebase
-   ✅ Offline fallback
+   ELLOUL — Service Worker v4.1
+   استراتيجية: Cache-first للأصول + Network-first للـ HTML
    ═══════════════════════════════════════════════════════════ */
+
 'use strict';
 
-const CACHE_VERSION = 'elloul-v3.0.0';
-const CACHE_STATIC  = CACHE_VERSION + '-static';
-const CACHE_DYNAMIC = CACHE_VERSION + '-dynamic';
+const SW_VERSION   = 'elloul-v4.1.0';
+const STATIC_CACHE = `static-${SW_VERSION}`;
+const HTML_CACHE   = `html-${SW_VERSION}`;
+const IMG_CACHE    = `img-${SW_VERSION}`;
+const OLD_CACHES   = ['elloul-v3', 'elloul-v2', 'elloul-v1'];
 
+/* ─── أصول ثابتة (تُخزَّن عند التثبيت) ─── */
 const STATIC_ASSETS = [
   './',
   './index.html',
+  './offline.html',
+  './404.html',
+  './500.html',
+  './maintenance.html',
+  './login.html',
+  './order-success.html',
+  './track-order.html',
+  './sitemap.html',
+  './about.html',
+  './contact.html',
+  './privacy.html',
+  './terms.html',
+  './returns.html',
   './manifest.json',
+
   './assets/css/fonts/tajawal.css',
   './assets/css/theme.css',
   './assets/css/main.css',
   './assets/css/fluid.css',
   './assets/css/cinematic.css',
   './assets/css/extras.css',
+  './assets/css/phase2.css',
+  './assets/css/phase3.css',
+  './assets/css/phase4.css',
+
   './assets/js/theme.js',
-  './assets/js/console-brand.js',
   './assets/js/boot.js',
   './assets/js/icons.js',
   './assets/js/app.js',
   './assets/js/store.js',
   './assets/js/effects.js',
-  './assets/js/extras/seo-plus.js',
-  './assets/js/extras/search-console.js',
-  './assets/js/extras/pwa-install.js',
+
   './assets/images/logo.webp',
-  './assets/css/phase2.css',
-  './assets/css/phase3.css',
-  './assets/js/extras/loyalty.js',
-  './assets/js/extras/upsell.js',
-  './assets/js/extras/urgency.js',
-  './assets/js/extras/abandoned-cart.js',
-  './assets/js/extras/recently-viewed.js',
-  './assets/js/extras/compare.js',
-  './assets/js/extras/quick-view.js',
-  './assets/js/extras/perf-monitor.js',
-  './assets/js/extras/error-reporter.js',
-  './assets/js/extras/cache-manager.js',
-  './assets/js/extras/anti-copy.js',
-  './assets/js/extras/watermark.js',
-'./assets/css/phase4.css',
-'./assets/js/extras/voice-search.js',
-'./assets/js/extras/share-menu.js',
-'./assets/js/extras/live-chat.js',
-'./assets/js/extras/notifications.js',
-'./assets/js/extras/print-receipt.js',
-'./assets/js/extras/gift-wrap.js',
-'./assets/js/extras/delivery-estimate.js',
-'./assets/js/extras/whatsapp-status.js'
+  './assets/icons/icon-192x192.png',
+  './assets/icons/icon-512x512.png'
 ];
 
-const OFFLINE_HTML = `<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>لا يوجد اتصال — ELLOUL</title>
-  <style>
-    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:#08080d;color:#f4f6fa;font-family:system-ui,Tahoma,sans-serif;text-align:center;padding:24px}
-    h1{font-size:48px;margin:0 0 16px}
-    p{color:#94a3b8;line-height:1.7;max-width:400px}
-    a{display:inline-block;margin-top:24px;padding:12px 28px;background:#3b82f6;color:#fff;
-    text-decoration:none;border-radius:12px;font-weight:bold}
-  </style>
-</head>
-<body>
-  <div>
-    <h1>📡</h1>
-    <h2>لا يوجد اتصال بالإنترنت</h2>
-    <p>يمكنك تصفح الصفحات المحفوظة، أو حاول مرة أخرى بعد استعادة الاتصال.</p>
-    <a href="./" onclick="location.reload()">🔄 إعادة المحاولة</a>
-  </div>
-</body>
-</html>`;
-
-/* ────────── Install ────────── */
-self.addEventListener('install', (event) => {
+/* ═══════════════════════════════════════════
+   INSTALL — تخزين الأصول الأساسية
+   ═══════════════════════════════════════════ */
+self.addEventListener('install', function(event){
   event.waitUntil(
-    caches.open(CACHE_STATIC)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
-      .catch((err) => console.warn('[SW] Install failed:', err))
+    caches.open(STATIC_CACHE)
+      .then(function(cache){
+        return cache.addAll(STATIC_ASSETS).catch(function(err){
+          console.warn('[SW] Some static assets failed to cache:', err);
+        });
+      })
+      .then(function(){ return self.skipWaiting(); })
   );
 });
 
-/* ────────── Activate ────────── */
-self.addEventListener('activate', (event) => {
+/* ═══════════════════════════════════════════
+   ACTIVATE — تنظيف الكاش القديم
+   ═══════════════════════════════════════════ */
+self.addEventListener('activate', function(event){
   event.waitUntil(
-    caches.keys()
-      .then((keys) => Promise.all(
-        keys
-          .filter((k) => k.startsWith('elloul-') && k !== CACHE_STATIC && k !== CACHE_DYNAMIC)
-          .map((k) => caches.delete(k))
-      ))
-      .then(() => self.clients.claim())
-  );
-});
-
-/* ────────── Fetch ────────── */
-self.addEventListener('fetch', (event) => {
-  const req = event.request;
-
-  /* تجاهل غير GET */
-  if (req.method !== 'GET') return;
-
-  const url = new URL(req.url);
-
-  /* تجاهل Firebase / Google / Analytics / WhatsApp */
-  if (/firestore|googleapis|gstatic|google-analytics|googletagmanager|wa\.me|facebook/.test(url.hostname + url.pathname)) {
-    return;
-  }
-
-  /* تجاهل طلبات خارج نفس النطاق */
-  if (url.origin !== self.location.origin) return;
-
-  /* طلبات التنقل → Network-first مع fallback */
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE_STATIC).then((c) => c.put(req, clone));
-          return res;
-        })
-        .catch(() => caches.match(req).then((cached) => cached || caches.match('./index.html')))
-        .catch(() => new Response(OFFLINE_HTML, { headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
-    );
-    return;
-  }
-
-  /* باقي الطلبات → Cache-first مع update في الخلفية */
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      const fetchPromise = fetch(req)
-        .then((res) => {
-          if (res && res.status === 200 && res.type === 'basic') {
-            const clone = res.clone();
-            caches.open(CACHE_DYNAMIC).then((c) => c.put(req, clone));
+    caches.keys().then(function(keys){
+      return Promise.all(
+        keys.map(function(key){
+          if(key.includes(SW_VERSION)) return null;
+          if(OLD_CACHES.some(function(old){ return key.includes(old); }) ||
+             key.startsWith('static-') ||
+             key.startsWith('html-') ||
+             key.startsWith('img-')){
+            console.log('[SW] Deleting old cache:', key);
+            return caches.delete(key);
           }
-          return res;
+          return null;
         })
-        .catch(() => cached);
-
-      return cached || fetchPromise;
+      );
+    }).then(function(){
+      return self.clients.claim();
     })
   );
 });
 
-/* ────────── Skip Waiting message ────────── */
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+/* ═══════════════════════════════════════════
+   FETCH — استراتيجيات متعددة
+   ═══════════════════════════════════════════ */
+self.addEventListener('fetch', function(event){
+  const req = event.request;
+
+  /* تجاهل غير GET */
+  if(req.method !== 'GET') return;
+
+  const url = new URL(req.url);
+
+  /* تجاهل الطلبات الخارجية (Google Fonts, Firebase, WhatsApp...) */
+  if(url.origin !== location.origin) return;
+
+  /* تجاهل طلبات Chrome Extensions */
+  if(url.protocol === 'chrome-extension:') return;
+
+  /* ─── 1) الصور → Cache-first ─── */
+  if(req.destination === 'image'){
+    event.respondWith(cacheFirst(req, IMG_CACHE));
+    return;
   }
+
+  /* ─── 2) CSS / JS / Fonts → Cache-first ─── */
+  if(['style','script','font'].includes(req.destination)){
+    event.respondWith(cacheFirst(req, STATIC_CACHE));
+    return;
+  }
+
+  /* ─── 3) HTML → Network-first (تحديث دائم) ─── */
+  if(req.destination === 'document' || req.mode === 'navigate'){
+    event.respondWith(networkFirstHTML(req));
+    return;
+  }
+
+  /* ─── 4) أي شيء آخر → Stale-while-revalidate ─── */
+  event.respondWith(staleWhileRevalidate(req, STATIC_CACHE));
+});
+
+/* ═══════════════════════════════════════════
+   STRATEGIES
+   ═══════════════════════════════════════════ */
+
+/* Cache-first: المحفوظ أولاً، وإذا فشل → الشبكة */
+async function cacheFirst(request, cacheName){
+  const cached = await caches.match(request);
+  if(cached) return cached;
+
+  try{
+    const response = await fetch(request);
+    if(response && response.status === 200){
+      const clone = response.clone();
+      caches.open(cacheName).then(function(cache){ cache.put(request, clone); });
+    }
+    return response;
+  }catch(err){
+    /* fallback للصورة logo */
+    if(request.destination === 'image'){
+      return caches.match('./assets/images/logo.webp');
+    }
+    return new Response('', { status: 408, statusText: 'Offline' });
+  }
+}
+
+/* Network-first للـ HTML — يرجع cache في حال الفشل */
+async function networkFirstHTML(request){
+  try{
+    const response = await fetch(request);
+    if(response && response.status === 200){
+      const clone = response.clone();
+      caches.open(HTML_CACHE).then(function(cache){ cache.put(request, clone); });
+    }
+    return response;
+  }catch(err){
+    /* جرّب الكاش أولاً */
+    const cached = await caches.match(request);
+    if(cached) return cached;
+
+    /* fallback: offline page */
+    const offline = await caches.match('./offline.html');
+    if(offline) return offline;
+
+    return new Response(
+      '<!DOCTYPE html><html><body style="font-family:sans-serif;padding:2rem;text-align:center;direction:rtl"><h1>لا يوجد اتصال</h1><p>افتح الصفحة الرئيسية مرة وأنت متصل.</p><a href="./">الرئيسية</a></body></html>',
+      { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+    );
+  }
+}
+
+/* Stale-while-revalidate — قديم + تحديث في الخلفية */
+async function staleWhileRevalidate(request, cacheName){
+  const cached = await caches.match(request);
+  const fetchPromise = fetch(request).then(function(response){
+    if(response && response.status === 200){
+      const clone = response.clone();
+      caches.open(cacheName).then(function(cache){ cache.put(request, clone); });
+    }
+    return response;
+  }).catch(function(){ return cached; });
+
+  return cached || fetchPromise;
+}
+
+/* ═══════════════════════════════════════════
+   MESSAGE — التواصل مع الصفحات
+   ═══════════════════════════════════════════ */
+self.addEventListener('message', function(event){
+  const data = event.data || {};
+
+  if(data.type === 'SKIP_WAITING'){
+    self.skipWaiting();
+    return;
+  }
+
+  if(data.type === 'CLEAR_CACHE'){
+    caches.keys().then(function(keys){
+      return Promise.all(keys.map(function(k){ return caches.delete(k); }));
+    }).then(function(){
+      if(event.ports && event.ports[0]){
+        event.ports[0].postMessage({ ok: true });
+      }
+    });
+    return;
+  }
+
+  if(data.type === 'GET_VERSION'){
+    if(event.ports && event.ports[0]){
+      event.ports[0].postMessage({ version: SW_VERSION });
+    }
+    return;
+  }
+});
+
+/* ═══════════════════════════════════════════
+   NOTIFICATION CLICK — فتح الموقع
+   ═══════════════════════════════════════════ */
+self.addEventListener('notificationclick', function(event){
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) || './';
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(list){
+      for(const client of list){
+        if(client.url.includes(location.origin) && 'focus' in client){
+          return client.focus();
+        }
+      }
+      if(clients.openWindow) return clients.openWindow(url);
+    })
+  );
+});
+
+/* ═══════════════════════════════════════════
+   PUSH — إشعارات
+   ═══════════════════════════════════════════ */
+self.addEventListener('push', function(event){
+  let data = { title: 'ELLOUL', body: 'لديك إشعار جديد' };
+  try{
+    if(event.data) data = event.data.json();
+  }catch(e){}
+
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'ELLOUL', {
+      body: data.body || '',
+      icon: './assets/icons/icon-192x192.png',
+      badge: './assets/icons/icon-96x96.png',
+      dir: 'rtl',
+      lang: 'ar',
+      vibrate: [100, 50, 100],
+      data: { url: data.url || './' }
+    })
+  );
 });

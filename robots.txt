@@ -1,35 +1,25 @@
-# ═══════════════════════════════════════════
-# ELLOUL — robots.txt
-# ═══════════════════════════════════════════
+# ═══════════════════════════════════════════════
+#   ELLOUL — robots.txt
+#   https://elloul.store/
+# ═══════════════════════════════════════════════
 
 User-agent: *
 Allow: /
+
+# ─── صفحات خاصة: منع الفهرسة ───
 Disallow: /admin.html
 Disallow: /login.html
-Disallow: /assets/js/admin.js
-Disallow: /*?*utm_
-Disallow: /*?*fbclid
+Disallow: /500.html
+Disallow: /maintenance.html
+Disallow: /offline.html
+Disallow: /order-success.html
+Disallow: /track-order.html
+Disallow: /assets/js/extras/
+Disallow: /*?order=
 
-# لا تعرقل ملفات CSS/JS/الصور
-Allow: /assets/css/
-Allow: /assets/js/
+# ─── استثناءات عامة ───
 Allow: /assets/images/
+Allow: /assets/icons/
 
-# Sitemap
+# ─── Sitemap ───
 Sitemap: https://elloul.store/sitemap.xml
-
-# Google
-User-agent: Googlebot
-Allow: /
-
-# Googlebot-Image
-User-agent: Googlebot-Image
-Allow: /assets/images/
-
-# Bing
-User-agent: Bingbot
-Allow: /
-
-# Facebook
-User-agent: facebookexternalhit
-Allow: /

@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a1229" id="themeColorMeta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" id="appleStatusBar">
+<meta name="apple-mobile-web-app-title" content="ELLOUL">
+<meta name="application-name" content="ELLOUL">
+<title data-i18n="pageTitle">من نحن · ELLOUL</title>
+<meta name="description" content="تعرّف على ELLOUL — متجر أدوات المائدة الفاخرة من الاستانلس ستيل 304. قصة، قيم، أمان، وتوصيل لجميع المحافظات.">
+<link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+(function(){'use strict';
+var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+var h=document.documentElement;
+var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+var c=g(CK,'blue');if(V.indexOf(c)===-1)c='blue';
+var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+function a(){
+  h.setAttribute('data-theme',t);
+  h.setAttribute('data-color',c);
+  h.setAttribute('data-lang',l);
+  h.setAttribute('lang',l);
+  h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+  if(bc){
+    var m=document.getElementById('themeColorMeta');
+    if(m)m.setAttribute('content',bc);
+    var ap=document.getElementById('appleStatusBar');
+    if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+  }
+}
+a();
+window.addEventListener('storage',function(e){
+  if(e.key===TK){t=e.newValue||'dark';a()}
+  if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'blue';a()}
+  if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+});
+if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+  try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+});
+})();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{height:100vh;height:100dvh;overflow:hidden;position:fixed;inset:0}
+
+/* ═══ 12 PALETTES ═══ */
+[data-color="blue"]  {--c:#3b82f6;--c2:#60a5fa;--c-soft:rgba(59,130,246,.14);--c-border:rgba(59,130,246,.32);--c-glow:rgba(59,130,246,.5)}
+[data-color="purple"]{--c:#a855f7;--c2:#c084fc;--c-soft:rgba(168,85,247,.14);--c-border:rgba(168,85,247,.32);--c-glow:rgba(168,85,247,.5)}
+[data-color="pink"]  {--c:#ec4899;--c2:#f472b6;--c-soft:rgba(236,72,153,.14);--c-border:rgba(236,72,153,.32);--c-glow:rgba(236,72,153,.5)}
+[data-color="rose"]  {--c:#f43f5e;--c2:#fb7185;--c-soft:rgba(244,63,94,.14);--c-border:rgba(244,63,94,.32);--c-glow:rgba(244,63,94,.5)}
+[data-color="red"]   {--c:#ef4444;--c2:#f87171;--c-soft:rgba(239,68,68,.14);--c-border:rgba(239,68,68,.32);--c-glow:rgba(239,68,68,.5)}
+[data-color="orange"]{--c:#f97316;--c2:#fb923c;--c-soft:rgba(249,115,22,.14);--c-border:rgba(249,115,22,.32);--c-glow:rgba(249,115,22,.5)}
+[data-color="amber"] {--c:#d97706;--c2:#f59e0b;--c-soft:rgba(217,119,6,.16);--c-border:rgba(217,119,6,.35);--c-glow:rgba(217,119,6,.5)}
+[data-color="lime"]  {--c:#84cc16;--c2:#a3e635;--c-soft:rgba(132,204,22,.14);--c-border:rgba(132,204,22,.32);--c-glow:rgba(132,204,22,.5)}
+[data-color="green"] {--c:#10b981;--c2:#34d399;--c-soft:rgba(16,185,129,.14);--c-border:rgba(16,185,129,.32);--c-glow:rgba(16,185,129,.5)}
+[data-color="teal"]  {--c:#14b8a6;--c2:#2dd4bf;--c-soft:rgba(20,184,166,.14);--c-border:rgba(20,184,166,.32);--c-glow:rgba(20,184,166,.5)}
+[data-color="cyan"]  {--c:#06b6d4;--c2:#22d3ee;--c-soft:rgba(6,182,212,.14);--c-border:rgba(6,182,212,.32);--c-glow:rgba(6,182,212,.5)}
+[data-color="indigo"]{--c:#6366f1;--c2:#818cf8;--c-soft:rgba(99,102,241,.14);--c-border:rgba(99,102,241,.32);--c-glow:rgba(99,102,241,.5)}
+
+/* ═══ THEMES ═══ */
+[data-theme="dark"]{
+  --bg:#080a18;
+  --surface:rgba(20,25,45,.55);
+  --surface-2:rgba(28,35,60,.78);
+  --input-bg:rgba(12,16,32,.6);
+  --input-bg-2:rgba(18,23,42,.78);
+  --border:rgba(220,230,255,.08);
+  --border-2:rgba(220,230,255,.16);
+  --t1:#f5f7ff;--t2:rgba(245,247,255,.68);--t3:rgba(245,247,255,.44);--t4:rgba(245,247,255,.24);
+  --hl:inset 0 1px 0 rgba(255,255,255,.06);
+  --noise-op:.04;--danger:#ef4444;--warn:#f59e0b;--success:#10b981;
+}
+[data-theme="light"]{
+  --bg:#f4f6ff;
+  --surface:rgba(255,255,255,.72);
+  --surface-2:rgba(255,255,255,.92);
+  --input-bg:rgba(255,255,255,.75);
+  --input-bg-2:rgba(255,255,255,.95);
+  --border:rgba(20,30,60,.08);
+  --border-2:rgba(20,30,60,.14);
+  --t1:#0c1230;--t2:rgba(12,18,48,.68);--t3:rgba(12,18,48,.46);--t4:rgba(12,18,48,.26);
+  --hl:inset 0 1px 0 rgba(255,255,255,.9);
+  --noise-op:.028;--danger:#dc2626;--warn:#d97706;--success:#059669;
+}
+
+/* ═══ BASE ═══ */
+body{
+  font-family:'Tajawal','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;transition:background .5s ease,color .5s ease;
+  isolation:isolate;direction:inherit;text-align:start;
+}
+[data-lang="en"] body{font-family:'Inter','Tajawal',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+
+::selection{background:var(--c);color:#fff}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex-shrink:0}
+img{display:block;max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:8px}
+
+/* ═══ AMBIENT ═══ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 12%,var(--c-soft),transparent 62%),
+    radial-gradient(ellipse 70% 55% at 12% 88%,var(--c-soft),transparent 65%);
+  opacity:.9;pointer-events:none;
+  animation:bgBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes bgBreathe{0%{opacity:.55}100%{opacity:1}}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:var(--noise-op);mix-blend-mode:overlay;
+}
+
+/* ═══ SHELL ═══ */
+.shell{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  padding:
+    calc(env(safe-area-inset-top,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-right,0px) + clamp(16px,4vw,56px))
+    calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-left,0px) + clamp(16px,4vw,56px));
+  overflow:hidden;animation:shellIn .5s ease both;
+}
+@keyframes shellIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-bottom:clamp(8px,1.6vh,14px);
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--t1);min-width:0}
+.brand-logo{
+  width:clamp(32px,7vw,40px);height:clamp(32px,7vw,40px);
+  border-radius:11px;object-fit:contain;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  padding:6px;
+  box-shadow:0 6px 18px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.brand-name{
+  font-size:clamp(13px,3vw,15px);font-weight:900;
+  letter-spacing:.22em;color:var(--c);text-transform:uppercase;line-height:1;
+}
+[data-lang="en"] .brand-name{letter-spacing:.14em}
+.brand-tag{
+  font-size:clamp(10px,2.4vw,11.5px);color:var(--t3);font-weight:600;
+  line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--hl);height:clamp(36px,8vw,42px);
+}
+.lang-btn{
+  padding:0 clamp(8px,2vw,11px);height:100%;border-radius:9px;
+  font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--t3);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;
+  min-width:clamp(30px,7vw,36px);
+}
+.lang-btn:hover{color:var(--c)}
+[data-lang="ar"] .lang-btn[data-lang-btn="ar"],
+[data-lang="en"] .lang-btn[data-lang-btn="en"]{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;box-shadow:0 4px 12px -4px var(--c-glow);
+}
+
+.ctrl{
+  position:relative;width:clamp(36px,8vw,42px);height:clamp(36px,8vw,42px);
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  color:var(--t2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);padding:0;
+}
+.ctrl:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-2px)}
+.ctrl:active{transform:translateY(0) scale(.95)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.theme-toggle{position:relative;overflow:hidden}
+.theme-toggle svg{position:absolute;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+[data-theme="dark"] .icon-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+[data-theme="dark"] .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.5)}
+
+.color-picker-wrap{position:relative}
+.color-btn .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  box-shadow:0 0 0 3px var(--c-soft),0 0 10px var(--c-glow);
+}
+.color-menu{
+  position:absolute;top:calc(100% + 10px);inset-inline-end:0;
+  background:var(--surface-2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:1px solid var(--border-2);border-radius:16px;padding:12px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px) scale(.96);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  z-index:200;min-width:220px;
+}
+.color-menu.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.color-swatch{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  position:relative;padding:0;
+}
+.color-swatch:hover{transform:scale(1.2)}
+.color-swatch.active{
+  border-color:var(--t1);transform:scale(1.15);
+  box-shadow:0 0 0 2px var(--surface-2),0 0 16px currentColor;
+}
+.color-swatch.active::after{
+  content:"✓";position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+
+/* ═══ MAIN (scrollable) ═══ */
+.main{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  gap:clamp(14px,2.2vh,24px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;
+  padding:clamp(4px,1.2vh,14px) 0;
+  scrollbar-width:thin;scrollbar-color:var(--border-2) transparent;
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:4px}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.4vh,14px);
+  text-align:center;
+  flex-shrink:0;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.orb{
+  position:relative;
+  width:clamp(90px,20vmin,120px);height:clamp(90px,20vmin,120px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-bottom:4px;
+}
+.orb .pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--c);opacity:0;pointer-events:none;
+  animation:pulseOut 4s ease-out infinite;
+}
+.orb .pulse:nth-child(2){animation-delay:1.33s}
+.orb .pulse:nth-child(3){animation-delay:2.66s}
+@keyframes pulseOut{0%{transform:scale(.35);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.orb-glow{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,var(--c-glow) 0%,transparent 70%);
+  filter:blur(22px);
+  animation:breathe 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.orb-core{
+  position:relative;
+  width:60%;height:60%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--c2) 0%,var(--c) 70%);
+  color:#fff;
+  box-shadow:0 18px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.16) inset,0 2px 0 rgba(255,255,255,.28) inset;
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.orb-core svg{
+  width:52%;height:52%;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));
+}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:orbit 14s linear infinite}
+.orbit::before{
+  content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c2);
+  box-shadow:0 0 12px var(--c-glow),0 0 0 3px var(--c-soft);
+}
+.orbit:nth-of-type(1){animation-delay:0s}
+.orbit:nth-of-type(2){animation-delay:-4.66s}
+.orbit:nth-of-type(3){animation-delay:-9.33s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--c-soft);border:1px solid var(--c-border);
+  color:var(--c);
+  font-size:clamp(10.5px,2.4vw,12px);font-weight:700;
+  letter-spacing:.04em;
+}
+.badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.title{
+  font-size:clamp(24px,5.8vw,34px);font-weight:900;
+  line-height:1.15;letter-spacing:-.028em;
+  background:linear-gradient(160deg,var(--t1) 0%,var(--t1) 55%,var(--c) 130%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+[data-lang="en"] .title{letter-spacing:-.02em}
+.subtitle{
+  font-size:clamp(12.5px,3vw,14.5px);line-height:1.65;
+  color:var(--t3);font-weight:500;max-width:52ch;
+}
+
+/* ═══════════════════════════════════════════
+   CONTENT CARDS
+   ═══════════════════════════════════════════ */
+.section{
+  width:100%;max-width:min(100%,900px);margin:0 auto;
+  animation:fadeUp .5s ease both;
+}
+.section:nth-of-type(2){animation-delay:.05s}
+.section:nth-of-type(3){animation-delay:.1s}
+.section:nth-of-type(4){animation-delay:.15s}
+.section:nth-of-type(5){animation-delay:.2s}
+.section:nth-of-type(6){animation-delay:.25s}
+
+.card{
+  padding:clamp(18px,2.4vw,28px);
+  border-radius:18px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--hl);
+  position:relative;
+  overflow:hidden;isolation:isolate;
+}
+.card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-soft),transparent 40%);
+  opacity:.5;pointer-events:none;
+}
+
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:12px;
+  position:relative;z-index:1;
+}
+.section-icon{
+  width:36px;height:36px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.section-icon svg{width:55%;height:55%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.section-head h2{
+  font-size:clamp(15px,3.4vw,19px);
+  font-weight:900;color:var(--t1);
+}
+.section-body{
+  position:relative;z-index:1;
+  font-size:clamp(12.5px,3vw,14.5px);
+  line-height:1.8;
+  color:var(--t2);
+  font-weight:500;
+}
+.section-body p + p{margin-top:10px}
+.section-body strong{color:var(--c);font-weight:800}
+
+/* ═══ VALUES GRID ═══ */
+.values-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  position:relative;z-index:1;
+}
+@media (max-width:380px){.values-grid{grid-template-columns:1fr}}
+
+.value-item{
+  display:flex;flex-direction:column;gap:8px;
+  padding:14px;
+  border-radius:14px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.value-item:hover{
+  transform:translateY(-3px);
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 12px 28px -10px var(--c-glow);
+}
+.value-icon{
+  width:38px;height:38px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.value-item:hover .value-icon{transform:scale(1.08) rotate(-4deg)}
+.value-icon svg{width:56%;height:56%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.value-title{
+  font-size:clamp(13px,3vw,14.5px);font-weight:900;
+  color:var(--t1);line-height:1.3;
+}
+.value-desc{
+  font-size:clamp(11.5px,2.7vw,12.5px);
+  color:var(--t3);line-height:1.55;font-weight:500;
+}
+
+/* ═══ CHECKLIST (Stainless 304) ═══ */
+.checklist{
+  display:flex;flex-direction:column;gap:8px;
+  position:relative;z-index:1;
+  margin-top:12px;
+}
+.check-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 12px;
+  border-radius:11px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .25s ease;
+}
+.check-item:hover{
+  border-color:var(--c-border);
+  background:var(--input-bg-2);
+}
+.check-mark{
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#34d399,#10b981);
+  color:#fff;flex-shrink:0;
+  box-shadow:0 4px 10px -3px rgba(16,185,129,.5);
+  margin-top:1px;
+}
+.check-mark svg{width:60%;height:60%;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.check-text{
+  font-size:clamp(12px,2.8vw,13.5px);
+  font-weight:600;
+  color:var(--t1);
+  line-height:1.55;
+}
+
+/* ═══ STATS ═══ */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  position:relative;z-index:1;
+}
+@media (min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:380px){.stats{grid-template-columns:1fr 1fr}}
+
+.stat-item{
+  display:flex;flex-direction:column;align-items:center;
+  gap:4px;
+  padding:16px 10px;
+  border-radius:14px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  text-align:center;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.stat-item:hover{
+  transform:translateY(-3px);
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 12px 28px -10px var(--c-glow);
+}
+.stat-value{
+  font-size:clamp(22px,5.5vw,32px);
+  font-weight:900;
+  color:var(--c);
+  font-variant-numeric:tabular-nums;
+  line-height:1;
+  letter-spacing:-.02em;
+  text-shadow:0 0 18px var(--c-glow);
+  display:inline-flex;align-items:baseline;gap:2px;
+}
+.stat-value small{
+  font-size:.55em;font-weight:700;color:var(--t2);text-shadow:none;
+}
+.stat-label{
+  font-size:clamp(11px,2.6vw,12.5px);
+  font-weight:700;
+  color:var(--t3);
+  line-height:1.3;
+}
+
+/* ═══ CONTACT STRIP ═══ */
+.contact-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;flex-wrap:wrap;
+  padding:14px 0 4px;
+  border-top:1px solid var(--border);
+  font-size:clamp(11px,2.7vw,12.5px);
+  font-weight:600;color:var(--t3);
+  position:relative;z-index:1;
+  margin-top:14px;
+}
+.contact-strip a{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--t2);
+  transition:color .2s ease;
+}
+.contact-strip a:hover{color:var(--c)}
+.contact-strip a svg{
+  width:13px;height:13px;
+  stroke:currentColor;fill:none;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.contact-strip .sep{color:var(--t4);opacity:.6}
+
+/* ═══ CTA BUTTONS ═══ */
+.cta-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  position:relative;z-index:1;
+  margin-top:14px;
+}
+@media (max-width:380px){.cta-row{grid-template-columns:1fr}}
+
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;
+  padding:13px 18px;
+  min-height:48px;
+  border-radius:999px;
+  font-size:clamp(12.5px,3vw,14px);
+  font-weight:800;
+  transition:all .28s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;
+  position:relative;
+  overflow:hidden;isolation:isolate;
+}
+.cta-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.cta-btn svg[data-fill="true"]{fill:currentColor;stroke:none}
+.cta-btn>*{position:relative;z-index:1}
+
+.cta-btn.primary{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+  box-shadow:0 12px 28px -8px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset,0 1px 0 rgba(255,255,255,.28) inset;
+}
+.cta-btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px -8px var(--c-glow),0 0 0 1px rgba(255,255,255,.18) inset}
+.cta-btn.primary:active{transform:translateY(0) scale(.97)}
+
+.cta-btn.ghost{
+  background:var(--input-bg);
+  border:1px solid var(--border-2);
+  color:var(--t1);
+}
+.cta-btn.ghost:hover{
+  transform:translateY(-2px);
+  border-color:var(--c);
+  background:var(--c-soft);
+  color:var(--c);
+}
+.cta-btn.ghost:active{transform:translateY(0) scale(.97)}
+
+.cta-btn.wa{
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.cta-btn.wa:hover{transform:translateY(-2px);box-shadow:0 18px 38px -8px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.18) inset}
+.cta-btn.wa:active{transform:translateY(0) scale(.97)}
+
+/* ═══ FOOTER ═══ */
+.footer{flex:0 0 auto;padding-top:clamp(8px,1.4vh,14px);text-align:center}
+.footer-copyright{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  font-size:clamp(10px,2.3vw,11.5px);color:var(--t4);font-weight:500;line-height:1.5;
+}
+.footer-copyright .developer-name{color:var(--c);font-weight:900;letter-spacing:.08em}
+.footer-copyright .dot-sep{color:var(--t4);opacity:.6}
+.footer-copyright a{color:var(--t3);transition:color .2s ease}
+.footer-copyright a:hover{color:var(--c)}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (min-width:700px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-right,0px) + clamp(28px,4vw,64px))
+      calc(env(safe-area-inset-bottom,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-left,0px) + clamp(28px,4vw,64px));
+  }
+  .main{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(16px,2.4vh,26px);
+    max-width:min(1100px,100%);margin:0 auto;width:100%;
+    padding:0;
+  }
+  .hero{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    grid-template-areas:"orb text";
+    align-items:center;
+    text-align:start;
+    gap:clamp(20px,3vw,40px);
+    padding:8px 0;
+  }
+  .orb{grid-area:orb;justify-self:center;margin-bottom:0;width:clamp(120px,18vmin,180px);height:clamp(120px,18vmin,180px)}
+  .hero-text{
+    grid-area:text;
+    display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  }
+  .title{font-size:clamp(30px,3.8vw,44px)}
+  .subtitle{font-size:clamp(13.5px,1.4vw,16px);text-align:start;margin:0}
+  .card{padding:clamp(22px,2.6vw,32px)}
+  .section-head h2{font-size:clamp(16px,1.5vw,20px)}
+  .section-icon{width:42px;height:42px;border-radius:12px}
+  .values-grid{grid-template-columns:repeat(4,1fr);gap:12px}
+  .cta-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (min-width:1200px){
+  .main{max-width:min(1300px,100%);gap:clamp(18px,2.6vh,32px)}
+  .title{font-size:clamp(38px,3.4vw,52px)}
+  .subtitle{font-size:clamp(15px,1.1vw,17.5px)}
+  .section-head h2{font-size:22px}
+  .section-icon{width:46px;height:46px;border-radius:14px}
+  .value-item{padding:18px}
+  .value-icon{width:44px;height:44px;border-radius:13px}
+  .value-title{font-size:15.5px}
+  .value-desc{font-size:13.5px}
+  .check-text{font-size:15px}
+  .stat-item{padding:20px 12px}
+  .stat-value{font-size:36px}
+  .stat-label{font-size:14px}
+}
+
+@media (min-width:1800px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 44px)
+      calc(env(safe-area-inset-right,0px) + 96px)
+      calc(env(safe-area-inset-bottom,0px) + 44px)
+      calc(env(safe-area-inset-left,0px) + 96px);
+  }
+  .main{max-width:min(1600px,100%);gap:48px}
+  .orb{width:clamp(220px,16vmin,280px);height:clamp(220px,16vmin,280px)}
+  .title{font-size:clamp(52px,3vw,72px)}
+  .subtitle{font-size:clamp(18px,1vw,24px);max-width:60ch}
+  .badge{font-size:15px;padding:9px 20px}
+  .badge svg{width:16px;height:16px}
+  .brand-name{font-size:17px;letter-spacing:.28em}
+  .brand-tag{font-size:14px}
+  .brand-logo{width:48px;height:48px;border-radius:14px}
+  .ctrl{width:52px;height:52px;border-radius:14px}
+  .ctrl svg{width:22px;height:22px}
+  .lang-toggle{height:52px;border-radius:14px}
+  .lang-btn{font-size:14px;padding:0 16px;min-width:44px}
+  .color-btn .dot{width:22px;height:22px}
+  .card{padding:36px 40px;border-radius:24px}
+  .section-head h2{font-size:26px}
+  .section-icon{width:56px;height:56px;border-radius:16px}
+  .section-body{font-size:17px;line-height:1.9}
+  .value-item{padding:24px;border-radius:18px}
+  .value-icon{width:56px;height:56px;border-radius:16px}
+  .value-title{font-size:19px}
+  .value-desc{font-size:16px}
+  .check-item{padding:14px 18px;border-radius:14px}
+  .check-mark{width:28px;height:28px}
+  .check-text{font-size:17px}
+  .stat-item{padding:26px 16px;border-radius:18px}
+  .stat-value{font-size:46px}
+  .stat-label{font-size:16px}
+  .cta-btn{min-height:64px;font-size:18px;border-radius:999px;padding:18px 32px}
+  .cta-btn svg{width:22px;height:22px}
+  .contact-strip{font-size:15px;padding:20px 0 6px}
+  .contact-strip a svg{width:16px;height:16px}
+  .footer-copyright{font-size:14px}
+}
+
+@media (orientation:landscape) and (max-height:600px) and (max-width:900px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 8px)
+      calc(env(safe-area-inset-right,0px) + 18px)
+      calc(env(safe-area-inset-bottom,0px) + 8px)
+      calc(env(safe-area-inset-left,0px) + 18px);
+  }
+  .topbar{padding-bottom:6px}
+  .brand-logo{width:28px;height:28px;padding:4px;border-radius:8px}
+  .brand-name{font-size:11px;letter-spacing:.18em}
+  .brand-tag{font-size:9.5px}
+
+  .main{gap:8px;padding:0}
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    align-items:center;text-align:start;gap:16px;
+    padding:0;
+  }
+  .orb{width:clamp(70px,12vh,100px);height:clamp(70px,12vh,100px);margin-bottom:0}
+  .orb-core svg{stroke-width:2.4}
+  .hero-text{gap:5px}
+  .badge{padding:3px 9px;font-size:9.5px}
+  .title{font-size:clamp(18px,2.6vw,24px)}
+  .subtitle{font-size:clamp(10.5px,1.3vw,12px);line-height:1.4}
+
+  .card{padding:12px 14px;border-radius:12px}
+  .section-head{gap:8px;margin-bottom:8px}
+  .section-icon{width:26px;height:26px;border-radius:8px}
+  .section-head h2{font-size:12px}
+  .section-body{font-size:11px;line-height:1.5}
+
+  .values-grid{grid-template-columns:repeat(4,1fr);gap:6px}
+  .value-item{padding:8px;border-radius:10px;gap:5px}
+  .value-icon{width:26px;height:26px;border-radius:8px}
+  .value-title{font-size:10.5px}
+  .value-desc{font-size:9.5px;line-height:1.3}
+
+  .check-item{padding:6px 8px;border-radius:8px}
+  .check-mark{width:16px;height:16px}
+  .check-text{font-size:10.5px}
+
+  .stats{gap:6px}
+  .stat-item{padding:9px 6px;border-radius:10px}
+  .stat-value{font-size:18px}
+  .stat-label{font-size:9.5px}
+
+  .cta-row{gap:6px;margin-top:8px}
+  .cta-btn{min-height:36px;padding:8px 14px;font-size:11.5px;gap:6px}
+  .cta-btn svg{width:13px;height:13px}
+
+  .contact-strip{font-size:10px;gap:8px;padding:8px 0 2px;margin-top:8px}
+  .contact-strip a svg{width:11px;height:11px}
+
+  .footer{padding-top:4px}
+  .footer-copyright{font-size:9.5px}
+  .lang-toggle{height:34px;border-radius:10px}
+  .lang-btn{font-size:10px;padding:0 8px;min-width:26px}
+}
+
+@media (max-width:340px){
+  .orb{width:76px;height:76px}
+  .title{font-size:20px}
+  .subtitle{font-size:11.5px}
+  .badge{font-size:10px;padding:4px 10px}
+  .values-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .cta-row{grid-template-columns:1fr}
+  .footer-copyright{font-size:10px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  body::before,.orb-core,.orb .pulse,.orb-glow,.orbit{animation:none!important}
+}
+
+@media print{
+  html,body{height:auto;position:static;overflow:visible;background:#fff !important;color:#000 !important}
+  body::before,body::after{display:none !important}
+  .topbar,.footer,.cta-row{display:none !important}
+  .shell{position:static;padding:0;display:block}
+  .main{display:block;padding:0;overflow:visible;max-width:none}
+  .card{background:#fff !important;border:1px solid #999 !important;box-shadow:none;backdrop-filter:none;page-break-inside:avoid}
+  .title{background:none;-webkit-text-fill-color:#000;color:#000}
+  .subtitle,.section-body,.value-desc,.stat-label,.check-text{color:#333 !important}
+  .section-icon,.value-icon{background:#333 !important;box-shadow:none}
+  .stat-value{color:#000 !important;text-shadow:none !important}
+  .value-item,.stat-item,.check-item{background:#f5f5f5 !important;border-color:#ccc !important}
+  @page{margin:12mm}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SVG SPRITE ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+    <symbol id="ic-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="ic-repeat" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="ic-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-sparkle" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.011 0C5.38 0 0 5.379 0 12.01c0 2.116.553 4.179 1.603 5.998L0 24l6.166-1.618A11.94 11.94 0 0 0 12.011 24c6.629 0 12.01-5.38 12.01-12.01C24.021 5.379 18.64 0 12.011 0zm0 22.012c-1.802 0-3.567-.487-5.114-1.408l-.367-.218-3.793.995.999-3.696-.239-.38A9.957 9.957 0 0 1 2.012 12.01c0-5.513 4.486-9.999 9.999-9.999 5.514 0 10 4.486 10 9.999 0 5.514-4.486 10-10 10z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="ic-location" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></symbol>
+    <symbol id="ic-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
+  </defs>
+</svg>
+
+<div class="shell" id="shell">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="ELLOUL">
+      <img src="./assets/images/logo.webp" alt="ELLOUL" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">ELLOUL</span>
+        <span class="brand-tag" data-i18n="brandTag">متجر أدوات المائدة</span>
+      </span>
+    </a>
+
+    <div class="topbar-controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang-btn="en" type="button" aria-label="English">EN</button>
+      </div>
+
+      <div class="color-picker-wrap">
+        <button class="ctrl color-btn" id="colorBtn" type="button" title="Color" aria-label="Color" aria-haspopup="true" aria-expanded="false">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu" role="menu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="Blue" role="menuitem"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="Purple" role="menuitem"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="Pink" role="menuitem"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="Rose" role="menuitem"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="Red" role="menuitem"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="Orange" role="menuitem"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="Amber" role="menuitem"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="Lime" role="menuitem"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="Green" role="menuitem"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="Teal" role="menuitem"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="Cyan" role="menuitem"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="Indigo" role="menuitem"></button>
+        </div>
+      </div>
+
+      <button class="ctrl theme-toggle" id="themeToggle" type="button" title="Theme" aria-label="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb" aria-hidden="true">
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <div class="orb-glow"></div>
+        <div class="orb-core">
+          <svg viewBox="0 0 24 24"><use href="#ic-users"/></svg>
+        </div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+      </div>
+      <div class="hero-text">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-award"/></svg>
+          <span data-i18n="badge">قصتنا · ELLOUL</span>
+        </span>
+        <h1 class="title" data-i18n="title">من نحن</h1>
+        <p class="subtitle" data-i18n="subtitle">متجر مصري متخصص في أدوات المائدة الفاخرة من الاستانلس ستيل 304 — جودة تدوم، تصميم يليق، وأسعار تنافسية.</p>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-book"/></svg></div>
+          <h2 data-i18n="storyTitle">قصتنا</h2>
+        </div>
+        <div class="section-body">
+          <p data-i18n="storyP1">بدأت <strong>ELLOUL</strong> من ورشة صغيرة في كفر الدوار بمحافظة البحيرة، بهدف واحد: تقديم أدوات مائدة بجودة تليق بالمطبخ المصري، بأسعار في متناول الجميع.</p>
+          <p data-i18n="storyP2">اليوم، نخدم عملاء من كل محافظات مصر — من الأسر التي تبحث عن أطقم أنيقة، إلى المطاعم والفنادق التي تحتاج كميات كبيرة بمعايير احترافية.</p>
+          <p data-i18n="storyP3">نؤمن أن أدوات المائدة ليست مجرد أدوات — بل جزء من تجربة الطعام اليومية. لذلك نختار كل قطعة بعناية، ونتأكد من جودتها قبل أن تصل إليك.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-sparkle"/></svg></div>
+          <h2 data-i18n="valuesTitle">قيمنا</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg></div>
+            <span class="value-title" data-i18n="v1Title">خامات أصلية</span>
+            <span class="value-desc" data-i18n="v1Desc">ستانلس ستيل 304 مقاوم للصدأ والتآكل، آمن على الطعام.</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><svg viewBox="0 0 24 24"><use href="#ic-truck"/></svg></div>
+            <span class="value-title" data-i18n="v2Title">توصيل سريع</span>
+            <span class="value-desc" data-i18n="v2Desc">شحن لجميع المحافظات مع إمكانية الدفع عند الاستلام.</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><svg viewBox="0 0 24 24"><use href="#ic-repeat"/></svg></div>
+            <span class="value-title" data-i18n="v3Title">استبدال مجاني</span>
+            <span class="value-desc" data-i18n="v3Desc">استبدال أو استرجاع خلال 14 يوم في حال وجود أي عيب.</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><svg viewBox="0 0 24 24"><use href="#ic-tag"/></svg></div>
+            <span class="value-title" data-i18n="v4Title">أسعار الجملة</span>
+            <span class="value-desc" data-i18n="v4Desc">خصومات خاصة للمطاعم والفنادق والموزعين والكميات الكبيرة.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUALITY -->
+    <section class="section">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-check-circle"/></svg></div>
+          <h2 data-i18n="qualityTitle">لماذا استانلس 304؟</h2>
+        </div>
+        <div class="section-body">
+          <p data-i18n="qualityP">الستانلس ستيل 304 هو الخيار الأول عالمياً لتصنيع أدوات المائدة. وله أسباب واضحة:</p>
+        </div>
+        <div class="checklist">
+          <div class="check-item">
+            <span class="check-mark"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="check-text" data-i18n="q1">مقاومة عالية جداً للصدأ والتآكل حتى مع الاستخدام اليومي.</span>
+          </div>
+          <div class="check-item">
+            <span class="check-mark"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="check-text" data-i18n="q2">آمن تماماً على الطعام ولا يتفاعل مع الأطعمة الحمضية.</span>
+          </div>
+          <div class="check-item">
+            <span class="check-mark"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="check-text" data-i18n="q3">يتحمل درجات الحرارة العالية ولا يتشوه.</span>
+          </div>
+          <div class="check-item">
+            <span class="check-mark"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="check-text" data-i18n="q4">سهل التنظيف ولا يحتفظ بالروائح أو البقع.</span>
+          </div>
+          <div class="check-item">
+            <span class="check-mark"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="check-text" data-i18n="q5">يحافظ على لمعانه وشكله لسنوات طويلة.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section">
+      <div class="card">
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-value" data-count="50">+50</span>
+            <span class="stat-label" data-i18n="s1Label">منتج متنوع</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">100<small>%</small></span>
+            <span class="stat-label" data-i18n="s2Label">ستانلس 304</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">24<small>س</small></span>
+            <span class="stat-label" data-i18n="s3Label">شحن سريع</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">4.8<small>/5</small></span>
+            <span class="stat-label" data-i18n="s4Label">تقييم العملاء</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT + CTA -->
+    <section class="section">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg></div>
+          <h2 data-i18n="contactTitle">تواصل معنا</h2>
+        </div>
+        <div class="section-body">
+          <p data-i18n="contactP">هل لديك سؤال أو ترغب في طلب بالجملة؟ فريقنا في خدمتك من السبت إلى الخميس، من 9 صباحاً حتى 9 مساءً.</p>
+        </div>
+
+        <div class="contact-strip">
+          <a href="tel:+201206796831" aria-label="Call">
+            <svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg>
+            <span dir="ltr">+20 120 679 6831</span>
+          </a>
+          <span class="sep">·</span>
+          <a href="https://wa.me/201206796831" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#ic-whatsapp"/></svg>
+            <span data-i18n="waLabel">واتساب</span>
+          </a>
+          <span class="sep">·</span>
+          <a href="mailto:orders@elloul.store">
+            <svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>
+            <span dir="ltr">orders@elloul.store</span>
+          </a>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta-btn primary" href="index.html#shop">
+            <svg viewBox="0 0 24 24"><use href="#ic-store"/></svg>
+            <span data-i18n="ctaShop">تصفّح المتجر</span>
+          </a>
+          <a class="cta-btn wa" href="https://wa.me/201206796831" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" data-fill="true"><use href="#ic-whatsapp"/></svg>
+            <span data-i18n="ctaWa">تواصل واتساب</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <p class="footer-copyright">
+      <span data-i18n="footerDesigned">متجر إلكتروني من تصميم وتطوير</span>
+      <span class="developer-name">ELLOUL</span>
+      <span class="dot-sep">·</span>
+      <span data-i18n="footerRights">&copy; 2026 جميع الحقوق محفوظة</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- ═══ I18N ═══ -->
+<script>
+window.I18N = {
+  ar: {
+    pageTitle:'من نحن · ELLOUL',
+    brandTag:'متجر أدوات المائدة',
+    badge:'قصتنا · ELLOUL',
+    title:'من نحن',
+    subtitle:'متجر مصري متخصص في أدوات المائدة الفاخرة من الاستانلس ستيل 304 — جودة تدوم، تصميم يليق، وأسعار تنافسية.',
+    storyTitle:'قصتنا',
+    storyP1:'بدأت ELLOUL من ورشة صغيرة في كفر الدوار بمحافظة البحيرة، بهدف واحد: تقديم أدوات مائدة بجودة تليق بالمطبخ المصري، بأسعار في متناول الجميع.',
+    storyP2:'اليوم، نخدم عملاء من كل محافظات مصر — من الأسر التي تبحث عن أطقم أنيقة، إلى المطاعم والفنادق التي تحتاج كميات كبيرة بمعايير احترافية.',
+    storyP3:'نؤمن أن أدوات المائدة ليست مجرد أدوات — بل جزء من تجربة الطعام اليومية. لذلك نختار كل قطعة بعناية، ونتأكد من جودتها قبل أن تصل إليك.',
+    valuesTitle:'قيمنا',
+    v1Title:'خامات أصلية',
+    v1Desc:'ستانلس ستيل 304 مقاوم للصدأ والتآكل، آمن على الطعام.',
+    v2Title:'توصيل سريع',
+    v2Desc:'شحن لجميع المحافظات مع إمكانية الدفع عند الاستلام.',
+    v3Title:'استبدال مجاني',
+    v3Desc:'استبدال أو استرجاع خلال 14 يوم في حال وجود أي عيب.',
+    v4Title:'أسعار الجملة',
+    v4Desc:'خصومات خاصة للمطاعم والفنادق والموزعين والكميات الكبيرة.',
+    qualityTitle:'لماذا استانلس 304؟',
+    qualityP:'الستانلس ستيل 304 هو الخيار الأول عالمياً لتصنيع أدوات المائدة. وله أسباب واضحة:',
+    q1:'مقاومة عالية جداً للصدأ والتآكل حتى مع الاستخدام اليومي.',
+    q2:'آمن تماماً على الطعام ولا يتفاعل مع الأطعمة الحمضية.',
+    q3:'يتحمل درجات الحرارة العالية ولا يتشوه.',
+    q4:'سهل التنظيف ولا يحتفظ بالروائح أو البقع.',
+    q5:'يحافظ على لمعانه وشكله لسنوات طويلة.',
+    s1Label:'منتج متنوع',
+    s2Label:'ستانلس 304',
+    s3Label:'شحن سريع',
+    s4Label:'تقييم العملاء',
+    contactTitle:'تواصل معنا',
+    contactP:'هل لديك سؤال أو ترغب في طلب بالجملة؟ فريقنا في خدمتك من السبت إلى الخميس، من 9 صباحاً حتى 9 مساءً.',
+    waLabel:'واتساب',
+    ctaShop:'تصفّح المتجر',
+    ctaWa:'تواصل واتساب',
+    footerDesigned:'متجر إلكتروني من تصميم وتطوير',
+    footerRights:'© 2026 جميع الحقوق محفوظة'
+  },
+  en: {
+    pageTitle:'About Us · ELLOUL',
+    brandTag:'Tableware Store',
+    badge:'Our Story · ELLOUL',
+    title:'About Us',
+    subtitle:'An Egyptian store specializing in premium 304 stainless steel tableware — lasting quality, elegant design, fair prices.',
+    storyTitle:'Our Story',
+    storyP1:'ELLOUL started from a small workshop in Kafr El-Dawwar, Beheira, with one goal: to offer tableware that matches the standards of the Egyptian kitchen at prices everyone can afford.',
+    storyP2:'Today, we serve customers across all Egyptian governorates — from families looking for elegant sets to restaurants and hotels that need bulk quantities with professional standards.',
+    storyP3:'We believe tableware is more than tools — it is part of the daily dining experience. That is why we hand-pick every piece and verify its quality before it reaches you.',
+    valuesTitle:'Our Values',
+    v1Title:'Authentic Materials',
+    v1Desc:'304 stainless steel, rust and corrosion resistant, food-safe.',
+    v2Title:'Fast Delivery',
+    v2Desc:'Shipping to all governorates with cash on delivery available.',
+    v3Title:'Free Exchange',
+    v3Desc:'Exchange or return within 14 days for any defect.',
+    v4Title:'Wholesale Prices',
+    v4Desc:'Special discounts for restaurants, hotels, distributors, and bulk orders.',
+    qualityTitle:'Why 304 Stainless Steel?',
+    qualityP:'304 stainless steel is the world’s first choice for tableware. The reasons are clear:',
+    q1:'Highly resistant to rust and corrosion, even with daily use.',
+    q2:'Completely food-safe and does not react with acidic foods.',
+    q3:'Withstands high temperatures without deforming.',
+    q4:'Easy to clean and does not retain odors or stains.',
+    q5:'Keeps its shine and shape for years.',
+    s1Label:'Products',
+    s2Label:'Stainless 304',
+    s3Label:'Fast Shipping',
+    s4Label:'Customer Rating',
+    contactTitle:'Contact Us',
+    contactP:'Have a question or need a wholesale order? Our team is here from Saturday to Thursday, 9 AM to 9 PM.',
+    waLabel:'WhatsApp',
+    ctaShop:'Browse Store',
+    ctaWa:'Chat on WhatsApp',
+    footerDesigned:'E-commerce store designed and developed by',
+    footerRights:'© 2026 All rights reserved'
+  }
+};
+window.I18N.current = function(){
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  return window.I18N[lang] || window.I18N.ar;
+};
+window.I18N.apply = function(){
+  var dict = window.I18N.current();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key]) el.textContent = dict[key];
+  });
+  document.title = dict.pageTitle || document.title;
+};
+</script>
+
+<!-- ═══ THEME + COLOR + LANG ═══ -->
+<script>
+(function(){
+  'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var VALID=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var html=document.documentElement;
+  var BAR={blue:{dark:'#0a1229',light:'#3b82f6'},purple:{dark:'#1e0a3d',light:'#a855f7'},pink:{dark:'#33061f',light:'#ec4899'},rose:{dark:'#33061a',light:'#f43f5e'},red:{dark:'#2c0a0a',light:'#ef4444'},orange:{dark:'#2c1405',light:'#f97316'},amber:{dark:'#2c1f05',light:'#f59e0b'},lime:{dark:'#1a2c05',light:'#84cc16'},green:{dark:'#052c20',light:'#10b981'},teal:{dark:'#052925',light:'#14b8a6'},cyan:{dark:'#05252e',light:'#06b6d4'},indigo:{dark:'#141640',light:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  function getTheme(){return g(TK,html.getAttribute('data-theme')||'dark')}
+  function getColor(){var c=g(CK,html.getAttribute('data-color')||'blue');return VALID.indexOf(c)===-1?'blue':c}
+  function syncMeta(){var bc=BAR[getColor()]?BAR[getColor()][getTheme()]:null;if(bc){var m=document.getElementById('themeColorMeta');if(m)m.setAttribute('content',bc)}}
+  syncMeta();
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var l=btn.getAttribute('data-lang-btn');
+        if(l!=='ar'&&l!=='en')return;
+        try{localStorage.setItem(LK,l)}catch(e){}
+        html.setAttribute('data-lang',l);
+        html.setAttribute('lang',l);
+        html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+        window.I18N.apply();
+        if(window.animateCounts) window.animateCounts();
+      });
+    });
+
+    var tt=document.getElementById('themeToggle');
+    if(tt)tt.addEventListener('click',function(){
+      var next=getTheme()==='dark'?'light':'dark';
+      try{localStorage.setItem(TK,next)}catch(e){}
+      html.setAttribute('data-theme',next);syncMeta();
+    });
+
+    var cb=document.getElementById('colorBtn'),cm=document.getElementById('colorMenu');
+    var sw=document.querySelectorAll('.color-swatch');
+    sw.forEach(function(s){s.classList.toggle('active',s.dataset.color===getColor())});
+    function setOpen(o){if(!cm||!cb)return;cm.classList.toggle('open',o);cb.setAttribute('aria-expanded',o?'true':'false')}
+    if(cb&&cm){
+      cb.addEventListener('click',function(e){e.stopPropagation();setOpen(!cm.classList.contains('open'))});
+      sw.forEach(function(s){s.addEventListener('click',function(e){
+        e.stopPropagation();
+        var c=s.dataset.color;if(VALID.indexOf(c)===-1)return;
+        try{localStorage.setItem(CK,c)}catch(e){}
+        sw.forEach(function(x){x.classList.remove('active')});
+        s.classList.add('active');
+        html.setAttribute('data-color',c);syncMeta();
+        setTimeout(function(){setOpen(false)},200);
+      })});
+      document.addEventListener('click',function(e){
+        if(cm.classList.contains('open')&&!cm.contains(e.target)&&!cb.contains(e.target))setOpen(false);
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    }
+
+    window.I18N.apply();
+  });
+
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){html.setAttribute('data-theme',getTheme());syncMeta()}
+    if(e.key===CK){html.setAttribute('data-color',getColor());syncMeta()}
+    if(e.key===LK){
+      var l=e.newValue==='en'?'en':'ar';
+      html.setAttribute('data-lang',l);html.setAttribute('lang',l);html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      window.I18N.apply();
+      if(window.animateCounts) window.animateCounts();
+    }
+  });
+})();
+</script>
+
+<!-- ═══ COUNT-UP ANIMATION ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  var animated = false;
+
+  /* Animated counter for stat values like +50 */
+  function animateCounts(){
+    var stats = document.querySelectorAll('.stat-value[data-count]');
+    stats.forEach(function(el){
+      var target = parseInt(el.dataset.count, 10);
+      if(isNaN(target)) return;
+      var prefix = el.textContent.indexOf('+') === 0 ? '+' : '';
+      var start = 0;
+      var duration = 1400;
+      var startedAt = 0;
+      function step(now){
+        if(!startedAt) startedAt = now;
+        var progress = Math.min((now - startedAt) / duration, 1);
+        /* ease out */
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var val = Math.floor(start + (target - start) * eased);
+        el.textContent = prefix + val;
+        if(progress < 1){
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = prefix + target;
+        }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  window.animateCounts = animateCounts;
+
+  /* IntersectionObserver to trigger once when stats visible */
+  if('IntersectionObserver' in window){
+    var statsBox = document.querySelector('.stats');
+    if(statsBox){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && !animated){
+            animated = true;
+            if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+              animateCounts();
+            }
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(statsBox);
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>

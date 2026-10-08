@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark" data-color="blue">
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue" data-lang="ar">
 
 <head>
   <meta charset="UTF-8">
@@ -8,18 +8,41 @@
 
   <title>ELLOUL | متجر أدوات المائدة والاستانلس ستيل الفاخر</title>
 
-  <!-- ═══ FOUC Prevention: theme BEFORE CSS ═══ -->
+  <!-- ═══ FOUC Prevention + Theme + Lang BEFORE CSS ═══ -->
   <script>
-    (function(){
-      try {
-        var t = localStorage.getItem('elloul-theme') ||
-                (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        var c = localStorage.getItem('elloul-color') || 'blue';
-        var html = document.documentElement;
-        html.setAttribute('data-theme', t);
-        html.setAttribute('data-color', c);
-      } catch(e){}
-    })();
+  (function(){'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var h=document.documentElement;
+  var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  var c=g(CK,'blue');if(V.indexOf(c)===-1)c='blue';
+  var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+  function a(){
+    h.setAttribute('data-theme',t);
+    h.setAttribute('data-color',c);
+    h.setAttribute('data-lang',l);
+    h.setAttribute('lang',l);
+    h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+    if(bc){
+      var m=document.getElementById('themeColorMeta');
+      if(m)m.setAttribute('content',bc);
+      var ap=document.getElementById('appleStatusBar');
+      if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+    }
+  }
+  a();
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){t=e.newValue||'dark';a()}
+    if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'blue';a()}
+    if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+  });
+  if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+    try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+  });
+  })();
   </script>
 
   <!-- ═══ Canonical + SEO الأساسي ═══ -->
@@ -61,46 +84,509 @@
   <link rel="dns-prefetch" href="https://wa.me">
 
   <!-- ═══ Favicon + PWA ═══ -->
- <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
-<link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/icon-192x192.png">
-<link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/icon-512x512.png">
+  <link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./assets/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="./assets/icons/icon-512x512.png">
   <link rel="manifest" href="./manifest.json">
 
   <!-- ═══ CSS: حرج (blocking) ═══ -->
-  <!-- ═══ Preload أهم خطين (لتسريع ظهور النص) ═══ -->
-<link rel="preload" href="./assets/fonts/tajawal/Tajawal-Regular.woff2" 
-      as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/fonts/tajawal/Tajawal-Bold.woff2" 
-      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/tajawal/Tajawal-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/tajawal/Tajawal-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="./assets/css/fonts/tajawal.css">
+  <link rel="stylesheet" href="./assets/css/fonts/tajawal.css">
   <link rel="stylesheet" href="./assets/css/theme.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/fluid.css">
 
-  <!-- ═══ CSS: تحسيني (async) — لا يحجب الرسم ═══ -->
-  <link rel="preload" as="style" href="./assets/css/cinematic.css"
-        onload="this.onload=null;this.rel='stylesheet'">
+  <!-- ═══ CSS: تحسيني (async) ═══ -->
+  <link rel="preload" as="style" href="./assets/css/cinematic.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/cinematic.css"></noscript>
 
-  <link rel="preload" as="style" href="./assets/css/extras.css"
-        onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="./assets/css/extras.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/extras.css"></noscript>
 
-  <link rel="preload" as="style" href="./assets/css/phase2.css"
-        onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="./assets/css/phase2.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/phase2.css"></noscript>
 
-  <link rel="preload" as="style" href="./assets/css/phase3.css"
-        onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="./assets/css/phase3.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/phase3.css"></noscript>
 
-  <link rel="preload" as="style" href="./assets/css/phase4.css"
-        onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="./assets/css/phase4.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/phase4.css"></noscript>
 
- 
-  <!-- ═══ JSON-LD: بيانات المتجر (Structured Data) ═══ -->
+<link rel="stylesheet" href="./assets/css/notifications.css">
+  <!-- ═══ NEW CSS — Lang toggle + Footer + i18n helpers ═══ -->
+  <style>
+  /* ═══════════════════════════════════════════
+     Language Toggle — Inline (Sidebar)
+     ═══════════════════════════════════════════ */
+  .lang-toggle-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 12px;
+    background: var(--glass, rgba(20,15,35,0.55));
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .lang-btn-sm {
+    padding: 0 10px;
+    height: 100%;
+    border-radius: 9px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    color: var(--t-3, rgba(255,255,255,.48));
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all .25s cubic-bezier(.34, 1.56, .64, 1);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn-sm:hover { color: var(--c); }
+
+  [data-lang="ar"] .lang-btn-sm[data-lang-btn="ar"],
+  [data-lang="en"] .lang-btn-sm[data-lang-btn="en"] {
+    background: linear-gradient(135deg, var(--c-2, #60a5fa), var(--c, #3b82f6));
+    color: #fff;
+    box-shadow: 0 4px 12px -4px var(--c-glow, rgba(59,130,246,.5));
+  }
+
+  /* ═══════════════════════════════════════════
+     Footer — 4 Columns Grid
+     ═══════════════════════════════════════════ */
+  .footer {
+    padding: 0;
+    margin-top: 32px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 0 24px;
+    border-top: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+    text-align: start;
+  }
+
+  @media (min-width: 640px) {
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+  @media (min-width: 900px) {
+    .footer-links {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      padding: 36px 0 28px;
+    }
+  }
+
+  .footer-col-title {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--c);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 14px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .footer-col a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--t-2, rgba(255,255,255,.72));
+    transition: color .2s ease, transform .2s ease;
+    padding: 3px 0;
+    text-decoration: none;
+  }
+  .footer-col a:hover {
+    color: var(--c);
+    transform: translateX(-3px);
+  }
+  [dir="ltr"] .footer-col a:hover { transform: translateX(3px); }
+
+  .footer-col a ion-icon {
+    font-size: 15px;
+    opacity: .75;
+    flex-shrink: 0;
+  }
+
+  .footer .copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 16px 0 4px;
+    font-size: 11.5px;
+    color: var(--t-4, rgba(255,255,255,.28));
+    font-weight: 500;
+    text-align: center;
+  }
+  .footer .copyright .developer-name {
+    color: var(--c);
+    font-weight: 900;
+    letter-spacing: .08em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-btn-sm,
+    .footer-col a { transition: none; }
+  }
+
+  /* Sidebar — theme controls layout with lang toggle */
+  .theme-controls-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  </style>
+
+  <!-- ═══ i18n — Arabic + English ═══ -->
+  <script>
+  window.I18N = {
+    ar: {
+      /* ── Navbar ── */
+      navHome:'الرئيسية',
+      navShop:'المتجر',
+      navCart:'السلة',
+      navBlog:'الأخبار',
+      navContact:'اتصل بنا',
+
+      /* ── Sidebar ── */
+      sbShowData:'عرض البيانات',
+      sbEmail:'البريد الإلكتروني',
+      sbWhatsapp:'واتساب الطلبات',
+      sbLocation:'المقر',
+      sbHours:'مواعيد العمل',
+      sbHoursValue:'السبت – الخميس · 9ص – 9م',
+      sbAppearance:'المظهر',
+      sbAddress:'أبيس المستجدة، مركز كفر الدوار، محافظة البحيرة',
+
+      /* ── Hero ── */
+      heroTag:'شحن مجاني للطلبات فوق 500 ج.م',
+      heroTitle:'أدوات مائدة <em>فاخرة</em><br>من الاستانلس ستيل',
+      heroText:'تشكيلة مختارة بعناية من الملاعق والشوك والسكاكين والأطقم الكاملة — جودة عالية، تصميم عصري، وأسعار تناسب الجميع. اطلب الآن ويوصلك لباب البيت.',
+      heroShop:'تسوّق الآن',
+      heroContact:'تواصل معنا',
+      heroStat1:'منتج متنوع',
+      heroStat2:'ستانلس مقاوم',
+      heroStat3:'شحن سريع',
+
+      /* ── Home Sections ── */
+      secCategories:'تصفّح التصنيفات',
+      secBestSellers:'الأكثر مبيعاً',
+      secNew:'وصل حديثاً',
+      secViewAll:'عرض الكل',
+      secWhyUs:'لماذا تشتري من ELLOUL؟',
+
+      /* ── Service Items ── */
+      svc1Title:'خامات أصلية',
+      svc1Text:'ستانلس ستيل 304 مقاوم للصدأ والتآكل، آمن على الطعام.',
+      svc2Title:'توصيل سريع',
+      svc2Text:'شحن لجميع المحافظات مع إمكانية الدفع عند الاستلام.',
+      svc3Title:'استبدال مجاني',
+      svc3Text:'استبدال أو استرجاع خلال 14 يوم في حال وجود أي عيب.',
+      svc4Title:'أسعار الجملة',
+      svc4Text:'خصومات خاصة للمطاعم والفنادق والموزعين والكميات الكبيرة.',
+
+      /* ── Shop Page ── */
+      shopTitle:'المتجر',
+      shopSearch:'ابحث عن منتج...',
+      shopCount:'{n} منتج',
+
+      /* ── Cart Page ── */
+      cartTitle:'سلة التسوق',
+      cartSummary:'ملخص الطلب',
+      cartQty:'عدد القطع',
+      cartSubtotal:'المجموع الفرعي',
+      cartShipping:'الشحن',
+      cartTotal:'الإجمالي',
+      cartFree:'مجاني',
+      cartShipHint:'أضف منتجات بقيمة 500 ج.م للحصول على شحن مجاني.',
+      cartCheckout:'إتمام الطلب عبر واتساب',
+      cartContinue:'متابعة التسوق',
+      cartClear:'تفريغ السلة',
+      cartEmpty:'سلتك فارغة',
+      cartEmptyText:'لم تقم بإضافة أي منتجات بعد. تصفّح المتجر واختر ما يناسبك.',
+      cartBrowse:'تصفّح المتجر',
+
+      /* ── Blog Page ── */
+      blogTitle:'الأخبار والعروض',
+
+      /* ── Contact Page ── */
+      contactTitle:'اتصل بنا',
+      contactForm:'أرسل لنا رسالة',
+      contactName:'الاسم الكامل',
+      contactPhone:'رقم الهاتف / واتساب',
+      contactMessage:'اكتب رسالتك أو طلبك بالتفصيل...',
+      contactSend:'إرسال الرسالة',
+
+      /* ── Product Modal ── */
+      pmAdd:'أضف إلى السلة',
+      pmInStock:'متوفر في المخزون',
+      pmRating:'4.9 · 120 تقييم',
+/* ── Notifications UI ── */
+notifTitle:'الإشعارات',
+notifEnable:'تفعيل الآن',
+notifPermAsk:'فعّل الإشعارات لتصلك العروض أول بأول',
+notifPermGranted:'مفعّلة ✓',
+notifPermDenied:'معطّلة',
+notifPermUnsupported:'غير مدعومة',
+notifPermDefault:'لم تُفعَّل بعد',
+notifPreviewTitle:'معاينة الإشعار',
+notifTest:'إرسال إشعار تجريبي',
+notifEnabled:'تفعيل الإشعارات',
+notifEnabledHint:'التحكم الكامل في كل الإشعارات',
+notifCategories:'أنواع الإشعارات',
+catOffers:'العروض والخصومات',
+catOffersHint:'خصومات موسمية وعروض حصرية',
+catNew:'منتجات جديدة',
+catNewHint:'أول من يعرف بالجديد',
+catCart:'تذكير بالسلة',
+catCartHint:'لا تفقد منتجاتك المحفوظة',
+catOrder:'تحديثات الطلب',
+catOrderHint:'حالة طلبك لحظة بلحظة',
+catPrice:'انخفاض السعر',
+catPriceHint:'عند نزول سعر منتج شاهدته',
+catRestock:'عودة المخزون',
+catRestockHint:'عند عودة منتج نفد',
+notifQuiet:'وضع الهدوء',
+notifQuietHint:'لا إشعارات في وقت النوم',
+notifFrom:'من',
+notifTo:'إلى',
+notifInterval:'معدّل الإشعارات',
+int1h:'كل ساعة',
+int6h:'كل 6 ساعات',
+int24h:'يومياً',
+int3d:'كل 3 أيام',
+notifSound:'الصوت',
+notifVibrate:'الاهتزاز',
+notifHistory:'آخر الإشعارات',
+notifClear:'مسح الكل',
+notifNoHistory:'لا يوجد سجل بعد',
+notifHint:'يمكنك الرجوع لأي وقت من الإعدادات',
+      /* ── Footer ── */
+      ftShop:'المتجر',
+      ftHome:'الرئيسية',
+      ftProducts:'المنتجات',
+      ftCart:'السلة',
+      ftNews:'الأخبار',
+      ftCompany:'الشركة',
+      ftAbout:'من نحن',
+      ftContact:'اتصل بنا',
+      ftFAQ:'الأسئلة الشائعة',
+      ftTrack:'تتبع الطلب',
+      ftLegal:'القانوني',
+      ftPrivacy:'الخصوصية والكوكيز',
+      ftTerms:'الشروط والأحكام',
+      ftReturns:'الإرجاع والاستبدال',
+      ftShipping:'الشحن والتوصيل',
+      ftReach:'تواصل معنا',
+      ftWaOrders:'واتساب الطلبات',
+      ftMap:'خريطة الموقع',
+      ftDesigned:'متجر إلكتروني من تصميم وتطوير',
+      ftRights:'© 2026 جميع الحقوق محفوظة',
+
+      /* ── Connection Status ── */
+      connOnline:'متصل',
+      connOffline:'غير متصل',
+
+      /* ── Alerts ── */
+      alertFillForm:'من فضلك أكمل جميع الحقول',
+      alertSentWA:'جاري فتح واتساب...',
+      alertCartEmpty:'سلتك فارغة',
+      alertOpenStore:'تصفّح المتجر الآن'
+    },
+    en: {
+    notifTitle:'Notifications',
+notifEnable:'Enable Now',
+notifPermAsk:'Enable notifications to receive offers first',
+notifPermGranted:'Enabled ✓',
+notifPermDenied:'Blocked',
+notifPermUnsupported:'Not supported',
+notifPermDefault:'Not enabled yet',
+notifPreviewTitle:'Notification preview',
+notifTest:'Send test notification',
+notifEnabled:'Enable notifications',
+notifEnabledHint:'Full control over all notifications',
+notifCategories:'Notification types',
+catOffers:'Offers & discounts',
+catOffersHint:'Seasonal discounts & exclusive deals',
+catNew:'New products',
+catNewHint:'Be the first to know',
+catCart:'Cart reminders',
+catCartHint:'Never lose your saved items',
+catOrder:'Order updates',
+catOrderHint:'Your order status in real-time',
+catPrice:'Price drops',
+catPriceHint:'When a watched item gets cheaper',
+catRestock:'Back in stock',
+catRestockHint:'When an out-of-stock item returns',
+notifQuiet:'Quiet hours',
+notifQuietHint:'No notifications during sleep',
+notifFrom:'From',
+notifTo:'To',
+notifInterval:'Notification frequency',
+int1h:'Every hour',
+int6h:'Every 6h',
+int24h:'Daily',
+int3d:'Every 3 days',
+notifSound:'Sound',
+notifVibrate:'Vibration',
+notifHistory:'Recent notifications',
+notifClear:'Clear all',
+notifNoHistory:'No history yet',
+notifHint:'You can return anytime from settings',
+      navHome:'Home',
+      navShop:'Shop',
+      navCart:'Cart',
+      navBlog:'News',
+      navContact:'Contact',
+
+      sbShowData:'Show Info',
+      sbEmail:'Email',
+      sbWhatsapp:'WhatsApp Orders',
+      sbLocation:'Location',
+      sbHours:'Working Hours',
+      sbHoursValue:'Sat – Thu · 9AM – 9PM',
+      sbAppearance:'Appearance',
+      sbAddress:'Abees El-Mustagadda, Kafr El-Dawwar, Beheira',
+
+      heroTag:'Free shipping on orders over 500 EGP',
+      heroTitle:'<em>Premium</em> tableware<br>in stainless steel',
+      heroText:'A carefully curated selection of spoons, forks, knives and complete sets — high quality, modern design, fair prices. Order now and we\'ll deliver to your door.',
+      heroShop:'Shop Now',
+      heroContact:'Contact Us',
+      heroStat1:'Products',
+      heroStat2:'Stainless',
+      heroStat3:'Fast Shipping',
+
+      secCategories:'Browse Categories',
+      secBestSellers:'Best Sellers',
+      secNew:'New Arrivals',
+      secViewAll:'View all',
+      secWhyUs:'Why buy from ELLOUL?',
+
+      svc1Title:'Authentic Materials',
+      svc1Text:'304 stainless steel, rust & corrosion resistant, food-safe.',
+      svc2Title:'Fast Delivery',
+      svc2Text:'Shipping to all governorates with cash on delivery.',
+      svc3Title:'Free Exchange',
+      svc3Text:'Exchange or return within 14 days for any defect.',
+      svc4Title:'Wholesale Prices',
+      svc4Text:'Special discounts for restaurants, hotels, distributors & bulk.',
+
+      shopTitle:'Shop',
+      shopSearch:'Search for a product...',
+      shopCount:'{n} products',
+
+      cartTitle:'Shopping Cart',
+      cartSummary:'Order Summary',
+      cartQty:'Items',
+      cartSubtotal:'Subtotal',
+      cartShipping:'Shipping',
+      cartTotal:'Total',
+      cartFree:'Free',
+      cartShipHint:'Add items worth 500 EGP to get free shipping.',
+      cartCheckout:'Checkout via WhatsApp',
+      cartContinue:'Continue Shopping',
+      cartClear:'Clear Cart',
+      cartEmpty:'Your cart is empty',
+      cartEmptyText:'You haven\'t added any products yet. Browse the store and pick what suits you.',
+      cartBrowse:'Browse Store',
+
+      blogTitle:'News & Offers',
+
+      contactTitle:'Contact Us',
+      contactForm:'Send us a message',
+      contactName:'Full name',
+      contactPhone:'Phone / WhatsApp',
+      contactMessage:'Write your message or order in detail...',
+      contactSend:'Send Message',
+
+      pmAdd:'Add to Cart',
+      pmInStock:'In stock',
+      pmRating:'4.9 · 120 reviews',
+
+      ftShop:'Shop',
+      ftHome:'Home',
+      ftProducts:'Products',
+      ftCart:'Cart',
+      ftNews:'News',
+      ftCompany:'Company',
+      ftAbout:'About Us',
+      ftContact:'Contact Us',
+      ftFAQ:'FAQ',
+      ftTrack:'Track Order',
+      ftLegal:'Legal',
+      ftPrivacy:'Privacy & Cookies',
+      ftTerms:'Terms & Conditions',
+      ftReturns:'Returns & Exchanges',
+      ftShipping:'Shipping & Delivery',
+      ftReach:'Reach Us',
+      ftWaOrders:'WhatsApp Orders',
+      ftMap:'Sitemap',
+      ftDesigned:'E-commerce store designed and developed by',
+      ftRights:'© 2026 All rights reserved',
+
+      connOnline:'Online',
+      connOffline:'Offline',
+
+      alertFillForm:'Please fill in all fields',
+      alertSentWA:'Opening WhatsApp...',
+      alertCartEmpty:'Your cart is empty',
+      alertOpenStore:'Browse the store now'
+    }
+  };
+  window.I18N.current = function(){
+    var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+    return window.I18N[lang] || window.I18N.ar;
+  };
+  window.I18N.apply = function(){
+    var dict = window.I18N.current();
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key]){
+        if(dict[key].indexOf('<') !== -1) el.innerHTML = dict[key];
+        else el.textContent = dict[key];
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      if(dict[key]) el.setAttribute('placeholder', dict[key]);
+    });
+    document.documentElement.setAttribute(
+      'data-i18n-ready', 'true'
+    );
+  };
+  </script>
+
+  <!-- ═══ JSON-LD: بيانات المتجر ═══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -144,106 +630,90 @@
   }
   </script>
 
-<!-- ═══════════════════════════════════════════════════════
-     SCRIPTS — تحميل ذكي متعدد المستويات
-     ═══════════════════════════════════════════════════════ -->
+  <!-- ═══ SCRIPTS — تحميل ذكي متعدد المستويات ═══ -->
+  <script src="./assets/js/theme.js" defer></script>
+  <script src="./assets/js/boot.js" defer></script>
+  <script src="./assets/js/icons.js" defer></script>
+  <script src="./assets/js/app.js" defer></script>
+  <script src="./assets/js/store.js" defer></script>
+  <script src="./assets/js/effects.js" defer></script>
 
-<!-- ═══════ المستوى 1: حرج (فوراً) ═══════ -->
-
-
-<script src="./assets/js/theme.js" defer></script>
-<script src="./assets/js/boot.js" defer></script>
-<script src="./assets/js/icons.js" defer></script>
-<script src="./assets/js/app.js" defer></script>
-<script src="./assets/js/store.js" defer></script>
-<script src="./assets/js/effects.js" defer></script>
-<script>
-  window.addEventListener('load', function() {
-    var level2 = [
-    './assets/js/sweetalert2/sweetalert2.all.min.js',
-      './assets/js/lib/qrcode.js',
-      './assets/js/console-brand.js',
-      './assets/js/extras/seo-plus.js',
-      './assets/js/extras/search-console.js',
-      './assets/js/extras/loyalty.js',
-      './assets/js/extras/upsell.js',
-      './assets/js/extras/urgency.js',
-      './assets/js/extras/abandoned-cart.js',
-      './assets/js/extras/recently-viewed.js',
-      './assets/js/extras/share-menu.js',
-      './assets/js/extras/print-receipt.js'
-    ];
-    
-    level2.forEach(function(src, i) {
-      setTimeout(function() {
-        var s = document.createElement('script');
-        s.src = src;
-        s.async = false;   // ← غيّرها من defer إلى async = false
-        document.body.appendChild(s);
-      }, i * 80);
-    });
-  });
-</script>
-<script>
-  (function() {
-    var loaded = false;
-    
-    function loadLevel3() {
-      if (loaded) return;
-      loaded = true;
-      
-      var level3 = [
-        './assets/js/extras/pwa-install.js',
-        './assets/js/extras/compare.js',
-        './assets/js/extras/quick-view.js',
-        './assets/js/extras/perf-monitor.js',
-        './assets/js/extras/error-reporter.js',
-        './assets/js/extras/cache-manager.js',
-        './assets/js/extras/anti-copy.js',
-        './assets/js/extras/watermark.js',
-        './assets/js/extras/voice-search.js',
-        './assets/js/extras/live-chat.js',
-        './assets/js/extras/notifications.js',
-        './assets/js/extras/gift-wrap.js',
-        './assets/js/extras/delivery-estimate.js',
-        './assets/js/extras/whatsapp-status.js'
+  <script>
+    window.addEventListener('load', function() {
+      var level2 = [
+        './assets/js/sweetalert2/sweetalert2.all.min.js',
+        './assets/js/lib/qrcode.js',
+        './assets/js/console-brand.js',
+        './assets/js/extras/seo-plus.js',
+        './assets/js/extras/search-console.js',
+        './assets/js/extras/loyalty.js',
+        './assets/js/extras/upsell.js',
+        './assets/js/extras/urgency.js',
+        './assets/js/extras/abandoned-cart.js',
+        './assets/js/extras/recently-viewed.js',
+        './assets/js/extras/share-menu.js',
+        './assets/js/extras/print-receipt.js'
       ];
-      
-      level3.forEach(function(src, i) {
+      level2.forEach(function(src, i) {
         setTimeout(function() {
           var s = document.createElement('script');
           s.src = src;
-          s.async = false;   // ← غيّرها من defer إلى async = false
+          s.async = false;
           document.body.appendChild(s);
-        }, i * 60);
+        }, i * 80);
       });
-    }
-    
-    ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(ev) {
-      document.addEventListener(ev, loadLevel3, { once: true, passive: true });
     });
-  })();
-</script>
+  </script>
 
-
-
+  <script>
+    (function() {
+      var loaded = false;
+      function loadLevel3() {
+        if (loaded) return;
+        loaded = true;
+        var level3 = [
+          './assets/js/extras/pwa-install.js',
+          './assets/js/extras/compare.js',
+          './assets/js/extras/quick-view.js',
+          './assets/js/extras/perf-monitor.js',
+          './assets/js/extras/error-reporter.js',
+          './assets/js/extras/cache-manager.js',
+          './assets/js/extras/anti-copy.js',
+          './assets/js/extras/watermark.js',
+          './assets/js/extras/voice-search.js',
+          './assets/js/extras/live-chat.js',
+          './assets/js/extras/notifications.js',
+          './assets/js/extras/notifications-ui.js',
+          './assets/js/extras/gift-wrap.js',
+          './assets/js/extras/delivery-estimate.js',
+          './assets/js/extras/whatsapp-status.js'
+        ];
+        level3.forEach(function(src, i) {
+          setTimeout(function() {
+            var s = document.createElement('script');
+            s.src = src;
+            s.async = false;
+            document.body.appendChild(s);
+          }, i * 60);
+        });
+      }
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(ev) {
+        document.addEventListener(ev, loadLevel3, { once: true, passive: true });
+      });
+    })();
+  </script>
 </head>
 
 <body>
 <div class="cin-progress" data-cin-progress></div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SVG ICON LIBRARY — كل الرموز داخل <defs>
-     ═══════════════════════════════════════════════════════════ -->
+<!-- ═══ SVG ICON LIBRARY ═══ -->
 <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <defs>
-
-    <!-- ═══════ NAVBAR ═══════ -->
     <symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
       <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
     </symbol>
-
     <symbol id="ic-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/>
       <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
@@ -251,66 +721,52 @@
       <path d="M2 7h20"/>
       <path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/>
     </symbol>
-
     <symbol id="ic-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
       <path d="M3 6h18"/>
       <path d="M16 10a4 4 0 0 1-8 0"/>
     </symbol>
-
     <symbol id="ic-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="8" cy="21" r="1"/>
       <circle cx="19" cy="21" r="1"/>
       <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
     </symbol>
-
     <symbol id="ic-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
       <path d="M18 14h-8"/>
       <path d="M15 18h-5"/>
       <path d="M10 6h8v4h-8V6Z"/>
     </symbol>
-
     <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
     </symbol>
-
-    <!-- ═══════ UI ACTIONS ═══════ -->
     <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="11" cy="11" r="8"/>
       <path d="m21 21-4.3-4.3"/>
     </symbol>
-
     <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
     </symbol>
-
     <symbol id="ic-heart-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
     </symbol>
-
     <symbol id="ic-star" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
     </symbol>
-
     <symbol id="ic-arrow-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m12 19-7-7 7-7"/>
       <path d="M19 12H5"/>
     </symbol>
-
     <symbol id="ic-arrow-forward" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14"/>
       <path d="m12 5 7 7-7 7"/>
     </symbol>
-
     <symbol id="ic-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m6 9 6 6 6-6"/>
     </symbol>
-
     <symbol id="ic-chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m18 15-6-6-6 6"/>
     </symbol>
-
     <symbol id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="4"/>
       <path d="M12 2v2"/><path d="M12 20v2"/>
@@ -320,11 +776,9 @@
       <path d="m6.34 17.66-1.41 1.41"/>
       <path d="m19.07 4.93-1.41 1.41"/>
     </symbol>
-
     <symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
     </symbol>
-
     <symbol id="ic-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
       <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
@@ -332,43 +786,33 @@
       <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
       <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
     </symbol>
-
-    <!-- ═══════ CONTACT ═══════ -->
     <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <rect width="20" height="16" x="2" y="4" rx="2"/>
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
     </symbol>
-
     <symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <rect width="14" height="20" x="5" y="2" rx="2"/>
       <path d="M12 18h.01"/>
     </symbol>
-
     <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
       <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0Zm0 0a5 5 0 0 0 5 5m0 0h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1Z" stroke="none" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
-
     <symbol id="ic-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
     </symbol>
-
     <symbol id="ic-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
       <circle cx="12" cy="10" r="3"/>
     </symbol>
-
     <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="9"/>
       <polyline points="12 7 12 12 15 14"/>
     </symbol>
-
-    <!-- ═══════ SYSTEM ═══════ -->
     <symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 6 6 18"/>
       <path d="m6 6 12 12"/>
     </symbol>
-
     <symbol id="ic-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 6h18"/>
       <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
@@ -376,38 +820,31 @@
       <line x1="10" x2="10" y1="11" y2="17"/>
       <line x1="14" x2="14" y1="11" y2="17"/>
     </symbol>
-
     <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 6 9 17l-5-5"/>
     </symbol>
-
     <symbol id="ic-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10"/>
       <path d="m9 12 2 2 4-4"/>
     </symbol>
-
     <symbol id="ic-check-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 6 7 17l-5-5"/>
       <path d="m22 10-7.5 7.5L13 16"/>
     </symbol>
-
     <symbol id="ic-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10"/>
       <line x1="12" x2="12" y1="8" y2="12"/>
       <line x1="12" x2="12.01" y1="16" y2="16"/>
     </symbol>
-
     <symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10"/>
       <path d="M12 16v-4"/>
       <path d="M12 8h.01"/>
     </symbol>
-
     <symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="m22 2-7 20-4-9-9-4Z"/>
       <path d="M22 2 11 13"/>
     </symbol>
-
     <symbol id="ic-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="18" cy="5" r="3"/>
       <circle cx="6" cy="12" r="3"/>
@@ -415,13 +852,10 @@
       <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
       <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
     </symbol>
-
-    <!-- ═══════ SHOP / PRODUCT ═══════ -->
     <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
       <path d="m9 12 2 2 4-4"/>
     </symbol>
-
     <symbol id="ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
       <path d="M15 18H9"/>
@@ -429,19 +863,16 @@
       <circle cx="17" cy="18" r="2"/>
       <circle cx="7" cy="18" r="2"/>
     </symbol>
-
     <symbol id="ic-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
       <path d="M21 3v5h-5"/>
       <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
       <path d="M8 16H3v5"/>
     </symbol>
-
     <symbol id="ic-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/>
       <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>
     </symbol>
-
     <symbol id="ic-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
       <path d="M20 3v4"/>
@@ -449,34 +880,24 @@
       <path d="M4 17v2"/>
       <path d="M5 18H3"/>
     </symbol>
-
     <symbol id="ic-ribbon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/>
       <circle cx="12" cy="8" r="6"/>
     </symbol>
-
     <symbol id="ic-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
       <path d="M12 22V12"/>
       <polyline points="3.29 7 12 12 20.71 7"/>
       <path d="m7.5 4.27 9 5.15"/>
     </symbol>
-
-    <symbol id="ic-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-      <circle cx="12" cy="12" r="3"/>
+    <symbol id="ic-flash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
     </symbol>
-
     <symbol id="ic-restaurant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
       <path d="M7 2v20"/>
       <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
     </symbol>
-
-    <symbol id="ic-flash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
-    </symbol>
-
     <symbol id="ic-cut" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="6" cy="6" r="3"/>
       <path d="M8.12 8.12 12 12"/>
@@ -484,13 +905,11 @@
       <circle cx="6" cy="18" r="3"/>
       <path d="M14.8 14.8 20 20"/>
     </symbol>
-
     <symbol id="ic-albums" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
       <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/>
       <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
     </symbol>
-
     <symbol id="ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <rect width="18" height="18" x="3" y="3" rx="2"/>
       <path d="M3 9h18"/>
@@ -498,12 +917,10 @@
       <path d="M9 3v18"/>
       <path d="M15 3v18"/>
     </symbol>
-
     <symbol id="ic-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
       <rect width="20" height="14" x="2" y="6" rx="2"/>
     </symbol>
-
     <symbol id="ic-business" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
       <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
@@ -513,56 +930,72 @@
       <path d="M10 14h4"/>
       <path d="M10 18h4"/>
     </symbol>
-
     <symbol id="ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14"/>
       <path d="M12 5v14"/>
     </symbol>
-
     <symbol id="ic-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14"/>
     </symbol>
-
-    <!-- ═══════ NEW ICONS (v2.0) ═══════ -->
-
-    <!-- git-compare — compare.js -->
     <symbol id="ic-git-compare" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="18" cy="18" r="3"/>
       <circle cx="6" cy="6" r="3"/>
       <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
       <path d="M11 18H8a2 2 0 0 1-2-2V9"/>
     </symbol>
-
-    <!-- rocket — upsell.js -->
     <symbol id="ic-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
       <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
       <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
       <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
     </symbol>
-
-    <!-- refresh — cache-manager.js -->
     <symbol id="ic-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
       <path d="M21 3v5h-5"/>
       <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
       <path d="M8 16H3v5"/>
     </symbol>
-
-    <!-- mic — voice-search.js -->
     <symbol id="ic-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
       <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
       <line x1="12" y1="19" x2="12" y2="22"/>
     </symbol>
-
-    <!-- print — print-receipt.js -->
     <symbol id="ic-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 6 2 18 2 18 9"/>
       <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
       <rect width="12" height="8" x="6" y="14"/>
     </symbol>
-
+    <!-- Sidebar icons for the new footer -->
+    <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="ic-help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+      <line x1="12" y1="17" x2="12.01" y2="17"/>
+    </symbol>
+    <symbol id="ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="ic-document-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+      <line x1="10" y1="9" x2="8" y2="9"/>
+    </symbol>
+    <symbol id="ic-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/>
+      <path d="M15 5.764v15"/>
+      <path d="M9 3.236v15"/>
+    </symbol>
+    <symbol id="ic-call" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -577,7 +1010,7 @@
       <line class="ico-slash" x1="2" y1="2" x2="22" y2="22"/>
     </svg>
   </span>
-  <span class="conn-text" data-conn-text>متصل</span>
+  <span class="conn-text" data-conn-text data-i18n="connOnline">متصل</span>
 </div>
 
 <main>
@@ -590,10 +1023,10 @@
       </figure>
       <div class="info-content">
         <h2 class="name" title="ELLOUL">ELLOUL</h2>
-        <p class="title">متجر أدوات المائدة</p>
+        <p class="title" data-i18n="brandTag">متجر أدوات المائدة</p>
       </div>
       <button class="info_more-btn" data-sidebar-btn aria-label="عرض البيانات">
-        <span>عرض البيانات</span>
+        <span data-i18n="sbShowData">عرض البيانات</span>
         <ion-icon name="chevron-down"></ion-icon>
       </button>
     </div>
@@ -604,58 +1037,67 @@
         <li class="contact-item">
           <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
           <div class="contact-info">
-            <p class="contact-title">البريد الإلكتروني</p>
+            <p class="contact-title" data-i18n="sbEmail">البريد الإلكتروني</p>
             <a href="mailto:orders@elloul.store" class="contact-link">orders@elloul.store</a>
           </div>
         </li>
         <li class="contact-item">
           <div class="icon-box"><ion-icon name="logo-whatsapp"></ion-icon></div>
           <div class="contact-info">
-            <p class="contact-title">واتساب الطلبات</p>
+            <p class="contact-title" data-i18n="sbWhatsapp">واتساب الطلبات</p>
             <a href="tel:+201206796831" class="contact-link" dir="ltr">+20 1206796831</a>
           </div>
         </li>
         <li class="contact-item">
           <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
           <div class="contact-info">
-            <p class="contact-title">المقر</p>
-            <address>أبيس المستجدة، مركز كفر الدوار، محافظة البحيرة</address>
+            <p class="contact-title" data-i18n="sbLocation">المقر</p>
+            <address data-i18n="sbAddress">أبيس المستجدة، مركز كفر الدوار، محافظة البحيرة</address>
           </div>
         </li>
         <li class="contact-item">
           <div class="icon-box"><ion-icon name="time-outline"></ion-icon></div>
           <div class="contact-info">
-            <p class="contact-title">مواعيد العمل</p>
-            <span class="contact-link" style="direction:rtl;text-align:right;">السبت – الخميس · 9ص – 9م</span>
+            <p class="contact-title" data-i18n="sbHours">مواعيد العمل</p>
+            <span class="contact-link" style="direction:rtl;text-align:right;" data-i18n="sbHoursValue">السبت – الخميس · 9ص – 9م</span>
           </div>
         </li>
       </ul>
       <div class="separator"></div>
+
       <div class="sidebar-theme-section">
         <p class="theme-section-label">
           <ion-icon name="color-palette-outline"></ion-icon>
-          <span>المظهر</span>
+          <span data-i18n="sbAppearance">المظهر</span>
         </p>
         <div class="theme-controls-inline">
+
+          <!-- ✨ NEW: Language toggle -->
+          <div class="lang-toggle-inline" role="group" aria-label="Language">
+            <button class="lang-btn-sm" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+            <button class="lang-btn-sm" data-lang-btn="en" type="button" aria-label="English">EN</button>
+          </div>
+
           <div class="color-picker-wrap">
             <button class="theme-btn color-btn" id="colorBtn" type="button" title="لون المتجر" aria-label="لون المتجر">
               <span class="color-dot"></span>
             </button>
             <div class="color-menu" id="colorMenu">
               <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="أزرق"        aria-label="اختيار اللون الأزرق"></button>
-<button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="بنفسجي"      aria-label="اختيار اللون البنفسجي"></button>
-<button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="وردي"        aria-label="اختيار اللون الوردي"></button>
-<button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="أحمر وردي"   aria-label="اختيار اللون الأحمر الوردي"></button>
-<button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="أحمر"        aria-label="اختيار اللون الأحمر"></button>
-<button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="برتقالي"     aria-label="اختيار اللون البرتقالي"></button>
-<button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="عسلي"        aria-label="اختيار اللون العسلي"></button>
-<button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="ليموني"      aria-label="اختيار اللون الليموني"></button>
-<button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="أخضر"        aria-label="اختيار اللون الأخضر"></button>
-<button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="فيروزي"      aria-label="اختيار اللون الفيروزي"></button>
-<button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="سماوي"       aria-label="اختيار اللون السماوي"></button>
-<button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="نيلي"        aria-label="اختيار اللون النيلي"></button>
+              <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="بنفسجي"      aria-label="اختيار اللون البنفسجي"></button>
+              <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="وردي"        aria-label="اختيار اللون الوردي"></button>
+              <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="أحمر وردي"   aria-label="اختيار اللون الأحمر الوردي"></button>
+              <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="أحمر"        aria-label="اختيار اللون الأحمر"></button>
+              <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="برتقالي"     aria-label="اختيار اللون البرتقالي"></button>
+              <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="عسلي"        aria-label="اختيار اللون العسلي"></button>
+              <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="ليموني"      aria-label="اختيار اللون الليموني"></button>
+              <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="أخضر"        aria-label="اختيار اللون الأخضر"></button>
+              <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="فيروزي"      aria-label="اختيار اللون الفيروزي"></button>
+              <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="سماوي"       aria-label="اختيار اللون السماوي"></button>
+              <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="نيلي"        aria-label="اختيار اللون النيلي"></button>
             </div>
           </div>
+
           <button class="theme-btn theme-toggle-btn" id="themeToggle" type="button" title="الوضع الليلي/النهاري" aria-label="تبديل المظهر">
             <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
             <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
@@ -684,28 +1126,33 @@
       <ul class="navbar-list">
         <li class="navbar-item">
           <button class="navbar-link active" data-nav-link data-nav-target="home">
-            <ion-icon name="home-outline"></ion-icon><span>الرئيسية</span>
+            <ion-icon name="home-outline"></ion-icon>
+            <span data-i18n="navHome">الرئيسية</span>
           </button>
         </li>
         <li class="navbar-item">
           <button class="navbar-link" data-nav-link data-nav-target="shop">
-            <ion-icon name="storefront-outline"></ion-icon><span>المتجر</span>
+            <ion-icon name="storefront-outline"></ion-icon>
+            <span data-i18n="navShop">المتجر</span>
           </button>
         </li>
         <li class="navbar-item">
           <button class="navbar-link" data-nav-link data-nav-target="cart">
-            <ion-icon name="bag-handle-outline"></ion-icon><span>السلة</span>
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span data-i18n="navCart">السلة</span>
             <span class="cart-badge" data-cart-badge hidden>0</span>
           </button>
         </li>
         <li class="navbar-item">
           <button class="navbar-link" data-nav-link data-nav-target="blog">
-            <ion-icon name="newspaper-outline"></ion-icon><span>الأخبار</span>
+            <ion-icon name="newspaper-outline"></ion-icon>
+            <span data-i18n="navBlog">الأخبار</span>
           </button>
         </li>
         <li class="navbar-item">
           <button class="navbar-link" data-nav-link data-nav-target="contact">
-            <ion-icon name="chatbubble-ellipses-outline"></ion-icon><span>اتصل بنا</span>
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+            <span data-i18n="navContact">اتصل بنا</span>
           </button>
         </li>
       </ul>
@@ -716,76 +1163,80 @@
       <section class="hero">
         <span class="hero-tag">
           <ion-icon name="flash"></ion-icon>
-          شحن مجاني للطلبات فوق 500 ج.م
+          <span data-i18n="heroTag">شحن مجاني للطلبات فوق 500 ج.م</span>
         </span>
-        <h1 class="hero-title">أدوات مائدة <em>فاخرة</em><br>من الاستانلس ستيل</h1>
-        <p class="hero-text">
+        <h1 class="hero-title" data-i18n="heroTitle">أدوات مائدة <em>فاخرة</em><br>من الاستانلس ستيل</h1>
+        <p class="hero-text" data-i18n="heroText">
           تشكيلة مختارة بعناية من الملاعق والشوك والسكاكين والأطقم الكاملة — جودة عالية،
           تصميم عصري، وأسعار تناسب الجميع. اطلب الآن ويوصلك لباب البيت.
         </p>
         <div class="hero-actions">
           <button class="hero-btn primary" data-nav-link data-nav-target="shop">
-            <ion-icon name="bag-handle-outline"></ion-icon>تسوّق الآن
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span data-i18n="heroShop">تسوّق الآن</span>
           </button>
           <a class="hero-btn ghost" href="https://wa.me/201206796831" target="_blank" rel="noopener">
-            <ion-icon name="logo-whatsapp"></ion-icon>تواصل معنا
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <span data-i18n="heroContact">تواصل معنا</span>
           </a>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><strong>+50</strong><span>منتج متنوع</span></div>
-          <div class="hero-stat"><strong>100%</strong><span>ستانلس مقاوم</span></div>
-          <div class="hero-stat"><strong>24س</strong><span>شحن سريع</span></div>
+          <div class="hero-stat"><strong>+50</strong><span data-i18n="heroStat1">منتج متنوع</span></div>
+          <div class="hero-stat"><strong>100%</strong><span data-i18n="heroStat2">ستانلس مقاوم</span></div>
+          <div class="hero-stat"><strong>24س</strong><span data-i18n="heroStat3">شحن سريع</span></div>
         </div>
       </section>
 
-      <div class="sec-head"><h3>تصفّح التصنيفات</h3></div>
+      <div class="sec-head"><h3 data-i18n="secCategories">تصفّح التصنيفات</h3></div>
       <div class="cat-scroll" data-home-cats></div>
 
       <div class="sec-head">
-        <h3>الأكثر مبيعاً</h3>
+        <h3 data-i18n="secBestSellers">الأكثر مبيعاً</h3>
         <button class="sec-link" data-nav-link data-nav-target="shop">
-          عرض الكل<ion-icon name="arrow-back-outline"></ion-icon>
+          <span data-i18n="secViewAll">عرض الكل</span>
+          <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
       </div>
       <ul class="shop-grid" data-featured-grid></ul>
 
       <div class="sec-head">
-        <h3>وصل حديثاً</h3>
+        <h3 data-i18n="secNew">وصل حديثاً</h3>
         <button class="sec-link" data-nav-link data-nav-target="shop">
-          عرض الكل<ion-icon name="arrow-back-outline"></ion-icon>
+          <span data-i18n="secViewAll">عرض الكل</span>
+          <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
       </div>
       <ul class="shop-grid" data-new-grid></ul>
 
       <section class="service" style="margin-top:32px;">
-        <h3 class="h3 service-title">لماذا تشتري من ELLOUL؟</h3>
+        <h3 class="h3 service-title" data-i18n="secWhyUs">لماذا تشتري من ELLOUL؟</h3>
         <ul class="service-list">
           <li class="service-item">
             <div class="service-icon-box"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
             <div class="service-content-box">
-              <h4 class="h4 service-item-title">خامات أصلية</h4>
-              <p class="service-item-text">ستانلس ستيل 304 مقاوم للصدأ والتآكل، آمن على الطعام.</p>
+              <h4 class="h4 service-item-title" data-i18n="svc1Title">خامات أصلية</h4>
+              <p class="service-item-text" data-i18n="svc1Text">ستانلس ستيل 304 مقاوم للصدأ والتآكل، آمن على الطعام.</p>
             </div>
           </li>
           <li class="service-item">
             <div class="service-icon-box"><ion-icon name="car-outline"></ion-icon></div>
             <div class="service-content-box">
-              <h4 class="h4 service-item-title">توصيل سريع</h4>
-              <p class="service-item-text">شحن لجميع المحافظات مع إمكانية الدفع عند الاستلام.</p>
+              <h4 class="h4 service-item-title" data-i18n="svc2Title">توصيل سريع</h4>
+              <p class="service-item-text" data-i18n="svc2Text">شحن لجميع المحافظات مع إمكانية الدفع عند الاستلام.</p>
             </div>
           </li>
           <li class="service-item">
             <div class="service-icon-box"><ion-icon name="repeat-outline"></ion-icon></div>
             <div class="service-content-box">
-              <h4 class="h4 service-item-title">استبدال مجاني</h4>
-              <p class="service-item-text">استبدال أو استرجاع خلال 14 يوم في حال وجود أي عيب.</p>
+              <h4 class="h4 service-item-title" data-i18n="svc3Title">استبدال مجاني</h4>
+              <p class="service-item-text" data-i18n="svc3Text">استبدال أو استرجاع خلال 14 يوم في حال وجود أي عيب.</p>
             </div>
           </li>
           <li class="service-item">
             <div class="service-icon-box"><ion-icon name="pricetags-outline"></ion-icon></div>
             <div class="service-content-box">
-              <h4 class="h4 service-item-title">أسعار الجملة</h4>
-              <p class="service-item-text">خصومات خاصة للمطاعم والفنادق والموزعين والكميات الكبيرة.</p>
+              <h4 class="h4 service-item-title" data-i18n="svc4Title">أسعار الجملة</h4>
+              <p class="service-item-text" data-i18n="svc4Text">خصومات خاصة للمطاعم والفنادق والموزعين والكميات الكبيرة.</p>
             </div>
           </li>
         </ul>
@@ -794,11 +1245,11 @@
 
     <!-- ═══════════════ #SHOP ═══════════════ -->
     <article class="portfolio" data-page="shop">
-      <header><h2 class="h2 article-title">المتجر</h2></header>
+      <header><h2 class="h2 article-title" data-i18n="shopTitle">المتجر</h2></header>
       <section class="shop-toolbar">
         <div class="search-box">
           <ion-icon name="search-outline"></ion-icon>
-          <input type="search" class="search-input" placeholder="ابحث عن منتج..." data-shop-search aria-label="بحث">
+          <input type="search" class="search-input" placeholder="ابحث عن منتج..." data-i18n-placeholder="shopSearch" data-shop-search aria-label="بحث">
           <button class="search-clear" data-shop-clear aria-label="مسح البحث">
             <ion-icon name="close-outline"></ion-icon>
           </button>
@@ -811,51 +1262,55 @@
 
     <!-- ═══════════════ #CART ═══════════════ -->
     <article data-page="cart">
-      <header><h2 class="h2 article-title">سلة التسوق</h2></header>
+      <header><h2 class="h2 article-title" data-i18n="cartTitle">سلة التسوق</h2></header>
       <div data-cart-full>
         <ul class="cart-list" data-cart-list></ul>
         <div class="cart-summary" style="margin-top:18px;">
-          <h3>ملخص الطلب</h3>
+          <h3 data-i18n="cartSummary">ملخص الطلب</h3>
           <div class="summary-rows">
-            <div class="summary-row"><span class="lbl">عدد القطع</span><span class="val" data-sum-qty>0</span></div>
-            <div class="summary-row"><span class="lbl">المجموع الفرعي</span><span class="val" data-sum-sub>0 ج.م</span></div>
-            <div class="summary-row"><span class="lbl">الشحن</span><span class="val free" data-sum-ship>مجاني</span></div>
+            <div class="summary-row"><span class="lbl" data-i18n="cartQty">عدد القطع</span><span class="val" data-sum-qty>0</span></div>
+            <div class="summary-row"><span class="lbl" data-i18n="cartSubtotal">المجموع الفرعي</span><span class="val" data-sum-sub>0 ج.م</span></div>
+            <div class="summary-row"><span class="lbl" data-i18n="cartShipping">الشحن</span><span class="val free" data-sum-ship data-i18n="cartFree">مجاني</span></div>
             <div class="summary-divider"></div>
             <div class="summary-total">
-              <span class="lbl">الإجمالي</span>
+              <span class="lbl" data-i18n="cartTotal">الإجمالي</span>
               <span class="val" data-sum-total>0 <small>ج.م</small></span>
             </div>
           </div>
           <div class="shipping-hint" data-ship-hint>
             <ion-icon name="information-circle-outline"></ion-icon>
-            <span>أضف منتجات بقيمة 500 ج.م للحصول على شحن مجاني.</span>
+            <span data-i18n="cartShipHint">أضف منتجات بقيمة 500 ج.م للحصول على شحن مجاني.</span>
           </div>
           <button class="checkout-btn" data-checkout>
-            <ion-icon name="logo-whatsapp"></ion-icon>إتمام الطلب عبر واتساب
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <span data-i18n="cartCheckout">إتمام الطلب عبر واتساب</span>
           </button>
           <div class="cart-secondary">
             <button data-nav-link data-nav-target="shop">
-              <ion-icon name="arrow-forward-outline"></ion-icon>متابعة التسوق
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+              <span data-i18n="cartContinue">متابعة التسوق</span>
             </button>
             <button class="danger" data-clear-cart>
-              <ion-icon name="trash-outline"></ion-icon>تفريغ السلة
+              <ion-icon name="trash-outline"></ion-icon>
+              <span data-i18n="cartClear">تفريغ السلة</span>
             </button>
           </div>
         </div>
       </div>
       <div class="empty-state" data-cart-empty hidden>
         <div class="empty-ico"><ion-icon name="bag-handle-outline"></ion-icon></div>
-        <h4>سلتك فارغة</h4>
-        <p>لم تقم بإضافة أي منتجات بعد. تصفّح المتجر واختر ما يناسبك.</p>
+        <h4 data-i18n="cartEmpty">سلتك فارغة</h4>
+        <p data-i18n="cartEmptyText">لم تقم بإضافة أي منتجات بعد. تصفّح المتجر واختر ما يناسبك.</p>
         <button class="hero-btn primary" data-nav-link data-nav-target="shop" style="margin-top:6px;">
-          <ion-icon name="storefront-outline"></ion-icon>تصفّح المتجر
+          <ion-icon name="storefront-outline"></ion-icon>
+          <span data-i18n="cartBrowse">تصفّح المتجر</span>
         </button>
       </div>
     </article>
 
     <!-- ═══════════════ #BLOG ═══════════════ -->
     <article class="blog" data-page="blog">
-      <header><h2 class="h2 article-title">الأخبار والعروض</h2></header>
+      <header><h2 class="h2 article-title" data-i18n="blogTitle">الأخبار والعروض</h2></header>
       <section class="blog-posts">
         <ul class="blog-posts-list">
 
@@ -925,7 +1380,7 @@
 
     <!-- ═══════════════ #CONTACT ═══════════════ -->
     <article class="contact" data-page="contact">
-      <header><h2 class="h2 article-title">اتصل بنا</h2></header>
+      <header><h2 class="h2 article-title" data-i18n="contactTitle">اتصل بنا</h2></header>
       <section class="mapbox" data-mapbox>
         <figure>
           <iframe
@@ -934,15 +1389,16 @@
         </figure>
       </section>
       <section class="contact-form">
-        <h3 class="h3 form-title">أرسل لنا رسالة</h3>
+        <h3 class="h3 form-title" data-i18n="contactForm">أرسل لنا رسالة</h3>
         <form action="#" class="form" data-form>
           <div class="input-wrapper">
-            <input type="text" id="fullname" name="fullname" class="form-input" placeholder="الاسم الكامل" required data-form-input>
-            <input type="tel" id="phone" name="phone" class="form-input" placeholder="رقم الهاتف / واتساب" required data-form-input>
+            <input type="text" id="fullname" name="fullname" class="form-input" placeholder="الاسم الكامل" data-i18n-placeholder="contactName" required data-form-input>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="رقم الهاتف / واتساب" data-i18n-placeholder="contactPhone" required data-form-input>
           </div>
-          <textarea id="message" name="message" class="form-input" placeholder="اكتب رسالتك أو طلبك بالتفصيل..." required data-form-input></textarea>
+          <textarea id="message" name="message" class="form-input" placeholder="اكتب رسالتك أو طلبك بالتفصيل..." data-i18n-placeholder="contactMessage" required data-form-input></textarea>
           <button class="form-btn" type="submit" disabled data-form-btn>
-            <ion-icon name="paper-plane"></ion-icon><span>إرسال الرسالة</span>
+            <ion-icon name="paper-plane"></ion-icon>
+            <span data-i18n="contactSend">إرسال الرسالة</span>
           </button>
         </form>
       </section>
@@ -965,7 +1421,7 @@
       <ion-icon name="close-outline"></ion-icon>
     </button>
     <div class="pm-hero">
-    <img alt="صورة المنتج" data-product-modal-img hidden>
+      <img alt="صورة المنتج" data-product-modal-img hidden>
       <div class="product-ph" data-product-modal-ph>
         <ion-icon name="restaurant-outline"></ion-icon>
       </div>
@@ -976,7 +1432,7 @@
       <h3 class="pm-title" data-product-modal-title>اسم المنتج</h3>
       <div class="pm-rating">
         <ion-icon name="star"></ion-icon>
-        <span data-product-modal-rating>4.9 · 120 تقييم</span>
+        <span data-product-modal-rating data-i18n="pmRating">4.9 · 120 تقييم</span>
       </div>
       <p class="pm-desc" data-product-modal-desc>وصف المنتج...</p>
       <ul class="pm-features">
@@ -991,7 +1447,8 @@
           <span class="price-old" data-product-modal-old hidden>0</span>
         </div>
         <span class="pm-stock">
-          <ion-icon name="checkmark-done-circle"></ion-icon>متوفر في المخزون
+          <ion-icon name="checkmark-done-circle"></ion-icon>
+          <span data-i18n="pmInStock">متوفر في المخزون</span>
         </span>
       </div>
       <div class="pm-actions">
@@ -1001,7 +1458,8 @@
           <button type="button" data-pm-plus aria-label="زيادة">+</button>
         </div>
         <button class="pm-add" data-pm-add>
-          <ion-icon name="cart-outline"></ion-icon>أضف إلى السلة
+          <ion-icon name="cart-outline"></ion-icon>
+          <span data-i18n="pmAdd">أضف إلى السلة</span>
         </button>
       </div>
     </div>
@@ -1017,7 +1475,7 @@
     </button>
     <div class="blog-modal-hero">
       <figure class="blog-modal-banner">
-       <img alt="صورة الخبر" data-blog-modal-img>
+        <img alt="صورة الخبر" data-blog-modal-img>
       </figure>
       <div class="blog-modal-meta">
         <span class="blog-modal-cat" data-blog-modal-category>التصنيف</span>
@@ -1040,14 +1498,98 @@
 <!-- #TOASTS -->
 <div id="toastStack"></div>
 
-<!-- #FOOTER -->
-<footer class="footer">
+<!-- ═══ FOOTER (جديد — 4 columns) ═══ -->
+<footer class="footer" data-footer>
+  <div class="footer-links" data-footer-links>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title" data-i18n="ftShop">المتجر</h4>
+      <ul>
+        <li><a href="index.html"><ion-icon name="home-outline"></ion-icon><span data-i18n="ftHome">الرئيسية</span></a></li>
+        <li><a href="index.html#shop"><ion-icon name="storefront-outline"></ion-icon><span data-i18n="ftProducts">المنتجات</span></a></li>
+        <li><a href="index.html#cart"><ion-icon name="bag-handle-outline"></ion-icon><span data-i18n="ftCart">السلة</span></a></li>
+        <li><a href="index.html#blog"><ion-icon name="newspaper-outline"></ion-icon><span data-i18n="ftNews">الأخبار</span></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title" data-i18n="ftCompany">الشركة</h4>
+      <ul>
+        <li><a href="about.html"><ion-icon name="people-outline"></ion-icon><span data-i18n="ftAbout">من نحن</span></a></li>
+        <li><a href="contact.html"><ion-icon name="chatbubble-ellipses-outline"></ion-icon><span data-i18n="ftContact">اتصل بنا</span></a></li>
+        <li><a href="contact.html#faq"><ion-icon name="help-circle-outline"></ion-icon><span data-i18n="ftFAQ">الأسئلة الشائعة</span></a></li>
+        <li><a href="track-order.html"><ion-icon name="cube-outline"></ion-icon><span data-i18n="ftTrack">تتبع الطلب</span></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title" data-i18n="ftLegal">القانوني</h4>
+      <ul>
+        <li><a href="privacy.html"><ion-icon name="shield-checkmark-outline"></ion-icon><span data-i18n="ftPrivacy">الخصوصية والكوكيز</span></a></li>
+        <li><a href="terms.html"><ion-icon name="document-text-outline"></ion-icon><span data-i18n="ftTerms">الشروط والأحكام</span></a></li>
+        <li><a href="returns.html"><ion-icon name="repeat-outline"></ion-icon><span data-i18n="ftReturns">الإرجاع والاستبدال</span></a></li>
+        <li><a href="returns.html#sec-7"><ion-icon name="car-outline"></ion-icon><span data-i18n="ftShipping">الشحن والتوصيل</span></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title" data-i18n="ftReach">تواصل معنا</h4>
+      <ul>
+        <li><a href="tel:+201206796831" dir="ltr"><ion-icon name="call-outline"></ion-icon><span>+20 120 679 6831</span></a></li>
+        <li><a href="https://wa.me/201206796831" target="_blank" rel="noopener"><ion-icon name="logo-whatsapp"></ion-icon><span data-i18n="ftWaOrders">واتساب الطلبات</span></a></li>
+        <li><a href="mailto:orders@elloul.store"><ion-icon name="mail-outline"></ion-icon><span>orders@elloul.store</span></a></li>
+        <li><a href="sitemap.html"><ion-icon name="map-outline"></ion-icon><span data-i18n="ftMap">خريطة الموقع</span></a></li>
+      </ul>
+    </div>
+
+  </div>
+
   <p class="copyright">
-    <span>متجر إلكتروني من تصميم وتطوير</span>
+    <span data-i18n="ftDesigned">متجر إلكتروني من تصميم وتطوير</span>
     <span class="developer-name">ELLOUL</span>
-    <span>&copy; 2026 جميع الحقوق محفوظة</span>
+    <span data-i18n="ftRights">&copy; 2026 جميع الحقوق محفوظة</span>
   </p>
 </footer>
+
+<!-- ═══ Lang + i18n activation ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  /* Language toggle buttons */
+  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var l = btn.getAttribute('data-lang-btn');
+      if(l !== 'ar' && l !== 'en') return;
+      try { localStorage.setItem('elloul-lang', l); } catch(e){}
+      var html = document.documentElement;
+      html.setAttribute('data-lang', l);
+      html.setAttribute('lang', l);
+      html.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+      if(window.I18N && window.I18N.apply) window.I18N.apply();
+      /* Let app.js/store.js update connection text */
+      if(window.dispatchEvent) window.dispatchEvent(new Event('i18n:changed'));
+    });
+  });
+
+  /* Apply on load */
+  function boot(){
+    if(window.I18N && window.I18N.apply) window.I18N.apply();
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  /* Re-apply when returning to tab (some browsers) */
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible'){
+      setTimeout(boot, 50);
+    }
+  });
+})();
+</script>
 
 </body>
 </html>

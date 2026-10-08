@@ -1,197 +1,72 @@
 {
-  "name": "ELLOUL — أدوات مائدة فاخرة",
+  "id": "/?source=pwa",
+  "name": "ELLOUL — متجر أدوات المائدة",
   "short_name": "ELLOUL",
-  "description": "متجر إلكتروني لأدوات المائدة الفاخرة من الاستانلس ستيل 304 — ملاعق، شوك، سكاكين، وأطقم كاملة. شحن لجميع محافظات مصر مع الدفع عند الاستلام.",
+  "description": "متجر إلكتروني متخصص في أدوات المائدة الفاخرة من الاستانلس ستيل 304.",
   "lang": "ar",
   "dir": "rtl",
-  "id": "elloul-store-v3",
-  "start_url": "./?utm_source=pwa&utm_medium=app",
-  "scope": "./",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  "orientation": "portrait-primary",
-  "background_color": "#08080d",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
   "theme_color": "#0a1229",
-  "categories": ["shopping", "food", "lifestyle", "business"],
+  "background_color": "#080a18",
+  "categories": ["shopping", "lifestyle", "business"],
   "prefer_related_applications": false,
- 
 
   "icons": [
-    {
-      "src": "./assets/icons/android/launchericon-48x48.png",
-      "sizes": "48x48",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "./assets/icons/android/launchericon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "./assets/icons/ios/180.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/ios/192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/ios/256.png",
-      "sizes": "256x256",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/ios/512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/ios/1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/windows/Square44x44Logo.targetsize-44.png",
-      "sizes": "44x44",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/windows/Square150x150Logo.scale-100.png",
-      "sizes": "150x150",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/windows/Square44x44Logo.scale-400.png",
-      "sizes": "176x176",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./assets/icons/windows/Wide310x150Logo.scale-200.png",
-      "sizes": "620x300",
-      "type": "image/png",
-      "purpose": "any"
-    }
+    { "src": "./assets/icons/icon-72x72.png",    "sizes": "72x72",   "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-96x96.png",    "sizes": "96x96",   "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-128x128.png",  "sizes": "128x128", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-144x144.png",  "sizes": "144x144", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-152.png",      "sizes": "152x152", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-192x192.png",  "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-384x384.png",  "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-512x512.png",  "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-192x192.png",  "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./assets/icons/icon-512x512.png",  "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
 
   "shortcuts": [
     {
       "name": "المتجر",
-      "short_name": "تسوّق",
-      "description": "تصفّح كل المنتجات",
-      "url": "./#shop",
-      "icons": [
-        {
-          "src": "./assets/icons/android/launchericon-96x96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "short_name": "المتجر",
+      "description": "تصفّح المنتجات",
+      "url": "/?source=pwa#shop",
+      "icons": [{ "src": "./assets/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
-      "name": "سلة التسوق",
+      "name": "السلة",
       "short_name": "السلة",
-      "description": "اعرض سلتك وأتمم الطلب",
-      "url": "./#cart",
-      "icons": [
-        {
-          "src": "./assets/icons/android/launchericon-96x96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "description": "سلة التسوق",
+      "url": "/?source=pwa#cart",
+      "icons": [{ "src": "./assets/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
-      "name": "الأخبار والعروض",
-      "short_name": "الأخبار",
-      "description": "آخر العروض والمنتجات الجديدة",
-      "url": "./#blog",
-      "icons": [
-        {
-          "src": "./assets/icons/android/launchericon-96x96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "name": "تتبع الطلب",
+      "short_name": "تتبع",
+      "description": "تتبع حالة طلبك",
+      "url": "/track-order.html?source=pwa",
+      "icons": [{ "src": "./assets/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
-      "name": "تواصل معنا",
+      "name": "اتصل بنا",
       "short_name": "تواصل",
-      "description": "اتصل بنا عبر واتساب",
-      "url": "https://wa.me/201206796831",
-      "icons": [
-        {
-          "src": "./assets/icons/android/launchericon-96x96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "description": "واتساب وهاتف",
+      "url": "/contact.html?source=pwa",
+      "icons": [{ "src": "./assets/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     }
   ],
 
-  "related_applications": [],
-  "scope_extensions": [],
-  "handle_links": "preferred",
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": { "title": "title", "text": "text", "url": "url" }
+  },
 
   "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
-
-  "edge_side_panel": {
-    "preferred_width": 480
-  },
-
-  "protocol_handlers": [
-    {
-      "protocol": "web+elloul",
-      "url": "./?action=%s"
-    }
-  ]
+    "client_mode": "auto"
+  }
 }

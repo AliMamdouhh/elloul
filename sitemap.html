@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="blue" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a1229" id="themeColorMeta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" id="appleStatusBar">
+<meta name="apple-mobile-web-app-title" content="ELLOUL">
+<meta name="application-name" content="ELLOUL">
+<title data-i18n="pageTitle">خريطة الموقع · ELLOUL</title>
+<link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+(function(){'use strict';
+var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+var h=document.documentElement;
+var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+var c=g(CK,'blue');if(V.indexOf(c)===-1)c='blue';
+var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+function a(){
+  h.setAttribute('data-theme',t);
+  h.setAttribute('data-color',c);
+  h.setAttribute('data-lang',l);
+  h.setAttribute('lang',l);
+  h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+  if(bc){
+    var m=document.getElementById('themeColorMeta');
+    if(m)m.setAttribute('content',bc);
+    var ap=document.getElementById('appleStatusBar');
+    if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+  }
+}
+a();
+window.addEventListener('storage',function(e){
+  if(e.key===TK){t=e.newValue||'dark';a()}
+  if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'blue';a()}
+  if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+});
+if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+  try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+});
+})();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{height:100vh;height:100dvh;overflow:hidden;position:fixed;inset:0}
+
+/* ═══ 12 PALETTES ═══ */
+[data-color="blue"]  {--c:#3b82f6;--c2:#60a5fa;--c-soft:rgba(59,130,246,.14);--c-border:rgba(59,130,246,.32);--c-glow:rgba(59,130,246,.5)}
+[data-color="purple"]{--c:#a855f7;--c2:#c084fc;--c-soft:rgba(168,85,247,.14);--c-border:rgba(168,85,247,.32);--c-glow:rgba(168,85,247,.5)}
+[data-color="pink"]  {--c:#ec4899;--c2:#f472b6;--c-soft:rgba(236,72,153,.14);--c-border:rgba(236,72,153,.32);--c-glow:rgba(236,72,153,.5)}
+[data-color="rose"]  {--c:#f43f5e;--c2:#fb7185;--c-soft:rgba(244,63,94,.14);--c-border:rgba(244,63,94,.32);--c-glow:rgba(244,63,94,.5)}
+[data-color="red"]   {--c:#ef4444;--c2:#f87171;--c-soft:rgba(239,68,68,.14);--c-border:rgba(239,68,68,.32);--c-glow:rgba(239,68,68,.5)}
+[data-color="orange"]{--c:#f97316;--c2:#fb923c;--c-soft:rgba(249,115,22,.14);--c-border:rgba(249,115,22,.32);--c-glow:rgba(249,115,22,.5)}
+[data-color="amber"] {--c:#d97706;--c2:#f59e0b;--c-soft:rgba(217,119,6,.16);--c-border:rgba(217,119,6,.35);--c-glow:rgba(217,119,6,.5)}
+[data-color="lime"]  {--c:#84cc16;--c2:#a3e635;--c-soft:rgba(132,204,22,.14);--c-border:rgba(132,204,22,.32);--c-glow:rgba(132,204,22,.5)}
+[data-color="green"] {--c:#10b981;--c2:#34d399;--c-soft:rgba(16,185,129,.14);--c-border:rgba(16,185,129,.32);--c-glow:rgba(16,185,129,.5)}
+[data-color="teal"]  {--c:#14b8a6;--c2:#2dd4bf;--c-soft:rgba(20,184,166,.14);--c-border:rgba(20,184,166,.32);--c-glow:rgba(20,184,166,.5)}
+[data-color="cyan"]  {--c:#06b6d4;--c2:#22d3ee;--c-soft:rgba(6,182,212,.14);--c-border:rgba(6,182,212,.32);--c-glow:rgba(6,182,212,.5)}
+[data-color="indigo"]{--c:#6366f1;--c2:#818cf8;--c-soft:rgba(99,102,241,.14);--c-border:rgba(99,102,241,.32);--c-glow:rgba(99,102,241,.5)}
+
+/* ═══ THEMES ═══ */
+[data-theme="dark"]{
+  --bg:#080a18;
+  --surface:rgba(20,25,45,.55);
+  --surface-2:rgba(28,35,60,.78);
+  --input-bg:rgba(12,16,32,.6);
+  --input-bg-2:rgba(18,23,42,.78);
+  --border:rgba(220,230,255,.08);
+  --border-2:rgba(220,230,255,.16);
+  --t1:#f5f7ff;--t2:rgba(245,247,255,.68);--t3:rgba(245,247,255,.44);--t4:rgba(245,247,255,.24);
+  --hl:inset 0 1px 0 rgba(255,255,255,.06);
+  --noise-op:.04;--danger:#ef4444;--warn:#f59e0b;--success:#10b981;
+}
+[data-theme="light"]{
+  --bg:#f4f6ff;
+  --surface:rgba(255,255,255,.72);
+  --surface-2:rgba(255,255,255,.92);
+  --input-bg:rgba(255,255,255,.75);
+  --input-bg-2:rgba(255,255,255,.95);
+  --border:rgba(20,30,60,.08);
+  --border-2:rgba(20,30,60,.14);
+  --t1:#0c1230;--t2:rgba(12,18,48,.68);--t3:rgba(12,18,48,.46);--t4:rgba(12,18,48,.26);
+  --hl:inset 0 1px 0 rgba(255,255,255,.9);
+  --noise-op:.028;--danger:#dc2626;--warn:#d97706;--success:#059669;
+}
+
+/* ═══ BASE ═══ */
+body{
+  font-family:'Tajawal','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;transition:background .5s ease,color .5s ease;
+  isolation:isolate;direction:inherit;text-align:start;
+}
+[data-lang="en"] body{font-family:'Inter','Tajawal',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+
+::selection{background:var(--c);color:#fff}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+a{color:inherit;text-decoration:none}
+input{font:inherit;color:inherit;font-family:inherit}
+svg{display:block;flex-shrink:0}
+img{display:block;max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:8px}
+
+/* ═══ AMBIENT ═══ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 12%,var(--c-soft),transparent 62%),
+    radial-gradient(ellipse 70% 55% at 12% 88%,var(--c-soft),transparent 65%);
+  opacity:.9;pointer-events:none;
+  animation:bgBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes bgBreathe{0%{opacity:.55}100%{opacity:1}}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:var(--noise-op);mix-blend-mode:overlay;
+}
+
+/* ═══ SHELL ═══ */
+.shell{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  padding:
+    calc(env(safe-area-inset-top,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-right,0px) + clamp(16px,4vw,56px))
+    calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-left,0px) + clamp(16px,4vw,56px));
+  overflow:hidden;animation:shellIn .5s ease both;
+}
+@keyframes shellIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-bottom:clamp(8px,1.6vh,14px);
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--t1);min-width:0}
+.brand-logo{
+  width:clamp(32px,7vw,40px);height:clamp(32px,7vw,40px);
+  border-radius:11px;object-fit:contain;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  padding:6px;
+  box-shadow:0 6px 18px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.brand-name{
+  font-size:clamp(13px,3vw,15px);font-weight:900;
+  letter-spacing:.22em;color:var(--c);text-transform:uppercase;line-height:1;
+}
+[data-lang="en"] .brand-name{letter-spacing:.14em}
+.brand-tag{
+  font-size:clamp(10px,2.4vw,11.5px);color:var(--t3);font-weight:600;
+  line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--hl);height:clamp(36px,8vw,42px);
+}
+.lang-btn{
+  padding:0 clamp(8px,2vw,11px);height:100%;border-radius:9px;
+  font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--t3);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;
+  min-width:clamp(30px,7vw,36px);
+}
+.lang-btn:hover{color:var(--c)}
+[data-lang="ar"] .lang-btn[data-lang-btn="ar"],
+[data-lang="en"] .lang-btn[data-lang-btn="en"]{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;box-shadow:0 4px 12px -4px var(--c-glow);
+}
+
+.ctrl{
+  position:relative;width:clamp(36px,8vw,42px);height:clamp(36px,8vw,42px);
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  color:var(--t2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);padding:0;
+}
+.ctrl:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-2px)}
+.ctrl:active{transform:translateY(0) scale(.95)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.theme-toggle{position:relative;overflow:hidden}
+.theme-toggle svg{position:absolute;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+[data-theme="dark"] .icon-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+[data-theme="dark"] .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.5)}
+
+.color-picker-wrap{position:relative}
+.color-btn .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  box-shadow:0 0 0 3px var(--c-soft),0 0 10px var(--c-glow);
+}
+.color-menu{
+  position:absolute;top:calc(100% + 10px);inset-inline-end:0;
+  background:var(--surface-2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:1px solid var(--border-2);border-radius:16px;padding:12px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px) scale(.96);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  z-index:200;min-width:220px;
+}
+.color-menu.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.color-swatch{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  position:relative;padding:0;
+}
+.color-swatch:hover{transform:scale(1.2)}
+.color-swatch.active{
+  border-color:var(--t1);transform:scale(1.15);
+  box-shadow:0 0 0 2px var(--surface-2),0 0 16px currentColor;
+}
+.color-swatch.active::after{
+  content:"✓";position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+
+/* ═══ MAIN ═══ */
+.main{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  gap:clamp(10px,1.6vh,18px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;
+  padding:clamp(4px,1.2vh,14px) 0;
+  scrollbar-width:thin;scrollbar-color:var(--border-2) transparent;
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:4px}
+
+/* ═══ ORB ═══ */
+.orb-section{
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  padding:clamp(4px,.8vh,10px) 0;
+  animation:fadeUp .5s ease both;
+}
+.orb{
+  position:relative;
+  width:clamp(72px,17vmin,100px);height:clamp(72px,17vmin,100px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.orb .pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--c);opacity:0;pointer-events:none;
+  animation:pulseOut 4s ease-out infinite;
+}
+.orb .pulse:nth-child(2){animation-delay:1.33s}
+.orb .pulse:nth-child(3){animation-delay:2.66s}
+@keyframes pulseOut{0%{transform:scale(.35);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.orb-glow{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,var(--c-glow) 0%,transparent 70%);
+  filter:blur(22px);
+  animation:breathe 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.orb-core{
+  position:relative;
+  width:60%;height:60%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--c2) 0%,var(--c) 70%);
+  color:#fff;
+  box-shadow:0 18px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.16) inset,0 2px 0 rgba(255,255,255,.28) inset;
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.orb-core svg{
+  width:52%;height:52%;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));
+}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:orbit 14s linear infinite}
+.orbit::before{
+  content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c2);
+  box-shadow:0 0 12px var(--c-glow),0 0 0 3px var(--c-soft);
+}
+.orbit:nth-of-type(1){animation-delay:0s}
+.orbit:nth-of-type(2){animation-delay:-4.66s}
+.orbit:nth-of-type(3){animation-delay:-9.33s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+/* ═══ INFO ═══ */
+.info-section{
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(4px,.8vh,8px);
+  flex-shrink:0;
+  animation:fadeUp .5s ease .05s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--c-soft);border:1px solid var(--c-border);
+  color:var(--c);
+  font-size:clamp(10.5px,2.4vw,12px);font-weight:700;
+  letter-spacing:.04em;
+}
+.badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.title{
+  font-size:clamp(22px,5.5vw,32px);font-weight:900;
+  line-height:1.15;letter-spacing:-.028em;
+  background:linear-gradient(160deg,var(--t1) 0%,var(--t1) 55%,var(--c) 130%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+[data-lang="en"] .title{letter-spacing:-.02em}
+.subtitle{
+  font-size:clamp(12px,3vw,13.5px);line-height:1.55;
+  color:var(--t3);font-weight:500;max-width:52ch;
+}
+
+/* ═══ SEARCH + FILTERS ═══ */
+.toolbar{
+  display:flex;flex-direction:column;gap:10px;
+  width:100%;max-width:min(100%,900px);margin:0 auto;
+  flex-shrink:0;
+  animation:fadeUp .5s ease .1s both;
+}
+
+.search-wrap{position:relative;width:100%}
+.search-input{
+  width:100%;
+  padding:12px 42px 12px 16px;
+  border-radius:12px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  color:var(--t1);
+  font-size:13.5px;font-weight:600;
+  outline:none;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+}
+[dir="ltr"] .search-input{padding:12px 16px 12px 42px}
+.search-input::placeholder{color:var(--t4);font-weight:400}
+.search-input:focus{
+  border-color:var(--c);
+  background:var(--input-bg-2);
+  box-shadow:0 0 0 3px var(--c-soft),0 4px 14px -6px var(--c-glow);
+}
+.search-icon{
+  position:absolute;top:50%;inset-inline-start:14px;
+  transform:translateY(-50%);
+  width:16px;height:16px;
+  stroke:var(--t3);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  pointer-events:none;
+  transition:stroke .25s ease;
+}
+.search-input:focus ~ .search-icon{stroke:var(--c)}
+.search-clear{
+  position:absolute;top:50%;inset-inline-end:8px;
+  transform:translateY(-50%);
+  width:28px;height:28px;border-radius:8px;
+  display:none;align-items:center;justify-content:center;
+  color:var(--t3);transition:all .2s ease;padding:0;
+}
+.search-clear.visible{display:flex}
+.search-clear:hover{color:var(--c);background:var(--c-soft)}
+.search-clear svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+.filters{
+  display:flex;align-items:center;gap:6px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.filter-btn{
+  padding:7px 14px;border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--t2);
+  font-size:12px;font-weight:700;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  display:inline-flex;align-items:center;gap:6px;
+  box-shadow:var(--hl);
+}
+.filter-btn:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-1px)}
+.filter-btn.active{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  border-color:transparent;color:#fff;
+  box-shadow:0 6px 16px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.filter-btn .count{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:18px;height:18px;
+  padding:0 5px;
+  border-radius:999px;
+  background:var(--input-bg);
+  color:var(--t3);
+  font-size:10.5px;font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.filter-btn.active .count{
+  background:rgba(255,255,255,.22);
+  color:#fff;
+}
+
+.stats-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4px;
+  font-size:11.5px;font-weight:700;
+  color:var(--t3);
+}
+.stats-bar .shown{
+  color:var(--c);
+  font-variant-numeric:tabular-nums;
+  font-weight:900;
+}
+
+/* ═══ SITEMAP GRID ═══ */
+.sitemap-wrap{
+  width:100%;max-width:min(100%,1100px);margin:0 auto;
+  padding-bottom:8px;
+  animation:fadeUp .5s ease .15s both;
+}
+
+.sitemap-section{
+  margin-bottom:clamp(16px,2.4vh,28px);
+}
+.sitemap-section[hidden]{display:none}
+
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  padding:0 4px;
+  margin-bottom:10px;
+}
+.section-head .section-icon{
+  width:30px;height:30px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow);
+}
+.section-head .section-icon svg{width:56%;height:56%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.section-head h2{
+  font-size:clamp(13.5px,3vw,15.5px);
+  font-weight:900;color:var(--t1);
+  flex:1;
+}
+.section-head .section-count{
+  font-size:11px;font-weight:800;
+  padding:3px 10px;border-radius:999px;
+  background:var(--c-soft);color:var(--c);
+  font-variant-numeric:tabular-nums;
+}
+
+.sitemap-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));
+  gap:10px;
+}
+
+.page-card{
+  position:relative;
+  display:flex;align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  overflow:hidden;isolation:isolate;
+  text-align:start;
+}
+.page-card::before{
+  content:"";position:absolute;inset:0;
+  background:var(--c-soft);opacity:0;
+  transition:opacity .3s ease;pointer-events:none;
+}
+.page-card:hover::before{opacity:1}
+.page-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--c);
+  box-shadow:0 14px 32px -10px var(--c-glow),0 0 0 1px var(--c-border);
+}
+.page-card:active{transform:translateY(-1px) scale(.99)}
+.page-card>*{position:relative;z-index:1}
+
+.page-card[hidden]{display:none}
+
+.page-icon{
+  width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.page-card:hover .page-icon{transform:scale(1.08) rotate(-4deg)}
+.page-icon svg{width:55%;height:55%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.page-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.page-name{
+  font-size:13.5px;font-weight:800;
+  color:var(--t1);line-height:1.25;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.page-desc{
+  font-size:11.5px;font-weight:500;
+  color:var(--t3);line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+.page-arrow{
+  width:20px;height:20px;
+  stroke:var(--t4);fill:none;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;
+  flex-shrink:0;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.page-card:hover .page-arrow{stroke:var(--c);transform:translateX(-3px)}
+[dir="ltr"] .page-card:hover .page-arrow{transform:translateX(3px)}
+
+/* tag for current page */
+.page-card[data-current="true"]{
+  border-color:var(--c);
+  background:var(--c-soft);
+}
+.page-card[data-current="true"] .page-arrow{display:none}
+.page-card[data-current="true"]::after{
+  content:"●";
+  position:absolute;
+  top:12px;inset-inline-end:12px;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--c);
+  box-shadow:0 0 12px var(--c-glow);
+  animation:dotPulse 1.4s ease-in-out infinite;
+  font-size:0;
+  color:transparent;
+}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+/* no results */
+.no-results{
+  padding:32px 20px;
+  display:none;
+  flex-direction:column;align-items:center;gap:10px;
+  text-align:center;
+  border-radius:16px;
+  background:var(--surface);
+  border:1px dashed var(--border-2);
+  grid-column:1/-1;
+}
+.no-results.visible{display:flex}
+.no-results svg{
+  width:40px;height:40px;
+  stroke:var(--t4);fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.no-results h3{
+  font-size:14px;font-weight:800;color:var(--t2);
+}
+.no-results p{
+  font-size:12px;font-weight:500;color:var(--t3);line-height:1.5;
+  max-width:38ch;
+}
+
+/* ═══ FOOTER ═══ */
+.footer{flex:0 0 auto;padding-top:clamp(8px,1.4vh,14px);text-align:center}
+.footer-copyright{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  font-size:clamp(10px,2.3vw,11.5px);color:var(--t4);font-weight:500;line-height:1.5;
+}
+.footer-copyright .developer-name{color:var(--c);font-weight:900;letter-spacing:.08em}
+.footer-copyright .dot-sep{color:var(--t4);opacity:.6}
+.footer-copyright a{color:var(--t3);transition:color .2s ease}
+.footer-copyright a:hover{color:var(--c)}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (min-width:700px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-right,0px) + clamp(28px,4vw,64px))
+      calc(env(safe-area-inset-bottom,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-left,0px) + clamp(28px,4vw,64px));
+  }
+  .main{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "orb info"
+      "toolbar toolbar"
+      "sitemap sitemap"
+      "footer footer";
+    grid-template-rows:auto auto 1fr auto;
+    align-content:start;
+    gap:clamp(12px,1.8vh,20px) clamp(28px,4vw,64px);
+    max-width:min(1200px,100%);margin:0 auto;width:100%;
+    padding:0;
+  }
+  .orb-section{grid-area:orb;align-self:center;justify-self:center;padding:0}
+  .orb{width:clamp(120px,16vmin,160px);height:clamp(120px,16vmin,160px)}
+  .info-section{grid-area:info;align-self:center;text-align:start;align-items:flex-start}
+  .subtitle{text-align:start;margin:0}
+  .toolbar{grid-area:toolbar;max-width:100%;margin:0}
+  .filters{justify-content:flex-start}
+  .sitemap-wrap{grid-area:sitemap;max-width:100%;margin:0}
+  .footer{grid-area:footer}
+  .title{font-size:clamp(28px,3.6vw,42px)}
+  .subtitle{font-size:clamp(13px,1.3vw,15.5px)}
+  .section-head .section-icon{width:34px;height:34px;border-radius:10px}
+  .page-card{padding:16px 18px}
+  .page-icon{width:46px;height:46px}
+  .page-name{font-size:14.5px}
+  .page-desc{font-size:12.5px}
+}
+
+@media (min-width:1200px){
+  .main{max-width:min(1400px,100%);gap:clamp(14px,2vh,22px) clamp(48px,6vw,110px)}
+  .orb{width:clamp(160px,14vmin,200px);height:clamp(160px,14vmin,200px)}
+  .title{font-size:clamp(34px,3.2vw,48px)}
+  .subtitle{font-size:clamp(14px,1.05vw,16.5px)}
+  .sitemap-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+  .page-card{padding:18px 20px;border-radius:16px}
+  .page-icon{width:50px;height:50px;border-radius:14px}
+  .page-name{font-size:15px}
+  .page-desc{font-size:13px}
+  .section-head h2{font-size:17px}
+}
+
+@media (min-width:1800px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 44px)
+      calc(env(safe-area-inset-right,0px) + 96px)
+      calc(env(safe-area-inset-bottom,0px) + 44px)
+      calc(env(safe-area-inset-left,0px) + 96px);
+  }
+  .main{max-width:min(1800px,100%);gap:48px 160px}
+  .orb{width:clamp(200px,12vmin,260px);height:clamp(200px,12vmin,260px)}
+  .title{font-size:clamp(52px,3vw,72px)}
+  .subtitle{font-size:clamp(18px,1vw,24px);max-width:60ch}
+  .badge{font-size:15px;padding:9px 20px}
+  .badge svg{width:16px;height:16px}
+  .brand-name{font-size:17px;letter-spacing:.28em}
+  .brand-tag{font-size:14px}
+  .brand-logo{width:48px;height:48px;border-radius:14px}
+  .ctrl{width:52px;height:52px;border-radius:14px}
+  .ctrl svg{width:22px;height:22px}
+  .lang-toggle{height:52px;border-radius:14px}
+  .lang-btn{font-size:14px;padding:0 16px;min-width:44px}
+  .color-btn .dot{width:22px;height:22px}
+  .search-input{padding:16px 56px 16px 22px;font-size:16px;border-radius:14px}
+  .search-icon{width:20px;height:20px;inset-inline-start:20px}
+  .search-clear{width:36px;height:36px;border-radius:10px}
+  .search-clear svg{width:18px;height:18px}
+  .filter-btn{padding:10px 20px;font-size:15px;border-radius:999px}
+  .filter-btn .count{min-width:24px;height:24px;font-size:13px}
+  .stats-bar{font-size:14px}
+  .section-head .section-icon{width:44px;height:44px;border-radius:12px}
+  .section-head h2{font-size:20px}
+  .section-head .section-count{font-size:14px;padding:5px 14px}
+  .sitemap-grid{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+  .page-card{padding:22px 24px;border-radius:18px}
+  .page-icon{width:60px;height:60px;border-radius:16px}
+  .page-name{font-size:17px}
+  .page-desc{font-size:14px}
+  .page-arrow{width:24px;height:24px}
+  .footer-copyright{font-size:14px}
+}
+
+@media (orientation:landscape) and (max-height:600px) and (max-width:900px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 8px)
+      calc(env(safe-area-inset-right,0px) + 18px)
+      calc(env(safe-area-inset-bottom,0px) + 8px)
+      calc(env(safe-area-inset-left,0px) + 18px);
+  }
+  .topbar{padding-bottom:6px}
+  .brand-logo{width:28px;height:28px;padding:4px;border-radius:8px}
+  .brand-name{font-size:11px;letter-spacing:.18em}
+  .brand-tag{font-size:9.5px}
+  .main{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    grid-template-areas:
+      "orb info"
+      "toolbar toolbar"
+      "sitemap sitemap"
+      "footer footer";
+    grid-template-rows:auto auto 1fr auto;
+    align-content:start;gap:8px 22px;padding:0;
+  }
+  .orb-section{grid-area:orb;align-self:center;justify-self:start;padding:0}
+  .orb{width:clamp(80px,14vh,110px);height:clamp(80px,14vh,110px)}
+  .info-section{grid-area:info;align-self:center;text-align:start;align-items:flex-start;gap:2px}
+  .badge{padding:3px 9px;font-size:10px}
+  .title{font-size:clamp(17px,2.6vw,22px)}
+  .subtitle{font-size:clamp(10px,1.3vw,12px);line-height:1.4;text-align:start;margin:0}
+  .toolbar{grid-area:toolbar;gap:6px}
+  .search-input{padding:9px 36px 9px 12px;font-size:12px}
+  .filter-btn{padding:5px 10px;font-size:10.5px}
+  .filter-btn .count{min-width:16px;height:16px;font-size:9.5px;padding:0 4px}
+  .stats-bar{font-size:10.5px}
+  .section-head{margin-bottom:6px;gap:8px}
+  .section-head .section-icon{width:24px;height:24px;border-radius:7px}
+  .section-head h2{font-size:12px}
+  .section-head .section-count{font-size:10px;padding:2px 8px}
+  .sitemap-section{margin-bottom:12px}
+  .sitemap-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+  .page-card{padding:9px 12px;border-radius:10px;gap:9px}
+  .page-icon{width:32px;height:32px;border-radius:9px}
+  .page-name{font-size:11.5px}
+  .page-desc{font-size:10px}
+  .page-arrow{width:15px;height:15px}
+  .footer{padding-top:4px}
+  .footer-copyright{font-size:9.5px}
+  .lang-toggle{height:34px;border-radius:10px}
+  .lang-btn{font-size:10px;padding:0 8px;min-width:26px}
+}
+
+@media (max-width:340px){
+  .orb{width:64px;height:64px}
+  .title{font-size:19px}
+  .subtitle{font-size:11.5px}
+  .badge{font-size:10px;padding:4px 10px}
+  .footer-copyright{font-size:10px}
+  .sitemap-grid{grid-template-columns:1fr}
+  .page-card{padding:12px 14px}
+  .page-icon{width:38px;height:38px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  body::before,.orb-core,.orb .pulse,.orb-glow,.orbit{animation:none!important}
+}
+
+/* ═══ PRINT ═══ */
+@media print{
+  html,body{height:auto;position:static;overflow:visible;background:#fff !important;color:#000 !important}
+  body::before,body::after{display:none !important}
+  .topbar,.toolbar,.orb-section,.badge,.page-arrow,.footer{display:none !important}
+  .shell{position:static;padding:0;display:block}
+  .main{display:block;padding:0;overflow:visible;max-width:none}
+  .info-section{text-align:start;align-items:flex-start;margin-bottom:16px}
+  .info-section .title{background:none;-webkit-text-fill-color:#000;color:#000;font-size:24px}
+  .info-section .subtitle{color:#333;font-size:13px}
+  .sitemap-wrap{max-width:none}
+  .sitemap-section{page-break-inside:avoid;margin-bottom:16px}
+  .section-head{margin-bottom:8px}
+  .section-head h2{color:#000 !important;font-size:14px}
+  .section-head .section-icon{background:#333 !important;box-shadow:none}
+  .section-head .section-count{background:#eee;color:#333}
+  .sitemap-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .page-card{
+    background:#fff !important;border:1px solid #999 !important;
+    box-shadow:none;border-radius:0;padding:8px 10px;
+    backdrop-filter:none;
+  }
+  .page-icon{background:#333 !important;box-shadow:none;width:28px;height:28px;border-radius:6px}
+  .page-name{color:#000 !important;font-size:11px}
+  .page-desc{color:#444 !important;font-size:10px}
+  .page-card[data-current="true"]::after{background:#000 !important;box-shadow:none}
+  @page{margin:12mm}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SVG SPRITE ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></symbol>
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+    <symbol id="ic-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="ic-news" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="ic-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+    <symbol id="ic-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="ic-repeat" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+    <symbol id="ic-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="ic-wifi-off" viewBox="0 0 24 24"><line x1="2" y1="2" x2="22" y2="22"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 12.55a11 11 0 0 1 5.17-2.39"/><line x1="12" y1="20" x2="12.01" y2="20"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></symbol>
+  </defs>
+</svg>
+
+<div class="shell" id="shell">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="ELLOUL">
+      <img src="./assets/images/logo.webp" alt="ELLOUL" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">ELLOUL</span>
+        <span class="brand-tag" data-i18n="brandTag">متجر أدوات المائدة</span>
+      </span>
+    </a>
+
+    <div class="topbar-controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang-btn="en" type="button" aria-label="English">EN</button>
+      </div>
+
+      <div class="color-picker-wrap">
+        <button class="ctrl color-btn" id="colorBtn" type="button" title="Color" aria-label="Color" aria-haspopup="true" aria-expanded="false">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu" role="menu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="Blue" role="menuitem"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="Purple" role="menuitem"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="Pink" role="menuitem"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="Rose" role="menuitem"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="Red" role="menuitem"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="Orange" role="menuitem"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="Amber" role="menuitem"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="Lime" role="menuitem"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="Green" role="menuitem"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="Teal" role="menuitem"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="Cyan" role="menuitem"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="Indigo" role="menuitem"></button>
+        </div>
+      </div>
+
+      <button class="ctrl theme-toggle" id="themeToggle" type="button" title="Theme" aria-label="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- ORB -->
+    <section class="orb-section">
+      <div class="orb" aria-hidden="true">
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <div class="orb-glow"></div>
+        <div class="orb-core">
+          <svg viewBox="0 0 24 24"><use href="#ic-map"/></svg>
+        </div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+      </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="info-section">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-grid"/></svg>
+        <span data-i18n="badge">فهرس الموقع · ELLOUL</span>
+      </span>
+      <h1 class="title" data-i18n="title">خريطة الموقع</h1>
+      <p class="subtitle" data-i18n="subtitle">كل صفحات الموقع في مكان واحد — مصنّفة وسهلة البحث.</p>
+    </section>
+
+    <!-- TOOLBAR -->
+    <section class="toolbar">
+      <div class="search-wrap">
+        <input type="search" class="search-input" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث عن صفحة..." aria-label="Search pages">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-search"/></svg>
+        <button class="search-clear" id="searchClear" type="button" aria-label="Clear">
+          <svg viewBox="0 0 24 24"><use href="#ic-close"/></svg>
+        </button>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all" type="button">
+          <span data-i18n="filterAll">الكل</span>
+          <span class="count" data-count="all">0</span>
+        </button>
+        <button class="filter-btn" data-filter="main" type="button">
+          <span data-i18n="filterMain">رئيسي</span>
+          <span class="count" data-count="main">0</span>
+        </button>
+        <button class="filter-btn" data-filter="account" type="button">
+          <span data-i18n="filterAccount">الحساب</span>
+          <span class="count" data-count="account">0</span>
+        </button>
+        <button class="filter-btn" data-filter="company" type="button">
+          <span data-i18n="filterCompany">الشركة</span>
+          <span class="count" data-count="company">0</span>
+        </button>
+        <button class="filter-btn" data-filter="legal" type="button">
+          <span data-i18n="filterLegal">قانوني</span>
+          <span class="count" data-count="legal">0</span>
+        </button>
+        <button class="filter-btn" data-filter="system" type="button">
+          <span data-i18n="filterSystem">النظام</span>
+          <span class="count" data-count="system">0</span>
+        </button>
+      </div>
+
+      <div class="stats-bar">
+        <span>
+          <span data-i18n="showing">عرض</span>
+          <strong class="shown" id="shownCount">0</strong>
+          <span data-i18n="of">من</span>
+          <span id="totalCount">0</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- SITEMAP GRID -->
+    <section class="sitemap-wrap" id="sitemapWrap">
+
+      <!-- MAIN -->
+      <div class="sitemap-section" data-section="main">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-store"/></svg></div>
+          <h2 data-i18n="secMain">الصفحات الرئيسية</h2>
+          <span class="section-count" data-count-head="main">0</span>
+        </div>
+        <div class="sitemap-grid">
+          <a class="page-card" href="index.html" data-cat="main" data-keywords="home رئيسية متجر elloul index">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pHome">الرئيسية</span>
+              <span class="page-desc" data-i18n="pHomeDesc">الصفحة التعريفية للمتجر</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="index.html#shop" data-cat="main" data-keywords="shop متجر منتجات products">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-store"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pShop">المتجر</span>
+              <span class="page-desc" data-i18n="pShopDesc">تصفّح كل المنتجات</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="index.html#cart" data-cat="main" data-keywords="cart سلة basket checkout">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-bag"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pCart">سلة التسوق</span>
+              <span class="page-desc" data-i18n="pCartDesc">مراجعة وإتمام الطلب</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="index.html#blog" data-cat="main" data-keywords="blog أخبار news عروض">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-news"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pBlog">الأخبار والعروض</span>
+              <span class="page-desc" data-i18n="pBlogDesc">أحدث العروض والنصائح</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="contact.html" data-cat="main" data-keywords="contact اتصل تواصل دعم support">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-chat"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pContact">اتصل بنا</span>
+              <span class="page-desc" data-i18n="pContactDesc">تواصل مباشر + الأسئلة الشائعة</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="order-success.html" data-cat="main" data-keywords="order طلب success نجاح فاتورة receipt">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pOrder">تأكيد الطلب</span>
+              <span class="page-desc" data-i18n="pOrderDesc">فاتورة ومشاركة الطلب</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ACCOUNT -->
+      <div class="sitemap-section" data-section="account">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-lock"/></svg></div>
+          <h2 data-i18n="secAccount">الحساب والتحكم</h2>
+          <span class="section-count" data-count-head="account">0</span>
+        </div>
+        <div class="sitemap-grid">
+          <a class="page-card" href="login.html" data-cat="account" data-keywords="login تسجيل دخول sign in auth">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-lock"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pLogin">تسجيل الدخول</span>
+              <span class="page-desc" data-i18n="pLoginDesc">للمشرفين فقط</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="admin.html" data-cat="account" data-keywords="admin لوحة تحكم dashboard control">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-dashboard"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pAdmin">لوحة التحكم</span>
+              <span class="page-desc" data-i18n="pAdminDesc">إدارة المنتجات والطلبات</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- COMPANY -->
+      <div class="sitemap-section" data-section="company">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></div>
+          <h2 data-i18n="secCompany">الشركة والسياسات</h2>
+          <span class="section-count" data-count-head="company">0</span>
+        </div>
+        <div class="sitemap-grid">
+          <a class="page-card" href="about.html" data-cat="company" data-keywords="about من نحن company info معلومات">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pAbout">من نحن</span>
+              <span class="page-desc" data-i18n="pAboutDesc">قصة ELLOUL والأمان</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="returns.html" data-cat="company" data-keywords="returns refund shipping إرجاع استبدال شحن">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-repeat"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pReturns">الإرجاع والشحن</span>
+              <span class="page-desc" data-i18n="pReturnsDesc">سياسات الإرجاع والاستبدال والشحن</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- LEGAL -->
+      <div class="sitemap-section" data-section="legal">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg></div>
+          <h2 data-i18n="secLegal">الصفحات القانونية</h2>
+          <span class="section-count" data-count-head="legal">0</span>
+        </div>
+        <div class="sitemap-grid">
+          <a class="page-card" href="privacy.html" data-cat="legal" data-keywords="privacy cookies خصوصية كوكيز">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pPrivacy">الخصوصية والكوكيز</span>
+              <span class="page-desc" data-i18n="pPrivacyDesc">سياسة الخصوصية + ملفات الكوكيز</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="terms.html" data-cat="legal" data-keywords="terms شروط أحكام agreement">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-file"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pTerms">الشروط والأحكام</span>
+              <span class="page-desc" data-i18n="pTermsDesc">اتفاقية الاستخدام</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SYSTEM -->
+      <div class="sitemap-section" data-section="system">
+        <div class="section-head">
+          <div class="section-icon"><svg viewBox="0 0 24 24"><use href="#ic-settings"/></svg></div>
+          <h2 data-i18n="secSystem">صفحات النظام</h2>
+          <span class="section-count" data-count-head="system">0</span>
+        </div>
+        <div class="sitemap-grid">
+          <a class="page-card" href="offline.html" data-cat="system" data-keywords="offline بدون اتصال internet pwa">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-wifi-off"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pOffline">بدون اتصال</span>
+              <span class="page-desc" data-i18n="pOfflineDesc">صفحة وضع PWA دون إنترنت</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="404.html" data-cat="system" data-keywords="404 غير موجود not found error">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-help"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="p404">خطأ 404</span>
+              <span class="page-desc" data-i18n="p404Desc">الصفحة غير موجودة</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="500.html" data-cat="system" data-keywords="500 خطأ server error خادم">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-alert"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="p500">خطأ 500</span>
+              <span class="page-desc" data-i18n="p500Desc">خطأ في الخادم</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+          <a class="page-card" href="maintenance.html" data-cat="system" data-keywords="maintenance صيانة تحت الإنشاء">
+            <span class="page-icon"><svg viewBox="0 0 24 24"><use href="#ic-settings"/></svg></span>
+            <span class="page-info">
+              <span class="page-name" data-i18n="pMaint">الصيانة</span>
+              <span class="page-desc" data-i18n="pMaintDesc">وضع الصيانة والتحديث</span>
+            </span>
+            <svg class="page-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- NO RESULTS -->
+      <div class="no-results" id="noResults">
+        <svg viewBox="0 0 24 24"><use href="#ic-search"/></svg>
+        <h3 data-i18n="noResultsTitle">لا توجد نتائج</h3>
+        <p data-i18n="noResultsSub">جرّب كلمة بحث مختلفة أو اختر تصنيفاً آخر.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <p class="footer-copyright">
+      <span data-i18n="footerDesigned">متجر إلكتروني من تصميم وتطوير</span>
+      <span class="developer-name">ELLOUL</span>
+      <span class="dot-sep">·</span>
+      <span data-i18n="footerRights">&copy; 2026 جميع الحقوق محفوظة</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- ═══ I18N ═══ -->
+<script>
+window.I18N = {
+  ar: {
+    pageTitle:'خريطة الموقع · ELLOUL',
+    brandTag:'متجر أدوات المائدة',
+    badge:'فهرس الموقع · ELLOUL',
+    title:'خريطة الموقع',
+    subtitle:'كل صفحات الموقع في مكان واحد — مصنّفة وسهلة البحث.',
+    searchPlaceholder:'ابحث عن صفحة...',
+    filterAll:'الكل',
+    filterMain:'رئيسي',
+    filterAccount:'الحساب',
+    filterCompany:'الشركة',
+    filterLegal:'قانوني',
+    filterSystem:'النظام',
+    showing:'عرض',
+    of:'من',
+    noResultsTitle:'لا توجد نتائج',
+    noResultsSub:'جرّب كلمة بحث مختلفة أو اختر تصنيفاً آخر.',
+    secMain:'الصفحات الرئيسية',
+    secAccount:'الحساب والتحكم',
+    secCompany:'الشركة والسياسات',
+    secLegal:'الصفحات القانونية',
+    secSystem:'صفحات النظام',
+    pHome:'الرئيسية',
+    pHomeDesc:'الصفحة التعريفية للمتجر',
+    pShop:'المتجر',
+    pShopDesc:'تصفّح كل المنتجات',
+    pCart:'سلة التسوق',
+    pCartDesc:'مراجعة وإتمام الطلب',
+    pBlog:'الأخبار والعروض',
+    pBlogDesc:'أحدث العروض والنصائح',
+    pContact:'اتصل بنا',
+    pContactDesc:'تواصل مباشر + الأسئلة الشائعة',
+    pOrder:'تأكيد الطلب',
+    pOrderDesc:'فاتورة ومشاركة الطلب',
+    pLogin:'تسجيل الدخول',
+    pLoginDesc:'للمشرفين فقط',
+    pAdmin:'لوحة التحكم',
+    pAdminDesc:'إدارة المنتجات والطلبات',
+    pAbout:'من نحن',
+    pAboutDesc:'قصة ELLOUL والأمان',
+    pReturns:'الإرجاع والشحن',
+    pReturnsDesc:'سياسات الإرجاع والاستبدال والشحن',
+    pPrivacy:'الخصوصية والكوكيز',
+    pPrivacyDesc:'سياسة الخصوصية + ملفات الكوكيز',
+    pTerms:'الشروط والأحكام',
+    pTermsDesc:'اتفاقية الاستخدام',
+    pOffline:'بدون اتصال',
+    pOfflineDesc:'صفحة وضع PWA دون إنترنت',
+    p404:'خطأ 404',
+    p404Desc:'الصفحة غير موجودة',
+    p500:'خطأ 500',
+    p500Desc:'خطأ في الخادم',
+    pMaint:'الصيانة',
+    pMaintDesc:'وضع الصيانة والتحديث',
+    footerDesigned:'متجر إلكتروني من تصميم وتطوير',
+    footerRights:'© 2026 جميع الحقوق محفوظة'
+  },
+  en: {
+    pageTitle:'Sitemap · ELLOUL',
+    brandTag:'Tableware Store',
+    badge:'Site Index · ELLOUL',
+    title:'Sitemap',
+    subtitle:'Every page in the store — organized and searchable.',
+    searchPlaceholder:'Search pages...',
+    filterAll:'All',
+    filterMain:'Main',
+    filterAccount:'Account',
+    filterCompany:'Company',
+    filterLegal:'Legal',
+    filterSystem:'System',
+    showing:'Showing',
+    of:'of',
+    noResultsTitle:'No results',
+    noResultsSub:'Try a different keyword or pick another category.',
+    secMain:'Main Pages',
+    secAccount:'Account & Control',
+    secCompany:'Company & Policies',
+    secLegal:'Legal Pages',
+    secSystem:'System Pages',
+    pHome:'Home',
+    pHomeDesc:'Store landing page',
+    pShop:'Shop',
+    pShopDesc:'Browse all products',
+    pCart:'Cart',
+    pCartDesc:'Review and complete order',
+    pBlog:'News & Offers',
+    pBlogDesc:'Latest offers and tips',
+    pContact:'Contact Us',
+    pContactDesc:'Direct chat + FAQ',
+    pOrder:'Order Confirmation',
+    pOrderDesc:'Receipt and order sharing',
+    pLogin:'Sign In',
+    pLoginDesc:'Admins only',
+    pAdmin:'Dashboard',
+    pAdminDesc:'Manage products and orders',
+    pAbout:'About Us',
+    pAboutDesc:'The ELLOUL story and safety',
+    pReturns:'Returns & Shipping',
+    pReturnsDesc:'Return, exchange, and shipping policies',
+    pPrivacy:'Privacy & Cookies',
+    pPrivacyDesc:'Privacy policy + cookies',
+    pTerms:'Terms & Conditions',
+    pTermsDesc:'Terms of use',
+    pOffline:'Offline',
+    pOfflineDesc:'PWA offline mode page',
+    p404:'Error 404',
+    p404Desc:'Page not found',
+    p500:'Error 500',
+    p500Desc:'Server error',
+    pMaint:'Maintenance',
+    pMaintDesc:'Maintenance and update mode',
+    footerDesigned:'E-commerce store designed and developed by',
+    footerRights:'© 2026 All rights reserved'
+  }
+};
+window.I18N.current = function(){
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  return window.I18N[lang] || window.I18N.ar;
+};
+window.I18N.apply = function(){
+  var dict = window.I18N.current();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key]) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+    var key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key]) el.setAttribute('placeholder', dict[key]);
+  });
+  document.title = dict.pageTitle || document.title;
+};
+</script>
+
+<!-- ═══ THEME + COLOR + LANG ═══ -->
+<script>
+(function(){
+  'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var VALID=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var html=document.documentElement;
+  var BAR={blue:{dark:'#0a1229',light:'#3b82f6'},purple:{dark:'#1e0a3d',light:'#a855f7'},pink:{dark:'#33061f',light:'#ec4899'},rose:{dark:'#33061a',light:'#f43f5e'},red:{dark:'#2c0a0a',light:'#ef4444'},orange:{dark:'#2c1405',light:'#f97316'},amber:{dark:'#2c1f05',light:'#f59e0b'},lime:{dark:'#1a2c05',light:'#84cc16'},green:{dark:'#052c20',light:'#10b981'},teal:{dark:'#052925',light:'#14b8a6'},cyan:{dark:'#05252e',light:'#06b6d4'},indigo:{dark:'#141640',light:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  function getTheme(){return g(TK,html.getAttribute('data-theme')||'dark')}
+  function getColor(){var c=g(CK,html.getAttribute('data-color')||'blue');return VALID.indexOf(c)===-1?'blue':c}
+  function syncMeta(){var bc=BAR[getColor()]?BAR[getColor()][getTheme()]:null;if(bc){var m=document.getElementById('themeColorMeta');if(m)m.setAttribute('content',bc)}}
+  syncMeta();
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var l=btn.getAttribute('data-lang-btn');
+        if(l!=='ar'&&l!=='en')return;
+        try{localStorage.setItem(LK,l)}catch(e){}
+        html.setAttribute('data-lang',l);
+        html.setAttribute('lang',l);
+        html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+        window.I18N.apply();
+        if(window.applyFilter) window.applyFilter();
+      });
+    });
+
+    var tt=document.getElementById('themeToggle');
+    if(tt)tt.addEventListener('click',function(){
+      var next=getTheme()==='dark'?'light':'dark';
+      try{localStorage.setItem(TK,next)}catch(e){}
+      html.setAttribute('data-theme',next);syncMeta();
+    });
+
+    var cb=document.getElementById('colorBtn'),cm=document.getElementById('colorMenu');
+    var sw=document.querySelectorAll('.color-swatch');
+    sw.forEach(function(s){s.classList.toggle('active',s.dataset.color===getColor())});
+    function setOpen(o){if(!cm||!cb)return;cm.classList.toggle('open',o);cb.setAttribute('aria-expanded',o?'true':'false')}
+    if(cb&&cm){
+      cb.addEventListener('click',function(e){e.stopPropagation();setOpen(!cm.classList.contains('open'))});
+      sw.forEach(function(s){s.addEventListener('click',function(e){
+        e.stopPropagation();
+        var c=s.dataset.color;if(VALID.indexOf(c)===-1)return;
+        try{localStorage.setItem(CK,c)}catch(e){}
+        sw.forEach(function(x){x.classList.remove('active')});
+        s.classList.add('active');
+        html.setAttribute('data-color',c);syncMeta();
+        setTimeout(function(){setOpen(false)},200);
+      })});
+      document.addEventListener('click',function(e){
+        if(cm.classList.contains('open')&&!cm.contains(e.target)&&!cb.contains(e.target))setOpen(false);
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    }
+
+    window.I18N.apply();
+  });
+
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){html.setAttribute('data-theme',getTheme());syncMeta()}
+    if(e.key===CK){html.setAttribute('data-color',getColor());syncMeta()}
+    if(e.key===LK){
+      var l=e.newValue==='en'?'en':'ar';
+      html.setAttribute('data-lang',l);html.setAttribute('lang',l);html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      window.I18N.apply();
+      if(window.applyFilter) window.applyFilter();
+    }
+  });
+})();
+</script>
+
+<!-- ═══ SITEMAP LOGIC ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  var searchInput   = document.getElementById('searchInput');
+  var searchClear   = document.getElementById('searchClear');
+  var filtersEl     = document.getElementById('filters');
+  var shownCountEl  = document.getElementById('shownCount');
+  var totalCountEl  = document.getElementById('totalCount');
+  var noResults     = document.getElementById('noResults');
+  var sections      = document.querySelectorAll('.sitemap-section');
+  var allCards      = document.querySelectorAll('.page-card');
+
+  var activeFilter = 'all';
+  var activeQuery  = '';
+
+  /* ═══ Detect current page ═══ */
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    allCards.forEach(function(card){
+      var href = card.getAttribute('href') || '';
+      var page = href.split('#')[0].split('?')[0].toLowerCase();
+      if(page && page === path && !href.includes('#')){
+        card.setAttribute('data-current','true');
+      }
+    });
+  })();
+
+  /* ═══ Count cards per category ═══ */
+  function countByCat(){
+    var c = {all:0, main:0, account:0, company:0, legal:0, system:0};
+    allCards.forEach(function(card){
+      c.all++;
+      var cat = card.dataset.cat;
+      if(c[cat] != null) c[cat]++;
+    });
+    return c;
+  }
+  var counts = countByCat();
+
+  function paintCounts(){
+    var shown = 0;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var k = el.getAttribute('data-count');
+      el.textContent = counts[k] || 0;
+    });
+    document.querySelectorAll('[data-count-head]').forEach(function(el){
+      var k = el.getAttribute('data-count-head');
+      el.textContent = counts[k] || 0;
+    });
+    totalCountEl.textContent = counts.all;
+    /* count visible */
+    allCards.forEach(function(card){
+      if(!card.hidden) shown++;
+    });
+    shownCountEl.textContent = shown;
+  }
+
+  /* ═══ Apply filter + search ═══ */
+  function applyFilter(){
+    var q = (activeQuery || '').trim().toLowerCase();
+    var shown = 0;
+
+    allCards.forEach(function(card){
+      var cat = card.dataset.cat;
+      var kw  = (card.dataset.keywords || '') + ' ' + 
+                (card.querySelector('.page-name')?.textContent || '') + ' ' +
+                (card.querySelector('.page-desc')?.textContent || '');
+      kw = kw.toLowerCase();
+
+      var matchesCat = (activeFilter === 'all') || (cat === activeFilter);
+      var matchesQ   = !q || kw.indexOf(q) !== -1;
+
+      if(matchesCat && matchesQ){
+        card.hidden = false;
+        shown++;
+      } else {
+        card.hidden = true;
+      }
+    });
+
+    /* Hide empty sections */
+    sections.forEach(function(sec){
+      var visible = sec.querySelectorAll('.page-card:not([hidden])').length;
+      sec.hidden = visible === 0;
+    });
+
+    /* Toggle no-results */
+    if(shown === 0){
+      noResults.classList.add('visible');
+    } else {
+      noResults.classList.remove('visible');
+    }
+
+    shownCountEl.textContent = shown;
+
+    /* Toggle clear button */
+    if(q) searchClear.classList.add('visible');
+    else  searchClear.classList.remove('visible');
+  }
+  window.applyFilter = applyFilter;
+
+  /* ═══ Filter buttons ═══ */
+  filtersEl.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filtersEl.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter || 'all';
+    applyFilter();
+  });
+
+  /* ═══ Search ═══ */
+  var searchTimer = null;
+  searchInput.addEventListener('input', function(e){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function(){
+      activeQuery = e.target.value || '';
+      applyFilter();
+    }, 120);
+  });
+
+  searchClear.addEventListener('click', function(){
+    searchInput.value = '';
+    activeQuery = '';
+    applyFilter();
+    searchInput.focus();
+  });
+
+  /* Keyboard escape clears search */
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      searchInput.value = '';
+      activeQuery = '';
+      applyFilter();
+      searchInput.blur();
+    }
+  });
+
+  /* ═══ Init ═══ */
+  paintCounts();
+  applyFilter();
+})();
+</script>
+
+</body>
+</html>

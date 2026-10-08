@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" data-color="teal" data-lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#052925" id="themeColorMeta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" id="appleStatusBar">
+<meta name="apple-mobile-web-app-title" content="ELLOUL">
+<meta name="application-name" content="ELLOUL">
+<title data-i18n="pageTitle">الإرجاع والاستبدال والشحن · ELLOUL</title>
+<meta name="description" content="سياسة الإرجاع والاستبدال والشحن في متجر ELLOUL — الشروط، الخطوات، المدة، ومناطق التغطية.">
+<link rel="shortcut icon" href="./assets/images/logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/ios/180.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+(function(){'use strict';
+var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+var V=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+var h=document.documentElement;
+var B={blue:{d:'#0a1229',l:'#3b82f6'},purple:{d:'#1e0a3d',l:'#a855f7'},pink:{d:'#33061f',l:'#ec4899'},rose:{d:'#33061a',l:'#f43f5e'},red:{d:'#2c0a0a',l:'#ef4444'},orange:{d:'#2c1405',l:'#f97316'},amber:{d:'#2c1f05',l:'#f59e0b'},lime:{d:'#1a2c05',l:'#84cc16'},green:{d:'#052c20',l:'#10b981'},teal:{d:'#052925',l:'#14b8a6'},cyan:{d:'#05252e',l:'#06b6d4'},indigo:{d:'#141640',l:'#6366f1'}};
+function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+var t=g(TK,matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+var c=g(CK,'teal');if(V.indexOf(c)===-1)c='teal';
+var l=g(LK,'ar');if(l!=='ar'&&l!=='en')l='ar';
+function a(){
+  h.setAttribute('data-theme',t);
+  h.setAttribute('data-color',c);
+  h.setAttribute('data-lang',l);
+  h.setAttribute('lang',l);
+  h.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  var bc=B[c]?B[c][t==='dark'?'d':'l']:null;
+  if(bc){
+    var m=document.getElementById('themeColorMeta');
+    if(m)m.setAttribute('content',bc);
+    var ap=document.getElementById('appleStatusBar');
+    if(ap)ap.setAttribute('content',t==='dark'?'black-translucent':'default');
+  }
+}
+a();
+window.addEventListener('storage',function(e){
+  if(e.key===TK){t=e.newValue||'dark';a()}
+  if(e.key===CK){c=V.indexOf(e.newValue)!==-1?e.newValue:'teal';a()}
+  if(e.key===LK){l=e.newValue==='en'?'en':'ar';a()}
+});
+if(window.matchMedia)matchMedia('(prefers-color-scheme:light)').addEventListener('change',function(e){
+  try{if(!localStorage.getItem(TK)){t=e.matches?'light':'dark';a()}}catch(x){}
+});
+})();
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{height:100vh;height:100dvh;overflow:hidden;position:fixed;inset:0}
+
+/* ═══ 12 PALETTES ═══ */
+[data-color="blue"]  {--c:#3b82f6;--c2:#60a5fa;--c-soft:rgba(59,130,246,.14);--c-border:rgba(59,130,246,.32);--c-glow:rgba(59,130,246,.5)}
+[data-color="purple"]{--c:#a855f7;--c2:#c084fc;--c-soft:rgba(168,85,247,.14);--c-border:rgba(168,85,247,.32);--c-glow:rgba(168,85,247,.5)}
+[data-color="pink"]  {--c:#ec4899;--c2:#f472b6;--c-soft:rgba(236,72,153,.14);--c-border:rgba(236,72,153,.32);--c-glow:rgba(236,72,153,.5)}
+[data-color="rose"]  {--c:#f43f5e;--c2:#fb7185;--c-soft:rgba(244,63,94,.14);--c-border:rgba(244,63,94,.32);--c-glow:rgba(244,63,94,.5)}
+[data-color="red"]   {--c:#ef4444;--c2:#f87171;--c-soft:rgba(239,68,68,.14);--c-border:rgba(239,68,68,.32);--c-glow:rgba(239,68,68,.5)}
+[data-color="orange"]{--c:#f97316;--c2:#fb923c;--c-soft:rgba(249,115,22,.14);--c-border:rgba(249,115,22,.32);--c-glow:rgba(249,115,22,.5)}
+[data-color="amber"] {--c:#d97706;--c2:#f59e0b;--c-soft:rgba(217,119,6,.16);--c-border:rgba(217,119,6,.35);--c-glow:rgba(217,119,6,.5)}
+[data-color="lime"]  {--c:#84cc16;--c2:#a3e635;--c-soft:rgba(132,204,22,.14);--c-border:rgba(132,204,22,.32);--c-glow:rgba(132,204,22,.5)}
+[data-color="green"] {--c:#10b981;--c2:#34d399;--c-soft:rgba(16,185,129,.14);--c-border:rgba(16,185,129,.32);--c-glow:rgba(16,185,129,.5)}
+[data-color="teal"]  {--c:#14b8a6;--c2:#2dd4bf;--c-soft:rgba(20,184,166,.14);--c-border:rgba(20,184,166,.32);--c-glow:rgba(20,184,166,.5)}
+[data-color="cyan"]  {--c:#06b6d4;--c2:#22d3ee;--c-soft:rgba(6,182,212,.14);--c-border:rgba(6,182,212,.32);--c-glow:rgba(6,182,212,.5)}
+[data-color="indigo"]{--c:#6366f1;--c2:#818cf8;--c-soft:rgba(99,102,241,.14);--c-border:rgba(99,102,241,.32);--c-glow:rgba(99,102,241,.5)}
+
+/* ═══ THEMES ═══ */
+[data-theme="dark"]{
+  --bg:#061410;
+  --surface:rgba(15,40,30,.55);
+  --surface-2:rgba(20,55,42,.78);
+  --input-bg:rgba(10,28,22,.6);
+  --input-bg-2:rgba(15,38,30,.78);
+  --border:rgba(200,255,235,.08);
+  --border-2:rgba(200,255,235,.16);
+  --t1:#f0fff9;--t2:rgba(240,255,249,.68);--t3:rgba(240,255,249,.44);--t4:rgba(240,255,249,.24);
+  --hl:inset 0 1px 0 rgba(255,255,255,.06);
+  --noise-op:.04;--danger:#ef4444;--warn:#f59e0b;--success:#10b981;
+}
+[data-theme="light"]{
+  --bg:#f0faf5;
+  --surface:rgba(255,255,255,.72);
+  --surface-2:rgba(255,255,255,.92);
+  --input-bg:rgba(255,255,255,.75);
+  --input-bg-2:rgba(255,255,255,.95);
+  --border:rgba(10,60,40,.08);
+  --border-2:rgba(10,60,40,.14);
+  --t1:#041a10;--t2:rgba(4,26,16,.68);--t3:rgba(4,26,16,.46);--t4:rgba(4,26,16,.26);
+  --hl:inset 0 1px 0 rgba(255,255,255,.9);
+  --noise-op:.028;--danger:#dc2626;--warn:#d97706;--success:#059669;
+}
+
+/* ═══ BASE ═══ */
+body{
+  font-family:'Tajawal','Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;
+  color:var(--t1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;transition:background .5s ease,color .5s ease;
+  isolation:isolate;direction:inherit;text-align:start;
+}
+[data-lang="en"] body{font-family:'Inter','Tajawal',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+
+::selection{background:var(--c);color:#fff}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex-shrink:0}
+img{display:block;max-width:100%}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:8px}
+
+/* ═══ AMBIENT ═══ */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 12%,var(--c-soft),transparent 62%),
+    radial-gradient(ellipse 70% 55% at 12% 88%,var(--c-soft),transparent 65%);
+  opacity:.9;pointer-events:none;
+  animation:bgBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes bgBreathe{0%{opacity:.55}100%{opacity:1}}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  background-size:200px 200px;opacity:var(--noise-op);mix-blend-mode:overlay;
+}
+
+/* ═══ SHELL ═══ */
+.shell{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;
+  padding:
+    calc(env(safe-area-inset-top,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-right,0px) + clamp(16px,4vw,56px))
+    calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.2vh,22px))
+    calc(env(safe-area-inset-left,0px) + clamp(16px,4vw,56px));
+  overflow:hidden;animation:shellIn .5s ease both;
+}
+@keyframes shellIn{from{opacity:0}to{opacity:1}}
+
+.read-progress{
+  position:fixed;top:0;left:0;
+  width:0%;height:3px;
+  background:linear-gradient(90deg,var(--c2),var(--c));
+  box-shadow:0 0 14px var(--c-glow);
+  z-index:9999;transition:width .1s linear;
+  pointer-events:none;
+}
+
+/* ═══ TOPBAR ═══ */
+.topbar{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-bottom:clamp(8px,1.6vh,14px);
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--t1);min-width:0}
+.brand-logo{
+  width:clamp(32px,7vw,40px);height:clamp(32px,7vw,40px);
+  border-radius:11px;object-fit:contain;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  padding:6px;
+  box-shadow:0 6px 18px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  flex-shrink:0;
+}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.brand-name{
+  font-size:clamp(13px,3vw,15px);font-weight:900;
+  letter-spacing:.22em;color:var(--c);text-transform:uppercase;line-height:1;
+}
+[data-lang="en"] .brand-name{letter-spacing:.14em}
+.brand-tag{
+  font-size:clamp(10px,2.4vw,11.5px);color:var(--t3);font-weight:600;
+  line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:2px;padding:3px;
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  box-shadow:var(--hl);height:clamp(36px,8vw,42px);
+}
+.lang-btn{
+  padding:0 clamp(8px,2vw,11px);height:100%;border-radius:9px;
+  font-size:11.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--t3);transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;
+  min-width:clamp(30px,7vw,36px);
+}
+.lang-btn:hover{color:var(--c)}
+[data-lang="ar"] .lang-btn[data-lang-btn="ar"],
+[data-lang="en"] .lang-btn[data-lang-btn="en"]{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;box-shadow:0 4px 12px -4px var(--c-glow);
+}
+
+.ctrl{
+  position:relative;width:clamp(36px,8vw,42px);height:clamp(36px,8vw,42px);
+  border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  color:var(--t2);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);padding:0;
+}
+.ctrl:hover{color:var(--c);border-color:var(--c-border);background:var(--c-soft);transform:translateY(-2px)}
+.ctrl:active{transform:translateY(0) scale(.95)}
+.ctrl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.theme-toggle{position:relative;overflow:hidden}
+.theme-toggle svg{position:absolute;transition:all .45s cubic-bezier(.34,1.56,.64,1)}
+[data-theme="dark"] .icon-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+[data-theme="dark"] .icon-moon{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-sun{opacity:1;transform:rotate(0) scale(1)}
+[data-theme="light"] .icon-moon{opacity:0;transform:rotate(-90deg) scale(.5)}
+
+.color-picker-wrap{position:relative}
+.color-btn .dot{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  box-shadow:0 0 0 3px var(--c-soft),0 0 10px var(--c-glow);
+}
+.color-menu{
+  position:absolute;top:calc(100% + 10px);inset-inline-end:0;
+  background:var(--surface-2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:1px solid var(--border-2);border-radius:16px;padding:12px;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px) scale(.96);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+  z-index:200;min-width:220px;
+}
+.color-menu.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.color-swatch{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+  position:relative;padding:0;
+}
+.color-swatch:hover{transform:scale(1.2)}
+.color-swatch.active{
+  border-color:var(--t1);transform:scale(1.15);
+  box-shadow:0 0 0 2px var(--surface-2),0 0 16px currentColor;
+}
+.color-swatch.active::after{
+  content:"✓";position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+
+/* ═══ MAIN ═══ */
+.main{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  gap:clamp(14px,2.2vh,24px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overflow-x:hidden;
+  padding:clamp(4px,1.2vh,14px) 0;
+  scrollbar-width:thin;scrollbar-color:var(--border-2) transparent;
+  scroll-behavior:smooth;
+}
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:4px}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.4vh,14px);text-align:center;
+  flex-shrink:0;
+  animation:fadeUp .5s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.orb{
+  position:relative;
+  width:clamp(84px,19vmin,112px);height:clamp(84px,19vmin,112px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-bottom:4px;
+}
+.orb .pulse{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px solid var(--c);opacity:0;pointer-events:none;
+  animation:pulseOut 4s ease-out infinite;
+}
+.orb .pulse:nth-child(2){animation-delay:1.33s}
+.orb .pulse:nth-child(3){animation-delay:2.66s}
+@keyframes pulseOut{0%{transform:scale(.35);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+.orb-glow{
+  position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,var(--c-glow) 0%,transparent 70%);
+  filter:blur(22px);
+  animation:breathe 3.2s ease-in-out infinite;pointer-events:none;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.orb-core{
+  position:relative;
+  width:60%;height:60%;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 32% 28%,var(--c2) 0%,var(--c) 70%);
+  color:#fff;
+  box-shadow:0 18px 44px -10px var(--c-glow),0 0 0 1px rgba(255,255,255,.16) inset,0 2px 0 rgba(255,255,255,.28) inset;
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.orb-core svg{
+  width:52%;height:52%;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.22));
+}
+.orbit{position:absolute;inset:0;pointer-events:none;animation:orbit 14s linear infinite}
+.orbit::before{
+  content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c2);
+  box-shadow:0 0 12px var(--c-glow),0 0 0 3px var(--c-soft);
+}
+.orbit:nth-of-type(1){animation-delay:0s}
+.orbit:nth-of-type(2){animation-delay:-4.66s}
+.orbit:nth-of-type(3){animation-delay:-9.33s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--c-soft);border:1px solid var(--c-border);
+  color:var(--c);
+  font-size:clamp(10.5px,2.4vw,12px);font-weight:700;
+  letter-spacing:.04em;
+}
+.badge svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.title{
+  font-size:clamp(22px,5.4vw,32px);font-weight:900;
+  line-height:1.15;letter-spacing:-.028em;
+  background:linear-gradient(160deg,var(--t1) 0%,var(--t1) 55%,var(--c) 130%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+[data-lang="en"] .title{letter-spacing:-.02em}
+.subtitle{
+  font-size:clamp(12.5px,3vw,14px);line-height:1.65;
+  color:var(--t3);font-weight:500;max-width:52ch;
+}
+
+.meta-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;flex-wrap:wrap;
+  margin-top:4px;
+}
+.meta-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:999px;
+  background:var(--input-bg);
+  border:1px solid var(--border);
+  font-size:11px;font-weight:700;
+  color:var(--t3);
+  font-variant-numeric:tabular-nums;
+}
+.meta-pill svg{width:12px;height:12px;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.meta-pill strong{color:var(--c);font-weight:900}
+
+/* ═══ QUICK HIGHLIGHTS ═══ */
+.highlights{
+  width:100%;max-width:min(100%,1180px);margin:0 auto;
+  display:grid;grid-template-columns:1fr;
+  gap:10px;
+  animation:fadeUp .5s ease .05s both;
+}
+@media (min-width:640px){.highlights{grid-template-columns:repeat(3,1fr)}}
+
+.hl-card{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:var(--hl);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.hl-card::before{
+  content:"";position:absolute;inset:0;
+  background:var(--c-soft);opacity:0;
+  transition:opacity .3s ease;pointer-events:none;
+}
+.hl-card:hover::before{opacity:1}
+.hl-card:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 12px 28px -8px var(--c-glow)}
+.hl-card>*{position:relative;z-index:1}
+
+.hl-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.hl-icon svg{width:56%;height:56%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hl-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hl-val{
+  font-size:clamp(16px,3.6vw,20px);font-weight:900;
+  color:var(--c);line-height:1;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+}
+.hl-lbl{
+  font-size:clamp(11px,2.6vw,12.5px);font-weight:700;
+  color:var(--t3);line-height:1.3;
+}
+
+/* ═══ LAYOUT ═══ */
+.layout{
+  width:100%;max-width:min(100%,1180px);margin:0 auto;
+  display:grid;grid-template-columns:1fr;
+  gap:clamp(16px,2.4vh,26px);
+  position:relative;
+}
+
+.toc{
+  display:none;
+  position:sticky;top:0;
+  align-self:start;
+  max-height:calc(100dvh - 200px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  padding:4px;
+}
+.toc::-webkit-scrollbar{width:3px}
+.toc::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+.toc-inner{
+  padding:14px;border-radius:16px;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:var(--hl);
+}
+.toc-title{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:900;color:var(--t1);
+  text-transform:uppercase;letter-spacing:.1em;
+  margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.toc-title svg{width:14px;height:14px;stroke:var(--c);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+.toc-nav{display:flex;flex-direction:column;gap:2px}
+.toc-link{
+  position:relative;
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:9px;
+  font-size:12px;font-weight:600;
+  color:var(--t2);
+  transition:all .22s ease;
+  text-align:start;line-height:1.3;
+}
+.toc-link:hover{background:var(--c-soft);color:var(--c)}
+.toc-link.active{background:var(--c-soft);color:var(--c);font-weight:800}
+.toc-link.active::before{
+  content:"";position:absolute;
+  inset-inline-start:0;inset-block:20%;
+  width:3px;border-radius:2px;
+  background:var(--c);box-shadow:0 0 8px var(--c-glow);
+}
+.toc-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;padding:0 5px;
+  border-radius:6px;background:var(--input-bg);
+  color:var(--t3);font-size:10px;font-weight:900;
+  font-variant-numeric:tabular-nums;flex-shrink:0;
+}
+.toc-link.active .toc-num,
+.toc-link:hover .toc-num{background:var(--c);color:#fff}
+.toc-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.content{display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);min-width:0}
+.section{scroll-margin-top:20px;animation:fadeUp .5s ease both}
+.section .card{
+  padding:clamp(20px,2.6vw,32px);
+  border-radius:18px;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--hl);
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.section .card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-soft),transparent 40%);
+  opacity:.5;pointer-events:none;
+}
+.section-head{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:14px;position:relative;z-index:1;
+}
+.section-num{
+  width:38px;height:38px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;flex-shrink:0;
+  font-size:14px;font-weight:900;
+  font-variant-numeric:tabular-nums;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.section-head h2{
+  font-size:clamp(16px,3.5vw,20px);
+  font-weight:900;color:var(--t1);
+  line-height:1.25;flex:1;
+}
+.section-body{
+  position:relative;z-index:1;
+  font-size:clamp(13px,3vw,14.5px);
+  line-height:1.85;color:var(--t2);font-weight:500;
+}
+.section-body p + p{margin-top:12px}
+.section-body strong{color:var(--c);font-weight:800}
+.section-body a{color:var(--c);text-decoration:underline;text-underline-offset:3px}
+.section-body a:hover{opacity:.8}
+.section-body ul{
+  margin:12px 0;padding:0;list-style:none;
+  display:flex;flex-direction:column;gap:8px;
+}
+.section-body ul li{
+  position:relative;padding-inline-start:26px;line-height:1.75;
+}
+.section-body ul li::before{
+  content:"";position:absolute;
+  inset-inline-start:6px;top:9px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--c);box-shadow:0 0 8px var(--c-glow);
+}
+.section-body ul.checks li::before{
+  display:none;
+}
+.section-body ul.checks li{
+  padding-inline-start:34px;
+}
+.section-body ul.checks li::after{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;top:2px;
+  width:22px;height:22px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#34d399,#10b981);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"),linear-gradient(135deg,#34d399,#10b981);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:12px 12px;
+  box-shadow:0 4px 10px -3px rgba(16,185,129,.5);
+}
+.section-body ul.crosses li::before{display:none}
+.section-body ul.crosses li{
+  padding-inline-start:34px;
+}
+.section-body ul.crosses li::after{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;top:2px;
+  width:22px;height:22px;
+  border-radius:50%;
+  background-color:rgba(239,68,68,.15);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:11px 11px;
+}
+.section-body ol{
+  margin:12px 0;padding:0;list-style:none;
+  counter-reset:step;
+  display:flex;flex-direction:column;gap:10px;
+}
+.section-body ol li{
+  position:relative;
+  padding-inline-start:44px;
+  line-height:1.75;
+  counter-increment:step;
+  padding-block:6px;
+}
+.section-body ol li::before{
+  content:counter(step);
+  position:absolute;
+  inset-inline-start:0;top:4px;
+  width:32px;height:32px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+  font-size:14px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 14px -4px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.section-body ol li strong{display:block;font-size:14px;color:var(--t1);margin-bottom:2px}
+
+.section-body .callout{
+  margin:14px 0;padding:14px 16px;
+  border-radius:12px;
+  background:var(--c-soft);
+  border:1px solid var(--c-border);
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:clamp(12.5px,2.9vw,13.5px);
+  color:var(--t1);
+}
+.section-body .callout svg{
+  width:16px;height:16px;flex-shrink:0;margin-top:2px;
+  stroke:var(--c);fill:none;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.section-body .callout.warn{
+  background:rgba(245,158,11,.1);
+  border-color:rgba(245,158,11,.32);
+}
+.section-body .callout.warn svg{stroke:var(--warn)}
+.section-body .callout.warn strong{color:var(--warn)}
+
+/* Shipping zones table */
+.zones-table{
+  margin-top:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  background:var(--input-bg);
+}
+.zone-row{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:10px;
+  padding:12px 14px;
+  font-size:clamp(11.5px,2.8vw,13px);
+  transition:background .2s ease;
+  align-items:center;
+}
+.zone-row:hover{background:var(--c-soft)}
+.zone-row + .zone-row{border-top:1px solid var(--border)}
+.zone-row.head{
+  background:var(--c-soft);
+  color:var(--c);
+  font-weight:900;
+}
+.zone-row .zone-name{font-weight:800;color:var(--t1)}
+.zone-row .zone-time{font-weight:700;color:var(--t2);font-variant-numeric:tabular-nums}
+.zone-row .zone-fee{font-weight:900;color:var(--c);font-variant-numeric:tabular-nums}
+.zone-row.head .zone-name,
+.zone-row.head .zone-time,
+.zone-row.head .zone-fee{color:var(--c)}
+@media (max-width:400px){
+  .zone-row{grid-template-columns:1fr auto;gap:4px 10px}
+  .zone-row .zone-time{grid-column:1/-1;font-size:11px;opacity:.7}
+  .zone-row.head{display:none}
+}
+
+/* Section actions */
+.section-actions{
+  display:flex;align-items:center;gap:6px;
+  position:absolute;top:16px;inset-inline-end:16px;
+  z-index:2;opacity:0;
+  transition:opacity .25s ease;
+}
+.section .card:hover .section-actions,
+.section-actions:focus-within{opacity:1}
+@media (hover:none){.section-actions{opacity:.55}}
+.section-action{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--t3);background:var(--input-bg);
+  border:1px solid var(--border);
+  transition:all .2s ease;padding:0;
+}
+.section-action:hover{color:var(--c);border-color:var(--c);background:var(--c-soft)}
+.section-action:active{transform:scale(.95)}
+.section-action svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.section-action.copied{color:var(--success);border-color:var(--success)}
+
+/* CTA strip */
+.cta-strip{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-top:16px;
+}
+@media (max-width:420px){.cta-strip{grid-template-columns:1fr}}
+
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;
+  padding:13px 18px;min-height:48px;
+  border-radius:999px;
+  font-size:clamp(12.5px,3vw,14px);font-weight:800;
+  transition:all .28s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;
+}
+.cta-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.cta-btn svg[data-fill="true"]{fill:currentColor;stroke:none}
+.cta-btn.primary{
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+  box-shadow:0 12px 28px -8px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.cta-btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px -8px var(--c-glow)}
+.cta-btn.primary:active{transform:translateY(0) scale(.97)}
+.cta-btn.wa{
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.5),0 0 0 1px rgba(255,255,255,.14) inset;
+}
+.cta-btn.wa:hover{transform:translateY(-2px);box-shadow:0 18px 38px -8px rgba(37,211,102,.5)}
+.cta-btn.wa:active{transform:translateY(0) scale(.97)}
+
+.back-top{
+  position:fixed;
+  bottom:calc(env(safe-area-inset-bottom,0px) + 24px);
+  inset-inline-end:calc(env(safe-area-inset-right,0px) + 20px);
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--c2),var(--c));
+  color:#fff;
+  box-shadow:0 12px 28px -6px var(--c-glow),0 0 0 1px rgba(255,255,255,.14) inset;
+  z-index:100;opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  padding:0;
+}
+.back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-top:hover{transform:translateY(-3px);box-shadow:0 18px 38px -6px var(--c-glow)}
+.back-top:active{transform:translateY(0) scale(.94)}
+.back-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══ FOOTER ═══ */
+.footer{flex:0 0 auto;padding-top:clamp(8px,1.4vh,14px);text-align:center}
+.footer-copyright{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  font-size:clamp(10px,2.3vw,11.5px);color:var(--t4);font-weight:500;line-height:1.5;
+}
+.footer-copyright .developer-name{color:var(--c);font-weight:900;letter-spacing:.08em}
+.footer-copyright .dot-sep{color:var(--t4);opacity:.6}
+.footer-copyright a{color:var(--t3);transition:color .2s ease}
+.footer-copyright a:hover{color:var(--c)}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (min-width:700px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-right,0px) + clamp(28px,4vw,64px))
+      calc(env(safe-area-inset-bottom,0px) + clamp(16px,2.6vh,28px))
+      calc(env(safe-area-inset-left,0px) + clamp(28px,4vw,64px));
+  }
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    grid-template-areas:"orb text";
+    align-items:center;text-align:start;
+    gap:clamp(20px,3vw,40px);padding:8px 0;
+  }
+  .orb{
+    grid-area:orb;justify-self:center;margin-bottom:0;
+    width:clamp(110px,16vmin,150px);height:clamp(110px,16vmin,150px);
+  }
+  .hero-text{
+    grid-area:text;
+    display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  }
+  .title{font-size:clamp(28px,3.6vw,42px)}
+  .subtitle{font-size:clamp(13.5px,1.4vw,16px);text-align:start;margin:0}
+  .meta-row{justify-content:flex-start}
+  .layout{
+    grid-template-columns:minmax(200px,240px) 1fr;
+    gap:clamp(20px,2.6vw,36px);
+    align-items:start;
+  }
+  .toc{display:block}
+}
+
+@media (min-width:1200px){
+  .layout{max-width:min(1320px,100%);grid-template-columns:minmax(220px,260px) 1fr;gap:48px}
+  .highlights{max-width:min(1320px,100%)}
+  .title{font-size:clamp(36px,3.2vw,48px)}
+  .subtitle{font-size:clamp(14px,1.05vw,16.5px)}
+  .section .card{padding:clamp(26px,2.4vw,36px)}
+  .section-head h2{font-size:clamp(18px,1.5vw,22px)}
+  .section-num{width:44px;height:44px;font-size:16px;border-radius:13px}
+  .section-body{font-size:15px;line-height:1.9}
+  .toc-inner{padding:18px}
+  .toc-link{font-size:13px;padding:10px 12px}
+  .hl-card{padding:18px 20px;gap:14px}
+  .hl-icon{width:52px;height:52px;border-radius:14px}
+  .hl-val{font-size:22px}
+  .hl-lbl{font-size:13px}
+}
+
+@media (min-width:1800px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 44px)
+      calc(env(safe-area-inset-right,0px) + 96px)
+      calc(env(safe-area-inset-bottom,0px) + 44px)
+      calc(env(safe-area-inset-left,0px) + 96px);
+  }
+  .layout{max-width:min(1700px,100%);grid-template-columns:minmax(260px,320px) 1fr;gap:80px}
+  .highlights{max-width:min(1700px,100%);gap:14px}
+  .orb{width:clamp(180px,14vmin,240px);height:clamp(180px,14vmin,240px)}
+  .title{font-size:clamp(52px,3vw,72px)}
+  .subtitle{font-size:clamp(18px,1vw,24px);max-width:60ch}
+  .badge{font-size:15px;padding:9px 20px}
+  .badge svg{width:16px;height:16px}
+  .brand-name{font-size:17px;letter-spacing:.28em}
+  .brand-tag{font-size:14px}
+  .brand-logo{width:48px;height:48px;border-radius:14px}
+  .ctrl{width:52px;height:52px;border-radius:14px}
+  .ctrl svg{width:22px;height:22px}
+  .lang-toggle{height:52px;border-radius:14px}
+  .lang-btn{font-size:14px;padding:0 16px;min-width:44px}
+  .color-btn .dot{width:22px;height:22px}
+  .section .card{padding:44px 48px;border-radius:24px}
+  .section-head h2{font-size:26px}
+  .section-num{width:56px;height:56px;font-size:20px;border-radius:16px}
+  .section-body{font-size:18px;line-height:2}
+  .toc-inner{padding:22px}
+  .toc-title{font-size:14px}
+  .toc-link{font-size:15px;padding:12px 14px}
+  .toc-num{min-width:24px;height:24px;font-size:12px}
+  .meta-pill{font-size:14px;padding:8px 16px}
+  .meta-pill svg{width:15px;height:15px}
+  .back-top{width:56px;height:56px}
+  .back-top svg{width:24px;height:24px}
+  .footer-copyright{font-size:14px}
+  .hl-card{padding:24px 26px;border-radius:20px;gap:20px}
+  .hl-icon{width:64px;height:64px;border-radius:18px}
+  .hl-val{font-size:32px}
+  .hl-lbl{font-size:15px}
+  .cta-btn{min-height:64px;font-size:18px;border-radius:999px;padding:18px 32px}
+  .cta-btn svg{width:22px;height:22px}
+}
+
+@media (orientation:landscape) and (max-height:600px) and (max-width:900px){
+  .shell{
+    padding:
+      calc(env(safe-area-inset-top,0px) + 8px)
+      calc(env(safe-area-inset-right,0px) + 18px)
+      calc(env(safe-area-inset-bottom,0px) + 8px)
+      calc(env(safe-area-inset-left,0px) + 18px);
+  }
+  .topbar{padding-bottom:6px}
+  .brand-logo{width:28px;height:28px;padding:4px;border-radius:8px}
+  .brand-name{font-size:11px;letter-spacing:.18em}
+  .brand-tag{font-size:9.5px}
+
+  .main{gap:8px;padding:0}
+  .hero{
+    display:grid;grid-template-columns:auto 1fr;
+    align-items:center;text-align:start;gap:16px;padding:0;
+  }
+  .orb{width:clamp(60px,11vh,90px);height:clamp(60px,11vh,90px);margin-bottom:0}
+  .hero-text{gap:4px}
+  .badge{padding:3px 9px;font-size:9.5px}
+  .title{font-size:clamp(18px,2.6vw,24px)}
+  .subtitle{font-size:clamp(10.5px,1.3vw,12px);line-height:1.4}
+  .meta-row{margin-top:2px}
+  .meta-pill{font-size:10px;padding:3px 9px}
+
+  .highlights{gap:6px;grid-template-columns:repeat(3,1fr)}
+  .hl-card{padding:8px 10px;gap:8px;border-radius:10px}
+  .hl-icon{width:30px;height:30px;border-radius:9px}
+  .hl-val{font-size:14px}
+  .hl-lbl{font-size:10px}
+
+  .section .card{padding:12px 14px;border-radius:12px}
+  .section-head{gap:8px;margin-bottom:8px}
+  .section-num{width:26px;height:26px;font-size:11px;border-radius:8px}
+  .section-head h2{font-size:12px}
+  .section-body{font-size:11px;line-height:1.55}
+  .section-body p + p{margin-top:6px}
+  .section-body ul{gap:4px;margin:6px 0}
+  .section-body ul li{padding-inline-start:18px}
+  .section-body ul li::before{width:5px;height:5px;inset-inline-start:4px;top:7px}
+  .section-body .callout{padding:8px 10px;font-size:10.5px}
+  .zone-row{padding:6px 10px;font-size:10.5px}
+
+  .cta-strip{gap:6px;margin-top:8px}
+  .cta-btn{min-height:36px;padding:8px 14px;font-size:11.5px;gap:6px}
+  .cta-btn svg{width:13px;height:13px}
+
+  .footer{padding-top:4px}
+  .footer-copyright{font-size:9.5px}
+  .lang-toggle{height:34px;border-radius:10px}
+  .lang-btn{font-size:10px;padding:0 8px;min-width:26px}
+  .back-top{width:36px;height:36px;bottom:14px;inset-inline-end:14px}
+  .back-top svg{width:16px;height:16px}
+}
+
+@media (max-width:340px){
+  .orb{width:76px;height:76px}
+  .title{font-size:20px}
+  .subtitle{font-size:11.5px}
+  .badge{font-size:10px;padding:4px 10px}
+  .footer-copyright{font-size:10px}
+  .section .card{padding:16px}
+  .section-num{width:32px;height:32px;font-size:12px;border-radius:9px}
+  .highlights{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  body::before,.orb-core,.orb .pulse,.orb-glow,.orbit{animation:none!important}
+  .main{scroll-behavior:auto}
+}
+
+@media print{
+  html,body{height:auto;position:static;overflow:visible;background:#fff !important;color:#000 !important}
+  body::before,body::after,.read-progress,.topbar,.footer,.back-top,.toc,.section-actions,.cta-strip{display:none !important}
+  .shell{position:static;padding:0;display:block}
+  .main{display:block;padding:0;overflow:visible;max-width:none}
+  .layout{display:block}
+  .hero{display:block;text-align:start;padding:0;margin-bottom:14px}
+  .orb{display:none}
+  .title{background:none;-webkit-text-fill-color:#000;color:#000;font-size:24px}
+  .subtitle,.section-body{color:#333 !important}
+  .section .card{background:#fff !important;border:1px solid #999 !important;box-shadow:none;backdrop-filter:none;page-break-inside:avoid;margin-bottom:12px;padding:16px}
+  .section-num{background:#333 !important;box-shadow:none}
+  .section-body a{color:#000;text-decoration:underline}
+  .hl-card,.zones-table{background:#f5f5f5 !important;border-color:#ccc !important}
+  .zones-table .head{background:#eee !important;color:#000 !important}
+  .hl-icon{background:#333 !important;box-shadow:none}
+  .hl-val{color:#000 !important}
+  @page{margin:12mm}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ SVG SPRITE ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-return" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></symbol>
+    <symbol id="ic-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="ic-refund" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="ic-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="ic-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="ic-car" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="ic-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="ic-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="ic-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></symbol>
+    <symbol id="ic-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<div class="shell" id="shell">
+
+  <!-- ═══ TOPBAR ═══ -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="ELLOUL">
+      <img src="./assets/images/logo.webp" alt="ELLOUL" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">ELLOUL</span>
+        <span class="brand-tag" data-i18n="brandTag">متجر أدوات المائدة</span>
+      </span>
+    </a>
+
+    <div class="topbar-controls">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang-btn="ar" type="button" aria-label="العربية">AR</button>
+        <button class="lang-btn" data-lang-btn="en" type="button" aria-label="English">EN</button>
+      </div>
+
+      <div class="color-picker-wrap">
+        <button class="ctrl color-btn" id="colorBtn" type="button" title="Color" aria-label="Color" aria-haspopup="true" aria-expanded="false">
+          <span class="dot"></span>
+        </button>
+        <div class="color-menu" id="colorMenu" role="menu">
+          <button class="color-swatch" data-color="blue"   style="background:#3b82f6;color:#3b82f6" title="Blue" role="menuitem"></button>
+          <button class="color-swatch" data-color="purple" style="background:#a855f7;color:#a855f7" title="Purple" role="menuitem"></button>
+          <button class="color-swatch" data-color="pink"   style="background:#ec4899;color:#ec4899" title="Pink" role="menuitem"></button>
+          <button class="color-swatch" data-color="rose"   style="background:#f43f5e;color:#f43f5e" title="Rose" role="menuitem"></button>
+          <button class="color-swatch" data-color="red"    style="background:#ef4444;color:#ef4444" title="Red" role="menuitem"></button>
+          <button class="color-swatch" data-color="orange" style="background:#f97316;color:#f97316" title="Orange" role="menuitem"></button>
+          <button class="color-swatch" data-color="amber"  style="background:#f59e0b;color:#f59e0b" title="Amber" role="menuitem"></button>
+          <button class="color-swatch" data-color="lime"   style="background:#84cc16;color:#84cc16" title="Lime" role="menuitem"></button>
+          <button class="color-swatch" data-color="green"  style="background:#10b981;color:#10b981" title="Green" role="menuitem"></button>
+          <button class="color-swatch" data-color="teal"   style="background:#14b8a6;color:#14b8a6" title="Teal" role="menuitem"></button>
+          <button class="color-swatch" data-color="cyan"   style="background:#06b6d4;color:#06b6d4" title="Cyan" role="menuitem"></button>
+          <button class="color-swatch" data-color="indigo" style="background:#6366f1;color:#6366f1" title="Indigo" role="menuitem"></button>
+        </div>
+      </div>
+
+      <button class="ctrl theme-toggle" id="themeToggle" type="button" title="Theme" aria-label="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-moon"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main" id="mainScroll">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="orb" aria-hidden="true">
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <span class="pulse"></span>
+        <div class="orb-glow"></div>
+        <div class="orb-core">
+          <svg viewBox="0 0 24 24"><use href="#ic-return"/></svg>
+        </div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+      </div>
+      <div class="hero-text">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-package"/></svg>
+          <span data-i18n="badge">سياسات المتجر · ELLOUL</span>
+        </span>
+        <h1 class="title" data-i18n="title">الإرجاع والاستبدال والشحن</h1>
+        <p class="subtitle" data-i18n="subtitle">تعرف على شروط الإرجاع والاستبدال، خطوات العملية، ومواعيد ومناطق الشحن بالتفصيل.</p>
+        <div class="meta-row">
+          <span class="meta-pill">
+            <svg viewBox="0 0 24 24"><use href="#ic-clock"/></svg>
+            <span data-i18n="updated">آخر تحديث</span>:
+            <strong id="lastUpdated" dir="ltr">2026-10-08</strong>
+          </span>
+          <button class="meta-pill" id="printBtn" type="button" style="cursor:pointer">
+            <svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>
+            <span data-i18n="printBtn">طباعة / PDF</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK HIGHLIGHTS -->
+    <section class="highlights" aria-label="Quick facts">
+      <div class="hl-card">
+        <div class="hl-icon"><svg viewBox="0 0 24 24"><use href="#ic-refresh"/></svg></div>
+        <div class="hl-info">
+          <span class="hl-val" data-i18n="hl1Val">14 يوم</span>
+          <span class="hl-lbl" data-i18n="hl1Lbl">مدة الإرجاع والاستبدال</span>
+        </div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-icon"><svg viewBox="0 0 24 24"><use href="#ic-truck"/></svg></div>
+        <div class="hl-info">
+          <span class="hl-val" data-i18n="hl2Val">24-72 ساعة</span>
+          <span class="hl-lbl" data-i18n="hl2Lbl">مدة الشحن حسب المحافظة</span>
+        </div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-icon"><svg viewBox="0 0 24 24"><use href="#ic-refund"/></svg></div>
+        <div class="hl-info">
+          <span class="hl-val" data-i18n="hl3Val">500 ج.م+</span>
+          <span class="hl-lbl" data-i18n="hl3Lbl">الشحن مجاني فوقها</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+
+      <!-- SIDEBAR TOC -->
+      <aside class="toc" id="toc" aria-label="Table of contents">
+        <div class="toc-inner">
+          <div class="toc-title">
+            <svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>
+            <span data-i18n="tocTitle">المحتويات</span>
+          </div>
+          <nav class="toc-nav" id="tocNav">
+            <a class="toc-link" href="#sec-1"><span class="toc-num">01</span><span class="toc-label" data-i18n="toc1">مقدمة</span></a>
+            <a class="toc-link" href="#sec-2"><span class="toc-num">02</span><span class="toc-label" data-i18n="toc2">سياسة الإرجاع</span></a>
+            <a class="toc-link" href="#sec-3"><span class="toc-num">03</span><span class="toc-label" data-i18n="toc3">سياسة الاستبدال</span></a>
+            <a class="toc-link" href="#sec-4"><span class="toc-num">04</span><span class="toc-label" data-i18n="toc4">خطوات الإرجاع</span></a>
+            <a class="toc-link" href="#sec-5"><span class="toc-num">05</span><span class="toc-label" data-i18n="toc5">استرداد المبلغ</span></a>
+            <a class="toc-link" href="#sec-6"><span class="toc-num">06</span><span class="toc-label" data-i18n="toc6">استثناءات</span></a>
+            <a class="toc-link" href="#sec-7"><span class="toc-num">07</span><span class="toc-label" data-i18n="toc7">سياسة الشحن</span></a>
+            <a class="toc-link" href="#sec-8"><span class="toc-num">08</span><span class="toc-label" data-i18n="toc8">مناطق ورسوم الشحن</span></a>
+            <a class="toc-link" href="#sec-9"><span class="toc-num">09</span><span class="toc-label" data-i18n="toc9">التغليف والتعامل</span></a>
+            <a class="toc-link" href="#sec-10"><span class="toc-num">10</span><span class="toc-label" data-i18n="toc10">تواصل معنا</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- 01 مقدمة -->
+        <section class="section" id="sec-1">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-1" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">01</span>
+              <h2 data-i18n="h1">مقدمة</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p1">في <strong>ELLOUL</strong> راحتك ورضاك هي أولويتنا. لذلك وضعنا سياسات واضحة وعادلة للإرجاع والاستبدال والشحن، لضمان تجربة تسوق مريحة وخالية من أي قلق.</p>
+              <p data-i18n="p1b">تنطبق هذه السياسات على جميع الطلبات داخل جمهورية مصر العربية. أي استثناءات أو شروط خاصة ستُذكر بوضوح في تفاصيل المنتج.</p>
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout1">للطلبات بالجملة أو التعاقدات الخاصة، قد تُطبَّق شروط مختلفة يتم الاتفاق عليها مسبقاً.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02 سياسة الإرجاع -->
+        <section class="section" id="sec-2">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-2" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">02</span>
+              <h2 data-i18n="h2">سياسة الإرجاع</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p2">يحق لك إرجاع المنتج خلال <strong>14 يوم</strong> من تاريخ الاستلام، بشرط توفر الشروط التالية:</p>
+              <ul class="checks">
+                <li data-i18n="p2li1">المنتج بحالته الأصلية <strong>دون استخدام</strong>.</li>
+                <li data-i18n="p2li2">المنتج في <strong>عبوته الأصلية</strong> كاملة.</li>
+                <li data-i18n="p2li3">إرفاق <strong>فاتورة الطلب</strong> أو رقم الطلب.</li>
+                <li data-i18n="p2li4">عدم وجود أي تلف ناتج عن سوء الاستخدام.</li>
+              </ul>
+              <div class="callout warn">
+                <svg viewBox="0 0 24 24"><use href="#ic-alert"/></svg>
+                <span data-i18n="p2warn"><strong>تنبيه:</strong> بعد انتهاء مدة 14 يوم، لن يُقبل طلب الإرجاع إلا في حالات وجود عيب مصنّعي واضح.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03 سياسة الاستبدال -->
+        <section class="section" id="sec-3">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-3" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">03</span>
+              <h2 data-i18n="h3">سياسة الاستبدال</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p3">يمكنك استبدال المنتج بواحد آخر خلال <strong>14 يوم</strong> من الاستلام في الحالات التالية:</p>
+              <ul class="checks">
+                <li data-i18n="p3li1">وجود <strong>عيب مصنّعي</strong> في المنتج (كسر، تشوّه، خدوش واضحة).</li>
+                <li data-i18n="p3li2">استلام منتج <strong>مختلف</strong> عن المنتج المطلوب.</li>
+                <li data-i18n="p3li3">نقص في قطع الطقم مقارنة بالوصف.</li>
+                <li data-i18n="p3li4">تغيّر رغبتك (استبدال بمقاس أو تصميم آخر) بشرط عدم الاستخدام.</li>
+              </ul>
+              <p data-i18n="p3b">في حالات العيب المصنّعي أو الخطأ من طرفنا، نتحمّل <strong>تكاليف الشحن بالكامل</strong>. في حالات تغيير الرغبة الشخصية، يتحمّل العميل رسوم الشحن.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 خطوات الإرجاع -->
+        <section class="section" id="sec-4">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-4" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">04</span>
+              <h2 data-i18n="h4">خطوات طلب الإرجاع أو الاستبدال</h2>
+            </div>
+            <div class="section-body">
+              <ol>
+                <li data-i18n="p4s1">
+                  <strong data-i18n="p4s1Title">تواصل معنا</strong>
+                  <span data-i18n="p4s1Desc">راسلنا على واتساب خلال 14 يوم من استلام الطلب، وأخبرنا برقم الطلب وسبب الإرجاع.</span>
+                </li>
+                <li data-i18n="p4s2">
+                  <strong data-i18n="p4s2Title">الموافقة المبدئية</strong>
+                  <span data-i18n="p4s2Desc">سنراجع طلبك ونوافق عليه خلال 24 ساعة، ونحدّد موعد استلام المنتج.</span>
+                </li>
+                <li data-i18n="p4s3">
+                  <strong data-i18n="p4s3Title">تغليف المنتج</strong>
+                  <span data-i18n="p4s3Desc">أعِد تغليف المنتج بعناية في عبوته الأصلية، مع إرفاق فاتورة الطلب.</span>
+                </li>
+                <li data-i18n="p4s4">
+                  <strong data-i18n="p4s4Title">استلام المنتج</strong>
+                  <span data-i18n="p4s4Desc">سيرسل المندوب لاستلام المنتج في الموعد المتفق عليه، أو نوجّهك لمكتب الشحن الأقرب.</span>
+                </li>
+                <li data-i18n="p4s5">
+                  <strong data-i18n="p4s5Title">الفحص والاسترداد</strong>
+                  <span data-i18n="p4s5Desc">بعد فحص المنتج، يتم استرداد المبلغ أو إرسال البديل خلال 3-5 أيام عمل.</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 استرداد المبلغ -->
+        <section class="section" id="sec-5">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-5" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">05</span>
+              <h2 data-i18n="h5">استرداد المبلغ</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p5">طريقة استرداد المبلغ تعتمد على طريقة الدفع الأصلية:</p>
+              <ul>
+                <li data-i18n="p5li1"><strong>الدفع عند الاستلام (COD):</strong> تحويل بنكي أو محفظة إلكترونية خلال <strong>3-5 أيام عمل</strong> من استلامنا للمنتج.</li>
+                <li data-i18n="p5li2"><strong>التحويل البنكي / إنستاباي:</strong> إعادة المبلغ على نفس الحساب خلال <strong>2-3 أيام عمل</strong>.</li>
+                <li data-i18n="p5li3"><strong>المحافظ الإلكترونية:</strong> إعادة المبلغ على نفس المحفظة خلال <strong>1-2 يوم عمل</strong>.</li>
+              </ul>
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout5">الاسترداد يشمل قيمة المنتج فقط في حالات تغيير الرغبة الشخصية. في حالات العيب المصنّعي أو خطأ من طرفنا، يشمل أيضاً رسوم الشحن.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 استثناءات -->
+        <section class="section" id="sec-6">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-6" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">06</span>
+              <h2 data-i18n="h6">حالات لا نقبل فيها الإرجاع</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p6">لا يمكن قبول الإرجاع أو الاستبدال في الحالات التالية:</p>
+              <ul class="crosses">
+                <li data-i18n="p6li1">مرور أكثر من <strong>14 يوم</strong> على استلام الطلب.</li>
+                <li data-i18n="p6li2">وجود آثار استخدام واضحة على المنتج.</li>
+                <li data-i18n="p6li3">فقدان أو تلف العبوة الأصلية.</li>
+                <li data-i18n="p6li4">المنتجات المخصّصة (نقش أسماء أو تصميمات خاصة).</li>
+                <li data-i18n="p6li5">المنتجات المخفّضة في عروض التخفيضات النهائية (Sale).</li>
+              </ul>
+              <div class="callout warn">
+                <svg viewBox="0 0 24 24"><use href="#ic-alert"/></svg>
+                <span data-i18n="callout6">يرجى فحص المنتج فور استلامه قبل المندوب. أي عيب ظاهر وقت التسليم يُبلَّغ به فوراً لتجنّب أي إشكالات.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 07 سياسة الشحن -->
+        <section class="section" id="sec-7">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-7" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">07</span>
+              <h2 data-i18n="h7">سياسة الشحن والتوصيل</h2>
+            </div>
+            <div class="section-body">
+              <ul class="checks">
+                <li data-i18n="p7li1"><strong>الشحن المجاني:</strong> للطلبات فوق <strong>500 ج.م</strong>.</li>
+                <li data-i18n="p7li2"><strong>مدة التوصيل:</strong> 24 – 72 ساعة عمل حسب المحافظة.</li>
+                <li data-i18n="p7li3"><strong>مواعيد التسليم:</strong> من السبت إلى الخميس، 9 صباحاً – 9 مساءً.</li>
+                <li data-i18n="p7li4"><strong>تأكيد الطلب:</strong> يتم التواصل معك عبر واتساب قبل الشحن لتأكيد العنوان.</li>
+                <li data-i18n="p7li5"><strong>الدفع عند الاستلام:</strong> متاح لجميع المحافظات.</li>
+              </ul>
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout7">في المواسم المزدحمة (رمضان، العيد، الجمعة البيضاء) قد تزيد مدة الشحن بـ 24 ساعة إضافية. نُبلّغك بأي تأخير مسبقاً.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 08 مناطق ورسوم الشحن -->
+        <section class="section" id="sec-8">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-8" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">08</span>
+              <h2 data-i18n="h8">مناطق ورسوم الشحن</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p8">نغطّي جميع محافظات مصر. فيما يلي تقدير لمدة الشحن والرسوم التقريبية:</p>
+
+              <div class="zones-table">
+                <div class="zone-row head">
+                  <span class="zone-name" data-i18n="zZone">المنطقة</span>
+                  <span class="zone-time" data-i18n="zTime">المدة</span>
+                  <span class="zone-fee" data-i18n="zFee">الرسوم</span>
+                </div>
+                <div class="zone-row">
+                  <span class="zone-name" data-i18n="z1n">القاهرة والجيزة</span>
+                  <span class="zone-time" data-i18n="z1t">24 ساعة</span>
+                  <span class="zone-fee" data-i18n="z1f">35 ج.م</span>
+                </div>
+                <div class="zone-row">
+                  <span class="zone-name" data-i18n="z2n">الإسكندرية والدلتا</span>
+                  <span class="zone-time" data-i18n="z2t">24–48 ساعة</span>
+                  <span class="zone-fee" data-i18n="z2f">40 ج.م</span>
+                </div>
+                <div class="zone-row">
+                  <span class="zone-name" data-i18n="z3n">محافظات القناة</span>
+                  <span class="zone-time" data-i18n="z3t">48 ساعة</span>
+                  <span class="zone-fee" data-i18n="z3f">45 ج.م</span>
+                </div>
+                <div class="zone-row">
+                  <span class="zone-name" data-i18n="z4n">الصعيد والوجه القبلي</span>
+                  <span class="zone-time" data-i18n="z4t">48–72 ساعة</span>
+                  <span class="zone-fee" data-i18n="z4f">55 ج.م</span>
+                </div>
+                <div class="zone-row">
+                  <span class="zone-name" data-i18n="z5n">المناطق الحدودية</span>
+                  <span class="zone-time" data-i18n="z5t">72 ساعة</span>
+                  <span class="zone-fee" data-i18n="z5f">65 ج.م</span>
+                </div>
+              </div>
+
+              <div class="callout">
+                <svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>
+                <span data-i18n="callout8">الرسوم المعروضة تقريبية وقد تتغير حسب سياسة شركة الشحن. الرسوم النهائية تظهر لك دائماً قبل تأكيد الطلب.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 09 التغليف والتعامل -->
+        <section class="section" id="sec-9">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-9" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">09</span>
+              <h2 data-i18n="h9">التغليف والتعامل</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p9">نولي أهمية كبيرة لتغليف المنتجات بعناية لضمان وصولها بأفضل حالة:</p>
+              <ul class="checks">
+                <li data-i18n="p9li1">كل قطعة ملفوفة بشكل فردي لمنع الخدوش.</li>
+                <li data-i18n="p9li2">الطقم الكامل في صندوق مبطّن من الداخل لحمايته من الصدمات.</li>
+                <li data-i18n="p9li3">استخدام مواد صديقة للبيئة قدر الإمكان.</li>
+                <li data-i18n="p9li4">شريط لاصق مخصّص للطرد لضمان السلامة.</li>
+              </ul>
+              <p data-i18n="p9b">إذا وصلك المنتج بتلف واضح في التغليف، يُرجى تصويره فوراً وإبلاغ المندوب قبل مغادرته، ثم التواصل معنا خلال 24 ساعة.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 تواصل معنا -->
+        <section class="section" id="sec-10">
+          <div class="card">
+            <div class="section-actions">
+              <button class="section-action" data-copy-section="sec-10" type="button" aria-label="Copy link">
+                <svg viewBox="0 0 24 24"><use href="#ic-link"/></svg>
+              </button>
+            </div>
+            <div class="section-head">
+              <span class="section-num">10</span>
+              <h2 data-i18n="h10">تواصل معنا</h2>
+            </div>
+            <div class="section-body">
+              <p data-i18n="p10">لأي استفسار حول الإرجاع أو الاستبدال أو الشحن، فريقنا في خدمتك:</p>
+              <ul>
+                <li data-i18n="p10li1"><strong>واتساب:</strong> <a href="https://wa.me/201206796831" target="_blank" rel="noopener">+20 120 679 6831</a></li>
+                <li data-i18n="p10li2"><strong>هاتف:</strong> <a href="tel:+201206796831" dir="ltr">+20 120 679 6831</a></li>
+                <li data-i18n="p10li3"><strong>بريد إلكتروني:</strong> <a href="mailto:orders@elloul.store">orders@elloul.store</a></li>
+              </ul>
+              <div class="cta-strip">
+                <a class="cta-btn wa" href="https://wa.me/201206796831" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" data-fill="true"><use href="#ic-whatsapp"/></svg>
+                  <span data-i18n="ctaWa">راسلنا واتساب</span>
+                </a>
+                <a class="cta-btn primary" href="contact.html">
+                  <svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>
+                  <span data-i18n="ctaContact">صفحة التواصل</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <p class="footer-copyright">
+      <span data-i18n="footerDesigned">متجر إلكتروني من تصميم وتطوير</span>
+      <span class="developer-name">ELLOUL</span>
+      <span class="dot-sep">·</span>
+      <span data-i18n="footerRights">&copy; 2026 جميع الحقوق محفوظة</span>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><use href="#ic-arrow-up"/></svg>
+</button>
+
+<!-- ═══ I18N ═══ -->
+<script>
+window.I18N = {
+  ar: {
+    pageTitle:'الإرجاع والاستبدال والشحن · ELLOUL',
+    brandTag:'متجر أدوات المائدة',
+    badge:'سياسات المتجر · ELLOUL',
+    title:'الإرجاع والاستبدال والشحن',
+    subtitle:'تعرف على شروط الإرجاع والاستبدال، خطوات العملية، ومواعيد ومناطق الشحن بالتفصيل.',
+    updated:'آخر تحديث',
+    printBtn:'طباعة / PDF',
+    tocTitle:'المحتويات',
+    toc1:'مقدمة',
+    toc2:'سياسة الإرجاع',
+    toc3:'سياسة الاستبدال',
+    toc4:'خطوات الإرجاع',
+    toc5:'استرداد المبلغ',
+    toc6:'استثناءات',
+    toc7:'سياسة الشحن',
+    toc8:'مناطق ورسوم الشحن',
+    toc9:'التغليف والتعامل',
+    toc10:'تواصل معنا',
+    hl1Val:'14 يوم',
+    hl1Lbl:'مدة الإرجاع والاستبدال',
+    hl2Val:'24-72 ساعة',
+    hl2Lbl:'مدة الشحن حسب المحافظة',
+    hl3Val:'500 ج.م+',
+    hl3Lbl:'الشحن مجاني فوقها',
+    h1:'مقدمة',
+    p1:'في <strong>ELLOUL</strong> راحتك ورضاك هي أولويتنا. لذلك وضعنا سياسات واضحة وعادلة للإرجاع والاستبدال والشحن، لضمان تجربة تسوق مريحة وخالية من أي قلق.',
+    p1b:'تنطبق هذه السياسات على جميع الطلبات داخل جمهورية مصر العربية. أي استثناءات أو شروط خاصة ستُذكر بوضوح في تفاصيل المنتج.',
+    callout1:'للطلبات بالجملة أو التعاقدات الخاصة، قد تُطبَّق شروط مختلفة يتم الاتفاق عليها مسبقاً.',
+    h2:'سياسة الإرجاع',
+    p2:'يحق لك إرجاع المنتج خلال 14 يوم من تاريخ الاستلام، بشرط توفر الشروط التالية:',
+    p2li1:'المنتج بحالته الأصلية دون استخدام.',
+    p2li2:'المنتج في عبوته الأصلية كاملة.',
+    p2li3:'إرفاق فاتورة الطلب أو رقم الطلب.',
+    p2li4:'عدم وجود أي تلف ناتج عن سوء الاستخدام.',
+    p2warn:'<strong>تنبيه:</strong> بعد انتهاء مدة 14 يوم، لن يُقبل طلب الإرجاع إلا في حالات وجود عيب مصنّعي واضح.',
+    h3:'سياسة الاستبدال',
+    p3:'يمكنك استبدال المنتج بواحد آخر خلال 14 يوم من الاستلام في الحالات التالية:',
+    p3li1:'وجود عيب مصنّعي في المنتج (كسر، تشوّه، خدوش واضحة).',
+    p3li2:'استلام منتج مختلف عن المنتج المطلوب.',
+    p3li3:'نقص في قطع الطقم مقارنة بالوصف.',
+    p3li4:'تغيّر رغبتك (استبدال بمقاس أو تصميم آخر) بشرط عدم الاستخدام.',
+    p3b:'في حالات العيب المصنّعي أو الخطأ من طرفنا، نتحمّل تكاليف الشحن بالكامل. في حالات تغيير الرغبة الشخصية، يتحمّل العميل رسوم الشحن.',
+    h4:'خطوات طلب الإرجاع أو الاستبدال',
+    p4s1Title:'تواصل معنا',
+    p4s1Desc:'راسلنا على واتساب خلال 14 يوم من استلام الطلب، وأخبرنا برقم الطلب وسبب الإرجاع.',
+    p4s2Title:'الموافقة المبدئية',
+    p4s2Desc:'سنراجع طلبك ونوافق عليه خلال 24 ساعة، ونحدّد موعد استلام المنتج.',
+    p4s3Title:'تغليف المنتج',
+    p4s3Desc:'أعِد تغليف المنتج بعناية في عبوته الأصلية، مع إرفاق فاتورة الطلب.',
+    p4s4Title:'استلام المنتج',
+    p4s4Desc:'سيرسل المندوب لاستلام المنتج في الموعد المتفق عليه، أو نوجّهك لمكتب الشحن الأقرب.',
+    p4s5Title:'الفحص والاسترداد',
+    p4s5Desc:'بعد فحص المنتج، يتم استرداد المبلغ أو إرسال البديل خلال 3-5 أيام عمل.',
+    h5:'استرداد المبلغ',
+    p5:'طريقة استرداد المبلغ تعتمد على طريقة الدفع الأصلية:',
+    p5li1:'<strong>الدفع عند الاستلام (COD):</strong> تحويل بنكي أو محفظة إلكترونية خلال 3-5 أيام عمل من استلامنا للمنتج.',
+    p5li2:'<strong>التحويل البنكي / إنستاباي:</strong> إعادة المبلغ على نفس الحساب خلال 2-3 أيام عمل.',
+    p5li3:'<strong>المحافظ الإلكترونية:</strong> إعادة المبلغ على نفس المحفظة خلال 1-2 يوم عمل.',
+    callout5:'الاسترداد يشمل قيمة المنتج فقط في حالات تغيير الرغبة الشخصية. في حالات العيب المصنّعي أو خطأ من طرفنا، يشمل أيضاً رسوم الشحن.',
+    h6:'حالات لا نقبل فيها الإرجاع',
+    p6:'لا يمكن قبول الإرجاع أو الاستبدال في الحالات التالية:',
+    p6li1:'مرور أكثر من 14 يوم على استلام الطلب.',
+    p6li2:'وجود آثار استخدام واضحة على المنتج.',
+    p6li3:'فقدان أو تلف العبوة الأصلية.',
+    p6li4:'المنتجات المخصّصة (نقش أسماء أو تصميمات خاصة).',
+    p6li5:'المنتجات المخفّضة في عروض التخفيضات النهائية (Sale).',
+    callout6:'يرجى فحص المنتج فور استلامه قبل المندوب. أي عيب ظاهر وقت التسليم يُبلَّغ به فوراً لتجنّب أي إشكالات.',
+    h7:'سياسة الشحن والتوصيل',
+    p7li1:'<strong>الشحن المجاني:</strong> للطلبات فوق 500 ج.م.',
+    p7li2:'<strong>مدة التوصيل:</strong> 24 – 72 ساعة عمل حسب المحافظة.',
+    p7li3:'<strong>مواعيد التسليم:</strong> من السبت إلى الخميس، 9 صباحاً – 9 مساءً.',
+    p7li4:'<strong>تأكيد الطلب:</strong> يتم التواصل معك عبر واتساب قبل الشحن لتأكيد العنوان.',
+    p7li5:'<strong>الدفع عند الاستلام:</strong> متاح لجميع المحافظات.',
+    callout7:'في المواسم المزدحمة (رمضان، العيد، الجمعة البيضاء) قد تزيد مدة الشحن بـ 24 ساعة إضافية. نُبلّغك بأي تأخير مسبقاً.',
+    h8:'مناطق ورسوم الشحن',
+    p8:'نغطّي جميع محافظات مصر. فيما يلي تقدير لمدة الشحن والرسوم التقريبية:',
+    zZone:'المنطقة',
+    zTime:'المدة',
+    zFee:'الرسوم',
+    z1n:'القاهرة والجيزة',
+    z1t:'24 ساعة',
+    z1f:'35 ج.م',
+    z2n:'الإسكندرية والدلتا',
+    z2t:'24–48 ساعة',
+    z2f:'40 ج.م',
+    z3n:'محافظات القناة',
+    z3t:'48 ساعة',
+    z3f:'45 ج.م',
+    z4n:'الصعيد والوجه القبلي',
+    z4t:'48–72 ساعة',
+    z4f:'55 ج.م',
+    z5n:'المناطق الحدودية',
+    z5t:'72 ساعة',
+    z5f:'65 ج.م',
+    callout8:'الرسوم المعروضة تقريبية وقد تتغير حسب سياسة شركة الشحن. الرسوم النهائية تظهر لك دائماً قبل تأكيد الطلب.',
+    h9:'التغليف والتعامل',
+    p9:'نولي أهمية كبيرة لتغليف المنتجات بعناية لضمان وصولها بأفضل حالة:',
+    p9li1:'كل قطعة ملفوفة بشكل فردي لمنع الخدوش.',
+    p9li2:'الطقم الكامل في صندوق مبطّن من الداخل لحمايته من الصدمات.',
+    p9li3:'استخدام مواد صديقة للبيئة قدر الإمكان.',
+    p9li4:'شريط لاصق مخصّص للطرد لضمان السلامة.',
+    p9b:'إذا وصلك المنتج بتلف واضح في التغليف، يُرجى تصويره فوراً وإبلاغ المندوب قبل مغادرته، ثم التواصل معنا خلال 24 ساعة.',
+    h10:'تواصل معنا',
+    p10:'لأي استفسار حول الإرجاع أو الاستبدال أو الشحن، فريقنا في خدمتك:',
+    p10li1:'<strong>واتساب:</strong> +20 120 679 6831',
+    p10li2:'<strong>هاتف:</strong> +20 120 679 6831',
+    p10li3:'<strong>بريد إلكتروني:</strong> orders@elloul.store',
+    ctaWa:'راسلنا واتساب',
+    ctaContact:'صفحة التواصل',
+    copied:'✓ تم نسخ الرابط',
+    copyErr:'تعذّر النسخ',
+    footerDesigned:'متجر إلكتروني من تصميم وتطوير',
+    footerRights:'© 2026 جميع الحقوق محفوظة'
+  },
+  en: {
+    pageTitle:'Returns, Exchanges & Shipping · ELLOUL',
+    brandTag:'Tableware Store',
+    badge:'Store Policies · ELLOUL',
+    title:'Returns, Exchanges & Shipping',
+    subtitle:'Learn about our return and exchange conditions, the process, and shipping times and zones in detail.',
+    updated:'Last updated',
+    printBtn:'Print / PDF',
+    tocTitle:'Contents',
+    toc1:'Introduction',
+    toc2:'Return Policy',
+    toc3:'Exchange Policy',
+    toc4:'Return Steps',
+    toc5:'Refunds',
+    toc6:'Exceptions',
+    toc7:'Shipping Policy',
+    toc8:'Zones & Fees',
+    toc9:'Packaging',
+    toc10:'Contact Us',
+    hl1Val:'14 days',
+    hl1Lbl:'Return & exchange window',
+    hl2Val:'24-72 hrs',
+    hl2Lbl:'Shipping time by governorate',
+    hl3Val:'500 EGP+',
+    hl3Lbl:'Free shipping above this',
+    h1:'Introduction',
+    p1:'At <strong>ELLOUL</strong>, your comfort and satisfaction are our priority. We have set clear and fair policies for returns, exchanges, and shipping to ensure a smooth and worry-free shopping experience.',
+    p1b:'These policies apply to all orders within the Arab Republic of Egypt. Any exceptions or special conditions will be clearly stated in the product details.',
+    callout1:'For wholesale orders or special contracts, different terms may apply and are agreed upon in advance.',
+    h2:'Return Policy',
+    p2:'You may return the product within 14 days of receipt, provided the following conditions are met:',
+    p2li1:'Product is in its original condition, unused.',
+    p2li2:'Product is in its complete original packaging.',
+    p2li3:'Order invoice or order number is attached.',
+    p2li4:'No damage caused by misuse.',
+    p2warn:'<strong>Note:</strong> After 14 days, returns will only be accepted in cases of clear manufacturing defects.',
+    h3:'Exchange Policy',
+    p3:'You may exchange the product for another within 14 days of receipt in the following cases:',
+    p3li1:'Manufacturing defect in the product (crack, deformation, visible scratches).',
+    p3li2:'Receiving a different product from the one ordered.',
+    p3li3:'Missing pieces in a set compared to the description.',
+    p3li4:'Change of mind (exchange for another size or design), provided it is unused.',
+    p3b:'In cases of manufacturing defects or errors on our part, we bear the full shipping costs. For personal change-of-mind exchanges, the customer bears the shipping fees.',
+    h4:'Steps to Request Return or Exchange',
+    p4s1Title:'Contact Us',
+    p4s1Desc:'Message us on WhatsApp within 14 days of receiving the order, providing the order number and reason for return.',
+    p4s2Title:'Initial Approval',
+    p4s2Desc:'We will review your request and approve it within 24 hours, then schedule the pickup.',
+    p4s3Title:'Repackage the Product',
+    p4s3Desc:'Carefully repackage the product in its original box, and attach the order invoice.',
+    p4s4Title:'Product Pickup',
+    p4s4Desc:'A courier will come to pick up the product at the agreed time, or we will direct you to the nearest shipping office.',
+    p4s5Title:'Inspection & Refund',
+    p4s5Desc:'After inspecting the product, the refund or replacement is processed within 3-5 business days.',
+    h5:'Refunds',
+    p5:'The refund method depends on the original payment method:',
+    p5li1:'<strong>Cash on Delivery (COD):</strong> Bank transfer or e-wallet within 3-5 business days of receiving the product.',
+    p5li2:'<strong>Bank transfer / InstaPay:</strong> Refunded to the same account within 2-3 business days.',
+    p5li3:'<strong>E-wallets:</strong> Refunded to the same wallet within 1-2 business days.',
+    callout5:'Refunds cover the product value only for personal change-of-mind returns. For manufacturing defects or our errors, shipping fees are also refunded.',
+    h6:'Cases Where Returns Are Not Accepted',
+    p6:'Returns or exchanges cannot be accepted in the following cases:',
+    p6li1:'More than 14 days have passed since receiving the order.',
+    p6li2:'Clear signs of use on the product.',
+    p6li3:'Lost or damaged original packaging.',
+    p6li4:'Customized products (engraved names or special designs).',
+    p6li5:'Products discounted in final clearance sales.',
+    callout6:'Please inspect the product immediately upon receipt, before the courier leaves. Any visible defect at delivery should be reported right away to avoid any issues.',
+    h7:'Shipping & Delivery Policy',
+    p7li1:'<strong>Free shipping:</strong> For orders above 500 EGP.',
+    p7li2:'<strong>Delivery time:</strong> 24 – 72 business hours depending on governorate.',
+    p7li3:'<strong>Delivery hours:</strong> Saturday to Thursday, 9 AM – 9 PM.',
+    p7li4:'<strong>Order confirmation:</strong> We contact you on WhatsApp before shipping to confirm the address.',
+    p7li5:'<strong>Cash on delivery:</strong> Available for all governorates.',
+    callout7:'During busy seasons (Ramadan, Eid, Black Friday), shipping time may increase by 24 hours. We will notify you of any delay in advance.',
+    h8:'Shipping Zones & Fees',
+    p8:'We cover all Egyptian governorates. Below is an estimate of shipping time and approximate fees:',
+    zZone:'Zone',
+    zTime:'Time',
+    zFee:'Fee',
+    z1n:'Cairo & Giza',
+    z1t:'24 hrs',
+    z1f:'35 EGP',
+    z2n:'Alexandria & Delta',
+    z2t:'24–48 hrs',
+    z2f:'40 EGP',
+    z3n:'Canal Governorates',
+    z3t:'48 hrs',
+    z3f:'45 EGP',
+    z4n:'Upper Egypt',
+    z4t:'48–72 hrs',
+    z4f:'55 EGP',
+    z5n:'Border Regions',
+    z5t:'72 hrs',
+    z5f:'65 EGP',
+    callout8:'Displayed fees are estimates and may change based on the shipping company policy. Final fees are always shown before order confirmation.',
+    h9:'Packaging & Handling',
+    p9:'We pay great attention to carefully packaging products to ensure they arrive in the best condition:',
+    p9li1:'Each piece is individually wrapped to prevent scratches.',
+    p9li2:'Complete sets are placed in an inner-lined box to protect from shocks.',
+    p9li3:'Using eco-friendly materials as much as possible.',
+    p9li4:'Special sealing tape for the package to ensure safety.',
+    p9b:'If you receive the product with clear packaging damage, please photograph it immediately and inform the courier before they leave, then contact us within 24 hours.',
+    h10:'Contact Us',
+    p10:'For any inquiry about returns, exchanges, or shipping, our team is here for you:',
+    p10li1:'<strong>WhatsApp:</strong> +20 120 679 6831',
+    p10li2:'<strong>Phone:</strong> +20 120 679 6831',
+    p10li3:'<strong>Email:</strong> orders@elloul.store',
+    ctaWa:'Chat on WhatsApp',
+    ctaContact:'Contact Page',
+    copied:'✓ Link copied',
+    copyErr:'Copy failed',
+    footerDesigned:'E-commerce store designed and developed by',
+    footerRights:'© 2026 All rights reserved'
+  }
+};
+window.I18N.current = function(){
+  var lang = document.documentElement.getAttribute('data-lang') || 'ar';
+  return window.I18N[lang] || window.I18N.ar;
+};
+window.I18N.apply = function(){
+  var dict = window.I18N.current();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key]){
+      if(dict[key].indexOf('<') !== -1) el.innerHTML = dict[key];
+      else el.textContent = dict[key];
+    }
+  });
+  document.title = dict.pageTitle || document.title;
+};
+</script>
+
+<!-- ═══ THEME + COLOR + LANG ═══ -->
+<script>
+(function(){
+  'use strict';
+  var TK='elloul-theme',CK='elloul-color',LK='elloul-lang';
+  var VALID=['blue','purple','pink','rose','red','orange','amber','lime','green','teal','cyan','indigo'];
+  var html=document.documentElement;
+  var BAR={blue:{dark:'#0a1229',light:'#3b82f6'},purple:{dark:'#1e0a3d',light:'#a855f7'},pink:{dark:'#33061f',light:'#ec4899'},rose:{dark:'#33061a',light:'#f43f5e'},red:{dark:'#2c0a0a',light:'#ef4444'},orange:{dark:'#2c1405',light:'#f97316'},amber:{dark:'#2c1f05',light:'#f59e0b'},lime:{dark:'#1a2c05',light:'#84cc16'},green:{dark:'#052c20',light:'#10b981'},teal:{dark:'#052925',light:'#14b8a6'},cyan:{dark:'#05252e',light:'#06b6d4'},indigo:{dark:'#141640',light:'#6366f1'}};
+  function g(k,f){try{return localStorage.getItem(k)||f}catch(e){return f}}
+  function getTheme(){return g(TK,html.getAttribute('data-theme')||'dark')}
+  function getColor(){var c=g(CK,html.getAttribute('data-color')||'teal');return VALID.indexOf(c)===-1?'teal':c}
+  function syncMeta(){var bc=BAR[getColor()]?BAR[getColor()][getTheme()]:null;if(bc){var m=document.getElementById('themeColorMeta');if(m)m.setAttribute('content',bc)}}
+  syncMeta();
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var l=btn.getAttribute('data-lang-btn');
+        if(l!=='ar'&&l!=='en')return;
+        try{localStorage.setItem(LK,l)}catch(e){}
+        html.setAttribute('data-lang',l);
+        html.setAttribute('lang',l);
+        html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+        window.I18N.apply();
+      });
+    });
+
+    var tt=document.getElementById('themeToggle');
+    if(tt)tt.addEventListener('click',function(){
+      var next=getTheme()==='dark'?'light':'dark';
+      try{localStorage.setItem(TK,next)}catch(e){}
+      html.setAttribute('data-theme',next);syncMeta();
+    });
+
+    var cb=document.getElementById('colorBtn'),cm=document.getElementById('colorMenu');
+    var sw=document.querySelectorAll('.color-swatch');
+    sw.forEach(function(s){s.classList.toggle('active',s.dataset.color===getColor())});
+    function setOpen(o){if(!cm||!cb)return;cm.classList.toggle('open',o);cb.setAttribute('aria-expanded',o?'true':'false')}
+    if(cb&&cm){
+      cb.addEventListener('click',function(e){e.stopPropagation();setOpen(!cm.classList.contains('open'))});
+      sw.forEach(function(s){s.addEventListener('click',function(e){
+        e.stopPropagation();
+        var c=s.dataset.color;if(VALID.indexOf(c)===-1)return;
+        try{localStorage.setItem(CK,c)}catch(e){}
+        sw.forEach(function(x){x.classList.remove('active')});
+        s.classList.add('active');
+        html.setAttribute('data-color',c);syncMeta();
+        setTimeout(function(){setOpen(false)},200);
+      })});
+      document.addEventListener('click',function(e){
+        if(cm.classList.contains('open')&&!cm.contains(e.target)&&!cb.contains(e.target))setOpen(false);
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    }
+
+    window.I18N.apply();
+  });
+
+  window.addEventListener('storage',function(e){
+    if(e.key===TK){html.setAttribute('data-theme',getTheme());syncMeta()}
+    if(e.key===CK){html.setAttribute('data-color',getColor());syncMeta()}
+    if(e.key===LK){
+      var l=e.newValue==='en'?'en':'ar';
+      html.setAttribute('data-lang',l);html.setAttribute('lang',l);html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      window.I18N.apply();
+    }
+  });
+})();
+</script>
+
+<!-- ═══ RETURNS PAGE LOGIC ═══ -->
+<script>
+(function(){
+  'use strict';
+
+  var mainEl      = document.getElementById('mainScroll');
+  var progressEl  = document.getElementById('readProgress');
+  var tocNav      = document.getElementById('tocNav');
+  var tocLinks    = tocNav ? tocNav.querySelectorAll('.toc-link') : [];
+  var backTop     = document.getElementById('backTop');
+  var printBtn    = document.getElementById('printBtn');
+  var sections    = document.querySelectorAll('.section[id]');
+
+  function t(k){ var d=window.I18N.current(); return d[k]||k; }
+
+  /* ═══ Reading progress ═══ */
+  function updateProgress(){
+    var scrollTop = mainEl.scrollTop;
+    var maxScroll = mainEl.scrollHeight - mainEl.clientHeight;
+    var pct = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+    progressEl.style.width = pct + '%';
+    if(scrollTop > 400) backTop.classList.add('visible');
+    else backTop.classList.remove('visible');
+  }
+
+  /* ═══ Scroll spy ═══ */
+  function updateActiveTOC(){
+    var fromTop = mainEl.scrollTop + 120;
+    var current = null;
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= fromTop) current = sec.id;
+    });
+    if(!current && sections.length) current = sections[0].id;
+    tocLinks.forEach(function(link){
+      var isActive = link.getAttribute('href') === '#' + current;
+      link.classList.toggle('active', isActive);
+    });
+  }
+
+  mainEl.addEventListener('scroll', function(){
+    updateProgress();
+    updateActiveTOC();
+  }, { passive: true });
+
+  /* ═══ Smooth scroll ═══ */
+  tocLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = link.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if(!target) return;
+      mainEl.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+      try{ history.replaceState(null, '', '#' + id); }catch(err){}
+    });
+  });
+
+  /* ═══ Deep link ═══ */
+  (function(){
+    var hash = location.hash.slice(1);
+    if(!hash) return;
+    var target = document.getElementById(hash);
+    if(!target) return;
+    setTimeout(function(){
+      mainEl.scrollTo({ top: target.offsetTop - 20, behavior: 'auto' });
+    }, 300);
+  })();
+
+  /* ═══ Back to top ═══ */
+  backTop.addEventListener('click', function(){
+    mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ═══ Print ═══ */
+  printBtn.addEventListener('click', function(){
+    setTimeout(function(){ window.print(); }, 120);
+  });
+
+  /* ═══ Copy section link ═══ */
+  document.querySelectorAll('[data-copy-section]').forEach(function(btn){
+    btn.addEventListener('click', async function(e){
+      e.preventDefault();
+      var id = btn.getAttribute('data-copy-section');
+      var url = location.origin + location.pathname + '#' + id;
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(url);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.cssText = 'position:fixed;top:-1000px;opacity:0;';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        btn.classList.add('copied');
+        showToast(t('copied'));
+        setTimeout(function(){ btn.classList.remove('copied'); }, 1800);
+      }catch(err){
+        showToast(t('copyErr'), 'error');
+      }
+    });
+  });
+
+  function showToast(msg, type){
+    var el = document.createElement('div');
+    el.style.cssText =
+      'position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);' +
+      'left:50%;transform:translateX(-50%) translateY(20px);' +
+      'padding:12px 20px;border-radius:999px;' +
+      'background:var(--surface-2);backdrop-filter:blur(24px) saturate(180%);' +
+      '-webkit-backdrop-filter:blur(24px) saturate(180%);' +
+      'border:1px solid var(--border-2);' +
+      'color:var(--t1);font-size:13px;font-weight:700;' +
+      'box-shadow:0 20px 40px rgba(0,0,0,.4);' +
+      'z-index:10001;opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);' +
+      'max-width:90vw;text-align:center;pointer-events:none;';
+    if(type === 'error') el.style.color = 'var(--danger)';
+    else el.style.color = 'var(--success)';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    requestAnimationFrame(function(){
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(-50%) translateY(0)';
+    });
+    setTimeout(function(){
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(function(){ el.remove(); }, 400);
+    }, 2200);
+  }
+
+  /* ═══ Last updated ═══ */
+  (function(){
+    var d = '2026-10-08';
+    var el1 = document.getElementById('lastUpdated');
+    if(el1) el1.textContent = d;
+  })();
+
+  /* ═══ Init ═══ */
+  updateProgress();
+  updateActiveTOC();
+
+})();
+</script>
+
+</body>
+</html>
